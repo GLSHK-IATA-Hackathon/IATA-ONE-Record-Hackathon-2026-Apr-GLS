@@ -1,0 +1,41 @@
+.clearfix {
+
+  &:after,
+  &:before {
+    display: table;
+    content: '';
+    line-height: 0;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+.debug {
+  &, > div {
+    border: 1px solid #F00 !important;
+  }
+}
+
+.hidden {
+  display: none !important;
+}
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.no-select {
+  user-select: none;
+}
+
+.no-wrap {
+  white-space: nowrap;
+}
+
+.visibility-hidden {
+  visibility: hidden !important;
+}

@@ -1,0 +1,26 @@
+@use "../helper/variable" as *;
+@use "../helper/mixin" as *;
+
+a {
+  color: $gls-color-28;
+  text-decoration: underline;
+  font-weight: $font-weight-regular;
+  cursor: pointer;
+
+  &:hover {
+    color: $gls-color-29;
+  }
+
+  &:active {
+    color: $gls-color-30;
+  }
+
+  &:not([href]), &[href=""] {
+    color: $gls-color-37;
+    cursor: not-allowed;
+  }
+}
+
+hr {
+
+}

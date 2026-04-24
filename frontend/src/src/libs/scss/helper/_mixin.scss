@@ -1,0 +1,70 @@
+@use "variable" as *;
+
+@mixin locale($locale-code) {
+
+  [lang=#{$locale-code}] & {
+    @content;
+  }
+}
+
+@mixin breakpoint($min-width) {
+
+  @media (min-width: #{$min-width}) {
+
+    @content;
+  }
+}
+
+@mixin mobile() {
+
+  @media (max-width: $medium-device-breakpoint - 1px) {
+
+    @content;
+  }
+}
+
+@mixin tablet() {
+
+  @media (min-width: #{$medium-device-breakpoint}) {
+
+    @content;
+  }
+}
+
+@mixin desktop() {
+
+  @media (min-width: #{$large-device-breakpoint}) {
+
+    @content;
+  }
+}
+
+@mixin fourKDesktop() {
+
+  @media (min-width: #{$huge-device-breakpoint}) {
+
+  }
+
+}
+
+@mixin ieOnly() {
+  @media all and (forced-colors: none), (forced-colors: active) {
+    @content;
+  }
+}
+
+@mixin edgeOnly() {
+  @supports (-ms-ime-align:auto) {
+    @content;
+  }
+}
+
+@mixin ieAndEdgeOnly() {
+  @include ieOnly() {
+    @content;
+  }
+
+  @include edgeOnly() {
+    @content;
+  }
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Trash can body -->
+  <path d="M3.333 5h13.334l-.833 10.833A1.667 1.667 0 0114.167 17.5H5.833a1.667 1.667 0 01-1.667-1.667L3.333 5z" stroke="#00A3C5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  
+  <!-- Top lid -->
+  <path d="M2.5 5h15" stroke="#00A3C5" stroke-width="1.5" stroke-linecap="round"/>
+  
+  <!-- Handle -->
+  <path d="M7.5 5V3.333a1.667 1.667 0 013.333 0V5" stroke="#00A3C5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  
+  <!-- Vertical lines inside -->
+  <path d="M8.333 8.333v6.667" stroke="#00A3C5" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M11.667 8.333v6.667" stroke="#00A3C5" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,12 @@
+@function get-col-width($num) {
+
+  $content-width: $grid-column-width * $num;
+  $gutter-width: $grid-gutter-width * ($num - 1);
+
+  @return ($content-width + $gutter-width) / $grid-width * 100%;
+}
+
+@function get-col-gutter() {
+
+  @return $grid-gutter-width / $grid-width * 100%;
+}

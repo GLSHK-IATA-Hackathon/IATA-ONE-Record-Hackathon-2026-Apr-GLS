@@ -1,0 +1,102 @@
+@use "sass:math";
+
+// font-family
+$font-en: "Source Sans Pro", Arial, sans-serif;
+$font-zh-tc: "Noto Sans TC", "Source Han Sans TC", "Microsoft JhengHei", sans-serif;
+$font-zh-sc: "Noto Sans SC", "Source Han Sans SC", "SimHei", sans-serif;
+
+// Responsive Device Site
+$imgdir: '/img';
+$medium-device-breakpoint: 768px;
+$large-device-breakpoint: 1024px;
+$huge-device-breakpoint: 1440px; // 4K
+
+// Grid System
+$grid-column: 12;
+$grid-width: 996px;
+$grid-gutter-width: 30px;
+$grid-column-width: math.div($grid-width - $grid-gutter-width * $grid-column, $grid-column);
+
+// === Font Size Variables ===
+// Font Weight
+$font-weight-semibold: 600;
+$font-weight-regular: 400;
+
+// === Headline (H1–H3) ===
+$h1-font-size: 32px;
+$h1-line-height: 40px;
+$h1-font-weight: $font-weight-semibold;
+
+$h2-font-size: 28px;
+$h2-line-height: 36px;
+$h2-font-weight: $font-weight-semibold;
+
+$h3-font-size: 24px;
+$h3-line-height: 32px;
+$h3-font-weight: $font-weight-semibold;
+
+// === Title (H4–H6) ===
+$h4-font-size: 20px;
+$h4-line-height: 28px;
+$h4-font-weight: $font-weight-semibold;
+
+$h5-font-size: 18px;
+$h5-line-height: 26px;
+$h5-font-weight: $font-weight-semibold;
+
+$h6-font-size: 16px;
+$h6-line-height: 24px;
+$h6-font-weight: $font-weight-semibold;
+
+// === Body ===
+$large-body-font-size: 18px;
+$large-body-line-height: 26px;
+$large-body-font-weight: $font-weight-regular;
+
+$medium-body-font-size: 16px;
+$medium-body-line-height: 22px;
+$medium-body-font-weight: $font-weight-regular;
+
+$small-body-font-size: 14px;
+$small-body-line-height: 22px;
+$small-body-font-weight: $font-weight-regular;
+
+$tiny-body-font-size: 12px;
+$tiny-body-line-height: 20px;
+$tiny-body-font-weight: $font-weight-regular;
+
+// === Footnote ===
+$medium-footnote-font-size: 14px;
+$medium-footnote-line-height: 22px;
+$medium-footnote-font-weight: $font-weight-regular;
+
+$small-footnote-font-size: 12px;
+$small-footnote-line-height: 20px;
+$small-footnote-font-weight: $font-weight-regular;
+
+// === Label ===
+$large-label-font-size: 18px;
+$large-label-line-height: 26px;
+$large-label-font-weight: $font-weight-semibold;
+
+$medium-label-font-size: 16px;
+$medium-label-line-height: 22px;
+$medium-label-font-weight: $font-weight-semibold;
+
+$small-label-font-size: 14px;
+$small-label-line-height: 22px;
+$small-label-font-weight: $font-weight-semibold;
+
+// Fallback / Default
+$default-font-size: $medium-body-font-size;
+$default-line-height: $medium-body-line-height;
+$default-font-weight: $medium-body-font-weight;
+
+
+// Basic Color
+$color-1: #000; // BLACK
+$color-2: #FFF; // WHITE
+$color-3: #F00; // RED
+$color-4: #FF0; // YELLOW
+$color-5: #00F; // BLUE
+$color-6: #008000; //GREEN
