@@ -7756,14 +7756,14 @@ const _export_sfc = (sfc, props) => {
   return target;
 };
 
-const _sfc_main$6 = {  };
+const _sfc_main$7 = {  };
 
 function _sfc_render$3(_ctx, _cache) {
   const _component_router_view = resolveComponent("router-view");
 
   return (openBlock(), createBlock(_component_router_view))
 }
-const App = /*#__PURE__*/_export_sfc(_sfc_main$6, [['render',_sfc_render$3]]);
+const App = /*#__PURE__*/_export_sfc(_sfc_main$7, [['render',_sfc_render$3]]);
 
 /*!
  * vue-router v4.6.4
@@ -9299,27 +9299,33 @@ function createRouter(options) {
   }
   return router;
 }
+function useRouter() {
+  return inject(routerKey);
+}
+function useRoute(_name) {
+  return inject(routeLocationKey);
+}
 
-const _sfc_main$5 = {  };
+const _sfc_main$6 = {  };
 
-const _hoisted_1$5 = { class: "hello-world-container" };
+const _hoisted_1$6 = { class: "hello-world-container" };
 
 function _sfc_render$2(_ctx, _cache) {
-  return (openBlock(), createElementBlock("div", _hoisted_1$5, [...(_cache[0] || (_cache[0] = [
+  return (openBlock(), createElementBlock("div", _hoisted_1$6, [...(_cache[0] || (_cache[0] = [
     createBaseVNode("h1", null, "Hello World", -1)
   ]))]))
 }
-const HelloWorld = /*#__PURE__*/_export_sfc(_sfc_main$5, [['render',_sfc_render$2],['__scopeId',"data-v-d48eaa2a"]]);
+const HelloWorld = /*#__PURE__*/_export_sfc(_sfc_main$6, [['render',_sfc_render$2],['__scopeId',"data-v-d48eaa2a"]]);
 
 const _imports_0$1 = "data:image/png;base64,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";
 
-const _sfc_main$4 = {  };
+const _sfc_main$5 = {  };
 
 
-const _hoisted_1$4 = { class: "header" };
-const _hoisted_2$4 = { class: "header-right" };
-const _hoisted_3$4 = { class: "icon-link" };
-const _hoisted_4$4 = {
+const _hoisted_1$5 = { class: "header" };
+const _hoisted_2$5 = { class: "header-right" };
+const _hoisted_3$5 = { class: "icon-link" };
+const _hoisted_4$5 = {
   style: {"width":"20px","height":"20px"},
   viewBox: "0 0 24 24",
   fill: "none",
@@ -9328,8 +9334,8 @@ const _hoisted_4$4 = {
   "stroke-linecap": "round",
   "stroke-linejoin": "round"
 };
-const _hoisted_5$4 = { class: "icon-link" };
-const _hoisted_6$4 = {
+const _hoisted_5$5 = { class: "icon-link" };
+const _hoisted_6$5 = {
   style: {"width":"20px","height":"20px"},
   viewBox: "0 0 24 24",
   fill: "none",
@@ -9338,8 +9344,8 @@ const _hoisted_6$4 = {
   "stroke-linecap": "round",
   "stroke-linejoin": "round"
 };
-const _hoisted_7$4 = { class: "icon-link" };
-const _hoisted_8$4 = {
+const _hoisted_7$5 = { class: "icon-link" };
+const _hoisted_8$5 = {
   style: {"width":"20px","height":"20px"},
   viewBox: "0 0 24 24",
   fill: "none",
@@ -9348,8 +9354,8 @@ const _hoisted_8$4 = {
   "stroke-linecap": "round",
   "stroke-linejoin": "round"
 };
-const _hoisted_9$3 = { style: {"display":"flex","flex-direction":"column","align-items":"center","gap":"2px"} };
-const _hoisted_10$3 = {
+const _hoisted_9$4 = { style: {"display":"flex","flex-direction":"column","align-items":"center","gap":"2px"} };
+const _hoisted_10$4 = {
   style: {"width":"10px","height":"6px"},
   viewBox: "0 0 24 24",
   fill: "none",
@@ -9358,8 +9364,8 @@ const _hoisted_10$3 = {
   "stroke-linecap": "round",
   "stroke-linejoin": "round"
 };
-const _hoisted_11$3 = { class: "user-avatar" };
-const _hoisted_12$2 = {
+const _hoisted_11$4 = { class: "user-avatar" };
+const _hoisted_12$3 = {
   style: {"width":"16px","height":"16px","margin-left":"4px"},
   viewBox: "0 0 24 24",
   fill: "none",
@@ -9370,7 +9376,7 @@ const _hoisted_12$2 = {
 };
 
 function _sfc_render$1(_ctx, _cache) {
-  return (openBlock(), createElementBlock("header", _hoisted_1$4, [
+  return (openBlock(), createElementBlock("header", _hoisted_1$5, [
     _cache[10] || (_cache[10] = createBaseVNode("div", { class: "logo-area" }, [
       createBaseVNode("img", {
         src: _imports_0$1,
@@ -9378,23 +9384,23 @@ function _sfc_render$1(_ctx, _cache) {
         style: {"height":"32px"}
       })
     ], -1)),
-    createBaseVNode("div", _hoisted_2$4, [
-      createBaseVNode("div", _hoisted_3$4, [
-        (openBlock(), createElementBlock("svg", _hoisted_4$4, [...(_cache[0] || (_cache[0] = [
+    createBaseVNode("div", _hoisted_2$5, [
+      createBaseVNode("div", _hoisted_3$5, [
+        (openBlock(), createElementBlock("svg", _hoisted_4$5, [...(_cache[0] || (_cache[0] = [
           createBaseVNode("path", { d: "M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" }, null, -1),
           createBaseVNode("polyline", { points: "22,6 12,13 2,6" }, null, -1)
         ]))])),
         _cache[1] || (_cache[1] = createTextVNode(" Inbox ", -1))
       ]),
-      createBaseVNode("div", _hoisted_5$4, [
-        (openBlock(), createElementBlock("svg", _hoisted_6$4, [...(_cache[2] || (_cache[2] = [
+      createBaseVNode("div", _hoisted_5$5, [
+        (openBlock(), createElementBlock("svg", _hoisted_6$5, [...(_cache[2] || (_cache[2] = [
           createBaseVNode("path", { d: "M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" }, null, -1),
           createBaseVNode("path", { d: "M13.73 21a2 2 0 0 1-3.46 0" }, null, -1)
         ]))])),
         _cache[3] || (_cache[3] = createTextVNode(" News ", -1))
       ]),
-      createBaseVNode("div", _hoisted_7$4, [
-        (openBlock(), createElementBlock("svg", _hoisted_8$4, [...(_cache[4] || (_cache[4] = [
+      createBaseVNode("div", _hoisted_7$5, [
+        (openBlock(), createElementBlock("svg", _hoisted_8$5, [...(_cache[4] || (_cache[4] = [
           createBaseVNode("circle", {
             cx: "12",
             cy: "12",
@@ -9408,38 +9414,38 @@ function _sfc_render$1(_ctx, _cache) {
           }, null, -1),
           createBaseVNode("path", { d: "M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" }, null, -1)
         ]))])),
-        createBaseVNode("div", _hoisted_9$3, [
+        createBaseVNode("div", _hoisted_9$4, [
           _cache[6] || (_cache[6] = createBaseVNode("span", null, "EN", -1)),
-          (openBlock(), createElementBlock("svg", _hoisted_10$3, [...(_cache[5] || (_cache[5] = [
+          (openBlock(), createElementBlock("svg", _hoisted_10$4, [...(_cache[5] || (_cache[5] = [
             createBaseVNode("polyline", { points: "6 9 12 15 18 9" }, null, -1)
           ]))]))
         ])
       ]),
-      createBaseVNode("div", _hoisted_11$3, [
+      createBaseVNode("div", _hoisted_11$4, [
         _cache[8] || (_cache[8] = createBaseVNode("div", { class: "avatar-circle" }, "E", -1)),
         _cache[9] || (_cache[9] = createBaseVNode("div", { class: "user-info" }, [
           createBaseVNode("span", { class: "user-name" }, "Elon Musk"),
           createBaseVNode("span", { class: "user-company" }, "GLSHK")
         ], -1)),
-        (openBlock(), createElementBlock("svg", _hoisted_12$2, [...(_cache[7] || (_cache[7] = [
+        (openBlock(), createElementBlock("svg", _hoisted_12$3, [...(_cache[7] || (_cache[7] = [
           createBaseVNode("polyline", { points: "6 9 12 15 18 9" }, null, -1)
         ]))]))
       ])
     ])
   ]))
 }
-const AppHeader = /*#__PURE__*/_export_sfc(_sfc_main$4, [['render',_sfc_render$1],['__scopeId',"data-v-8f0445e3"]]);
+const AppHeader = /*#__PURE__*/_export_sfc(_sfc_main$5, [['render',_sfc_render$1],['__scopeId',"data-v-8f0445e3"]]);
 
 const _imports_0 = "data:image/png;base64,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";
 
-const _sfc_main$3 = {  };
+const _sfc_main$4 = {  };
 
 
-const _hoisted_1$3 = { class: "footer" };
-const _hoisted_2$3 = { class: "footer-top" };
-const _hoisted_3$3 = { class: "footer-right" };
-const _hoisted_4$3 = { class: "lang-selector" };
-const _hoisted_5$3 = {
+const _hoisted_1$4 = { class: "footer" };
+const _hoisted_2$4 = { class: "footer-top" };
+const _hoisted_3$4 = { class: "footer-right" };
+const _hoisted_4$4 = { class: "lang-selector" };
+const _hoisted_5$4 = {
   style: {"width":"25px","height":"25px"},
   viewBox: "0 0 24 24",
   fill: "none",
@@ -9448,8 +9454,8 @@ const _hoisted_5$3 = {
   "stroke-linecap": "round",
   "stroke-linejoin": "round"
 };
-const _hoisted_6$3 = { style: {"display":"flex","flex-direction":"column","align-items":"center","gap":"2px"} };
-const _hoisted_7$3 = {
+const _hoisted_6$4 = { style: {"display":"flex","flex-direction":"column","align-items":"center","gap":"2px"} };
+const _hoisted_7$4 = {
   style: {"width":"10px","height":"6px"},
   viewBox: "0 0 24 24",
   fill: "none",
@@ -9458,13 +9464,13 @@ const _hoisted_7$3 = {
   "stroke-linecap": "round",
   "stroke-linejoin": "round"
 };
-const _hoisted_8$3 = { class: "footer-bottom" };
+const _hoisted_8$4 = { class: "footer-bottom" };
 
 function _sfc_render(_ctx, _cache) {
-  return (openBlock(), createElementBlock("footer", _hoisted_1$3, [
-    createBaseVNode("div", _hoisted_2$3, [
+  return (openBlock(), createElementBlock("footer", _hoisted_1$4, [
+    createBaseVNode("div", _hoisted_2$4, [
       _cache[4] || (_cache[4] = createStaticVNode("<div class=\"footer-left\" data-v-cc90972a><div class=\"footer-logo\" data-v-cc90972a><img src=\"" + _imports_0 + "\" alt=\"GLS Logo\" style=\"height:54px;width:78px;object-fit:contain;\" data-v-cc90972a></div><div class=\"footer-contact\" data-v-cc90972a><div class=\"separator\" data-v-cc90972a></div><span class=\"help-desk\" data-v-cc90972a>Help desk:</span><a href=\"tel:+85228381999\" class=\"contact-link\" data-v-cc90972a>(+852) 2838 1999</a><div class=\"separator\" data-v-cc90972a></div><a href=\"mailto:helpdesk@glshk.com\" class=\"contact-link\" data-v-cc90972a>helpdesk@glshk.com</a><div class=\"separator\" data-v-cc90972a></div><span class=\"footer-link\" data-v-cc90972a>Downloads</span><div class=\"separator\" data-v-cc90972a></div><span class=\"footer-link\" data-v-cc90972a>FAQ</span><div class=\"separator\" data-v-cc90972a></div><span class=\"footer-link\" data-v-cc90972a>Privacy</span><div class=\"separator\" data-v-cc90972a></div><span class=\"footer-link\" data-v-cc90972a>Terms</span></div></div>", 1)),
-      createBaseVNode("div", _hoisted_3$3, [
+      createBaseVNode("div", _hoisted_3$4, [
         _cache[3] || (_cache[3] = createBaseVNode("div", { class: "linkedin-icon" }, [
           createBaseVNode("svg", {
             viewBox: "0 0 24 24",
@@ -9475,8 +9481,8 @@ function _sfc_render(_ctx, _cache) {
             createBaseVNode("path", { d: "M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" })
           ])
         ], -1)),
-        createBaseVNode("div", _hoisted_4$3, [
-          (openBlock(), createElementBlock("svg", _hoisted_5$3, [...(_cache[0] || (_cache[0] = [
+        createBaseVNode("div", _hoisted_4$4, [
+          (openBlock(), createElementBlock("svg", _hoisted_5$4, [...(_cache[0] || (_cache[0] = [
             createBaseVNode("circle", {
               cx: "12",
               cy: "12",
@@ -9490,19 +9496,19 @@ function _sfc_render(_ctx, _cache) {
             }, null, -1),
             createBaseVNode("path", { d: "M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" }, null, -1)
           ]))])),
-          createBaseVNode("div", _hoisted_6$3, [
+          createBaseVNode("div", _hoisted_6$4, [
             _cache[2] || (_cache[2] = createBaseVNode("span", { class: "lang-text" }, "EN", -1)),
-            (openBlock(), createElementBlock("svg", _hoisted_7$3, [...(_cache[1] || (_cache[1] = [
+            (openBlock(), createElementBlock("svg", _hoisted_7$4, [...(_cache[1] || (_cache[1] = [
               createBaseVNode("polyline", { points: "6 9 12 15 18 9" }, null, -1)
             ]))]))
           ])
         ])
       ])
     ]),
-    createBaseVNode("div", _hoisted_8$3, " © " + toDisplayString(new Date().getFullYear()) + " Global Logistics System (HK) Co. Ltd. All Rights Reserved. ", 1)
+    createBaseVNode("div", _hoisted_8$4, " © " + toDisplayString(new Date().getFullYear()) + " Global Logistics System (HK) Co. Ltd. All Rights Reserved. ", 1)
   ]))
 }
-const AppFooter = /*#__PURE__*/_export_sfc(_sfc_main$3, [['render',_sfc_render],['__scopeId',"data-v-cc90972a"]]);
+const AppFooter = /*#__PURE__*/_export_sfc(_sfc_main$4, [['render',_sfc_render],['__scopeId',"data-v-cc90972a"]]);
 
 //#endregion
 //#region utils/is.ts
@@ -23946,7 +23952,7 @@ const wt = [
             ref: "dp-menu-wrap",
             class: normalizeClass({
               "dp--menu-wrapper": !unref(u).enabled,
-              dp__outer_menu_wrap: true,
+              dp__outer_menu_wrap: !0,
               "dp--centered": unref(r).centered
             }),
             style: normalizeStyle(!unref(u).enabled && !unref(r).centered ? unref(oe) : void 0)
@@ -23959,7 +23965,7 @@ const wt = [
                 R.value && $.value ? (openBlock(), createBlock(Hl, {
                   key: 0,
                   ref: "dp-menu",
-                  class: normalizeClass({ [I.value]: true }),
+                  class: normalizeClass({ [I.value]: !0 }),
                   "no-overlay-focus": y.value,
                   collapse: x.value,
                   "get-input-rect": H,
@@ -23975,7 +23981,7 @@ const wt = [
                       renderSlot(se.$slots, Je, normalizeProps(guardReactiveProps({ ...ht })))
                     ])
                   })),
-                  !unref(u).enabled && !unref(r).centered && unref(l).arrow === true ? {
+                  !unref(u).enabled && !unref(r).centered && unref(l).arrow === !0 ? {
                     name: "arrow",
                     fn: withCtx(() => [
                       createBaseVNode("div", {
@@ -23992,7 +23998,7 @@ const wt = [
                     ]),
                     key: "0"
                   } : void 0
-                ]), 1032, ["class", "no-overlay-focus", "collapse"])) : createCommentVNode("", true)
+                ]), 1032, ["class", "no-overlay-focus", "collapse"])) : createCommentVNode("", !0)
               ]),
               _: 3
             }, 8, ["name", "css"])
@@ -24085,31 +24091,31 @@ const wt = [
   }
 });
 
-const _hoisted_1$2 = {
+const _hoisted_1$3 = {
   key: 0,
   class: "offcanvas-content"
 };
-const _hoisted_2$2 = { class: "oc-header-grid" };
-const _hoisted_3$2 = { class: "oc-stat-item" };
-const _hoisted_4$2 = { class: "oc-stat-value" };
-const _hoisted_5$2 = { class: "oc-stat-item" };
-const _hoisted_6$2 = { class: "oc-stat-value" };
-const _hoisted_7$2 = { class: "oc-stat-item" };
-const _hoisted_8$2 = { class: "oc-stat-value" };
-const _hoisted_9$2 = { class: "oc-stat-item" };
-const _hoisted_10$2 = {
+const _hoisted_2$3 = { class: "oc-header-grid" };
+const _hoisted_3$3 = { class: "oc-stat-item" };
+const _hoisted_4$3 = { class: "oc-stat-value" };
+const _hoisted_5$3 = { class: "oc-stat-item" };
+const _hoisted_6$3 = { class: "oc-stat-value" };
+const _hoisted_7$3 = { class: "oc-stat-item" };
+const _hoisted_8$3 = { class: "oc-stat-value" };
+const _hoisted_9$3 = { class: "oc-stat-item" };
+const _hoisted_10$3 = {
   class: "oc-stat-value",
   style: { "opacity": "0.5" }
 };
-const _hoisted_11$2 = { class: "oc-section" };
-const _hoisted_12$1 = { class: "oc-card route-map-wrapper" };
-const _hoisted_13$1 = { class: "route-map-container" };
-const _hoisted_14 = {
+const _hoisted_11$3 = { class: "oc-section" };
+const _hoisted_12$2 = { class: "oc-card route-map-wrapper" };
+const _hoisted_13$2 = { class: "route-map-container" };
+const _hoisted_14$2 = {
   key: 0,
   class: "route-flight-segment"
 };
-const _hoisted_15 = { class: "flight-visual" };
-const _hoisted_16 = { class: "flight-city" };
+const _hoisted_15$2 = { class: "flight-visual" };
+const _hoisted_16$2 = { class: "flight-city" };
 const _hoisted_17 = { class: "flight-line" };
 const _hoisted_18 = { class: "flight-badge" };
 const _hoisted_19 = { class: "flight-city" };
@@ -24130,7 +24136,7 @@ const _hoisted_27 = {
 const _hoisted_28 = { class: "oc-section" };
 const _hoisted_29 = { class: "oc-table-wrapper" };
 const _hoisted_30 = { class: "oc-table" };
-const _sfc_main$2 = /* @__PURE__ */ defineComponent({
+const _sfc_main$3 = /* @__PURE__ */ defineComponent({
   __name: "RecordOffcanvas",
   props: {
     isOpen: {
@@ -24186,39 +24192,39 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
         createBaseVNode("div", {
           class: normalizeClass(["offcanvas", { "is-open": __props.isOpen }])
         }, [
-          __props.recordData ? (openBlock(), createElementBlock("div", _hoisted_1$2, [
+          __props.recordData ? (openBlock(), createElementBlock("div", _hoisted_1$3, [
             createBaseVNode("button", {
               class: "btn-close",
               onClick: closeOffCanvas
             }, "X"),
-            createBaseVNode("div", _hoisted_2$2, [
-              createBaseVNode("div", _hoisted_3$2, [
+            createBaseVNode("div", _hoisted_2$3, [
+              createBaseVNode("div", _hoisted_3$3, [
                 _cache[0] || (_cache[0] = createBaseVNode("span", { class: "oc-stat-label" }, "AWB", -1)),
-                createBaseVNode("span", _hoisted_4$2, toDisplayString(__props.recordData.awb), 1)
+                createBaseVNode("span", _hoisted_4$3, toDisplayString(__props.recordData.awb), 1)
               ]),
-              createBaseVNode("div", _hoisted_5$2, [
+              createBaseVNode("div", _hoisted_5$3, [
                 _cache[1] || (_cache[1] = createBaseVNode("span", { class: "oc-stat-label" }, "Origin", -1)),
-                createBaseVNode("span", _hoisted_6$2, toDisplayString(__props.recordData.origin), 1)
+                createBaseVNode("span", _hoisted_6$3, toDisplayString(__props.recordData.origin), 1)
               ]),
-              createBaseVNode("div", _hoisted_7$2, [
+              createBaseVNode("div", _hoisted_7$3, [
                 _cache[2] || (_cache[2] = createBaseVNode("span", { class: "oc-stat-label" }, "Destination", -1)),
-                createBaseVNode("span", _hoisted_8$2, toDisplayString(__props.recordData.destination), 1)
+                createBaseVNode("span", _hoisted_8$3, toDisplayString(__props.recordData.destination), 1)
               ]),
-              createBaseVNode("div", _hoisted_9$2, [
+              createBaseVNode("div", _hoisted_9$3, [
                 _cache[3] || (_cache[3] = createBaseVNode("span", { class: "oc-stat-label" }, "Product", -1)),
-                createBaseVNode("span", _hoisted_10$2, toDisplayString(__props.recordData.awb), 1)
+                createBaseVNode("span", _hoisted_10$3, toDisplayString(__props.recordData.awb), 1)
               ]),
               _cache[4] || (_cache[4] = createStaticVNode('<div class="oc-stat-item" data-v-eefc2eae><span class="oc-stat-label" data-v-eefc2eae>Total Pieces</span><span class="oc-stat-value" data-v-eefc2eae>4</span></div><div class="oc-stat-item" data-v-eefc2eae><span class="oc-stat-label" data-v-eefc2eae>Total Weight</span><span class="oc-stat-value" data-v-eefc2eae>4299 KG</span></div><div class="oc-stat-item" data-v-eefc2eae><span class="oc-stat-label" data-v-eefc2eae>Total Volume</span><span class="oc-stat-value" data-v-eefc2eae>0</span></div>', 3))
             ]),
-            createBaseVNode("div", _hoisted_11$2, [
+            createBaseVNode("div", _hoisted_11$3, [
               _cache[7] || (_cache[7] = createStaticVNode('<h4 class="oc-section-title" data-v-eefc2eae>Route Map</h4><div class="oc-legend" data-v-eefc2eae><span class="legend-item" data-v-eefc2eae><span class="legend-dot status-new" data-v-eefc2eae></span>New</span><span class="legend-item" data-v-eefc2eae><span class="legend-dot status-missing" data-v-eefc2eae></span>Missing</span><span class="legend-item" data-v-eefc2eae><span class="legend-dot status-complete" data-v-eefc2eae></span>Complete</span><span class="legend-item" data-v-eefc2eae><span class="legend-dot status-partial" data-v-eefc2eae></span>Partial Complete</span><span class="legend-item" data-v-eefc2eae><span class="legend-dot status-discrepancy" data-v-eefc2eae></span>Discrepancy</span></div>', 2)),
-              createBaseVNode("div", _hoisted_12$1, [
-                createBaseVNode("div", _hoisted_13$1, [
+              createBaseVNode("div", _hoisted_12$2, [
+                createBaseVNode("div", _hoisted_13$2, [
                   (openBlock(true), createElementBlock(Fragment, null, renderList(displayRouteMap.value, (milestone, idx) => {
                     return openBlock(), createElementBlock(Fragment, { key: idx }, [
-                      milestone.isFlight ? (openBlock(), createElementBlock("div", _hoisted_14, [
-                        createBaseVNode("div", _hoisted_15, [
-                          createBaseVNode("span", _hoisted_16, toDisplayString(milestone.from), 1),
+                      milestone.isFlight ? (openBlock(), createElementBlock("div", _hoisted_14$2, [
+                        createBaseVNode("div", _hoisted_15$2, [
+                          createBaseVNode("span", _hoisted_16$2, toDisplayString(milestone.from), 1),
                           createBaseVNode("div", _hoisted_17, [
                             _cache[5] || (_cache[5] = createBaseVNode("svg", {
                               class: "flight-icon",
@@ -24295,28 +24301,31 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
   }
 });
 
-const RecordOffcanvas = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-eefc2eae"]]);
+const RecordOffcanvas = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-eefc2eae"]]);
 
-const _hoisted_1$1 = { class: "dashboard-page" };
-const _hoisted_2$1 = { class: "main-content" };
-const _hoisted_3$1 = { class: "page-tabs" };
-const _hoisted_4$1 = { class: "card search-card" };
-const _hoisted_5$1 = { class: "form-grid" };
-const _hoisted_6$1 = { class: "form-group" };
-const _hoisted_7$1 = { class: "form-group" };
-const _hoisted_8$1 = {
+const _hoisted_1$2 = { class: "dashboard-page" };
+const _hoisted_2$2 = { class: "nav-bar" };
+const _hoisted_3$2 = ["onClick"];
+const _hoisted_4$2 = ["onClick"];
+const _hoisted_5$2 = { class: "main-content" };
+const _hoisted_6$2 = { class: "page-tabs" };
+const _hoisted_7$2 = { class: "card search-card" };
+const _hoisted_8$2 = { class: "form-grid" };
+const _hoisted_9$2 = { class: "form-group" };
+const _hoisted_10$2 = { class: "form-group" };
+const _hoisted_11$2 = {
   class: "form-group",
   style: { "z-index": "10" }
 };
-const _hoisted_9$1 = {
+const _hoisted_12$1 = {
   class: "form-group",
   style: { "z-index": "10" }
 };
-const _hoisted_10$1 = { class: "card results-card" };
-const _hoisted_11$1 = { class: "table-container" };
-const _hoisted_12 = { key: 0 };
-const _hoisted_13 = ["onClick"];
-const _sfc_main$1 = /* @__PURE__ */ defineComponent({
+const _hoisted_13$1 = { class: "card results-card" };
+const _hoisted_14$1 = { class: "table-container" };
+const _hoisted_15$1 = { key: 0 };
+const _hoisted_16$1 = ["onClick"];
+const _sfc_main$2 = /* @__PURE__ */ defineComponent({
   __name: "Dashboard",
   setup(__props) {
     const activeTab = ref("Air Waybill");
@@ -24433,22 +24442,39 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
       triggerSearch();
     };
     return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("div", _hoisted_1$1, [
+      const _component_router_link = resolveComponent("router-link");
+      return openBlock(), createElementBlock("div", _hoisted_1$2, [
         createVNode(AppHeader),
         createVNode(RecordOffcanvas, {
           isOpen: isOffCanvasOpen.value,
           "onUpdate:isOpen": _cache[0] || (_cache[0] = ($event) => isOffCanvasOpen.value = $event),
           recordData: selectedRecordData.value
         }, null, 8, ["isOpen", "recordData"]),
-        _cache[16] || (_cache[16] = createBaseVNode("nav", { class: "nav-bar" }, [
-          createBaseVNode("span", null, "Booking"),
-          createBaseVNode("span", null, "Operation"),
-          createBaseVNode("span", null, "Terminal"),
-          createBaseVNode("span", null, "Airline")
-        ], -1)),
-        createBaseVNode("main", _hoisted_2$1, [
-          _cache[15] || (_cache[15] = createBaseVNode("h2", { class: "page-title" }, "Shipment Performance Monitor", -1)),
-          createBaseVNode("div", _hoisted_3$1, [
+        createBaseVNode("nav", _hoisted_2$2, [
+          createVNode(_component_router_link, {
+            to: "/dashboard",
+            custom: ""
+          }, {
+            default: withCtx(({ navigate }) => [
+              createBaseVNode("span", { onClick: navigate }, "Shipment List", 8, _hoisted_3$2)
+            ]),
+            _: 1
+          }),
+          createVNode(_component_router_link, {
+            to: "/carrier-code",
+            custom: ""
+          }, {
+            default: withCtx(({ navigate }) => [
+              createBaseVNode("span", { onClick: navigate }, "Carrier code Maintenance", 8, _hoisted_4$2)
+            ]),
+            _: 1
+          }),
+          _cache[7] || (_cache[7] = createBaseVNode("span", null, "Terminal", -1)),
+          _cache[8] || (_cache[8] = createBaseVNode("span", null, "Airline", -1))
+        ]),
+        createBaseVNode("main", _hoisted_5$2, [
+          _cache[17] || (_cache[17] = createBaseVNode("h2", { class: "page-title" }, "Carrier code Maintenance", -1)),
+          createBaseVNode("div", _hoisted_6$2, [
             createBaseVNode("span", {
               class: normalizeClass(["tab", { active: activeTab.value === "Air Waybill" }]),
               onClick: _cache[1] || (_cache[1] = ($event) => activeTab.value = "Air Waybill")
@@ -24458,14 +24484,14 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
               onClick: _cache[2] || (_cache[2] = ($event) => activeTab.value = "Template")
             }, " Template ", 2)
           ]),
-          createBaseVNode("section", _hoisted_4$1, [
-            _cache[11] || (_cache[11] = createBaseVNode("div", { class: "card-header" }, [
+          createBaseVNode("section", _hoisted_7$2, [
+            _cache[13] || (_cache[13] = createBaseVNode("div", { class: "card-header" }, [
               createBaseVNode("h3", null, "Search"),
               createBaseVNode("button", { class: "btn btn-outline" }, "+ Create FWB")
             ], -1)),
-            createBaseVNode("div", _hoisted_5$1, [
-              createBaseVNode("div", _hoisted_6$1, [
-                _cache[7] || (_cache[7] = createBaseVNode("label", null, "Air Waybill Number", -1)),
+            createBaseVNode("div", _hoisted_8$2, [
+              createBaseVNode("div", _hoisted_9$2, [
+                _cache[9] || (_cache[9] = createBaseVNode("label", null, "Air Waybill Number", -1)),
                 withDirectives(createBaseVNode("input", {
                   type: "text",
                   "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event) => searchAwb.value = $event),
@@ -24474,8 +24500,8 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
                   [vModelText, searchAwb.value]
                 ])
               ]),
-              createBaseVNode("div", _hoisted_7$1, [
-                _cache[8] || (_cache[8] = createBaseVNode("label", null, "1R (ONE Record) LO", -1)),
+              createBaseVNode("div", _hoisted_10$2, [
+                _cache[10] || (_cache[10] = createBaseVNode("label", null, "1R (ONE Record) LO", -1)),
                 withDirectives(createBaseVNode("input", {
                   type: "text",
                   "onUpdate:modelValue": _cache[4] || (_cache[4] = ($event) => searchOneRecordLO.value = $event),
@@ -24484,8 +24510,8 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
                   [vModelText, searchOneRecordLO.value]
                 ])
               ]),
-              createBaseVNode("div", _hoisted_8$1, [
-                _cache[9] || (_cache[9] = createBaseVNode("label", null, "Date Range", -1)),
+              createBaseVNode("div", _hoisted_11$2, [
+                _cache[11] || (_cache[11] = createBaseVNode("label", null, "Date Range", -1)),
                 createVNode(unref(Zl), {
                   modelValue: searchDateRange.value,
                   "onUpdate:modelValue": _cache[5] || (_cache[5] = ($event) => searchDateRange.value = $event),
@@ -24494,8 +24520,8 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
                   placeholder: "Select Date Range"
                 }, null, 8, ["modelValue"])
               ]),
-              createBaseVNode("div", _hoisted_9$1, [
-                _cache[10] || (_cache[10] = createBaseVNode("label", null, "Last Update Date", -1)),
+              createBaseVNode("div", _hoisted_12$1, [
+                _cache[12] || (_cache[12] = createBaseVNode("label", null, "Last Update Date", -1)),
                 createVNode(unref(Zl), {
                   modelValue: searchLastUpdateDate.value,
                   "onUpdate:modelValue": _cache[6] || (_cache[6] = ($event) => searchLastUpdateDate.value = $event),
@@ -24517,11 +24543,11 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
               }, "Search")
             ])
           ]),
-          createBaseVNode("section", _hoisted_10$1, [
-            _cache[14] || (_cache[14] = createBaseVNode("h4", { class: "card-subtitle" }, "Recent FWB Record", -1)),
-            createBaseVNode("div", _hoisted_11$1, [
+          createBaseVNode("section", _hoisted_13$1, [
+            _cache[16] || (_cache[16] = createBaseVNode("h4", { class: "card-subtitle" }, "Recent FWB Record", -1)),
+            createBaseVNode("div", _hoisted_14$1, [
               createBaseVNode("table", null, [
-                _cache[13] || (_cache[13] = createBaseVNode("thead", null, [
+                _cache[15] || (_cache[15] = createBaseVNode("thead", null, [
                   createBaseVNode("tr", null, [
                     createBaseVNode("th", null, "AWB"),
                     createBaseVNode("th", null, "1R LO"),
@@ -24540,7 +24566,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
                   ])
                 ], -1)),
                 createBaseVNode("tbody", null, [
-                  displayedRecords.value.length === 0 ? (openBlock(), createElementBlock("tr", _hoisted_12, [..._cache[12] || (_cache[12] = [
+                  displayedRecords.value.length === 0 ? (openBlock(), createElementBlock("tr", _hoisted_15$1, [..._cache[14] || (_cache[14] = [
                     createBaseVNode("td", {
                       colspan: "14",
                       style: { "text-align": "center", "padding": "20px", "color": "#888" }
@@ -24566,7 +24592,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
                           href: "#",
                           class: "action-link",
                           onClick: withModifiers(($event) => openOffCanvas(record), ["prevent"])
-                        }, "View", 8, _hoisted_13)
+                        }, "View", 8, _hoisted_16$1)
                       ])
                     ]);
                   }), 128))
@@ -24581,179 +24607,234 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
   }
 });
 
-const Dashboard = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-f3f79196"]]);
+const Dashboard = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-2d21fdfa"]]);
 
-const _hoisted_1 = { class: "dashboard-page" };
-const _hoisted_2 = { class: "main-content" };
-const _hoisted_3 = { class: "page-tabs" };
-const _hoisted_4 = { class: "card search-card" };
-const _hoisted_5 = { class: "form-grid" };
-const _hoisted_6 = { class: "form-group" };
-const _hoisted_7 = { class: "form-group" };
-const _hoisted_8 = {
+const _hoisted_1$1 = { class: "dashboard-page" };
+const _hoisted_2$1 = { class: "nav-bar" };
+const _hoisted_3$1 = ["onClick"];
+const _hoisted_4$1 = ["onClick"];
+const _hoisted_5$1 = { class: "main-content" };
+const _hoisted_6$1 = { class: "page-tabs" };
+const _hoisted_7$1 = { class: "card search-card" };
+const _hoisted_8$1 = { class: "form-grid" };
+const _hoisted_9$1 = { class: "form-group" };
+const _hoisted_10$1 = { class: "form-group" };
+const _hoisted_11$1 = {
   class: "form-group",
   style: { "z-index": "10" }
 };
-const _hoisted_9 = { class: "card results-card" };
-const _hoisted_10 = { class: "table-container" };
-const _hoisted_11 = { key: 0 };
-const _sfc_main = /* @__PURE__ */ defineComponent({
+const _hoisted_12 = {
+  class: "form-group",
+  style: { "z-index": "10" }
+};
+const _hoisted_13 = { class: "card results-card" };
+const _hoisted_14 = { class: "table-container" };
+const _hoisted_15 = { key: 0 };
+const _hoisted_16 = ["onClick"];
+const _sfc_main$1 = /* @__PURE__ */ defineComponent({
   __name: "CarrierCodeMaintenance",
   setup(__props) {
     const activeTab = ref("Air Waybill");
-    const searchParams = ref({
-      awbNumber: "",
-      logisticsObject: "",
-      dateRange: null
-    });
-    const allRecords = ref([
+    const searchAwb = ref("");
+    const searchOneRecordLO = ref("");
+    const searchDateRange = ref(null);
+    const searchLastUpdateDate = ref(null);
+    const isOffCanvasOpen = ref(false);
+    const selectedRecordData = ref(null);
+    const openOffCanvas = (record) => {
+      selectedRecordData.value = record;
+      isOffCanvasOpen.value = true;
+    };
+    const allRecords = [
       {
-        uuid: "11223344-5566-7788-99aa-bbccddeeff00",
-        type: "Piece",
-        awb: "160-55734891",
-        flight: "CX256",
-        date: "21 Dec 24",
-        oneRecordLo: "Piece",
-        source: "EziCargo",
-        hse: "2/100",
-        flightDate: "23 Dec 24",
+        awb: "160-12345675",
+        oneRecordLo: "fecbe019-f3d6-4436-ad35-66ce87a7d985",
+        source: "Manual",
+        hse: "0",
+        flightDate: "2026-04-26",
         origin: "HKG",
         destination: "LHR",
-        status: "Booked",
-        print: "Yes",
+        status: "Pending",
+        print: "N",
         shipper: "ABC Logistics",
-        consignee: "DEF Traders",
-        user: "jdoe",
-        lastUpdate: "2024-12-21 10:00"
+        consignee: "XYZ Imports",
+        user: "admin",
+        lastUpdate: "2026-04-25 10:00",
+        routeMap: [
+          { code: "FWB", status: "complete", pDate: "24Apr 05:45", mDate: "-", aDate: "-" },
+          { code: "LAT", status: "complete", pDate: "24Apr 05:50", mDate: "22Apr 12:46", aDate: "22Apr 12:45" },
+          { code: "RCS", status: "complete", pDate: "24Apr 05:50", mDate: "22Apr 12:46", aDate: "22Apr 12:46" },
+          { code: "FOW", status: "new", pDate: "24Apr 07:20", mDate: "-", aDate: "-" },
+          { code: "DEP", status: "new", pDate: "24Apr 09:20", mDate: "-", aDate: "-" },
+          { isFlight: true, from: "HKG", to: "SGN", flightNo: "CX767", sDate: "24Apr 08:20", aDate: "-" },
+          { code: "ARR", status: "new", pDate: "24Apr 10:50", mDate: "-", aDate: "-" },
+          { code: "RCF", status: "new", pDate: "24Apr 13:05", mDate: "-", aDate: "-" },
+          { code: "NFD", status: "new", pDate: "24Apr 13:05", mDate: "-", aDate: "-", bDate: "24Apr 13:05" },
+          { code: "AWD", status: "new", pDate: "24Apr 12:35", mDate: "-", aDate: "-" },
+          { code: "DLV", status: "new", pDate: "26Apr 10:05", mDate: "-", aDate: "-" }
+        ],
+        events: [
+          { code: "FWB", desc: "Creation of MAWB", time: "24 Apr 05:45" },
+          { code: "LAT", desc: "Latest Acceptance Time", time: "24 Apr 05:50" },
+          { code: "RCS", desc: "Freight Checked in at Departure Airline", time: "24 Apr 05:50" }
+        ]
       },
       {
-        uuid: "22334455-6677-8899-aabb-ccddeeff0011",
-        type: "Shipment",
-        awb: "160-55734891",
-        flight: "",
-        date: "21 Dec 24",
-        oneRecordLo: "Shipment",
-        source: "EziCargo",
-        hse: "Total",
-        flightDate: "23 Dec 24",
-        origin: "HKG",
-        destination: "LHR",
-        status: "Booked",
-        print: "No",
-        shipper: "ABC Logistics",
-        consignee: "DEF Traders",
-        user: "jdoe",
-        lastUpdate: "2024-12-21 10:05"
-      },
-      {
-        uuid: "33445566-7788-99aa-bbcc-ddeeff001122",
-        type: "Item",
-        awb: "160-88009922",
-        flight: "EK385",
-        date: "22 Dec 24",
-        oneRecordLo: "Item",
-        source: "OtherSystem",
-        hse: "1/50",
-        flightDate: "25 Dec 24",
-        origin: "DXB",
+        awb: "160-98765432",
+        oneRecordLo: "7a2f1b40-8c29-4d6d-9286-a51b5e282b8a",
+        source: "API",
+        hse: "2",
+        flightDate: "2026-04-27",
+        origin: "SIN",
         destination: "FRA",
-        status: "Departed",
-        print: "Yes",
-        shipper: "Global Export",
-        consignee: "Euro Import",
-        user: "asmith",
-        lastUpdate: "2024-12-22 14:30"
+        status: "Accepted",
+        print: "Y",
+        shipper: "Global Freight",
+        consignee: "Euro Cargo",
+        user: "system",
+        lastUpdate: "2026-04-25 11:30",
+        routeMap: [
+          { code: "BKG", status: "complete", pDate: "25Apr 08:00", mDate: "26Apr", aDate: "26Apr 09:00" },
+          { code: "RCS", status: "partial", pDate: "25Apr 12:00", mDate: "-", aDate: "26Apr 10:30" },
+          { code: "DEP", status: "new", pDate: "26Apr 15:00", mDate: "-", aDate: "-" },
+          { isFlight: true, from: "SIN", to: "FRA", flightNo: "SQ326", sDate: "26Apr 14:00", aDate: "-" },
+          { code: "ARR", status: "new", pDate: "26Apr 21:00", mDate: "-", aDate: "-" }
+        ],
+        events: [
+          { code: "BKG", desc: "Booking Confirmed", time: "25 Apr 08:00" },
+          { code: "RCS", desc: "Freight Received Partially", time: "26 Apr 10:30" }
+        ]
       },
       {
-        uuid: "44556677-8899-aabb-ccdd-eeff00112233",
-        type: "Piece",
-        awb: "160-40332211",
-        flight: "JL736",
-        date: "23 Dec 24",
-        oneRecordLo: "Piece",
-        source: "EziCargo",
-        hse: "5/200",
-        flightDate: "26 Dec 24",
+        awb: "160-55554444",
+        oneRecordLo: "3c8e4f1a-b615-492c-ad2f-e8b91a78370f",
+        source: "Manual",
+        hse: "1",
+        flightDate: "2026-04-28",
         origin: "NRT",
         destination: "JFK",
-        status: "Arrived",
-        print: "Yes",
-        shipper: "Nippon Freight",
-        consignee: "NY Distributors",
-        user: "tjohnson",
-        lastUpdate: "2024-12-23 09:15"
+        status: "Rejected",
+        print: "N",
+        shipper: "Tokyo Exp",
+        consignee: "NY Dist",
+        user: "jl",
+        lastUpdate: "2026-04-25 09:15",
+        routeMap: [
+          { code: "RCS", status: "complete", pDate: "27Apr 07:00" },
+          { code: "DG Check", status: "discrepancy", pDate: "27Apr 08:00", mDate: "27Apr 08:15", aDate: "27Apr 08:20" },
+          { code: "DEP", status: "new", pDate: "28Apr 09:00", mDate: "-", aDate: "-" }
+        ],
+        events: [
+          { code: "RCS", desc: "Consignment received", time: "27 Apr 07:00" },
+          { code: "DG", desc: "Dangerous Goods AutoCheck Failed - EHC needed", time: "27 Apr 08:20" }
+        ]
       }
-    ]);
-    const displayedRecords = ref([...allRecords.value]);
+    ];
+    const displayedRecords = ref([...allRecords]);
     const triggerSearch = () => {
-      const pAwb = searchParams.value.awbNumber.toLowerCase();
-      const pLO = searchParams.value.logisticsObject.toLowerCase();
-      displayedRecords.value = allRecords.value.filter((record) => {
-        const matchAwb = pAwb ? record.awb.toLowerCase().includes(pAwb) : true;
-        const matchLO = pLO ? record.uuid.toLowerCase().includes(pLO) : true;
-        return matchAwb && matchLO;
+      displayedRecords.value = allRecords.filter((record) => {
+        const termAwb = searchAwb.value ? searchAwb.value.trim().toLowerCase() : "";
+        const term1R = searchOneRecordLO.value ? searchOneRecordLO.value.trim().toLowerCase() : "";
+        const matchAwb = !termAwb || record.awb.toLowerCase().includes(termAwb);
+        const match1R = !term1R || record.oneRecordLo.toLowerCase().includes(term1R);
+        return matchAwb && match1R;
       });
     };
     const clearSearch = () => {
-      searchParams.value = { awbNumber: "", logisticsObject: "", dateRange: null };
-      displayedRecords.value = [...allRecords.value];
+      searchAwb.value = "";
+      searchOneRecordLO.value = "";
+      searchDateRange.value = null;
+      searchLastUpdateDate.value = null;
+      triggerSearch();
     };
     return (_ctx, _cache) => {
-      const _component_AppFooter = resolveComponent("AppFooter");
-      return openBlock(), createElementBlock("div", _hoisted_1, [
+      const _component_router_link = resolveComponent("router-link");
+      return openBlock(), createElementBlock("div", _hoisted_1$1, [
         createVNode(AppHeader),
-        _cache[13] || (_cache[13] = createBaseVNode("nav", { class: "nav-bar" }, [
-          createBaseVNode("span", null, "Booking"),
-          createBaseVNode("span", null, "Operation"),
-          createBaseVNode("span", null, "Terminal"),
-          createBaseVNode("span", null, "Airline")
-        ], -1)),
-        createBaseVNode("main", _hoisted_2, [
-          _cache[12] || (_cache[12] = createBaseVNode("h2", { class: "page-title" }, "Carrier code Maintenance", -1)),
-          createBaseVNode("div", _hoisted_3, [
+        createVNode(RecordOffcanvas, {
+          isOpen: isOffCanvasOpen.value,
+          "onUpdate:isOpen": _cache[0] || (_cache[0] = ($event) => isOffCanvasOpen.value = $event),
+          recordData: selectedRecordData.value
+        }, null, 8, ["isOpen", "recordData"]),
+        createBaseVNode("nav", _hoisted_2$1, [
+          createVNode(_component_router_link, {
+            to: "/dashboard",
+            custom: ""
+          }, {
+            default: withCtx(({ navigate }) => [
+              createBaseVNode("span", { onClick: navigate }, "Shipment List", 8, _hoisted_3$1)
+            ]),
+            _: 1
+          }),
+          createVNode(_component_router_link, {
+            to: "/carrier-code",
+            custom: ""
+          }, {
+            default: withCtx(({ navigate }) => [
+              createBaseVNode("span", { onClick: navigate }, "Carrier code Maintenance", 8, _hoisted_4$1)
+            ]),
+            _: 1
+          }),
+          _cache[7] || (_cache[7] = createBaseVNode("span", null, "Terminal", -1)),
+          _cache[8] || (_cache[8] = createBaseVNode("span", null, "Airline", -1))
+        ]),
+        createBaseVNode("main", _hoisted_5$1, [
+          _cache[17] || (_cache[17] = createBaseVNode("h2", {
+            class: "page-title",
+            style: { "color": "#1A8242", "font-weight": "bold", "font-size": "24px", "border-bottom": "2px solid #1A8242", "padding-bottom": "10px", "margin-bottom": "20px" }
+          }, "Shipment List", -1)),
+          createBaseVNode("div", _hoisted_6$1, [
             createBaseVNode("span", {
               class: normalizeClass(["tab", { active: activeTab.value === "Air Waybill" }]),
-              onClick: _cache[0] || (_cache[0] = ($event) => activeTab.value = "Air Waybill")
+              onClick: _cache[1] || (_cache[1] = ($event) => activeTab.value = "Air Waybill")
             }, " Air Waybill ", 2),
             createBaseVNode("span", {
               class: normalizeClass(["tab", { active: activeTab.value === "Template" }]),
-              onClick: _cache[1] || (_cache[1] = ($event) => activeTab.value = "Template")
+              onClick: _cache[2] || (_cache[2] = ($event) => activeTab.value = "Template")
             }, " Template ", 2)
           ]),
-          createBaseVNode("section", _hoisted_4, [
-            _cache[8] || (_cache[8] = createBaseVNode("div", { class: "card-header" }, [
+          createBaseVNode("section", _hoisted_7$1, [
+            _cache[13] || (_cache[13] = createBaseVNode("div", { class: "card-header" }, [
               createBaseVNode("h3", null, "Search"),
               createBaseVNode("button", { class: "btn btn-outline" }, "+ Create FWB")
             ], -1)),
-            createBaseVNode("div", _hoisted_5, [
-              createBaseVNode("div", _hoisted_6, [
-                _cache[5] || (_cache[5] = createBaseVNode("label", null, "Air Waybill Number", -1)),
+            createBaseVNode("div", _hoisted_8$1, [
+              createBaseVNode("div", _hoisted_9$1, [
+                _cache[9] || (_cache[9] = createBaseVNode("label", null, "Air Waybill Number", -1)),
                 withDirectives(createBaseVNode("input", {
                   type: "text",
-                  "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => searchParams.value.awbNumber = $event),
+                  "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event) => searchAwb.value = $event),
                   placeholder: "Enter AWB..."
                 }, null, 512), [
-                  [vModelText, searchParams.value.awbNumber]
+                  [vModelText, searchAwb.value]
                 ])
               ]),
-              createBaseVNode("div", _hoisted_7, [
-                _cache[6] || (_cache[6] = createBaseVNode("label", null, "1R (ONE Record) LO", -1)),
+              createBaseVNode("div", _hoisted_10$1, [
+                _cache[10] || (_cache[10] = createBaseVNode("label", null, "1R (ONE Record) LO", -1)),
                 withDirectives(createBaseVNode("input", {
                   type: "text",
-                  "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event) => searchParams.value.logisticsObject = $event),
+                  "onUpdate:modelValue": _cache[4] || (_cache[4] = ($event) => searchOneRecordLO.value = $event),
                   placeholder: "Enter LO URI or ID..."
                 }, null, 512), [
-                  [vModelText, searchParams.value.logisticsObject]
+                  [vModelText, searchOneRecordLO.value]
                 ])
               ]),
-              createBaseVNode("div", _hoisted_8, [
-                _cache[7] || (_cache[7] = createBaseVNode("label", null, "Date Range", -1)),
+              createBaseVNode("div", _hoisted_11$1, [
+                _cache[11] || (_cache[11] = createBaseVNode("label", null, "Date Range", -1)),
                 createVNode(unref(Zl), {
-                  modelValue: searchParams.value.dateRange,
-                  "onUpdate:modelValue": _cache[4] || (_cache[4] = ($event) => searchParams.value.dateRange = $event),
+                  modelValue: searchDateRange.value,
+                  "onUpdate:modelValue": _cache[5] || (_cache[5] = ($event) => searchDateRange.value = $event),
                   range: "",
                   "multi-calendars": "",
                   placeholder: "Select Date Range"
+                }, null, 8, ["modelValue"])
+              ]),
+              createBaseVNode("div", _hoisted_12, [
+                _cache[12] || (_cache[12] = createBaseVNode("label", null, "Last Update Date", -1)),
+                createVNode(unref(Zl), {
+                  modelValue: searchLastUpdateDate.value,
+                  "onUpdate:modelValue": _cache[6] || (_cache[6] = ($event) => searchLastUpdateDate.value = $event),
+                  placeholder: "Select Last Update Date"
                 }, null, 8, ["modelValue"])
               ])
             ]),
@@ -24771,11 +24852,11 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               }, "Search")
             ])
           ]),
-          createBaseVNode("section", _hoisted_9, [
-            _cache[11] || (_cache[11] = createBaseVNode("h4", { class: "card-subtitle" }, "Recent FWB Record", -1)),
-            createBaseVNode("div", _hoisted_10, [
+          createBaseVNode("section", _hoisted_13, [
+            _cache[16] || (_cache[16] = createBaseVNode("h4", { class: "card-subtitle" }, "Recent FWB Record", -1)),
+            createBaseVNode("div", _hoisted_14, [
               createBaseVNode("table", null, [
-                _cache[10] || (_cache[10] = createBaseVNode("thead", null, [
+                _cache[15] || (_cache[15] = createBaseVNode("thead", null, [
                   createBaseVNode("tr", null, [
                     createBaseVNode("th", null, "AWB"),
                     createBaseVNode("th", null, "1R LO"),
@@ -24789,13 +24870,14 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                     createBaseVNode("th", null, "Shipper"),
                     createBaseVNode("th", null, "Consignee"),
                     createBaseVNode("th", null, "User"),
-                    createBaseVNode("th", null, "Last Update")
+                    createBaseVNode("th", null, "Last Update"),
+                    createBaseVNode("th", null, "Action")
                   ])
                 ], -1)),
                 createBaseVNode("tbody", null, [
-                  displayedRecords.value.length === 0 ? (openBlock(), createElementBlock("tr", _hoisted_11, [..._cache[9] || (_cache[9] = [
+                  displayedRecords.value.length === 0 ? (openBlock(), createElementBlock("tr", _hoisted_15, [..._cache[14] || (_cache[14] = [
                     createBaseVNode("td", {
-                      colspan: "13",
+                      colspan: "14",
                       style: { "text-align": "center", "padding": "20px", "color": "#888" }
                     }, "No recent records found matching search criteria.", -1)
                   ])])) : createCommentVNode("", true),
@@ -24813,7 +24895,14 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                       createBaseVNode("td", null, toDisplayString(record.shipper), 1),
                       createBaseVNode("td", null, toDisplayString(record.consignee), 1),
                       createBaseVNode("td", null, toDisplayString(record.user), 1),
-                      createBaseVNode("td", null, toDisplayString(record.lastUpdate), 1)
+                      createBaseVNode("td", null, toDisplayString(record.lastUpdate), 1),
+                      createBaseVNode("td", null, [
+                        createBaseVNode("a", {
+                          href: "#",
+                          class: "action-link",
+                          onClick: withModifiers(($event) => openOffCanvas(record), ["prevent"])
+                        }, "View", 8, _hoisted_16)
+                      ])
                     ]);
                   }), 128))
                 ])
@@ -24821,13 +24910,96 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             ])
           ])
         ]),
-        createVNode(_component_AppFooter)
+        createVNode(AppFooter)
       ]);
     };
   }
 });
 
-const CarrierCodeMaintenance = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-f0be1610"]]);
+const CarrierCodeMaintenance = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-ef928a83"]]);
+
+const _hoisted_1 = { class: "dashboard-page" };
+const _hoisted_2 = { class: "nav-bar" };
+const _hoisted_3 = ["onClick"];
+const _hoisted_4 = ["onClick"];
+const _hoisted_5 = { class: "main-content" };
+const _hoisted_6 = {
+  class: "card",
+  style: { "background": "#fff", "border": "1px solid #eaeaea", "border-radius": "4px", "padding": "30px" }
+};
+const _hoisted_7 = { style: { "display": "flex", "gap": "40px" } };
+const _hoisted_8 = { style: { "flex": "1" } };
+const _hoisted_9 = { style: { "font-size": "20px", "font-weight": "bold", "color": "#333" } };
+const _hoisted_10 = { style: { "flex": "2" } };
+const _hoisted_11 = { style: { "font-family": "monospace", "font-size": "18px", "color": "#333", "word-break": "break-all", "background": "#f4f6f8", "padding": "8px 12px", "border-radius": "4px" } };
+const _sfc_main = /* @__PURE__ */ defineComponent({
+  __name: "DashboardDetail",
+  setup(__props) {
+    const route = useRoute();
+    const router = useRouter();
+    const awb = ref(route.query.awb || "");
+    const loid = ref(route.query.loid || "");
+    const goBack = () => {
+      router.push("/dashboard");
+    };
+    return (_ctx, _cache) => {
+      const _component_router_link = resolveComponent("router-link");
+      return openBlock(), createElementBlock("div", _hoisted_1, [
+        createVNode(AppHeader),
+        createBaseVNode("nav", _hoisted_2, [
+          createVNode(_component_router_link, {
+            to: "/dashboard",
+            custom: ""
+          }, {
+            default: withCtx(({ navigate }) => [
+              createBaseVNode("span", { onClick: navigate }, "Shipment List", 8, _hoisted_3)
+            ]),
+            _: 1
+          }),
+          createVNode(_component_router_link, {
+            to: "/carrier-code",
+            custom: ""
+          }, {
+            default: withCtx(({ navigate }) => [
+              createBaseVNode("span", { onClick: navigate }, "Carrier code Maintenance", 8, _hoisted_4)
+            ]),
+            _: 1
+          }),
+          _cache[0] || (_cache[0] = createBaseVNode("span", null, "Terminal", -1)),
+          _cache[1] || (_cache[1] = createBaseVNode("span", null, "Airline", -1))
+        ]),
+        createBaseVNode("main", _hoisted_5, [
+          createBaseVNode("div", { style: { "display": "flex", "align-items": "center", "justify-content": "space-between", "margin-bottom": "20px", "border-bottom": "2px solid #1A8242", "padding-bottom": "10px" } }, [
+            _cache[2] || (_cache[2] = createBaseVNode("h2", {
+              class: "page-title",
+              style: { "color": "#1A8242", "font-weight": "bold", "font-size": "24px", "margin": "0" }
+            }, "Shipment List - Detail", -1)),
+            createBaseVNode("button", {
+              onClick: goBack,
+              class: "btn",
+              style: { "background-color": "#d1d5db", "color": "#333", "padding": "6px 16px", "border": "none", "border-radius": "4px", "cursor": "pointer" }
+            }, " Back to List ")
+          ]),
+          createBaseVNode("section", _hoisted_6, [
+            createBaseVNode("div", _hoisted_7, [
+              createBaseVNode("div", _hoisted_8, [
+                _cache[3] || (_cache[3] = createBaseVNode("p", { style: { "color": "#666", "font-size": "14px", "margin": "0 0 5px 0" } }, "Air Waybill Number", -1)),
+                createBaseVNode("div", _hoisted_9, toDisplayString(awb.value || "N/A"), 1)
+              ]),
+              createBaseVNode("div", _hoisted_10, [
+                _cache[4] || (_cache[4] = createBaseVNode("p", { style: { "color": "#666", "font-size": "14px", "margin": "0 0 5px 0" } }, "1R (ONE Record) LO", -1)),
+                createBaseVNode("div", _hoisted_11, toDisplayString(loid.value || "N/A"), 1)
+              ])
+            ])
+          ])
+        ]),
+        createVNode(AppFooter)
+      ]);
+    };
+  }
+});
+
+const DashboardDetail = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-2bd7e278"]]);
 
 const baseUrl = "/";
 const baseChildren = [
@@ -24839,12 +25011,17 @@ const baseChildren = [
   {
     path: "dashboard",
     name: "Dashboard",
-    component: Dashboard
+    component: CarrierCodeMaintenance
   },
   {
     path: "carrier-code",
     name: "CarrierCodeMaintenance",
-    component: CarrierCodeMaintenance
+    component: Dashboard
+  },
+  {
+    path: "dashboard/detail",
+    name: "DashboardDetail",
+    component: DashboardDetail
   }
 ];
 const routes = [
