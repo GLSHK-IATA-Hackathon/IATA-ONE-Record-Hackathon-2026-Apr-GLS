@@ -58,10 +58,13 @@ const handleUpload = () => {
     <main class="main-content">
         <div class="page-header">
           <h2 class="page-title">Air Waybill Detail</h2>
-          <div class="one-record-logo">
-            <img src="../assets/1R Logo.png" alt="IATA ONE Record" style="height: 38px; object-fit: contain; display: block;" />
-          </div>
-        </div>      <div class="layout-container">
+        </div>
+        <div class="one-record-badge">
+          <img src="../assets/1R Logo.png" alt="IATA ONE Record" class="badge-icon" />
+          <span class="badge-text" style="color: #1d4ed8; padding: 4px 12px; background: #eef2ff; border-radius: 12px; font-weight: 600; font-size: 13px;">Backed by ONE Record</span>
+        </div>
+
+      <div class="layout-container">
         
         <!-- Left Panel -->
         <div class="left-panel">
@@ -216,12 +219,21 @@ const handleUpload = () => {
 }
 
 .page-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 25px;
+  margin-bottom: 12px;
   border-bottom: 2px solid #2E8B57;
-  padding-bottom: 12px;
+  padding-bottom: 8px;
+}
+
+.one-record-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.badge-icon {
+  height: 28px;
+  object-fit: contain;
 }
 
 .page-title {

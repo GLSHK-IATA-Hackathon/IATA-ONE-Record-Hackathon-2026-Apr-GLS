@@ -6,4 +6,12 @@ const router = createRouter({
     routes
 })
 
+router.afterEach((to) => {
+    if (to.meta.title) {
+        document.title = `${to.meta.title} - Ezyone`;
+    } else {
+        document.title = 'Ezyone';
+    }
+});
+
 export default router
