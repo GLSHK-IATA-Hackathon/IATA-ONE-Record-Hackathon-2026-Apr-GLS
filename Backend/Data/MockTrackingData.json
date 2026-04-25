@@ -1,0 +1,403 @@
+[
+  {
+    "awb": "160-12345675",
+    "oneRecordLo": "fecbe019-f3d6-4436-ad35-66ce87a7d985",
+    "source": "Manual",
+    "hse": "0",
+    "flightDate": "2026-04-26",
+    "origin": "HKG",
+    "destination": "LHR",
+    "status": "Pending",
+    "print": "N",
+    "shipper": "ABC Logistics",
+    "consignee": "XYZ Imports",
+    "user": "admin",
+    "lastUpdate": "2026-04-25 10:00",
+    "routeMap": [
+      {
+        "code": "FWB",
+        "status": "complete",
+        "pDate": "24Apr 05:45",
+        "mDate": "-",
+        "aDate": "-"
+      },
+      {
+        "code": "LAT",
+        "status": "complete",
+        "pDate": "24Apr 05:50",
+        "mDate": "22Apr 12:46",
+        "aDate": "22Apr 12:45"
+      },
+      {
+        "code": "SAC",
+        "status": "complete",
+        "pDate": "24Apr 05:50",
+        "mDate": "22Apr 12:46",
+        "aDate": "22Apr 12:45"
+      },
+      {
+        "code": "RCS",
+        "status": "complete",
+        "pDate": "24Apr 05:50",
+        "mDate": "22Apr 12:46",
+        "aDate": "22Apr 12:46"
+      },
+      {
+        "code": "FOW",
+        "status": "new",
+        "pDate": "24Apr 07:20",
+        "mDate": "-",
+        "aDate": "-"
+      },
+      {
+        "code": "DEP",
+        "status": "new",
+        "pDate": "24Apr 09:20",
+        "mDate": "-",
+        "aDate": "-"
+      },
+      {
+        "isFlight": true,
+        "from": "HKG",
+        "to": "SGN",
+        "flightNo": "CX767",
+        "sDate": "24Apr 08:20",
+        "aDate": "-"
+      },
+      {
+        "code": "ARR",
+        "status": "new",
+        "pDate": "24Apr 10:50",
+        "mDate": "-",
+        "aDate": "-"
+      },
+      {
+        "code": "RCF",
+        "status": "new",
+        "pDate": "24Apr 13:05",
+        "mDate": "-",
+        "aDate": "-"
+      },
+      {
+        "code": "NFD",
+        "status": "new",
+        "pDate": "24Apr 13:05",
+        "mDate": "-",
+        "aDate": "-",
+        "bDate": "24Apr 13:05"
+      },
+      {
+        "code": "AWD",
+        "status": "new",
+        "pDate": "24Apr 12:35",
+        "mDate": "-",
+        "aDate": "-"
+      },
+      {
+        "code": "DLV",
+        "status": "new",
+        "pDate": "26Apr 10:05",
+        "mDate": "-",
+        "aDate": "-"
+      }
+    ],
+    "events": [
+      {
+        "code": "FWB",
+        "desc": "Creation of MAWB",
+        "time": "24 Apr 05:45"
+      },
+      {
+        "code": "LAT",
+        "desc": "Latest Acceptance Time",
+        "time": "24 Apr 05:50"
+      },
+      {
+        "code": "RCS",
+        "desc": "Freight Checked in at Departure Airline",
+        "time": "24 Apr 05:50"
+      }
+    ]
+  },
+  {
+    "awb": "160-98765432",
+    "oneRecordLo": "7a2f1b40-8c29-4d6d-9286-a51b5e282b8a",
+    "source": "API",
+    "hse": "2",
+    "flightDate": "2026-04-27",
+    "origin": "SIN",
+    "destination": "FRA",
+    "status": "Accepted",
+    "print": "Y",
+    "shipper": "Global Freight",
+    "consignee": "Euro Cargo",
+    "user": "system",
+    "lastUpdate": "2026-04-25 11:30",
+    "routeMap": [
+      {
+        "code": "FWB",
+        "status": "complete",
+        "pDate": "25Apr 05:45",
+        "mDate": "-",
+        "aDate": "-"
+      },
+      {
+        "code": "LAT",
+        "status": "complete",
+        "pDate": "25Apr 05:50",
+        "mDate": "-",
+        "aDate": "-"
+      },
+      {
+        "code": "SAC",
+        "status": "discrepancy",
+        "pDate": "25Apr 05:50",
+        "mDate": "-",
+        "aDate": "-"
+      },
+      {
+        "code": "RCS",
+        "status": "new",
+        "pDate": "25Apr 05:50",
+        "mDate": "-",
+        "aDate": "-"
+      },
+      {
+        "code": "FOW",
+        "status": "new",
+        "pDate": "25Apr 07:20",
+        "mDate": "-",
+        "aDate": "-"
+      },
+      {
+        "code": "DEP",
+        "status": "new",
+        "pDate": "25Apr 09:20",
+        "mDate": "-",
+        "aDate": "-"
+      },
+      {
+        "isFlight": true,
+        "from": "SIN",
+        "to": "FRA",
+        "flightNo": "SQ326",
+        "sDate": "26Apr 14:00",
+        "aDate": "-"
+      },
+      {
+        "code": "ARR",
+        "status": "new",
+        "pDate": "26Apr 21:00",
+        "mDate": "-",
+        "aDate": "-"
+      },
+      {
+        "code": "RCF",
+        "status": "new",
+        "pDate": "26Apr 22:05",
+        "mDate": "-",
+        "aDate": "-"
+      },
+      {
+        "code": "NFD",
+        "status": "new",
+        "pDate": "26Apr 22:35",
+        "mDate": "-",
+        "aDate": "-"
+      },
+      {
+        "code": "AWD",
+        "status": "new",
+        "pDate": "26Apr 22:35",
+        "mDate": "-",
+        "aDate": "-"
+      },
+      {
+        "code": "DLV",
+        "status": "new",
+        "pDate": "27Apr 10:05",
+        "mDate": "-",
+        "aDate": "-"
+      }
+    ],
+    "events": [
+      {
+        "code": "FWB",
+        "desc": "Creation of MAWB",
+        "time": "25 Apr 05:45"
+      },
+      {
+        "code": "LAT",
+        "desc": "Latest Acceptance Time",
+        "time": "25 Apr 05:50"
+      },
+      {
+        "code": "SAC",
+        "desc": "Security Autocheck Failed",
+        "time": "25 Apr 05:50"
+      }
+    ]
+  },
+  {
+    "awb": "160-55554444",
+    "oneRecordLo": "3c8e4f1a-b615-492c-ad2f-e8b91a78370f",
+    "source": "Manual",
+    "hse": "1",
+    "flightDate": "2026-04-28",
+    "origin": "NRT",
+    "destination": "JFK",
+    "status": "Delivered",
+    "print": "Y",
+    "shipper": "Tokyo Exp",
+    "consignee": "NY Dist",
+    "user": "jl",
+    "lastUpdate": "2026-04-28 10:15",
+    "routeMap": [
+      {
+        "code": "FWB",
+        "status": "complete",
+        "pDate": "27Apr 05:45",
+        "mDate": "-",
+        "aDate": "-"
+      },
+      {
+        "code": "LAT",
+        "status": "complete",
+        "pDate": "27Apr 05:50",
+        "mDate": "27Apr 05:48",
+        "aDate": "27Apr 05:48"
+      },
+      {
+        "code": "SAC",
+        "status": "complete",
+        "pDate": "27Apr 05:50",
+        "mDate": "27Apr 05:48",
+        "aDate": "27Apr 05:48"
+      },
+      {
+        "code": "RCS",
+        "status": "complete",
+        "pDate": "27Apr 05:50",
+        "mDate": "27Apr 05:50",
+        "aDate": "27Apr 05:50"
+      },
+      {
+        "code": "FOW",
+        "status": "complete",
+        "pDate": "27Apr 07:20",
+        "mDate": "-",
+        "aDate": "-"
+      },
+      {
+        "code": "DEP",
+        "status": "complete",
+        "pDate": "27Apr 09:20",
+        "mDate": "-",
+        "aDate": "-"
+      },
+      {
+        "isFlight": true,
+        "from": "NRT",
+        "to": "JFK",
+        "flightNo": "JL006",
+        "sDate": "27Apr 11:20",
+        "aDate": "28Apr 10:10"
+      },
+      {
+        "code": "ARR",
+        "status": "complete",
+        "pDate": "28Apr 10:50",
+        "mDate": "-",
+        "aDate": "-"
+      },
+      {
+        "code": "RCF",
+        "status": "complete",
+        "pDate": "28Apr 13:05",
+        "mDate": "-",
+        "aDate": "-"
+      },
+      {
+        "code": "NFD",
+        "status": "complete",
+        "pDate": "28Apr 13:05",
+        "mDate": "-",
+        "aDate": "-",
+        "bDate": "28Apr 13:05"
+      },
+      {
+        "code": "AWD",
+        "status": "complete",
+        "pDate": "28Apr 12:35",
+        "mDate": "-",
+        "aDate": "-"
+      },
+      {
+        "code": "DLV",
+        "status": "complete",
+        "pDate": "28Apr 15:05",
+        "mDate": "-",
+        "aDate": "-"
+      }
+    ],
+    "events": [
+      {
+        "code": "FWB",
+        "desc": "Creation of MAWB",
+        "time": "27 Apr 05:45"
+      },
+      {
+        "code": "LAT",
+        "desc": "Latest Acceptance Time",
+        "time": "27 Apr 05:50"
+      },
+      {
+        "code": "SAC",
+        "desc": "Security Autocheck Passed",
+        "time": "27 Apr 05:50"
+      },
+      {
+        "code": "RCS",
+        "desc": "Consignment received",
+        "time": "27 Apr 05:50"
+      },
+      {
+        "code": "FOW",
+        "desc": "Freight Out of Warehouse",
+        "time": "27 Apr 07:20"
+      },
+      {
+        "code": "DEP",
+        "desc": "Departed",
+        "time": "27 Apr 09:20"
+      },
+      {
+        "code": "ARR",
+        "desc": "Arrived",
+        "time": "28 Apr 10:50"
+      },
+      {
+        "code": "RCF",
+        "desc": "Received at Flight",
+        "time": "28 Apr 13:05"
+      },
+      {
+        "code": "NFD",
+        "desc": "Notified",
+        "time": "28 Apr 13:05"
+      },
+      {
+        "code": "AWD",
+        "desc": "Available for Delivery",
+        "time": "28 Apr 12:35"
+      },
+      {
+        "code": "DLV",
+        "desc": "Delivered",
+        "time": "28 Apr 15:05"
+      }
+    ]
+  }
+]
+
+ 
