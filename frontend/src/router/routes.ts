@@ -7,6 +7,7 @@ import HelloWorld from '@/views/HelloWorld.vue'
 import Dashboard from '@/views/Dashboard.vue'
 import CarrierCodeMaintenance from '@/views/CarrierCodeMaintenance.vue'
 import DashboardDetail from '@/views/DashboardDetail.vue'
+import ShipmentList from '@/views/ShipmentList.vue'
 
 const baseUrl = '/'
 
@@ -18,14 +19,19 @@ const baseChildren: RouteRecordRaw[] = [
         component: HelloWorld
     },
     {
+        path: 'shipment-list',
+        name: 'ShipmentList',
+        component: ShipmentList
+    },
+    {
         path: 'dashboard',
         name: 'Dashboard',
-        component: CarrierCodeMaintenance
+        component: Dashboard
     },
     {
         path: 'carrier-code',
         name: 'CarrierCodeMaintenance',
-        component: Dashboard
+        component: CarrierCodeMaintenance
     },
     {
         path: 'dashboard/detail',
