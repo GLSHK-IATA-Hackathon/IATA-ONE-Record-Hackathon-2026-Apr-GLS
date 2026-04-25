@@ -1,8 +1,8 @@
 [
   {
     "ContainingType": "WebAPITemplate.Controllers.ConverterController",
-    "Method": "Mapping1RtoXSDG",
-    "RelativePath": "api/Converter/Mapping1RtoXSDG",
+    "Method": "Mapping1RCompacttoXSDG",
+    "RelativePath": "api/Converter/Mapping1RCompacttoXSDG",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -17,8 +17,40 @@
   },
   {
     "ContainingType": "WebAPITemplate.Controllers.ConverterController",
-    "Method": "MappingXSDGtoJSON",
-    "RelativePath": "api/Converter/MappingXSDGtoJSONLD",
+    "Method": "Mapping1RFlattentoXSDG",
+    "RelativePath": "api/Converter/Mapping1RFlattentoXSDG",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "jsonldPayload",
+        "Type": "Newtonsoft.Json.Linq.JObject",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPITemplate.Controllers.ConverterController",
+    "Method": "MappingXSDGto1RCompact",
+    "RelativePath": "api/Converter/MappingXSDGto1RCompact",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "xmlContent",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPITemplate.Controllers.ConverterController",
+    "Method": "MappingXSDGto1RFlatten",
+    "RelativePath": "api/Converter/MappingXSDGto1RFlatten",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,

@@ -5,7 +5,7 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/Converter/Mapping1RtoXSDG": {
+    "/api/Converter/Mapping1RCompacttoXSDG": {
       "post": {
         "tags": [
           "Converter"
@@ -53,7 +53,86 @@
         }
       }
     },
-    "/api/Converter/MappingXSDGtoJSONLD": {
+    "/api/Converter/MappingXSDGto1RCompact": {
+      "post": {
+        "tags": [
+          "Converter"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "xmlContent": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "xmlContent": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Converter/Mapping1RFlattentoXSDG": {
+      "post": {
+        "tags": [
+          "Converter"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/JToken"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/JToken"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/JToken"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/JToken"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Converter/MappingXSDGto1RFlatten": {
       "post": {
         "tags": [
           "Converter"
