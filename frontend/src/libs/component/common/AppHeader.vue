@@ -11,7 +11,7 @@ const toggleNews = () => {
 
 const goToTrackShipment = () => {
   showNewsDropdown.value = false;
-  router.push('/track-shipment');
+  router.push('/track-shipment?tab=Weather%20Forecast');
 };
 </script>
 

@@ -9414,7 +9414,7 @@ const _sfc_main$6 = /* @__PURE__ */ defineComponent({
     };
     const goToTrackShipment = () => {
       showNewsDropdown.value = false;
-      router.push("/track-shipment");
+      router.push("/track-shipment?tab=Weather%20Forecast");
     };
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("header", _hoisted_1$6, [
@@ -9526,7 +9526,7 @@ const _sfc_main$6 = /* @__PURE__ */ defineComponent({
   }
 });
 
-const AppHeader = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-eeb65265"]]);
+const AppHeader = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-00015f99"]]);
 
 const _imports_0$1 = "data:image/png;base64,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";
 
@@ -24210,32 +24210,32 @@ const _hoisted_12$4 = {
 const _hoisted_13$4 = { class: "oc-section" };
 const _hoisted_14$4 = { class: "oc-card route-map-wrapper" };
 const _hoisted_15$4 = { class: "route-map-container" };
-const _hoisted_16$2 = {
+const _hoisted_16$3 = {
   key: 0,
   class: "route-flight-segment"
 };
-const _hoisted_17$2 = { class: "flight-visual" };
-const _hoisted_18$2 = { class: "flight-city" };
-const _hoisted_19$2 = { class: "flight-line" };
-const _hoisted_20$2 = { class: "flight-badge" };
-const _hoisted_21$2 = { class: "flight-city" };
-const _hoisted_22$2 = { class: "route-times flight-times" };
-const _hoisted_23$1 = {
+const _hoisted_17$3 = { class: "flight-visual" };
+const _hoisted_18$3 = { class: "flight-city" };
+const _hoisted_19$3 = { class: "flight-line" };
+const _hoisted_20$3 = { class: "flight-badge" };
+const _hoisted_21$3 = { class: "flight-city" };
+const _hoisted_22$3 = { class: "route-times flight-times" };
+const _hoisted_23$2 = {
   key: 1,
   class: "route-milestone"
 };
-const _hoisted_24$1 = { class: "route-times" };
-const _hoisted_25$1 = { key: 0 };
-const _hoisted_26$1 = { key: 1 };
-const _hoisted_27$1 = { key: 2 };
-const _hoisted_28$1 = { key: 3 };
-const _hoisted_29$1 = {
+const _hoisted_24$2 = { class: "route-times" };
+const _hoisted_25$2 = { key: 0 };
+const _hoisted_26$2 = { key: 1 };
+const _hoisted_27$2 = { key: 2 };
+const _hoisted_28$2 = { key: 3 };
+const _hoisted_29$2 = {
   key: 2,
   class: "route-arrow"
 };
-const _hoisted_30$1 = { class: "oc-section" };
-const _hoisted_31$1 = { class: "oc-table-wrapper" };
-const _hoisted_32$1 = { class: "oc-table" };
+const _hoisted_30$2 = { class: "oc-section" };
+const _hoisted_31$2 = { class: "oc-table-wrapper" };
+const _hoisted_32$2 = { class: "oc-table" };
 const _sfc_main$4 = /* @__PURE__ */ defineComponent({
   __name: "RecordOffcanvas",
   props: {
@@ -24329,10 +24329,10 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
                 createBaseVNode("div", _hoisted_15$4, [
                   (openBlock(true), createElementBlock(Fragment, null, renderList(displayRouteMap.value, (milestone, idx) => {
                     return openBlock(), createElementBlock(Fragment, { key: idx }, [
-                      milestone.isFlight ? (openBlock(), createElementBlock("div", _hoisted_16$2, [
-                        createBaseVNode("div", _hoisted_17$2, [
-                          createBaseVNode("span", _hoisted_18$2, toDisplayString(milestone.from), 1),
-                          createBaseVNode("div", _hoisted_19$2, [
+                      milestone.isFlight ? (openBlock(), createElementBlock("div", _hoisted_16$3, [
+                        createBaseVNode("div", _hoisted_17$3, [
+                          createBaseVNode("span", _hoisted_18$3, toDisplayString(milestone.from), 1),
+                          createBaseVNode("div", _hoisted_19$3, [
                             _cache[6] || (_cache[6] = createBaseVNode("svg", {
                               class: "flight-icon",
                               viewBox: "0 0 24 24",
@@ -24340,26 +24340,26 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
                             }, [
                               createBaseVNode("path", { d: "M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" })
                             ], -1)),
-                            createBaseVNode("span", _hoisted_20$2, toDisplayString(milestone.flightNo), 1)
+                            createBaseVNode("span", _hoisted_20$3, toDisplayString(milestone.flightNo), 1)
                           ]),
-                          createBaseVNode("span", _hoisted_21$2, toDisplayString(milestone.to), 1)
+                          createBaseVNode("span", _hoisted_21$3, toDisplayString(milestone.to), 1)
                         ]),
-                        createBaseVNode("div", _hoisted_22$2, [
+                        createBaseVNode("div", _hoisted_22$3, [
                           createBaseVNode("div", null, "S: " + toDisplayString(milestone.sDate), 1),
                           createBaseVNode("div", null, "A: " + toDisplayString(milestone.aDate), 1)
                         ])
-                      ])) : (openBlock(), createElementBlock("div", _hoisted_23$1, [
+                      ])) : (openBlock(), createElementBlock("div", _hoisted_23$2, [
                         createBaseVNode("div", {
                           class: normalizeClass(["milestone-node", `status-${milestone.status}`])
                         }, toDisplayString(milestone.code), 3),
-                        createBaseVNode("div", _hoisted_24$1, [
-                          milestone.pDate ? (openBlock(), createElementBlock("div", _hoisted_25$1, "P: " + toDisplayString(milestone.pDate), 1)) : createCommentVNode("", true),
-                          milestone.mDate ? (openBlock(), createElementBlock("div", _hoisted_26$1, "M: " + toDisplayString(milestone.mDate), 1)) : createCommentVNode("", true),
-                          milestone.aDate ? (openBlock(), createElementBlock("div", _hoisted_27$1, "A: " + toDisplayString(milestone.aDate), 1)) : createCommentVNode("", true),
-                          milestone.bDate ? (openBlock(), createElementBlock("div", _hoisted_28$1, "B: " + toDisplayString(milestone.bDate), 1)) : createCommentVNode("", true)
+                        createBaseVNode("div", _hoisted_24$2, [
+                          milestone.pDate ? (openBlock(), createElementBlock("div", _hoisted_25$2, "P: " + toDisplayString(milestone.pDate), 1)) : createCommentVNode("", true),
+                          milestone.mDate ? (openBlock(), createElementBlock("div", _hoisted_26$2, "M: " + toDisplayString(milestone.mDate), 1)) : createCommentVNode("", true),
+                          milestone.aDate ? (openBlock(), createElementBlock("div", _hoisted_27$2, "A: " + toDisplayString(milestone.aDate), 1)) : createCommentVNode("", true),
+                          milestone.bDate ? (openBlock(), createElementBlock("div", _hoisted_28$2, "B: " + toDisplayString(milestone.bDate), 1)) : createCommentVNode("", true)
                         ])
                       ])),
-                      Number(idx) < displayRouteMap.value.length - 1 ? (openBlock(), createElementBlock("div", _hoisted_29$1, [..._cache[7] || (_cache[7] = [
+                      Number(idx) < displayRouteMap.value.length - 1 ? (openBlock(), createElementBlock("div", _hoisted_29$2, [..._cache[7] || (_cache[7] = [
                         createBaseVNode("svg", {
                           viewBox: "0 0 24 24",
                           stroke: "currentColor",
@@ -24378,10 +24378,10 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
                 ])
               ])
             ]),
-            createBaseVNode("div", _hoisted_30$1, [
+            createBaseVNode("div", _hoisted_30$2, [
               _cache[10] || (_cache[10] = createBaseVNode("h4", { class: "oc-section-title" }, "ONE Record Events", -1)),
-              createBaseVNode("div", _hoisted_31$1, [
-                createBaseVNode("table", _hoisted_32$1, [
+              createBaseVNode("div", _hoisted_31$2, [
+                createBaseVNode("table", _hoisted_32$2, [
                   _cache[9] || (_cache[9] = createBaseVNode("thead", null, [
                     createBaseVNode("tr", null, [
                       createBaseVNode("th", null, "Event"),
@@ -24776,22 +24776,22 @@ const _hoisted_15$2 = {
   key: 1,
   class: "upload-section"
 };
-const _hoisted_16$1 = { class: "upload-form" };
-const _hoisted_17$1 = { class: "file-input-group" };
-const _hoisted_18$1 = {
+const _hoisted_16$2 = { class: "upload-form" };
+const _hoisted_17$2 = { class: "file-input-group" };
+const _hoisted_18$2 = {
   style: { "width": "12px", "height": "12px", "margin-right": "4px" },
   fill: "none",
   stroke: "currentColor",
   viewBox: "0 0 24 24",
   xmlns: "http://www.w3.org/2000/svg"
 };
-const _hoisted_19$1 = ["value"];
-const _hoisted_20$1 = {
+const _hoisted_19$2 = ["value"];
+const _hoisted_20$2 = {
   key: 0,
   class: "upload-list-container"
 };
-const _hoisted_21$1 = { class: "upload-list" };
-const _hoisted_22$1 = {
+const _hoisted_21$2 = { class: "upload-list" };
+const _hoisted_22$2 = {
   key: 2,
   class: "proceed-action"
 };
@@ -24913,9 +24913,9 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
                   createBaseVNode("strong", null, "20 MB"),
                   createTextVNode(".")
                 ], -1)),
-                createBaseVNode("div", _hoisted_16$1, [
+                createBaseVNode("div", _hoisted_16$2, [
                   _cache[12] || (_cache[12] = createBaseVNode("span", { class: "file-label" }, "File Name", -1)),
-                  createBaseVNode("div", _hoisted_17$1, [
+                  createBaseVNode("div", _hoisted_17$2, [
                     createBaseVNode("input", {
                       type: "file",
                       ref_key: "fileInputRef",
@@ -24928,7 +24928,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
                       class: "btn btn-browse",
                       onClick: triggerFileInput
                     }, [
-                      (openBlock(), createElementBlock("svg", _hoisted_18$1, [..._cache[10] || (_cache[10] = [
+                      (openBlock(), createElementBlock("svg", _hoisted_18$2, [..._cache[10] || (_cache[10] = [
                         createBaseVNode("path", {
                           "stroke-linecap": "round",
                           "stroke-linejoin": "round",
@@ -24944,24 +24944,24 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
                       placeholder: "",
                       value: selectedFileName.value,
                       readonly: ""
-                    }, null, 8, _hoisted_19$1),
+                    }, null, 8, _hoisted_19$2),
                     createBaseVNode("button", {
                       class: "btn btn-do-upload",
                       onClick: handleUpload
                     }, "Upload")
                   ])
                 ]),
-                fullDocumentList.value.length > 0 ? (openBlock(), createElementBlock("div", _hoisted_20$1, [
+                fullDocumentList.value.length > 0 ? (openBlock(), createElementBlock("div", _hoisted_20$2, [
                   _cache[13] || (_cache[13] = createBaseVNode("div", { class: "divider" }, null, -1)),
                   _cache[14] || (_cache[14] = createBaseVNode("div", { class: "upload-list-title" }, "Full Document List", -1)),
-                  createBaseVNode("ol", _hoisted_21$1, [
+                  createBaseVNode("ol", _hoisted_21$2, [
                     (openBlock(true), createElementBlock(Fragment, null, renderList(fullDocumentList.value, (fileName, index) => {
                       return openBlock(), createElementBlock("li", { key: index }, toDisplayString(fileName), 1);
                     }), 128))
                   ])
                 ])) : createCommentVNode("", true)
               ])) : createCommentVNode("", true),
-              showProceedBtn.value ? (openBlock(), createElementBlock("div", _hoisted_22$1, [..._cache[17] || (_cache[17] = [
+              showProceedBtn.value ? (openBlock(), createElementBlock("div", _hoisted_22$2, [..._cache[17] || (_cache[17] = [
                 createBaseVNode("button", { class: "btn btn-proceed" }, "Proceed DG Auto Check", -1)
               ])])) : createCommentVNode("", true)
             ])
@@ -24999,55 +24999,55 @@ const _hoisted_12$1 = ["onClick"];
 const _hoisted_13$1 = { style: { "color": "#333", "font-weight": "500" } };
 const _hoisted_14$1 = { style: { "color": "#666", "font-size": "12px", "font-family": "monospace", "max-width": "150px", "word-wrap": "break-word" } };
 const _hoisted_15$1 = { style: { "background": "#f4f6f8", "padding": "4px 8px", "border-radius": "4px", "border": "1px solid #e1e4e8" } };
-const _hoisted_16 = { style: { "color": "#666" } };
-const _hoisted_17 = { style: { "color": "#666" } };
-const _hoisted_18 = { style: { "color": "#666" } };
-const _hoisted_19 = { style: { "color": "#666" } };
-const _hoisted_20 = { style: { "color": "#666" } };
-const _hoisted_21 = { style: { "text-align": "center" } };
-const _hoisted_22 = {
+const _hoisted_16$1 = { style: { "color": "#666" } };
+const _hoisted_17$1 = { style: { "color": "#666" } };
+const _hoisted_18$1 = { style: { "color": "#666" } };
+const _hoisted_19$1 = { style: { "color": "#666" } };
+const _hoisted_20$1 = { style: { "color": "#666" } };
+const _hoisted_21$1 = { style: { "text-align": "center" } };
+const _hoisted_22$1 = {
   key: 0,
   class: "badge badge-error"
 };
-const _hoisted_23 = {
+const _hoisted_23$1 = {
   key: 1,
   class: "badge badge-error-part"
 };
-const _hoisted_24 = {
+const _hoisted_24$1 = {
   key: 2,
   class: "badge badge-view-part"
 };
-const _hoisted_25 = {
+const _hoisted_25$1 = {
   key: 3,
   class: "badge badge-none"
 };
-const _hoisted_26 = { style: { "text-align": "center" } };
-const _hoisted_27 = {
+const _hoisted_26$1 = { style: { "text-align": "center" } };
+const _hoisted_27$1 = {
   key: 0,
   class: "badge badge-view"
 };
-const _hoisted_28 = {
+const _hoisted_28$1 = {
   key: 1,
   class: "badge badge-error-part"
 };
-const _hoisted_29 = {
+const _hoisted_29$1 = {
   key: 2,
   class: "badge badge-none"
 };
-const _hoisted_30 = { style: { "text-align": "center" } };
-const _hoisted_31 = {
+const _hoisted_30$1 = { style: { "text-align": "center" } };
+const _hoisted_31$1 = {
   key: 0,
   class: "badge badge-none"
 };
-const _hoisted_32 = { style: { "text-align": "center" } };
-const _hoisted_33 = {
+const _hoisted_32$1 = { style: { "text-align": "center" } };
+const _hoisted_33$1 = {
   key: 0,
   class: "badge badge-folder"
 };
-const _hoisted_34 = { style: { "color": "#666" } };
-const _hoisted_35 = { style: { "color": "#666" } };
-const _hoisted_36 = { style: { "color": "#666" } };
-const _hoisted_37 = { style: { "color": "#666" } };
+const _hoisted_34$1 = { style: { "color": "#666" } };
+const _hoisted_35$1 = { style: { "color": "#666" } };
+const _hoisted_36$1 = { style: { "color": "#666" } };
+const _hoisted_37$1 = { style: { "color": "#666" } };
 const _sfc_main$1 = /* @__PURE__ */ defineComponent({
   __name: "ShipmentList",
   setup(__props) {
@@ -25200,27 +25200,27 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
                       createBaseVNode("td", _hoisted_14$1, [
                         createBaseVNode("div", _hoisted_15$1, toDisplayString(record.oneRecordLo), 1)
                       ]),
-                      createBaseVNode("td", _hoisted_16, toDisplayString(record.pouch), 1),
-                      createBaseVNode("td", _hoisted_17, toDisplayString(record.sshc), 1),
-                      createBaseVNode("td", _hoisted_18, toDisplayString(record.flight), 1),
-                      createBaseVNode("td", _hoisted_19, toDisplayString(record.fltDate), 1),
-                      createBaseVNode("td", _hoisted_20, toDisplayString(record.std), 1),
-                      createBaseVNode("td", _hoisted_21, [
-                        record.mStatus === "error" ? (openBlock(), createElementBlock("span", _hoisted_22, "E")) : record.mStatus === "error-part" ? (openBlock(), createElementBlock("span", _hoisted_23, "EP")) : record.mStatus === "view-part" ? (openBlock(), createElementBlock("span", _hoisted_24, "VP")) : (openBlock(), createElementBlock("span", _hoisted_25, "-"))
+                      createBaseVNode("td", _hoisted_16$1, toDisplayString(record.pouch), 1),
+                      createBaseVNode("td", _hoisted_17$1, toDisplayString(record.sshc), 1),
+                      createBaseVNode("td", _hoisted_18$1, toDisplayString(record.flight), 1),
+                      createBaseVNode("td", _hoisted_19$1, toDisplayString(record.fltDate), 1),
+                      createBaseVNode("td", _hoisted_20$1, toDisplayString(record.std), 1),
+                      createBaseVNode("td", _hoisted_21$1, [
+                        record.mStatus === "error" ? (openBlock(), createElementBlock("span", _hoisted_22$1, "E")) : record.mStatus === "error-part" ? (openBlock(), createElementBlock("span", _hoisted_23$1, "EP")) : record.mStatus === "view-part" ? (openBlock(), createElementBlock("span", _hoisted_24$1, "VP")) : (openBlock(), createElementBlock("span", _hoisted_25$1, "-"))
                       ]),
-                      createBaseVNode("td", _hoisted_26, [
-                        record.hmStatus === "view" ? (openBlock(), createElementBlock("span", _hoisted_27, "V")) : record.hmStatus === "error-part" ? (openBlock(), createElementBlock("span", _hoisted_28, "EP")) : (openBlock(), createElementBlock("span", _hoisted_29, "-"))
+                      createBaseVNode("td", _hoisted_26$1, [
+                        record.hmStatus === "view" ? (openBlock(), createElementBlock("span", _hoisted_27$1, "V")) : record.hmStatus === "error-part" ? (openBlock(), createElementBlock("span", _hoisted_28$1, "EP")) : (openBlock(), createElementBlock("span", _hoisted_29$1, "-"))
                       ]),
-                      createBaseVNode("td", _hoisted_30, [
-                        record.fStatus === "none" ? (openBlock(), createElementBlock("span", _hoisted_31, "-")) : createCommentVNode("", true)
+                      createBaseVNode("td", _hoisted_30$1, [
+                        record.fStatus === "none" ? (openBlock(), createElementBlock("span", _hoisted_31$1, "-")) : createCommentVNode("", true)
                       ]),
-                      createBaseVNode("td", _hoisted_32, [
-                        record.apStatus === "folder" ? (openBlock(), createElementBlock("span", _hoisted_33, "F")) : createCommentVNode("", true)
+                      createBaseVNode("td", _hoisted_32$1, [
+                        record.apStatus === "folder" ? (openBlock(), createElementBlock("span", _hoisted_33$1, "F")) : createCommentVNode("", true)
                       ]),
-                      createBaseVNode("td", _hoisted_34, toDisplayString(record.pcs), 1),
-                      createBaseVNode("td", _hoisted_35, toDisplayString(record.wgt), 1),
-                      createBaseVNode("td", _hoisted_36, toDisplayString(record.desc), 1),
-                      createBaseVNode("td", _hoisted_37, toDisplayString(record.lastEventTime), 1)
+                      createBaseVNode("td", _hoisted_34$1, toDisplayString(record.pcs), 1),
+                      createBaseVNode("td", _hoisted_35$1, toDisplayString(record.wgt), 1),
+                      createBaseVNode("td", _hoisted_36$1, toDisplayString(record.desc), 1),
+                      createBaseVNode("td", _hoisted_37$1, toDisplayString(record.lastEventTime), 1)
                     ], 8, _hoisted_12$1);
                   }), 128))
                 ])
@@ -25237,122 +25237,294 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
 
 const ShipmentList = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-eb520d31"]]);
 
+const _imports_1 = "/assets/Thermo%20Cover%20ULD-DlUVFwS2.png";
+
+const _imports_2 = "/assets/ULD-DyXHdbK9.png";
+
 const _hoisted_1 = { class: "dashboard-page" };
 const _hoisted_2 = { class: "main-content" };
-const _hoisted_3 = { class: "layout-container" };
-const _hoisted_4 = { class: "left-panel" };
-const _hoisted_5 = { class: "info-row" };
-const _hoisted_6 = { class: "info-val" };
-const _hoisted_7 = { class: "info-row" };
-const _hoisted_8 = { class: "info-val loid-val" };
-const _hoisted_9 = { class: "right-panel" };
-const _hoisted_10 = { class: "alert-banner" };
-const _hoisted_11 = {
-  style: { "width": "18px", "height": "18px", "margin-right": "8px" },
+const _hoisted_3 = { class: "header-info-container" };
+const _hoisted_4 = { class: "awb-section" };
+const _hoisted_5 = { class: "subtitle" };
+const _hoisted_6 = {
+  style: { "width": "12px", "height": "12px" },
   viewBox: "0 0 24 24",
-  fill: "red",
-  stroke: "white",
+  fill: "none",
+  stroke: "currentColor",
+  "stroke-width": "2",
+  "stroke-linecap": "round",
+  "stroke-linejoin": "round"
+};
+const _hoisted_7 = {
+  style: { "width": "12px", "height": "12px" },
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  "stroke-width": "2",
+  "stroke-linecap": "round",
+  "stroke-linejoin": "round"
+};
+const _hoisted_8 = { class: "tabs-container" };
+const _hoisted_9 = {
+  key: 0,
+  class: "tab-content"
+};
+const _hoisted_10 = { class: "table-container" };
+const _hoisted_11 = { class: "detail-table" };
+const _hoisted_12 = { class: "text-gray" };
+const _hoisted_13 = {
+  key: 1,
+  class: "tab-content"
+};
+const _hoisted_14 = {
+  key: 2,
+  class: "tab-content uld-tab"
+};
+const _hoisted_15 = { class: "top-row" };
+const _hoisted_16 = { class: "thermo-block box-card" };
+const _hoisted_17 = { class: "thermo-header" };
+const _hoisted_18 = {
+  style: { "width": "16px", "height": "16px", "margin-right": "8px", "color": "#f59e0b" },
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
   "stroke-width": "2"
 };
-const _hoisted_12 = { class: "tabs-container" };
-const _hoisted_13 = { class: "table-container" };
-const _hoisted_14 = { class: "detail-table" };
-const _hoisted_15 = { class: "text-gray" };
+const _hoisted_19 = { class: "uld-info-block box-card" };
+const _hoisted_20 = { class: "uld-info-content" };
+const _hoisted_21 = { class: "info-grid" };
+const _hoisted_22 = { class: "grid-row" };
+const _hoisted_23 = { class: "sensor-details-val" };
+const _hoisted_24 = { class: "sensor-btn" };
+const _hoisted_25 = {
+  style: { "width": "16px", "height": "16px", "margin-right": "4px" },
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  "stroke-width": "2",
+  "stroke-linecap": "round",
+  "stroke-linejoin": "round"
+};
+const _hoisted_26 = { class: "history-block box-card" };
+const _hoisted_27 = { class: "timeline" };
+const _hoisted_28 = { class: "time-col" };
+const _hoisted_29 = { class: "date-lbl" };
+const _hoisted_30 = { class: "time-lbl" };
+const _hoisted_31 = { class: "dot-col" };
+const _hoisted_32 = {
+  key: 0,
+  class: "timeline-line"
+};
+const _hoisted_33 = { class: "content-col" };
+const _hoisted_34 = { class: "data-box" };
+const _hoisted_35 = { class: "temp-val" };
+const _hoisted_36 = { class: "status-lbl" };
+const _hoisted_37 = {
+  style: { "width": "16px", "height": "16px", "color": "#aaa" },
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  "stroke-width": "2"
+};
 const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "TrackShipment",
   setup(__props) {
     const route = useRoute();
-    const awb = ref(route.query.awb || "160-55554444");
-    const loid = ref(route.query.loid || "3c8e4f1a-b615-492c-ad2f-e8b91a78370f");
-    const activeTab = ref("Temperature Log");
-    const logs = [
+    const awb = ref(route.query.awb || "160 - 82491603");
+    const activeTab = ref(route.query.tab ? String(route.query.tab) : "ULD Sensors");
+    const shipmentLogs = [
       { desc: "[NRT] ULD Temperature Alert", time: "2026-06-03 15:49:00", remark: "3°C Exceed control temperature range +2°C to +8°C" },
       { desc: "[NRT] Normal", time: "2026-06-03 14:00:00", remark: "In range" },
       { desc: "[NRT] Cargo Accepted", time: "2026-06-03 12:30:00", remark: "" }
+    ];
+    const sensorHistoryLogs = [
+      { timeDesc: "30 Mar 26", time: "15:21", temp: "-12.1°C", status: "Normal" },
+      { timeDesc: "30 Mar 26", time: "14:16", temp: "-12.1°C", status: "Normal" },
+      { timeDesc: "30 Mar 26", time: "3:10", temp: "-13.4°C", status: "Normal" },
+      { timeDesc: "30 Mar 26", time: "2:23", temp: "-13.2°C", status: "Normal" },
+      { timeDesc: "28 Mar 26", time: "21:08", temp: "-12.9°C", status: "Normal" }
     ];
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("div", _hoisted_1, [
         createVNode(AppHeader),
         createVNode(AppNavBar),
         createBaseVNode("main", _hoisted_2, [
-          _cache[8] || (_cache[8] = createStaticVNode('<div class="page-header" data-v-a066eda3><h2 class="page-title" data-v-a066eda3>Track Shipment</h2></div><div class="one-record-badge" data-v-a066eda3><img src="' + _imports_0 + '" alt="IATA ONE Record" class="badge-icon" data-v-a066eda3><span class="badge-text" style="color:#1d4ed8;padding:4px 12px;background:#eef2ff;border-radius:12px;font-weight:600;font-size:13px;" data-v-a066eda3>Backed by ONE Record</span></div>', 2)),
+          _cache[28] || (_cache[28] = createStaticVNode('<div class="page-header" data-v-a92b1bbc><h2 class="page-title" data-v-a92b1bbc>Track Shipment</h2></div><div class="one-record-badge" data-v-a92b1bbc><img src="' + _imports_0 + '" alt="IATA ONE Record" class="badge-icon" data-v-a92b1bbc><span class="badge-text" style="color:#1d4ed8;padding:4px 12px;background:#eef2ff;border-radius:12px;font-weight:600;font-size:13px;" data-v-a92b1bbc>Backed by ONE Record</span></div>', 2)),
           createBaseVNode("div", _hoisted_3, [
             createBaseVNode("div", _hoisted_4, [
+              createBaseVNode("h2", null, toDisplayString(awb.value), 1),
               createBaseVNode("div", _hoisted_5, [
-                _cache[2] || (_cache[2] = createBaseVNode("span", { class: "info-label" }, "AWB Number", -1)),
-                createBaseVNode("span", _hoisted_6, toDisplayString(awb.value), 1)
-              ]),
-              createBaseVNode("div", _hoisted_7, [
-                _cache[3] || (_cache[3] = createBaseVNode("span", { class: "info-label" }, "One Record LO ID", -1)),
-                createBaseVNode("span", _hoisted_8, toDisplayString(loid.value), 1)
-              ]),
-              _cache[4] || (_cache[4] = createStaticVNode('<div class="divider" data-v-a066eda3></div><h3 class="section-title" data-v-a066eda3>Shipment Status</h3><div class="info-row status-row" data-v-a066eda3><span class="info-label" data-v-a066eda3>Alert Status</span><span class="info-val" style="color:#ef4444;" data-v-a066eda3>Critical Alert</span></div><div class="divider" data-v-a066eda3></div><h3 class="section-title" data-v-a066eda3>Temperature Control</h3><div class="info-row" data-v-a066eda3><span class="info-label" data-v-a066eda3>Requirement</span><span class="info-val text-gray" data-v-a066eda3>+2°C to +8°C</span></div><div class="info-row" data-v-a066eda3><span class="info-label" data-v-a066eda3>Current reading</span><span class="info-val" style="color:#ef4444;font-weight:bold;" data-v-a066eda3>+11°C</span></div><div class="divider" data-v-a066eda3></div><h3 class="section-title" data-v-a066eda3>Location</h3><div class="info-row" data-v-a066eda3><span class="info-label" data-v-a066eda3>Check Point</span><span class="info-val text-gray" data-v-a066eda3>NRT (Narita)</span></div><div class="info-row" data-v-a066eda3><span class="info-label" data-v-a066eda3>ULD</span><span class="info-val text-gray" data-v-a066eda3>AKE12345JL</span></div>', 11))
-            ]),
-            createBaseVNode("div", _hoisted_9, [
-              createBaseVNode("div", _hoisted_10, [
-                (openBlock(), createElementBlock("svg", _hoisted_11, [..._cache[5] || (_cache[5] = [
-                  createBaseVNode("circle", {
-                    cx: "12",
-                    cy: "12",
-                    r: "10"
+                _cache[5] || (_cache[5] = createTextVNode(" HKG > GRU ", -1)),
+                _cache[6] || (_cache[6] = createBaseVNode("span", { class: "sep" }, "|", -1)),
+                (openBlock(), createElementBlock("svg", _hoisted_6, [..._cache[3] || (_cache[3] = [
+                  createBaseVNode("rect", {
+                    x: "2",
+                    y: "7",
+                    width: "20",
+                    height: "14",
+                    rx: "2",
+                    ry: "2"
                   }, null, -1),
-                  createBaseVNode("line", {
-                    x1: "12",
-                    y1: "8",
-                    x2: "12",
-                    y2: "12"
-                  }, null, -1),
-                  createBaseVNode("line", {
-                    x1: "12",
-                    y1: "16",
-                    x2: "12.01",
-                    y2: "16"
-                  }, null, -1)
+                  createBaseVNode("path", { d: "M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" }, null, -1)
                 ])])),
-                _cache[6] || (_cache[6] = createBaseVNode("div", { style: { "flex": "1" } }, [
-                  createBaseVNode("strong", { style: { "display": "block", "margin-bottom": "2px" } }, "Temperature Alert Detected"),
-                  createBaseVNode("span", { style: { "font-size": "12px" } }, "Immediate action requested for ULD AKE12345JL at NRT. Reading exceeded bounds by +3°C.")
-                ], -1))
-              ]),
-              createBaseVNode("div", _hoisted_12, [
-                createBaseVNode("button", {
-                  class: normalizeClass(["tab-btn", { active: activeTab.value === "Temperature Log" }]),
-                  onClick: _cache[0] || (_cache[0] = ($event) => activeTab.value = "Temperature Log")
-                }, "Temperature Log", 2),
-                createBaseVNode("button", {
-                  class: normalizeClass(["tab-btn", { active: activeTab.value === "Action History" }]),
-                  onClick: _cache[1] || (_cache[1] = ($event) => activeTab.value = "Action History")
-                }, "Action History", 2)
-              ]),
-              createBaseVNode("div", _hoisted_13, [
-                createBaseVNode("table", _hoisted_14, [
-                  _cache[7] || (_cache[7] = createBaseVNode("thead", null, [
-                    createBaseVNode("tr", null, [
-                      createBaseVNode("th", { style: { "width": "35%" } }, "Event"),
-                      createBaseVNode("th", null, "Date Time"),
-                      createBaseVNode("th", null, "Remark")
-                    ])
-                  ], -1)),
-                  createBaseVNode("tbody", null, [
-                    (openBlock(), createElementBlock(Fragment, null, renderList(logs, (log, idx) => {
-                      return createBaseVNode("tr", {
-                        key: idx,
-                        class: normalizeClass({ "alt-row": idx % 2 === 0 })
-                      }, [
-                        createBaseVNode("td", {
-                          style: normalizeStyle(idx === 0 ? "color: #ef4444; font-weight: bold;" : "font-weight: 500; color: #444;")
-                        }, toDisplayString(log.desc), 5),
-                        createBaseVNode("td", _hoisted_15, toDisplayString(log.time), 1),
-                        createBaseVNode("td", {
-                          style: normalizeStyle(idx === 0 ? "color: #ef4444;" : "color: #666;")
-                        }, toDisplayString(log.remark), 5)
-                      ], 2);
-                    }), 64))
+                _cache[7] || (_cache[7] = createTextVNode(" 96 pc ", -1)),
+                _cache[8] || (_cache[8] = createBaseVNode("span", { class: "sep" }, "|", -1)),
+                (openBlock(), createElementBlock("svg", _hoisted_7, [..._cache[4] || (_cache[4] = [
+                  createStaticVNode('<path d="M3 13h18" data-v-a92b1bbc></path><path d="M12 2v11" data-v-a92b1bbc></path><path d="M8 6l4-4 4 4" data-v-a92b1bbc></path><path d="M5 22h14" data-v-a92b1bbc></path><path d="M8 18h8" data-v-a92b1bbc></path>', 5)
+                ])])),
+                _cache[9] || (_cache[9] = createTextVNode(" 1094 kg ", -1))
+              ])
+            ]),
+            createBaseVNode("div", _hoisted_8, [
+              createBaseVNode("button", {
+                class: normalizeClass(["tab-btn", { active: activeTab.value === "Shipment Details" }]),
+                onClick: _cache[0] || (_cache[0] = ($event) => activeTab.value = "Shipment Details")
+              }, "Shipment Details", 2),
+              createBaseVNode("button", {
+                class: normalizeClass(["tab-btn", { active: activeTab.value === "Weather Forecast" }]),
+                onClick: _cache[1] || (_cache[1] = ($event) => activeTab.value = "Weather Forecast")
+              }, "Weather Forecast", 2),
+              createBaseVNode("button", {
+                class: normalizeClass(["tab-btn", { active: activeTab.value === "ULD Sensors" }]),
+                onClick: _cache[2] || (_cache[2] = ($event) => activeTab.value = "ULD Sensors")
+              }, "ULD Sensors", 2)
+            ])
+          ]),
+          activeTab.value === "Shipment Details" ? (openBlock(), createElementBlock("div", _hoisted_9, [
+            createBaseVNode("div", _hoisted_10, [
+              createBaseVNode("table", _hoisted_11, [
+                _cache[10] || (_cache[10] = createBaseVNode("thead", null, [
+                  createBaseVNode("tr", null, [
+                    createBaseVNode("th", { style: { "width": "35%" } }, "Event"),
+                    createBaseVNode("th", null, "Date Time"),
+                    createBaseVNode("th", null, "Remark")
                   ])
+                ], -1)),
+                createBaseVNode("tbody", null, [
+                  (openBlock(), createElementBlock(Fragment, null, renderList(shipmentLogs, (log, idx) => {
+                    return createBaseVNode("tr", {
+                      key: idx,
+                      class: normalizeClass({ "alt-row": idx % 2 === 0 })
+                    }, [
+                      createBaseVNode("td", {
+                        style: normalizeStyle(idx === 0 ? "color: #ef4444; font-weight: bold;" : "font-weight: 500; color: #444;")
+                      }, toDisplayString(log.desc), 5),
+                      createBaseVNode("td", _hoisted_12, toDisplayString(log.time), 1),
+                      createBaseVNode("td", {
+                        style: normalizeStyle(idx === 0 ? "color: #ef4444;" : "color: #666;")
+                      }, toDisplayString(log.remark), 5)
+                    ], 2);
+                  }), 64))
                 ])
               ])
             ])
-          ])
+          ])) : createCommentVNode("", true),
+          activeTab.value === "Weather Forecast" ? (openBlock(), createElementBlock("div", _hoisted_13, [..._cache[11] || (_cache[11] = [
+            createBaseVNode("p", { style: { "color": "#666" } }, "Weather forecast information will be displayed here.", -1)
+          ])])) : createCommentVNode("", true),
+          activeTab.value === "ULD Sensors" ? (openBlock(), createElementBlock("div", _hoisted_14, [
+            createBaseVNode("div", _hoisted_15, [
+              createBaseVNode("div", _hoisted_16, [
+                createBaseVNode("div", _hoisted_17, [
+                  (openBlock(), createElementBlock("svg", _hoisted_18, [..._cache[12] || (_cache[12] = [
+                    createBaseVNode("circle", {
+                      cx: "12",
+                      cy: "12",
+                      r: "10"
+                    }, null, -1),
+                    createBaseVNode("line", {
+                      x1: "12",
+                      y1: "8",
+                      x2: "12",
+                      y2: "12"
+                    }, null, -1),
+                    createBaseVNode("line", {
+                      x1: "12",
+                      y1: "16",
+                      x2: "12.01",
+                      y2: "16"
+                    }, null, -1)
+                  ])])),
+                  _cache[13] || (_cache[13] = createTextVNode(" Thermo Cover Service (Recommended) ", -1))
+                ]),
+                _cache[14] || (_cache[14] = createBaseVNode("div", { class: "thermo-img-container" }, [
+                  createBaseVNode("img", {
+                    src: _imports_1,
+                    alt: "Thermo Cover",
+                    class: "thermo-img"
+                  })
+                ], -1)),
+                _cache[15] || (_cache[15] = createBaseVNode("button", { class: "requested-btn" }, "Requested", -1))
+              ]),
+              createBaseVNode("div", _hoisted_19, [
+                createBaseVNode("div", _hoisted_20, [
+                  _cache[23] || (_cache[23] = createBaseVNode("h3", { class: "green-title" }, "ULD Info", -1)),
+                  createBaseVNode("div", _hoisted_21, [
+                    _cache[20] || (_cache[20] = createBaseVNode("div", { class: "grid-row" }, [
+                      createBaseVNode("span", null, "ULD Type"),
+                      createBaseVNode("span", null, "RAP")
+                    ], -1)),
+                    _cache[21] || (_cache[21] = createBaseVNode("div", { class: "grid-row" }, [
+                      createBaseVNode("span", null, "ULD Leased By"),
+                      createBaseVNode("span", null, "Jettainer")
+                    ], -1)),
+                    _cache[22] || (_cache[22] = createBaseVNode("div", { class: "grid-row" }, [
+                      createBaseVNode("span", null, "Controlled Temperature Range"),
+                      createBaseVNode("span", null, "-10°C to -20°C")
+                    ], -1)),
+                    createBaseVNode("div", _hoisted_22, [
+                      _cache[19] || (_cache[19] = createBaseVNode("span", null, "Number of ULD temperature sensors", -1)),
+                      createBaseVNode("div", _hoisted_23, [
+                        _cache[18] || (_cache[18] = createBaseVNode("span", null, "12", -1)),
+                        createBaseVNode("button", _hoisted_24, [
+                          (openBlock(), createElementBlock("svg", _hoisted_25, [..._cache[16] || (_cache[16] = [
+                            createStaticVNode('<path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9" data-v-a92b1bbc></path><path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5" data-v-a92b1bbc></path><circle cx="12" cy="12" r="2" data-v-a92b1bbc></circle><path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5" data-v-a92b1bbc></path><path d="M19.1 4.9C23 8.8 23 15.1 19.1 19" data-v-a92b1bbc></path>', 5)
+                          ])])),
+                          _cache[17] || (_cache[17] = createTextVNode(" Sensor Details ", -1))
+                        ])
+                      ])
+                    ])
+                  ])
+                ]),
+                _cache[24] || (_cache[24] = createBaseVNode("div", { class: "uld-img-container" }, [
+                  createBaseVNode("img", {
+                    src: _imports_2,
+                    alt: "Jettainer ULD",
+                    class: "uld-img"
+                  })
+                ], -1))
+              ])
+            ]),
+            createBaseVNode("div", _hoisted_26, [
+              _cache[27] || (_cache[27] = createBaseVNode("h3", { class: "green-title" }, "Temperature Sensor History", -1)),
+              createBaseVNode("div", _hoisted_27, [
+                (openBlock(), createElementBlock(Fragment, null, renderList(sensorHistoryLogs, (log, idx) => {
+                  return createBaseVNode("div", {
+                    class: "timeline-item",
+                    key: idx
+                  }, [
+                    createBaseVNode("div", _hoisted_28, [
+                      createBaseVNode("div", _hoisted_29, toDisplayString(log.timeDesc), 1),
+                      createBaseVNode("div", _hoisted_30, toDisplayString(log.time), 1)
+                    ]),
+                    createBaseVNode("div", _hoisted_31, [
+                      _cache[25] || (_cache[25] = createBaseVNode("div", { class: "timeline-dot" }, null, -1)),
+                      idx < sensorHistoryLogs.length - 1 ? (openBlock(), createElementBlock("div", _hoisted_32)) : createCommentVNode("", true)
+                    ]),
+                    createBaseVNode("div", _hoisted_33, [
+                      createBaseVNode("div", _hoisted_34, [
+                        createBaseVNode("span", _hoisted_35, toDisplayString(log.temp), 1),
+                        createBaseVNode("span", _hoisted_36, toDisplayString(log.status), 1),
+                        (openBlock(), createElementBlock("svg", _hoisted_37, [..._cache[26] || (_cache[26] = [
+                          createBaseVNode("polyline", { points: "6 9 12 15 18 9" }, null, -1)
+                        ])]))
+                      ])
+                    ])
+                  ]);
+                }), 64))
+              ])
+            ])
+          ])) : createCommentVNode("", true)
         ]),
         createVNode(AppFooter)
       ]);
@@ -25360,35 +25532,40 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
   }
 });
 
-const TrackShipment = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-a066eda3"]]);
+const TrackShipment = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-a92b1bbc"]]);
 
 const baseUrl = "/";
 const baseChildren = [
   {
     path: "shipment-list",
     name: "ShipmentList",
-    component: ShipmentList
+    component: ShipmentList,
+    meta: { title: "Shipment List" }
   },
   {
     path: "dashboard",
     name: "Dashboard",
-    component: Dashboard
+    component: Dashboard,
+    meta: { title: "Dashboard" }
   },
   {
     path: "carrier-code",
     name: "CarrierCodeMaintenance",
-    component: ShipmentList
+    component: ShipmentList,
     // Reuse ShipmentList for this route
+    meta: { title: "Carrier Code" }
   },
   {
     path: "dashboard/detail",
     name: "DashboardDetail",
-    component: DashboardDetail
+    component: DashboardDetail,
+    meta: { title: "Air Waybill Detail" }
   },
   {
     path: "track-shipment",
     name: "TrackShipment",
-    component: TrackShipment
+    component: TrackShipment,
+    meta: { title: "Track Shipment" }
   }
 ];
 baseChildren.unshift({
@@ -25407,6 +25584,13 @@ const router = createRouter({
   history: createWebHistory(),
   // uses HTML5 history mode
   routes
+});
+router.afterEach((to) => {
+  if (to.meta.title) {
+    document.title = `${to.meta.title} - Ezyone`;
+  } else {
+    document.title = "Ezyone";
+  }
 });
 
 /*!

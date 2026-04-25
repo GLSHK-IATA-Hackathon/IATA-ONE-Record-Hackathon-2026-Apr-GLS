@@ -15,27 +15,32 @@ const baseChildren: RouteRecordRaw[] = [
     {
         path: 'shipment-list',
         name: 'ShipmentList',
-        component: ShipmentList
+        component: ShipmentList,
+        meta: { title: 'Shipment List' }
     },
     {
         path: 'dashboard',
         name: 'Dashboard',
-        component: Dashboard
+        component: Dashboard,
+        meta: { title: 'Dashboard' }
     },
     {
         path: 'carrier-code',
         name: 'CarrierCodeMaintenance',
-        component: ShipmentList // Reuse ShipmentList for this route
+        component: ShipmentList, // Reuse ShipmentList for this route
+        meta: { title: 'Carrier Code' }
     },
     {
         path: 'dashboard/detail',
         name: 'DashboardDetail',
-        component: DashboardDetail
+        component: DashboardDetail,
+        meta: { title: 'Air Waybill Detail' }
     },
     {
         path: 'track-shipment',
         name: 'TrackShipment',
-        component: TrackShipment
+        component: TrackShipment,
+        meta: { title: 'Track Shipment' }
     }
 ]
 
