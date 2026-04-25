@@ -16,6 +16,27 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "WebAPITemplate.Controllers.IoTWeatherController",
+    "Method": "GetLocationAndWeather",
+    "RelativePath": "api/IoTWeather/GetLocationAndWeather",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "lat",
+        "Type": "System.Double",
+        "IsRequired": false
+      },
+      {
+        "Name": "lon",
+        "Type": "System.Double",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "WebAPITemplate.Controllers.Sample.APIClientController",
     "Method": "SampleCode_APIClientPost",
     "RelativePath": "APIClient/SampleCode_APIClientPost",
