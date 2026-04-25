@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import AppNavBar from '@/libs/component/common/AppNavBar.vue';
 import AppHeader from '@/libs/component/common/AppHeader.vue';
 import AppFooter from '@/libs/component/common/AppFooter.vue';
 import { VueDatePicker } from '@vuepic/vue-datepicker';
@@ -36,9 +37,10 @@ const allRecords = [
     user: 'admin',
     lastUpdate: '2026-04-25 10:00',
     routeMap: [
-      { code: 'FWB', status: 'complete', pDate: '24Apr 05:45', mDate: '-', aDate: '-' },
-      { code: 'LAT', status: 'complete', pDate: '24Apr 05:50', mDate: '22Apr 12:46', aDate: '22Apr 12:45' },
-      { code: 'RCS', status: 'complete', pDate: '24Apr 05:50', mDate: '22Apr 12:46', aDate: '22Apr 12:46' },
+      { code: 'FWB', status: 'complete', pDate: '24Apr 05:45', mDate: '-', aDate: '-' }, 
+      { code: 'LAT', status: 'complete', pDate: '24Apr 05:50', mDate: '22Apr 12:46', aDate: '22Apr 12:45' }, 
+      { code: 'SAC', status: 'complete', pDate: '24Apr 05:50', mDate: '22Apr 12:46', aDate: '22Apr 12:45' }, 
+      { code: 'RCS', status: 'complete', pDate: '24Apr 05:50', mDate: '22Apr 12:46', aDate: '22Apr 12:46' }, 
       { code: 'FOW', status: 'new', pDate: '24Apr 07:20', mDate: '-', aDate: '-' },
       { code: 'DEP', status: 'new', pDate: '24Apr 09:20', mDate: '-', aDate: '-' },
       { isFlight: true, from: 'HKG', to: 'SGN', flightNo: 'CX767', sDate: '24Apr 08:20', aDate: '-' },
@@ -55,55 +57,81 @@ const allRecords = [
     ]
   },
   {
-    awb: '160-98765432',
-    oneRecordLo: '7a2f1b40-8c29-4d6d-9286-a51b5e282b8a',
-    source: 'API',
-    hse: '2',
-    flightDate: '2026-04-27',
-    origin: 'SIN',
-    destination: 'FRA',
-    status: 'Accepted',
-    print: 'Y',
-    shipper: 'Global Freight',
-    consignee: 'Euro Cargo',
-    user: 'system',
-    lastUpdate: '2026-04-25 11:30',
-    routeMap: [
-      { code: 'BKG', status: 'complete', pDate: '25Apr 08:00', mDate: '26Apr', aDate: '26Apr 09:00' },
-      { code: 'RCS', status: 'partial', pDate: '25Apr 12:00', mDate: '-', aDate: '26Apr 10:30' },
-      { code: 'DEP', status: 'new', pDate: '26Apr 15:00', mDate: '-', aDate: '-' },
-      { isFlight: true, from: 'SIN', to: 'FRA', flightNo: 'SQ326', sDate: '26Apr 14:00', aDate: '-' },
-      { code: 'ARR', status: 'new', pDate: '26Apr 21:00', mDate: '-', aDate: '-' }
-    ],
-    events: [
-      { code: 'BKG', desc: 'Booking Confirmed', time: '25 Apr 08:00' },
-      { code: 'RCS', desc: 'Freight Received Partially', time: '26 Apr 10:30' }
-    ]
-  },
+      awb: '160-98765432',
+      oneRecordLo: '7a2f1b40-8c29-4d6d-9286-a51b5e282b8a',
+      source: 'API',
+      hse: '2',
+      flightDate: '2026-04-27',
+      origin: 'SIN',
+      destination: 'FRA',
+      status: 'Accepted',
+      print: 'Y',
+      shipper: 'Global Freight',
+      consignee: 'Euro Cargo',
+      user: 'system',
+      lastUpdate: '2026-04-25 11:30',
+        routeMap: [
+          { code: 'FWB', status: 'complete', pDate: '25Apr 05:45', mDate: '-', aDate: '-' },
+          { code: 'LAT', status: 'complete', pDate: '25Apr 05:50', mDate: '-', aDate: '-' },
+          { code: 'SAC', status: 'missing', pDate: '25Apr 05:50', mDate: '-', aDate: '-' },
+          { code: 'RCS', status: 'new', pDate: '25Apr 05:50', mDate: '-', aDate: '-' },
+          { code: 'FOW', status: 'new', pDate: '25Apr 07:20', mDate: '-', aDate: '-' },
+        { code: 'DEP', status: 'new', pDate: '25Apr 09:20', mDate: '-', aDate: '-' },
+        { isFlight: true, from: 'SIN', to: 'FRA', flightNo: 'SQ326', sDate: '26Apr 14:00', aDate: '-' },
+        { code: 'ARR', status: 'new', pDate: '26Apr 21:00', mDate: '-', aDate: '-' },
+        { code: 'RCF', status: 'new', pDate: '26Apr 22:05', mDate: '-', aDate: '-' },
+        { code: 'NFD', status: 'new', pDate: '26Apr 22:35', mDate: '-', aDate: '-' },
+        { code: 'AWD', status: 'new', pDate: '26Apr 22:35', mDate: '-', aDate: '-' },
+        { code: 'DLV', status: 'new', pDate: '27Apr 10:05', mDate: '-', aDate: '-' }
+      ],
+      events: [
+        { code: 'FWB', desc: 'Creation of MAWB', time: '25 Apr 05:45' },
+        { code: 'LAT', desc: 'Latest Acceptance Time', time: '25 Apr 05:50' },
+        { code: 'SAC', desc: 'Security Autocheck Failed', time: '25 Apr 05:50' }
+      ]
+    },
   {
-    awb: '160-55554444',
-    oneRecordLo: '3c8e4f1a-b615-492c-ad2f-e8b91a78370f',
-    source: 'Manual',
-    hse: '1',
-    flightDate: '2026-04-28',
-    origin: 'NRT',
-    destination: 'JFK',
-    status: 'Rejected',
-    print: 'N',
-    shipper: 'Tokyo Exp',
-    consignee: 'NY Dist',
-    user: 'jl',
-    lastUpdate: '2026-04-25 09:15',
-    routeMap: [
-      { code: 'RCS', status: 'complete', pDate: '27Apr 07:00' },
-      { code: 'DG Check', status: 'discrepancy', pDate: '27Apr 08:00', mDate: '27Apr 08:15', aDate: '27Apr 08:20' },
-      { code: 'DEP', status: 'new', pDate: '28Apr 09:00', mDate: '-', aDate: '-' }
-    ],
-    events: [
-      { code: 'RCS', desc: 'Consignment received', time: '27 Apr 07:00' },
-      { code: 'DG', desc: 'Dangerous Goods AutoCheck Failed - EHC needed', time: '27 Apr 08:20' }
-    ]
-  }
+      awb: '160-55554444',
+      oneRecordLo: '3c8e4f1a-b615-492c-ad2f-e8b91a78370f',
+      source: 'Manual',
+      hse: '1',
+      flightDate: '2026-04-28',
+      origin: 'NRT',
+      destination: 'JFK',
+      status: 'Delivered',
+      print: 'Y',
+      shipper: 'Tokyo Exp',
+      consignee: 'NY Dist',
+      user: 'jl',
+      lastUpdate: '2026-04-28 10:15',
+      routeMap: [
+        { code: 'FWB', status: 'complete', pDate: '27Apr 05:45', mDate: '-', aDate: '-' },
+        { code: 'LAT', status: 'complete', pDate: '27Apr 05:50', mDate: '27Apr 05:48', aDate: '27Apr 05:48' },
+        { code: 'SAC', status: 'complete', pDate: '27Apr 05:50', mDate: '27Apr 05:48', aDate: '27Apr 05:48' },
+        { code: 'RCS', status: 'complete', pDate: '27Apr 05:50', mDate: '27Apr 05:50', aDate: '27Apr 05:50' },
+        { code: 'FOW', status: 'complete', pDate: '27Apr 07:20', mDate: '-', aDate: '-' },
+        { code: 'DEP', status: 'complete', pDate: '27Apr 09:20', mDate: '-', aDate: '-' },
+        { isFlight: true, from: 'NRT', to: 'JFK', flightNo: 'JL006', sDate: '27Apr 11:20', aDate: '28Apr 10:10' },
+        { code: 'ARR', status: 'complete', pDate: '28Apr 10:50', mDate: '-', aDate: '-' },
+        { code: 'RCF', status: 'complete', pDate: '28Apr 13:05', mDate: '-', aDate: '-' },
+        { code: 'NFD', status: 'complete', pDate: '28Apr 13:05', mDate: '-', aDate: '-', bDate: '28Apr 13:05' },
+        { code: 'AWD', status: 'complete', pDate: '28Apr 12:35', mDate: '-', aDate: '-' },
+        { code: 'DLV', status: 'complete', pDate: '28Apr 15:05', mDate: '-', aDate: '-' }
+      ],
+      events: [
+        { code: 'FWB', desc: 'Creation of MAWB', time: '27 Apr 05:45' },
+        { code: 'LAT', desc: 'Latest Acceptance Time', time: '27 Apr 05:50' },
+        { code: 'SAC', desc: 'Security Autocheck Passed', time: '27 Apr 05:50' },
+        { code: 'RCS', desc: 'Consignment received', time: '27 Apr 05:50' },
+        { code: 'FOW', desc: 'Freight Out of Warehouse', time: '27 Apr 07:20' },
+        { code: 'DEP', desc: 'Departed', time: '27 Apr 09:20' },
+        { code: 'ARR', desc: 'Arrived', time: '28 Apr 10:50' },
+        { code: 'RCF', desc: 'Received at Flight', time: '28 Apr 13:05' },
+        { code: 'NFD', desc: 'Notified', time: '28 Apr 13:05' },
+        { code: 'AWD', desc: 'Available for Delivery', time: '28 Apr 12:35' },
+        { code: 'DLV', desc: 'Delivered', time: '28 Apr 15:05' }
+      ]
+    }
 ];
 
 const displayedRecords = ref([...allRecords]);
@@ -130,6 +158,34 @@ const clearSearch = () => {
   searchLastUpdateDate.value = null;
   triggerSearch();
 };
+
+const getRecordStatus = (routeMap: any[]) => {
+  if (!routeMap || !routeMap.length) return 'Pending';
+  
+  const discrepancy = routeMap.find(r => r.status === 'discrepancy' || r.status === 'missing');
+  if (discrepancy) return `Exception (${discrepancy.code})`;
+  
+  const completed = routeMap.slice().reverse().find(r => r.status === 'complete' && !r.isFlight);
+  if (completed) {
+    if (completed.code === 'DLV') return 'Delivered';
+    return `In Progress (${completed.code})`;
+  }
+  
+  return 'Pending';
+};
+
+const getStatusBadgeClass = (routeMap: any[]) => {
+  if (!routeMap || !routeMap.length) return 'badge-pending';
+  const discrepancy = routeMap.find(r => r.status === 'discrepancy' || r.status === 'missing');
+  if (discrepancy) return 'badge-exception';
+  
+  const completed = routeMap.slice().reverse().find(r => r.status === 'complete' && !r.isFlight);
+  if (completed) {
+    if (completed.code === 'DLV') return 'badge-delivered';
+    return 'badge-progress';
+  }
+  return 'badge-pending';
+};
 </script>
 
 <template>
@@ -138,24 +194,13 @@ const clearSearch = () => {
 
     <!-- Off-canvas Overlay Component -->
     <RecordOffcanvas v-model:isOpen="isOffCanvasOpen" :recordData="selectedRecordData" />
+    <AppNavBar />
 
-    <!-- Navigation Bar -->
-    <nav class="nav-bar">
-      <router-link to="/dashboard" custom v-slot="{ navigate }">
-        <span @click="navigate">Shipment Performance Monitor</span>
-      </router-link>
-      <router-link to="/carrier-code" custom v-slot="{ navigate }">
-        <span @click="navigate">Carrier code Maintenance</span>
-      </router-link>
-      <span>Terminal</span>
-      <span>Airline</span>
-    </nav>
+      <!-- Main Content -->
+      <main class="main-content">
+        <h2 class="page-title">Shipment Performance (Cargo iQ)</h2>
 
-    <!-- Main Content -->
-    <main class="main-content">
-      <h2 class="page-title">Shipment Performance Monitor</h2>
-
-      <div class="page-tabs">
+        <div class="page-tabs">
         <span 
           :class="['tab', { active: activeTab === 'Air Waybill' }]"
           @click="activeTab = 'Air Waybill'"
@@ -229,15 +274,23 @@ const clearSearch = () => {
               <tr v-if="displayedRecords.length === 0">
                 <td colspan="14" style="text-align: center; padding: 20px; color: #888;">No recent records found matching search criteria.</td>
               </tr>
-              <tr v-for="(record, index) in displayedRecords" :key="index">
-                <td>{{ record.awb }}</td>
-                <td>{{ record.oneRecordLo }}</td>
+                <tr v-for="(record, index) in displayedRecords" :key="index">     
+                <td @click="openOffCanvas(record)" style="cursor: pointer;">
+                  <span class="status-badge" :class="getStatusBadgeClass(record.routeMap)">
+                    {{ record.awb }}
+                  </span>
+                </td>
+                <td @click="openOffCanvas(record)" style="cursor: pointer;">
+                  <span class="status-badge" :class="getStatusBadgeClass(record.routeMap)">
+                    {{ record.oneRecordLo }}
+                  </span>
+                </td>
                 <td>{{ record.source }}</td>
                 <td>{{ record.hse }}</td>
                 <td>{{ record.flightDate }}</td>
                 <td>{{ record.origin }}</td>
                 <td>{{ record.destination }}</td>
-                <td>{{ record.status }}</td>
+                <td>{{ getRecordStatus(record.routeMap) }}</td>
                 <td>{{ record.print }}</td>
                 <td>{{ record.shipper }}</td>
                 <td>{{ record.consignee }}</td>
@@ -265,24 +318,6 @@ const clearSearch = () => {
   flex-direction: column;
 }
 
-/* Nav Bar */
-.nav-bar {
-  background-color: #1A8242;
-  color: white;
-  display: flex;
-  padding: 0 30px;
-  font-family: 'Source Sans Pro', sans-serif;
-}
-.nav-bar span {
-  cursor: pointer;
-  padding: 24px 19px;
-  text-align: center;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 17px;
-  flex: 1;
-}
-
 /* Main Content */
 .main-content {
   flex: 1;
@@ -296,8 +331,11 @@ const clearSearch = () => {
 .page-title {
   margin-top: 0;
   margin-bottom: 20px;
-  font-size: 22px;
-  color: #222;
+  font-size: 24px;
+  color: #1A8242;
+  font-weight: bold;
+  border-bottom: 2px solid #1A8242;
+  padding-bottom: 10px;
 }
 
 .page-tabs {
@@ -413,10 +451,48 @@ const clearSearch = () => {
 .table-container {
   overflow-x: auto;
 }
+
+.status-badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.9em;
+  word-break: break-all;
+  white-space: normal;
+  max-width: 15vw;
+}
+
+.badge-pending {
+  background-color: #f1f5f9;
+  color: #64748b;
+}
+
+.badge-exception {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+.badge-delivered {
+  background-color: #dcfce7;
+  color: #15803d;
+}
+
+.badge-progress {
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
   font-size: 13px;
+}
+tbody tr {
+  transition: background-color 0.2s ease;
+}
+tbody tr:hover {
+  background-color: #f8fafc;
 }
 th, td {
   text-align: left;
@@ -448,3 +524,13 @@ th {
   margin: 0;
 }
 </style>
+
+
+
+
+
+
+
+
+
+

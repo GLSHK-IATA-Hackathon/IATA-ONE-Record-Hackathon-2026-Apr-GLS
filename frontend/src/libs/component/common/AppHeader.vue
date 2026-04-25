@@ -25,7 +25,7 @@
       <div class="user-avatar">
         <div class="avatar-circle">E</div>
         <div class="user-info">
-          <span class="user-name">Elon Musk</span>
+          <span class="user-name">Elon M</span>
           <span class="user-company">GLSHK</span>
         </div>
         <svg style="width: 16px; height: 16px; margin-left: 4px;" viewBox="0 0 24 24" fill="none" stroke="#0F172A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
