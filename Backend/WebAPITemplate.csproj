@@ -1,0 +1,106 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>5f7808d1-ecc4-4094-8a6e-3eb8253868ee</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>.</DockerfileContext>
+    <Version>8.0.0</Version>
+    <Company>GLSHK</Company>
+    <Description>Update docker file, and nuget package version</Description>
+    <FileVersion>2025.09.16.0</FileVersion>
+    <AssemblyVersion>8.0.0.1</AssemblyVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GLSHK.APIClient" Version="6.1.25198" />
+    <PackageReference Include="GLSHK.Common" Version="6.1.0.25199" />
+    <PackageReference Include="GLSHK.Logging" Version="6.0.23110" />
+    <PackageReference Include="GLSHK.Redis" Version="6.0.24151" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Log4Net.AspNetCore" Version="8.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.22.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Certificate\" />
+    <Folder Include="Filter\" />
+    <Folder Include="Interface\" />
+    <Folder Include="Middlewares\" />
+    <Folder Include="Models\Common\" />
+    <Folder Include="Models\DB\DataHandler\" />
+    <Folder Include="Models\DB\DBObject\" />
+    <Folder Include="Models\Enum\" />
+    <Folder Include="Resource\" />
+    <Folder Include="Response\" />
+    <Folder Include="Repositories\" />
+    <Folder Include="RestClients\" />
+    <Folder Include="Services\" />
+    <Folder Include="Swagger\" />
+    <Folder Include="View\" />
+    <Folder Include="Web References\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="config\DataSource.d0.config" />
+    <None Include="config\DataSource.d1.config" />
+    <None Include="config\DataSource.d2.config" />
+    <None Include="config\DataSource.config" />
+    <None Include="config\DataSource.Development.config" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings.d0.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="appsettings.d2.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="appsettings.d1.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="appsettings.p0-green.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="appsettings.p0-blue.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="appsettings.Development.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="log4net.d0.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="log4net.p0-blue.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="log4net.p0-green.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="log4net.t0.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="log4net.t1.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="log4net.Development.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>
