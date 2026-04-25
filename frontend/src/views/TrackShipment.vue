@@ -5,6 +5,22 @@ import AppNavBar from '@/libs/component/common/AppNavBar.vue';
 import AppHeader from '@/libs/component/common/AppHeader.vue';
 import AppFooter from '@/libs/component/common/AppFooter.vue';
 
+import { use } from "echarts/core";
+import { CanvasRenderer } from "echarts/renderers";
+import { LineChart } from "echarts/charts";
+import { GridComponent, TitleComponent, TooltipComponent, MarkAreaComponent, MarkLineComponent } from "echarts/components";
+import VChart from "vue-echarts";
+
+use([
+  CanvasRenderer,
+  LineChart,
+  GridComponent,
+  TitleComponent,
+  TooltipComponent,
+  MarkAreaComponent,
+  MarkLineComponent
+]);
+
 const route = useRoute();
 const awb = ref(route.query.awb || '160 - 82491603');
 const activeTab = ref(route.query.tab ? String(route.query.tab) : 'ULD Sensors');
@@ -22,6 +38,74 @@ const sensorHistoryLogs = [
   { timeDesc: "30 Mar 26", time: "2:23", temp: "-13.2°C", status: "Normal" },
   { timeDesc: "28 Mar 26", time: "21:08", temp: "-12.9°C", status: "Normal" }
 ];
+
+const chartOption = ref({
+  grid: { top: 60, right: 30, bottom: 20, left: 40, containLabel: false },
+  xAxis: {
+    type: 'category',
+    boundaryGap: false,
+    data: ['09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00'],
+    axisLine: { symbol: ['none', 'arrow'], symbolSize: [8, 12], lineStyle: { color: '#333', width: 2 } },
+    axisTick: { show: false },
+    axisLabel: {
+      show: true,
+      interval: 3,
+      color: '#333',
+      fontWeight: 'bold',
+      margin: 12
+    },
+    splitLine: { show: true, interval: 3, lineStyle: { type: 'dashed', color: '#999', width: 1.5 } }
+  },
+  yAxis: {
+    type: 'value',
+    min: 20,
+    max: 42,
+    axisLine: { show: true, symbol: ['none', 'arrow'], symbolSize: [8, 12], lineStyle: { color: '#333', width: 2 } },
+    axisTick: { show: false },
+    axisLabel: {
+      formatter: (value: number) => {
+        if (value === 30 || value === 35) return String(value);
+        return '';
+      },
+      color: '#333',
+      fontWeight: 'bold',
+      margin: 12
+    },
+    splitLine: { show: false } 
+  },
+  series: [
+    {
+      data: [21.5, 21, 21.8, 32, 32.5, 34, 33, 37, 36.5, 38],
+      type: 'line',
+      smooth: true,
+      symbol: 'none',
+      itemStyle: { color: '#2b4d8a' },
+      lineStyle: { width: 3 },
+      markArea: {
+        data: [
+          [
+            { xAxis: '09:00', itemStyle: { color: '#f0f9f4' } }, // light green
+            { xAxis: '15:00' }
+          ],
+          [
+            { xAxis: '15:00', itemStyle: { color: '#fdf0f0' } }, // light red
+            { xAxis: '18:00' }
+          ]
+        ]
+      },
+      markLine: {
+        symbol: 'none',
+        silent: true,
+        label: { show: false },
+        lineStyle: { type: 'dashed', color: '#333', width: 1.5, opacity: 0.8 },
+        data: [
+          { yAxis: 30 },
+          { yAxis: 35 }
+        ]
+      }
+    }
+  ]
+});
 </script>
 
 <template>
@@ -78,8 +162,95 @@ const sensorHistoryLogs = [
       </div>
 
       <!-- Weather Forecast -->
-      <div v-if="activeTab === 'Weather Forecast'" class="tab-content">
-         <p style="color: #666;">Weather forecast information will be displayed here.</p>
+      <div v-if="activeTab === 'Weather Forecast'" class="tab-content weather-tab">
+         <!-- Two column layout -->
+         <div class="weather-cols">
+            <!-- Left Forecast -->
+            <div class="weather-col-left">
+              <h3 class="green-title" style="margin-bottom: 8px;">Arrival Weather Forecast</h3>
+              <p class="eta-text">ETA: 26Apr 13:55</p>
+
+              <div class="forecast-card gradient-card">
+                 <div class="fc-icon">
+                    <svg style="width:50px;height:50px;color:#FFD700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                       <circle cx="12" cy="12" r="5"></circle>
+                       <line x1="12" y1="1" x2="12" y2="3"></line>
+                       <line x1="12" y1="21" x2="12" y2="23"></line>
+                       <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                       <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                       <line x1="1" y1="12" x2="3" y2="12"></line>
+                       <line x1="21" y1="12" x2="23" y2="12"></line>
+                       <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                       <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                 </div>
+                 <div class="fc-temp">38°C</div>
+                 <div class="fc-loc">Brazil</div>
+                 
+                 <div class="fc-stats">
+                    <div class="fc-stat">
+                       <svg style="width:20px;height:20px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <polyline points="4 6 8 10 12 6 16 10 20 6"></polyline>
+                          <polyline points="4 14 8 18 12 14 16 18 20 14"></polyline>
+                       </svg>
+                       <div class="fc-stat-text"><strong>48%</strong><br>Humidity</div>
+                    </div>
+                    <div class="fc-stat">
+                       <svg style="width:20px;height:20px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M4 8h12c1.7 0 3-1.3 3-3s-1.3-3-3-3-3 1.3-3 3"></path>
+                          <path d="M20 16h-9c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3"></path>
+                          <path d="M2.5 12h14"></path>
+                       </svg>
+                       <div class="fc-stat-text"><strong>11.02</strong><br>Wind Speed</div>
+                    </div>
+                 </div>
+              </div>
+            </div>
+
+            <!-- Right Impact Chart -->
+            <div class="weather-col-right">
+              <h3 class="green-title" style="margin-bottom: 24px;">Predicted Arrival Impact</h3>
+
+              <div class="weather-alert-row">
+                <div class="weather-alert-box">
+                  <div class="weather-alert-header">
+                    <img src="../assets/Critical Temperature Alert.png" class="critical-icon" alt="Warning!" />
+                    <strong>Critical Temperature Alert</strong>
+                  </div>
+                  <div class="wa-time">15:00 - 18:00 [GRU✈JFK]</div>
+                  <div class="wa-desc">Hot Weather Alert, Potential Over-Heat (38°C.)</div>
+                </div>
+              </div>
+              
+              <div class="chart-wrapper">
+                 <!-- Absolute Title Overlay -->
+                 <div class="chart-y-title">
+                     <span class="tmean">T<sub>mean</sub></span>
+                     <span class="celsius">(°C)</span>
+                     <span class="desc">-> average temperature over a 24h day</span>
+                 </div>
+
+                 <v-chart class="arrival-chart" :option="chartOption" autoresize />
+
+                 <!-- Timeline points -->
+                 <div class="flight-timeline">
+                    <div class="ft-point">HKG</div>
+                    <div class="ft-part" style="flex: 2;">
+                        <div class="ft-line"></div>
+                        <div class="ft-icon">
+                        <img src="../assets/airplate.png" alt="Flight route" class="airplane-icon" />
+                        </div>
+                        <div class="ft-line"></div>
+                    </div>
+                    <div class="ft-point">GRU</div>
+                    <div class="ft-part" style="flex: 1;">
+                        <div class="ft-line"></div>
+                    </div>
+                    <div class="ft-point" style="margin-right:-8px;">JFK</div>
+                 </div>
+              </div>
+            </div>
+         </div>
       </div>
 
       <!-- ULD Sensors -->
@@ -129,8 +300,8 @@ const sensorHistoryLogs = [
           </div>
         </div>
 
+        <h3 class="green-title" style="margin-top: 10px;">Temperature Sensor History</h3>
         <div class="history-block box-card">
-          <h3 class="green-title">Temperature Sensor History</h3>
           <div class="timeline">
             <div class="timeline-item" v-for="(log, idx) in sensorHistoryLogs" :key="idx">
               <div class="time-col">
@@ -307,7 +478,7 @@ const sensorHistoryLogs = [
 }
 
 .thermo-block {
-  flex: 0 0 320px;
+  flex: 0 0 280px;
   display: flex;
   flex-direction: column;
 }
@@ -316,7 +487,7 @@ const sensorHistoryLogs = [
   display: flex;
   align-items: center;
   font-size: 13px;
-  color: #555;
+  color: #6B8080;
   margin-bottom: 24px;
   padding: 12px;
   background: #fffbea;
@@ -360,7 +531,7 @@ const sensorHistoryLogs = [
 }
 
 .green-title {
-  color: #3b9b6d;
+  color: #2E8B57;
   font-size: 15px;
   font-weight: bold;
   margin-top: 0;
@@ -374,20 +545,26 @@ const sensorHistoryLogs = [
 }
 
 .grid-row {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 240px 1fr;
   align-items: center;
   font-size: 13px;
-  color: #555;
+  color: #6B8080;
+}
+
+.grid-row span:first-child {
+  color: #6B8080;
 }
 
 .grid-row span:last-child {
-  color: #333;
+  color: #6B8080;
+  text-align: right;
 }
 
 .sensor-details-val {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 16px;
 }
 
@@ -456,14 +633,14 @@ const sensorHistoryLogs = [
 .timeline-dot {
   width: 10px;
   height: 10px;
-  background: #3b9b6d;
+  background: #2E8B57;
   border-radius: 50%;
   margin-top: 8px;
 }
 
 .timeline-line {
   width: 2px;
-  background: #3b9b6d;
+  background: #2E8B57;
   flex: 1;
 }
 
@@ -479,11 +656,12 @@ const sensorHistoryLogs = [
   justify-content: space-between;
   border: 1px solid #eaeaea;
   padding: 12px 20px;
-  border-radius: 6px;
+  background: #fff;
+  border-radius: 4px;
 }
 
 .temp-val {
-  color: #3b9b6d;
+  color: #2E8B57;
   font-weight: bold;
   font-size: 14px;
   flex: 1;
@@ -495,4 +673,152 @@ const sensorHistoryLogs = [
   flex: 3;
 }
 
+/* Weather Forecast Tab */
+.weather-tab {
+  background: transparent;
+  border-top: none;
+}
+.weather-cols {
+  display: flex;
+  gap: 40px;
+  margin-top: 10px;
+}
+.weather-col-left {
+  flex: 0 0 260px;
+}
+.eta-text {
+  color: #333;
+  font-size: 13px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+.forecast-card.gradient-card {
+  background: linear-gradient(160deg, #f7b388 0%, #dda294 100%);
+  border-radius: 12px;
+  padding: 30px;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+.fc-icon {
+  margin-bottom: 12px;
+}
+.fc-temp {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+.fc-loc {
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+.fc-stats {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255,255,255,0.3);
+  padding-top: 20px;
+}
+.fc-stat {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-align: left;
+}
+.fc-stat-text {
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.weather-col-right {
+  flex: 1;
+}
+.weather-alert-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+.chart-wrapper {
+  position: relative;
+  background: #fff;
+  width: 100%;
+}
+.arrival-chart {
+  width: 100%;
+  height: 350px;
+}
+.weather-alert-box {
+  position: static;
+  background: white;
+  padding: 10px 14px;
+  border-radius: 6px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  border-left: 4px solid #facc15;
+  text-align: center;
+  z-index: 10;
+  font-size: 11px;
+}
+.weather-alert-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d97706;
+  font-weight: bold;
+  gap: 6px;
+  margin-bottom: 6px;
+  font-size: 13px;
+}
+.critical-icon {
+  width: 16px;
+  height: 16px;
+}
+.wa-time {
+  color: #333;
+  margin-bottom: 2px;
+}
+.wa-desc {
+  color: #333;
+}
+
+.chart-y-title {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  z-index: 5;
+}
+.chart-y-title .tmean { font-size: 18px; font-weight: 900; font-style: italic; color: #000; }
+.chart-y-title .celsius { font-size: 16px; font-weight: 900; color: #000; margin-left: 2px; }
+.chart-y-title .desc { font-size: 12px; color: #555; font-style: italic; margin-left: 6px; }
+
+.flight-timeline {
+  display: flex;
+  align-items: center;
+  padding-right: 32px;
+  padding-left: 26px;
+  color: #666;
+  font-size: 12px;
+  font-weight: bold;
+}
+.ft-point {
+  color: #333;
+}
+.ft-part {
+  display: flex; 
+  align-items: center;
+}
+.ft-line {
+  flex: 1;
+  height: 2px;
+  background: #ccc;
+  margin: 0 10px;
+}
+.ft-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.airplane-icon {
+  width: 18px;
+  height: 18px;
+  opacity: 0.75;
+}
 </style>

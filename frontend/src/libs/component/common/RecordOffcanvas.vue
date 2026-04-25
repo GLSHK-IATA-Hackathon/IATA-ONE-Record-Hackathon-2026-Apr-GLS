@@ -1,5 +1,7 @@
 <script setup lang="ts">
 
+import { computed, nextTick, ref, watch } from 'vue';
+
 const props = defineProps({
   isOpen: {
     type: Boolean,
@@ -40,7 +42,23 @@ const defaultEvents = [
   { code: 'DEH', desc: 'Departed Export Hub', time: '24 Jun 12:07' }
 ];
 
-import { computed } from 'vue';
+const routeMapWrapper = ref<HTMLElement | null>(null);
+
+const resetRouteMapScroll = async () => {
+  await nextTick();
+  if (routeMapWrapper.value) {
+    routeMapWrapper.value.scrollLeft = 0;
+  }
+};
+
+watch(
+  () => [props.isOpen, props.recordData],
+  ([isOpen]) => {
+    if (isOpen) {
+      resetRouteMapScroll();
+    }
+  }
+);
 
 const displayRouteMap = computed(() => {
   return props.recordData?.routeMap || defaultRouteMap;
@@ -107,7 +125,7 @@ const displayEvents = computed(() => {
             <span class="legend-item"><span class="legend-dot status-discrepancy"></span>Discrepancy</span>
           </div>
 
-          <div class="oc-card route-map-wrapper">
+          <div ref="routeMapWrapper" class="oc-card route-map-wrapper">
             <div class="route-map-container">
               <template v-for="(milestone, idx) in displayRouteMap" :key="idx">
                 

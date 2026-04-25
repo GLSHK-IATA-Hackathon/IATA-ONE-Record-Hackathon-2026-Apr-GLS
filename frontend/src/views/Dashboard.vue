@@ -7,7 +7,6 @@ import { VueDatePicker } from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css';
 import RecordOffcanvas from '@/libs/component/common/RecordOffcanvas.vue';
 
-const activeTab = ref('Air Waybill');
 const searchAwb = ref('');
 const searchOneRecordLO = ref('');
 const searchDateRange = ref(null);
@@ -201,17 +200,8 @@ const getStatusBadgeClass = (routeMap: any[]) => {
         <h2 class="page-title">Shipment Performance (Cargo iQ)</h2>
 
         <div class="page-tabs">
-        <span 
-          :class="['tab', { active: activeTab === 'Air Waybill' }]"
-          @click="activeTab = 'Air Waybill'"
-        >
+        <span class="tab active">
           Air Waybill
-        </span>
-        <span 
-          :class="['tab', { active: activeTab === 'Template' }]"
-          @click="activeTab = 'Template'"
-        >
-          Template
         </span>
       </div>
 
