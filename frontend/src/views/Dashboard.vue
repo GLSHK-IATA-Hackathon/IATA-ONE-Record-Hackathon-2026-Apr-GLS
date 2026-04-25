@@ -142,7 +142,7 @@ const clearSearch = () => {
     <!-- Navigation Bar -->
     <nav class="nav-bar">
       <router-link to="/dashboard" custom v-slot="{ navigate }">
-        <span @click="navigate">Shipment List</span>
+        <span @click="navigate">Shipment Performance Monitor</span>
       </router-link>
       <router-link to="/carrier-code" custom v-slot="{ navigate }">
         <span @click="navigate">Carrier code Maintenance</span>
@@ -153,7 +153,7 @@ const clearSearch = () => {
 
     <!-- Main Content -->
     <main class="main-content">
-      <h2 class="page-title">Carrier code Maintenance</h2>
+      <h2 class="page-title">Shipment Performance Monitor</h2>
 
       <div class="page-tabs">
         <span 

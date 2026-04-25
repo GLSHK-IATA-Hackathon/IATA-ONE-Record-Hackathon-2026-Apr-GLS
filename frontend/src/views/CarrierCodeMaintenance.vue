@@ -2,133 +2,49 @@
 import { ref } from 'vue';
 import AppHeader from '@/libs/component/common/AppHeader.vue';
 import AppFooter from '@/libs/component/common/AppFooter.vue';
-import { VueDatePicker } from '@vuepic/vue-datepicker';
-import '@vuepic/vue-datepicker/dist/main.css';
-import RecordOffcanvas from '@/libs/component/common/RecordOffcanvas.vue';
+import { useRouter } from 'vue-router';
 
-const activeTab = ref('Air Waybill');
-const searchAwb = ref('');
-const searchOneRecordLO = ref('');
-const searchDateRange = ref(null);
-const searchLastUpdateDate = ref(null);
+const router = useRouter();
 
-const isOffCanvasOpen = ref(false);
-const selectedRecordData = ref<any>(null);
+const searchParams = ref({
+  awbNumber: '',
+  logisticsObject: ''
+});
 
-const openOffCanvas = (record: any) => {
-  selectedRecordData.value = record;
-  isOffCanvasOpen.value = true;
-};
+const allRecords = ref([
+  { awb: '160-52711536', oneRecordLo: 'fecbe019-f3d6-4436-ad35-66ce87a7d985', pouch: 'EAW', shc: '', flight: 'CX366', flightDate: '04 Mar', std: '', pcs: '2', wgt: '15.0K', desc: 'CONSOL SHI..', lastEventTime: '15 May 10:25' },
+  { awb: '160-52711540', oneRecordLo: '2cd2f6a9-8356-42d8-af5e-b2d9c02ff3cf', pouch: 'EAW', shc: '', flight: 'CX366', flightDate: '04 Mar', std: '', pcs: '42', wgt: '507.0K', desc: 'CONSOL SHI..', lastEventTime: '16 May 14:43' },
+  { awb: '160-10448690', oneRecordLo: '7a2f1b40-8c29-4d6d-9286-a51b5e282b8a', pouch: '', shc: '', flight: 'CX472', flightDate: '29 Apr', std: '29 Apr 15:45', pcs: '1', wgt: '10.2K', desc: 'CONSOL', lastEventTime: '19 May 12:01' },
+  { awb: '160-10193341', oneRecordLo: '3c8e4f1a-b615-492c-ad2f-e8b91a78370f', pouch: 'EAW', shc: '', flight: 'CX366', flightDate: '01 Sep', std: '', pcs: '1', wgt: '1.0K', desc: 'CONSOL', lastEventTime: '29 Aug 16:27' },
+  { awb: '160-33333322', oneRecordLo: 'c5d18196-1c4b-4f9e-bbb8-9e5c467a1ac5', pouch: 'EAW', shc: '', flight: 'CX1234', flightDate: '21 Nov', std: '', pcs: '1', wgt: '123.0K', desc: 'GOODS', lastEventTime: '03 Sep 16:13' },
+  { awb: '160-52001176', oneRecordLo: '8b4566c3-98af-48ce-85de-ff5b9bd60803', pouch: 'EAP', shc: '', flight: 'CX100', flightDate: '08 Sep', std: '', pcs: '1', wgt: '11.5K', desc: 'TESTTESTTE..', lastEventTime: '08 Sep 09:39' },
+  { awb: '160-10314942', oneRecordLo: 'd22dcc1a-55f7-4184-baa5-cf3072fb689d', pouch: 'EAW', shc: '', flight: 'CX705', flightDate: '29 Apr', std: '', pcs: '1', wgt: '100.0K', desc: 'BATTERY', lastEventTime: '12 Sep 10:51' },
+  { awb: '160-10744344', oneRecordLo: '68de1037-3fd9-4ea0-8b17-76fa42861a29', pouch: '', shc: '', flight: 'CX500', flightDate: '24 Sep', std: '24 Sep 15:10', pcs: '10', wgt: '100.0K', desc: 'CCC', lastEventTime: '24 Sep 09:39' },
+  { awb: '160-10730602', oneRecordLo: 'e9bc6625-f5b2-4d7a-8d76-5835b0baf055', pouch: '', shc: '', flight: 'CX504', flightDate: '24 Sep', std: '24 Sep 09:05', pcs: '1', wgt: '1.0K', desc: 'CCCC', lastEventTime: '24 Sep 09:49' },
+  { awb: '160-10730613', oneRecordLo: '11a141aa-8be2-4467-91ac-73c3e80d287a', pouch: '', shc: '', flight: 'CX504', flightDate: '23 Sep', std: '23 Sep 09:05', pcs: '1', wgt: '1.0K', desc: 'CCCC', lastEventTime: '24 Sep 09:58' }
+]);
 
-const allRecords = [
-  {
-    awb: '160-12345675',
-    oneRecordLo: 'fecbe019-f3d6-4436-ad35-66ce87a7d985',
-    source: 'Manual',
-    hse: '0',
-    flightDate: '2026-04-26',
-    origin: 'HKG',
-    destination: 'LHR',
-    status: 'Pending',
-    print: 'N',
-    shipper: 'ABC Logistics',
-    consignee: 'XYZ Imports',
-    user: 'admin',
-    lastUpdate: '2026-04-25 10:00',
-    routeMap: [
-      { code: 'FWB', status: 'complete', pDate: '24Apr 05:45', mDate: '-', aDate: '-' },
-      { code: 'LAT', status: 'complete', pDate: '24Apr 05:50', mDate: '22Apr 12:46', aDate: '22Apr 12:45' },
-      { code: 'RCS', status: 'complete', pDate: '24Apr 05:50', mDate: '22Apr 12:46', aDate: '22Apr 12:46' },
-      { code: 'FOW', status: 'new', pDate: '24Apr 07:20', mDate: '-', aDate: '-' },
-      { code: 'DEP', status: 'new', pDate: '24Apr 09:20', mDate: '-', aDate: '-' },
-      { isFlight: true, from: 'HKG', to: 'SGN', flightNo: 'CX767', sDate: '24Apr 08:20', aDate: '-' },
-      { code: 'ARR', status: 'new', pDate: '24Apr 10:50', mDate: '-', aDate: '-' },
-      { code: 'RCF', status: 'new', pDate: '24Apr 13:05', mDate: '-', aDate: '-' },
-      { code: 'NFD', status: 'new', pDate: '24Apr 13:05', mDate: '-', aDate: '-', bDate: '24Apr 13:05' },
-      { code: 'AWD', status: 'new', pDate: '24Apr 12:35', mDate: '-', aDate: '-' },
-      { code: 'DLV', status: 'new', pDate: '26Apr 10:05', mDate: '-', aDate: '-' }
-    ],
-    events: [
-      { code: 'FWB', desc: 'Creation of MAWB', time: '24 Apr 05:45' },
-      { code: 'LAT', desc: 'Latest Acceptance Time', time: '24 Apr 05:50' },
-      { code: 'RCS', desc: 'Freight Checked in at Departure Airline', time: '24 Apr 05:50' }
-    ]
-  },
-  {
-    awb: '160-98765432',
-    oneRecordLo: '7a2f1b40-8c29-4d6d-9286-a51b5e282b8a',
-    source: 'API',
-    hse: '2',
-    flightDate: '2026-04-27',
-    origin: 'SIN',
-    destination: 'FRA',
-    status: 'Accepted',
-    print: 'Y',
-    shipper: 'Global Freight',
-    consignee: 'Euro Cargo',
-    user: 'system',
-    lastUpdate: '2026-04-25 11:30',
-    routeMap: [
-      { code: 'BKG', status: 'complete', pDate: '25Apr 08:00', mDate: '26Apr', aDate: '26Apr 09:00' },
-      { code: 'RCS', status: 'partial', pDate: '25Apr 12:00', mDate: '-', aDate: '26Apr 10:30' },
-      { code: 'DEP', status: 'new', pDate: '26Apr 15:00', mDate: '-', aDate: '-' },
-      { isFlight: true, from: 'SIN', to: 'FRA', flightNo: 'SQ326', sDate: '26Apr 14:00', aDate: '-' },
-      { code: 'ARR', status: 'new', pDate: '26Apr 21:00', mDate: '-', aDate: '-' }
-    ],
-    events: [
-      { code: 'BKG', desc: 'Booking Confirmed', time: '25 Apr 08:00' },
-      { code: 'RCS', desc: 'Freight Received Partially', time: '26 Apr 10:30' }
-    ]
-  },
-  {
-    awb: '160-55554444',
-    oneRecordLo: '3c8e4f1a-b615-492c-ad2f-e8b91a78370f',
-    source: 'Manual',
-    hse: '1',
-    flightDate: '2026-04-28',
-    origin: 'NRT',
-    destination: 'JFK',
-    status: 'Rejected',
-    print: 'N',
-    shipper: 'Tokyo Exp',
-    consignee: 'NY Dist',
-    user: 'jl',
-    lastUpdate: '2026-04-25 09:15',
-    routeMap: [
-      { code: 'RCS', status: 'complete', pDate: '27Apr 07:00' },
-      { code: 'DG Check', status: 'discrepancy', pDate: '27Apr 08:00', mDate: '27Apr 08:15', aDate: '27Apr 08:20' },
-      { code: 'DEP', status: 'new', pDate: '28Apr 09:00', mDate: '-', aDate: '-' }
-    ],
-    events: [
-      { code: 'RCS', desc: 'Consignment received', time: '27 Apr 07:00' },
-      { code: 'DG', desc: 'Dangerous Goods AutoCheck Failed - EHC needed', time: '27 Apr 08:20' }
-    ]
-  }
-];
-
-const displayedRecords = ref([...allRecords]);
+const displayedRecords = ref([...allRecords.value]);
 
 const triggerSearch = () => {
-  // 1. Filter the table records locally
-  displayedRecords.value = allRecords.filter(record => {
-    const termAwb = searchAwb.value ? searchAwb.value.trim().toLowerCase() : '';
-    const term1R = searchOneRecordLO.value ? searchOneRecordLO.value.trim().toLowerCase() : '';
-    
-    const matchAwb = !termAwb || record.awb.toLowerCase().includes(termAwb);
-    const match1R = !term1R || record.oneRecordLo.toLowerCase().includes(term1R);
-    // Note: Can add robust date checking against searchDateRange/searchLastUpdateDate here internally
-    return matchAwb && match1R;
-  });
+  const pAwb = searchParams.value.awbNumber.toLowerCase();
+  const pLO = searchParams.value.logisticsObject.toLowerCase();
 
-  // 2. Clear old mock data
+  displayedRecords.value = allRecords.value.filter(record => {
+    const matchAwb = pAwb ? record.awb.toLowerCase().includes(pAwb) : true;
+    const matchLO = pLO ? record.oneRecordLo.toLowerCase().includes(pLO) : true;
+    return matchAwb && matchLO;
+  });
 };
 
-const clearSearch = () => {
-  searchAwb.value = '';
-  searchOneRecordLO.value = '';
-  searchDateRange.value = null;
-  searchLastUpdateDate.value = null;
-  triggerSearch();
+const goToDetail = (record: any) => {
+  router.push({
+    path: '/carrier-code/detail',
+    query: {
+      awb: record.awb,
+      loid: record.oneRecordLo
+    }
+  });
 };
 </script>
 
@@ -136,13 +52,10 @@ const clearSearch = () => {
   <div class="dashboard-page">
     <AppHeader />
 
-    <!-- Off-canvas Overlay Component -->
-    <RecordOffcanvas v-model:isOpen="isOffCanvasOpen" :recordData="selectedRecordData" />
-
     <!-- Navigation Bar -->
     <nav class="nav-bar">
       <router-link to="/dashboard" custom v-slot="{ navigate }">
-        <span @click="navigate">Shipment List</span>
+        <span @click="navigate">Shipment Performance Monitor</span>
       </router-link>
       <router-link to="/carrier-code" custom v-slot="{ navigate }">
         <span @click="navigate">Carrier code Maintenance</span>
@@ -153,100 +66,85 @@ const clearSearch = () => {
 
     <!-- Main Content -->
     <main class="main-content">
-      <h2 class="page-title" style="color: #1A8242; font-weight: bold; font-size: 24px; border-bottom: 2px solid #1A8242; padding-bottom: 10px; margin-bottom: 20px;">Shipment List</h2>
-
-      <div class="page-tabs">
-        <span 
-          :class="['tab', { active: activeTab === 'Air Waybill' }]"
-          @click="activeTab = 'Air Waybill'"
-        >
-          Air Waybill
-        </span>
-        <span 
-          :class="['tab', { active: activeTab === 'Template' }]"
-          @click="activeTab = 'Template'"
-        >
-          Template
-        </span>
-      </div>
+      <h2 class="page-title" style="color: #1A8242; font-weight: bold; font-size: 24px; border-bottom: 2px solid #1A8242; padding-bottom: 10px; margin-bottom: 20px;">Carrier code Maintenance</h2>
 
       <!-- Search Section -->
-      <section class="card search-card">
-        <div class="card-header">
-          <h3>Search</h3>
-          <button class="btn btn-outline">+ Create FWB</button>
+      <section class="search-section">
+        <div class="form-row" style="display: flex; gap: 20px; align-items: flex-end; margin-bottom: 20px;">
+          <div class="form-group" style="flex: 1;">
+            <label style="display: block; margin-bottom: 5px; color: #6B8080;">Air Waybill Number</label>
+            <input type="text" v-model="searchParams.awbNumber" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;" placeholder="Enter Air Waybill Number" />
+          </div>
+          <div class="form-group" style="flex: 1;">
+            <label style="display: block; margin-bottom: 5px; color: #6B8080;">Logistics Object</label>
+            <input type="text" v-model="searchParams.logisticsObject" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;" placeholder="Enter Logistics Object" />
+          </div>
+          <div class="form-group" style="flex-shrink: 0;">
+            <button @click="triggerSearch" style="padding: 8px 16px; background-color: #1A8242; color: white; border: none; border-radius: 4px; cursor: pointer;">Search</button>
+          </div>
         </div>
         
-        <div class="form-grid">
-          <div class="form-group">
-            <label>Air Waybill Number</label>
-            <input type="text" v-model="searchAwb" placeholder="Enter AWB..." />
-          </div>
-          <div class="form-group">
-            <label>1R (ONE Record) LO</label>
-            <input type="text" v-model="searchOneRecordLO" placeholder="Enter LO URI or ID..." />
-          </div>
-          <div class="form-group" style="z-index: 10;">
-            <label>Date Range</label>
-            <VueDatePicker v-model="searchDateRange" range multi-calendars placeholder="Select Date Range" />
-          </div>
-          <div class="form-group" style="z-index: 10;">
-            <label>Last Update Date</label>
-            <VueDatePicker v-model="searchLastUpdateDate" placeholder="Select Last Update Date" />
-          </div>
-        </div>
-
-        <div class="search-actions" style="gap: 12px; display: flex; justify-content: flex-end;">
-          <button class="btn btn-outline" @click="clearSearch">Clear</button>
-          <button class="btn btn-green" @click="triggerSearch">Search</button>
-        </div>
-      </section>
-
-      <!-- Results Section -->
-      <section class="card results-card">
-        <h4 class="card-subtitle">Recent FWB Record</h4>
-        <div class="table-container">
-          <table>
-            <thead>
+        <!-- Table Section -->
+        <div class="table-section" style="background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); overflow: hidden;">
+          <table style="width: 100%; border-collapse: collapse;">
+            <thead style="background-color: #f9f9f9; color: #333;">
               <tr>
-                <th>AWB</th>
-                <th>1R LO</th>
-                <th>Source</th>
-                <th>Hse</th>
-                <th>Flight Date</th>
-                <th>Origin</th>
-                <th>Destination</th>
-                <th>Status</th>
-                <th>Print</th>
-                <th>Shipper</th>
-                <th>Consignee</th>
-                <th>User</th>
-                <th>Last Update</th>
-                <th>Action</th>
+                <th style="padding: 12px 15px; border-bottom: 2px solid #1A8242; text-align: left;">AWB No. & 1R LO</th>
+                <th style="padding: 12px 15px; border-bottom: 2px solid #1A8242; text-align: left;">Pouch</th>
+                <th style="padding: 12px 15px; border-bottom: 2px solid #1A8242; text-align: left;">SHC</th>
+                <th style="padding: 12px 15px; border-bottom: 2px solid #1A8242; text-align: left;">Flight</th>
+                <th style="padding: 12px 15px; border-bottom: 2px solid #1A8242; text-align: left;">Flight Date</th>
+                <th style="padding: 12px 15px; border-bottom: 2px solid #1A8242; text-align: left;">STD</th>
+                <th style="padding: 12px 15px; border-bottom: 2px solid #1A8242; text-align: left;">PCS</th>
+                <th style="padding: 12px 15px; border-bottom: 2px solid #1A8242; text-align: left;">WGT</th>
+                <th style="padding: 12px 15px; border-bottom: 2px solid #1A8242; text-align: left;">Description</th>
+                <th style="padding: 12px 15px; border-bottom: 2px solid #1A8242; text-align: left;">Last Event Time</th>
               </tr>
             </thead>
             <tbody>
-              <tr v-if="displayedRecords.length === 0">
-                <td colspan="14" style="text-align: center; padding: 20px; color: #888;">No recent records found matching search criteria.</td>
-              </tr>
-              <tr v-for="(record, index) in displayedRecords" :key="index">
-                <td>{{ record.awb }}</td>
-                <td>{{ record.oneRecordLo }}</td>
-                <td>{{ record.source }}</td>
-                <td>{{ record.hse }}</td>
-                <td>{{ record.flightDate }}</td>
-                <td>{{ record.origin }}</td>
-                <td>{{ record.destination }}</td>
-                <td>{{ record.status }}</td>
-                <td>{{ record.print }}</td>
-                <td>{{ record.shipper }}</td>
-                <td>{{ record.consignee }}</td>
-                <td>{{ record.user }}</td>
-                <td>{{ record.lastUpdate }}</td>
-                <td><a href="#" class="action-link" @click.prevent="openOffCanvas(record)">View</a></td>
+              <tr v-for="record in displayedRecords" :key="record.oneRecordLo" @click="goToDetail(record)" style="cursor: pointer; cursor: hand; transition: background 0.2s;" onmouseover="this.style.backgroundColor='#f8f9fa'" onmouseout="this.style.backgroundColor='transparent'">
+                <td style="padding: 10px 15px; border-bottom: 1px solid #eee;">
+                  <div style="font-weight: 600; color: #333;">{{ record.awb }}</div>
+                  <div style="margin-top: 4px; font-family: monospace; font-size: 11px; color: #666; background: #f4f6f8; padding: 2px 6px; border-radius: 4px; display: inline-block;">{{ record.oneRecordLo }}</div>
+                </td>
+                <td style="padding: 10px 15px; border-bottom: 1px solid #eee;">{{ record.pouch }}</td>
+                <td style="padding: 10px 15px; border-bottom: 1px solid #eee;">{{ record.shc }}</td>
+                <td style="padding: 10px 15px; border-bottom: 1px solid #eee;">{{ record.flight }}</td>
+                <td style="padding: 10px 15px; border-bottom: 1px solid #eee;">{{ record.flightDate }}</td>
+                <td style="padding: 10px 15px; border-bottom: 1px solid #eee;">{{ record.std }}</td>
+                <td style="padding: 10px 15px; border-bottom: 1px solid #eee;">{{ record.pcs }}</td>
+                <td style="padding: 10px 15px; border-bottom: 1px solid #eee;">{{ record.wgt }}</td>
+                <td style="padding: 10px 15px; border-bottom: 1px solid #eee;">{{ record.desc }}</td>
+                <td style="padding: 10px 15px; border-bottom: 1px solid #eee;">{{ record.lastEventTime }}</td>
               </tr>
             </tbody>
           </table>
+        </div>
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px; padding: 10px 0;">
+          <a href="#" style="color: #0ea5e9; text-decoration: none; display: flex; align-items: center; gap: 5px;">
+            <span style="font-size: 18px; line-height: 1;">⊕</span> Add new Record
+          </a>
+          
+          <div style="display: flex; align-items: center; gap: 15px; color: #6B8080; font-size: 14px;">
+            <span>1-10 of 855 items</span>
+            <div style="display: flex; align-items: center; gap: 5px;">
+              <span>Items per page</span>
+              <select style="padding: 2px 5px; border: 1px solid #ccc; border-radius: 4px;">
+                <option>10</option>
+                <option>20</option>
+                <option>50</option>
+              </select>
+            </div>
+            <div style="display: flex; gap: 10px;">
+              <span style="color: #0ea5e9; font-weight: bold; background: #e0f2fe; padding: 2px 8px; border-radius: 4px;">1</span>
+              <span style="cursor: pointer;">2</span>
+              <span style="cursor: pointer;">3</span>
+              <span style="cursor: pointer;">4</span>
+              <span>...</span>
+              <span style="cursor: pointer;">9</span>
+            </div>
+          </div>
         </div>
       </section>
     </main>
@@ -298,153 +196,5 @@ const clearSearch = () => {
   margin-bottom: 20px;
   font-size: 22px;
   color: #222;
-}
-
-.page-tabs {
-  display: flex;
-  gap: 20px;
-  border-bottom: 2px solid #eaeaea;
-  margin-bottom: 20px;
-}
-.tab {
-  padding: 10px 0;
-  cursor: pointer;
-  color: #777;
-  font-weight: 500;
-  position: relative;
-}
-.tab.active {
-  color: #333;
-}
-.tab.active::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: #8cc63f;
-}
-
-/* Cards */
-.card {
-  background-color: #fff;
-  border: 1px solid #eaeaea;
-  border-radius: 4px;
-  padding: 24px;
-  margin-bottom: 24px;
-}
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-.card-header h3 {
-  margin: 0;
-  font-size: 18px;
-  font-weight: 600;
-}
-
-/* Buttons */
-.btn {
-  padding: 8px 16px;
-  border-radius: 4px;
-  font-size: 14px;
-  cursor: pointer;
-  border: 1px solid transparent;
-}
-.btn-outline {
-  border-color: #999;
-  background: white;
-  color: #555;
-}
-.btn-green {
-  background-color: #8cc63f;
-  color: white;
-  border-color: #8cc63f;
-}
-
-/* Form Grid */
-.form-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-bottom: 20px;
-}
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.form-group label {
-  font-size: 13px;
-  color: #666;
-}
-.form-group input {
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  outline: none;
-}
-.form-group input:focus {
-  border-color: #8cc63f;
-}
-
-.search-actions {
-  display: flex;
-  justify-content: flex-end;
-}
-.expand-action {
-  text-align: right;
-  margin-top: 10px;
-  font-size: 13px;
-  color: #666;
-  cursor: pointer;
-}
-
-/* Results */
-.card-subtitle {
-  margin: 0 0 16px 0;
-  color: #888;
-  font-weight: normal;
-  font-size: 14px;
-}
-.table-container {
-  overflow-x: auto;
-}
-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 13px;
-}
-th, td {
-  text-align: left;
-  padding: 12px 8px;
-  border-bottom: 1px solid #f0f0f0;
-}
-th {
-  color: #666;
-  font-weight: 500;
-}
-.skeleton-box {
-  height: 16px;
-  background-color: #f0f0f0;
-  border-radius: 2px;
-  width: 80%;
-}
-.action-link {
-  color: #555;
-  text-decoration: none;
-}
-.mock-data-container pre {
-  background-color: #272822;
-  color: #f8f8f2;
-  padding: 16px;
-  border-radius: 6px;
-  overflow-x: auto;
-  font-family: 'Consolas', 'Monaco', monospace;
-  font-size: 13px;
-  margin: 0;
 }
 </style>
