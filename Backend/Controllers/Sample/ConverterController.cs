@@ -33,7 +33,6 @@ namespace WebAPITemplate.Controllers
                     new XAttribute(XNamespace.Xmlns + "ram", ram.NamespaceName)
                 );
 
-
                 var dgDeclaration = jsonPayload["cargo:dangerousGoodsDeclaration"];
                 var associatedDocs = jsonPayload["cargo:associatedDocuments"] as JArray;
                 var masterAwb = associatedDocs?.FirstOrDefault(d => (string)d["cargo:documentType"]?["cargo:code"] == "741");
@@ -47,6 +46,7 @@ namespace WebAPITemplate.Controllers
                         ? issueDateToken.Value<DateTime>().ToString("yyyy-MM-ddTHH:mm:ss")
                         : (string)issueDateToken;
                 }
+
                 // --- 1. MessageHeaderDocument ---
                 root.Add(new XElement(rsm + "MessageHeaderDocument",
                     new XElement(ram + "ID", (string)masterAwb?["cargo:documentId"]),
@@ -222,6 +222,211 @@ namespace WebAPITemplate.Controllers
             catch (Exception ex)
             {
                 return StatusCode(500, new { Error = "Convertion Error", Details = ex.Message });
+            }
+        }
+
+
+        /// <summary>
+        /// XSDG XML TO ONE Record JSON LD
+        /// </summary>
+        [HttpPost("MappingXSDGtoJSONLD")]
+        public IActionResult MappingXSDGtoJSON([FromForm] string xmlContent)
+        {
+            try
+            {
+
+                if (string.IsNullOrWhiteSpace(xmlContent))
+                {
+                    return BadRequest(new { Error = "XML(xmlContent) Missing or Invalid" });
+                }
+
+
+                var doc = XDocument.Parse(xmlContent);
+                var root = doc.Root;
+
+
+                XNamespace rsm = "iata:shippersdeclarationfordangerousgoods:1";
+                XNamespace ram = "iata:datamodel:3";
+
+
+                var shipment = new JObject
+                {
+                    ["@context"] = new JObject { ["cargo"] = "https://onerecord.iata.org/ns/cargo#" },
+                    ["@type"] = "cargo:Shipment"
+                };
+
+                var msgHeader = root.Element(rsm + "MessageHeaderDocument");
+                var bizHeader = root.Element(rsm + "BusinessHeaderDocument");
+                var houseConsignment = root.Element(rsm + "MasterConsignment")?.Element(ram + "IncludedHouseConsignment");
+
+                // --- 1. Dangerous Goods Declaration ---
+                if (msgHeader != null)
+                {
+                    var dgDeclaration = new JObject
+                    {
+                        ["@type"] = "cargo:DangerousGoodsDeclaration",
+                        ["cargo:documentName"] = (string)msgHeader.Element(ram + "Name"),
+                        ["cargo:documentTypeCode"] = (string)msgHeader.Element(ram + "TypeCode"),
+                        ["cargo:issueDate"] = (string)msgHeader.Element(ram + "IssueDateTime")
+                    };
+
+                    var statement = (string)bizHeader?.Element(ram + "SignatoryConsignorAuthentication")?.Element(ram + "Statement");
+                    if (!string.IsNullOrEmpty(statement))
+                    {
+                        dgDeclaration["cargo:certification"] = new JObject
+                        {
+                            ["@type"] = "cargo:DGDeclarationCertification",
+                            ["cargo:certificationText"] = statement
+                        };
+                    }
+                    shipment["cargo:dangerousGoodsDeclaration"] = dgDeclaration;
+                }
+
+                // --- 2. Involved Parties (Shipper & Consignee) ---
+                var involvedParties = new JArray();
+
+                var consignor = houseConsignment?.Element(ram + "ConsignorParty");
+                if (consignor != null)
+                {
+                    var name = (string)consignor.Element(ram + "Name");
+                    if (!string.IsNullOrEmpty(name))
+                    {
+                        involvedParties.Add(new JObject
+                        {
+                            ["@type"] = "cargo:Party",
+                            ["cargo:partyRole"] = new JObject { ["@type"] = "cargo:CodeListElement", ["cargo:code"] = "SHP" },
+                            ["cargo:partyDetails"] = new JObject
+                            {
+                                ["@type"] = new JArray("cargo:Company"),
+                                ["cargo:name"] = name
+                            }
+                        });
+                    }
+                }
+
+                var consignee = houseConsignment?.Element(ram + "ConsigneeParty");
+                if (consignee != null)
+                {
+                    var name = (string)consignee.Element(ram + "Name");
+                    if (!string.IsNullOrEmpty(name))
+                    {
+                        involvedParties.Add(new JObject
+                        {
+                            ["@type"] = "cargo:Party",
+                            ["cargo:partyRole"] = new JObject { ["@type"] = "cargo:CodeListElement", ["cargo:code"] = "CNE" },
+                            ["cargo:partyDetails"] = new JObject
+                            {
+                                ["@type"] = new JArray("cargo:Company"),
+                                ["cargo:name"] = name
+                            }
+                        });
+                    }
+                }
+
+                if (involvedParties.Count > 0)
+                {
+                    shipment["cargo:involvedParties"] = involvedParties;
+                }
+
+                // --- 3. Handling Instructions ---
+                var handlingInfo = houseConsignment?.Element(ram + "HandlingInstructions");
+                if (handlingInfo != null)
+                {
+                    var desc = (string)handlingInfo.Element(ram + "Description");
+                    if (!string.IsNullOrEmpty(desc))
+                    {
+                        var lines = desc.Split(new[] { "\\n" }, StringSplitOptions.None);
+                        shipment["cargo:textualHandlingInstructions"] = new JArray(lines);
+                    }
+                }
+
+                // --- 4. Associated Documents (Master AWB) ---
+                var refDoc = houseConsignment?.Element(ram + "AssociatedReferenceDocument");
+                if (refDoc != null)
+                {
+                    shipment["cargo:associatedDocuments"] = new JArray(new JObject
+                    {
+                        ["@type"] = "cargo:ExternalReference",
+                        ["cargo:documentId"] = (string)refDoc.Element(ram + "ID"),
+                        ["cargo:documentName"] = (string)refDoc.Element(ram + "Name"),
+                        ["cargo:documentType"] = new JObject
+                        {
+                            ["@type"] = "cargo:CodeListElement",
+                            ["cargo:code"] = (string)refDoc.Element(ram + "TypeCode")
+                        }
+                    });
+                }
+
+                // --- 5. Products & Packaging ---
+                var tradeTransactions = houseConsignment?.Elements(ram + "RelatedCommercialTradeTransaction");
+                var products = new JArray();
+                var packages = new JArray();
+
+                if (tradeTransactions != null)
+                {
+                    foreach (var tx in tradeTransactions)
+                    {
+                        // Product mapping
+                        var lineItem = tx.Element(ram + "IncludedCommercialTradeLineItem");
+                        if (lineItem != null)
+                        {
+                            var appProduct = lineItem.Element(ram + "SpecifiedProductTradeDelivery")?
+                                .Element(ram + "SpecifiedProductRegulatedGoods")?
+                                .Element(ram + "ApplicableProductDangerousGoods");
+
+                            if (appProduct != null)
+                            {
+                                products.Add(new JObject
+                                {
+                                    ["@type"] = "cargo:Product",
+                                    ["cargo:sequenceNumber"] = (int?)lineItem.Element(ram + "SequenceNumeric") ?? 1,
+                                    ["cargo:unNumber"] = (string)appProduct.Element(ram + "UNDGIdentificationCode"),
+                                    ["cargo:hazardClass"] = (string)appProduct.Element(ram + "HazardClassificationID"),
+                                    ["cargo:hazardCategory"] = (string)appProduct.Element(ram + "HazardCategoryCode"),
+                                    ["cargo:properShippingName"] = (string)appProduct.Element(ram + "ProperShippingName"),
+                                    ["cargo:packingGroup"] = (string)appProduct.Element(ram + "PackagingDangerLevelCode"),
+                                    ["cargo:packingInstruction"] = (string)appProduct.Element(ram + "PackingInstructionTypeCode")
+                                });
+                            }
+                        }
+
+                        // Packaging mapping
+                        var packageInfo = tx.Element(ram + "SpecifiedLogisticsPackage");
+                        if (packageInfo != null)
+                        {
+                            packages.Add(new JObject
+                            {
+                                ["@type"] = "cargo:Packaging",
+                                ["cargo:packageSequence"] = (int?)packageInfo.Element(ram + "SequenceNumeric") ?? 1,
+                                ["cargo:packageCount"] = (int?)packageInfo.Element(ram + "ItemQuantity") ?? 0,
+                                ["cargo:allPackedInOneIndicator"] = ((string)packageInfo.Element(ram + "AllPackedInOneIndicator"))?.ToLower() == "true",
+                                ["cargo:packagingTypeDescription"] = (string)packageInfo.Element(ram + "UsedSupplyChainPackaging")?.Element(ram + "Type")?.Value?.Trim()
+                            });
+                        }
+                    }
+                }
+
+                if (products.Count > 0) shipment["cargo:dangerousGoodsProducts"] = products;
+                if (packages.Count > 0) shipment["cargo:packaging"] = packages;
+
+                // --- 6. Transport Dangerous Goods ---
+                var transportDg = houseConsignment?.Element(ram + "ApplicableTransportDangerousGoods");
+                if (transportDg != null)
+                {
+                    shipment["cargo:transportDangerousGoods"] = new JObject
+                    {
+                        ["@type"] = "cargo:TransportDangerousGoods",
+                        ["cargo:hazardType"] = (string)transportDg.Element(ram + "HazardTypeCode"),
+                        ["cargo:complianceStatement"] = (string)transportDg.Element(ram + "ComplianceDeclarationInformation"),
+                        ["cargo:shipperDeclarationText"] = (string)transportDg.Element(ram + "ShipperDeclarationInformation")
+                    };
+                }
+
+                return Ok(shipment);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Error = "XML Parse Error", Details = ex.Message });
             }
         }
     }

@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Update docker file, and nuget package version")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("2025.09.16.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("8.0.0+f6887016831e75e42f4e1faf648db206d877a6af")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("8.0.0+a2f86306a7ca4d7009ccb02e7f19bba22a885331")]
 [assembly: System.Reflection.AssemblyProductAttribute("WebAPITemplate")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WebAPITemplate")]
 [assembly: System.Reflection.AssemblyVersionAttribute("8.0.0.1")]

@@ -16,6 +16,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "WebAPITemplate.Controllers.ConverterController",
+    "Method": "MappingXSDGtoJSON",
+    "RelativePath": "api/Converter/MappingXSDGtoJSONLD",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "xmlContent",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "WebAPITemplate.Controllers.IoTWeatherController",
     "Method": "GetLocationAndWeather",
     "RelativePath": "api/IoTWeather/GetLocationAndWeather",
@@ -48,6 +64,32 @@
         "Name": "lo_id",
         "Type": "System.String",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPITemplate.Controllers.ULDMonitorController",
+    "Method": "GetAllUldStatuses",
+    "RelativePath": "api/ULDMonitor/GetAllUldStatuses",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPITemplate.Controllers.ULDMonitorController",
+    "Method": "ReceiveUldStatus",
+    "RelativePath": "api/ULDMonitor/ULDStatusReport",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "payload",
+        "Type": "WebAPITemplate.Controllers.UldReportDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

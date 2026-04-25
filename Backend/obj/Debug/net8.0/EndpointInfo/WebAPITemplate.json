@@ -53,6 +53,37 @@
         }
       }
     },
+    "/api/Converter/MappingXSDGtoJSONLD": {
+      "post": {
+        "tags": [
+          "Converter"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "xmlContent": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "xmlContent": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/Sample/healthcheck": {
       "get": {
         "tags": [
@@ -144,15 +175,127 @@
           }
         }
       }
+    },
+    "/api/ULDMonitor/ULDStatusReport": {
+      "post": {
+        "tags": [
+          "ULDMonitor"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UldReportDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UldReportDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UldReportDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UldReportDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ULDMonitor/GetAllUldStatuses": {
+      "get": {
+        "tags": [
+          "ULDMonitor"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
+      "DeviceStatusDto": {
+        "type": "object",
+        "properties": {
+          "batteryLevel": {
+            "type": "number",
+            "format": "double"
+          },
+          "isAlert": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GeolocationDto": {
+        "type": "object",
+        "properties": {
+          "latitude": {
+            "type": "number",
+            "format": "double"
+          },
+          "longitude": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
       "JToken": {
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/JToken"
         }
+      },
+      "MeasurementsDto": {
+        "type": "object",
+        "properties": {
+          "temperature_C": {
+            "type": "number",
+            "format": "double"
+          },
+          "humidity_percent": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UldReportDto": {
+        "type": "object",
+        "properties": {
+          "uldId": {
+            "type": "string",
+            "nullable": true
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "geolocation": {
+            "$ref": "#/components/schemas/GeolocationDto"
+          },
+          "measurements": {
+            "$ref": "#/components/schemas/MeasurementsDto"
+          },
+          "deviceStatus": {
+            "$ref": "#/components/schemas/DeviceStatusDto"
+          }
+        },
+        "additionalProperties": false
       }
     }
   }
