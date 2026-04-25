@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "WebAPITemplate.Controllers.ConverterController",
+    "Method": "Mapping1RtoXSDG",
+    "RelativePath": "api/Converter/Mapping1RtoXSDG",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "jsonPayload",
+        "Type": "Newtonsoft.Json.Linq.JObject",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "WebAPITemplate.Controllers.Sample.APIClientController",
     "Method": "SampleCode_APIClientPost",
     "RelativePath": "APIClient/SampleCode_APIClientPost",
