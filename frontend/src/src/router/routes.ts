@@ -5,6 +5,8 @@ import type { RouteRecordRaw } from 'vue-router'
 import HomeIndex from '@/views/Home.vue'
 import HelloWorld from '@/views/HelloWorld.vue'
 import Dashboard from '@/views/Dashboard.vue'
+import CarrierCodeMaintenance from '@/views/CarrierCodeMaintenance.vue'
+import CarrierCodeDetail from '@/views/CarrierCodeDetail.vue'
 
 const baseUrl = '/'
 
@@ -19,6 +21,16 @@ const baseChildren: RouteRecordRaw[] = [
         path: 'dashboard',
         name: 'Dashboard',
         component: Dashboard
+    },
+    {
+        path: 'carrier-code',
+        name: 'CarrierCodeMaintenance',
+        component: CarrierCodeMaintenance
+    },
+    {
+        path: 'carrier-code/detail',
+        name: 'CarrierCodeDetail',
+        component: CarrierCodeDetail
     }
 ]
 
