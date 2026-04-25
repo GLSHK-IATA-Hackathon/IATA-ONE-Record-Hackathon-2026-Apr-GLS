@@ -11,6 +11,10 @@ const awb = ref(route.query.awb || '160-12345678');
 const loid = ref(route.query.loid || 'fecbe019-f3d6-4436-ad35-66ce87a7d985');   
 const activeTab = ref('DG Checking');
 const showUploadSection = ref(false);
+const showProceedBtn = ref(false);
+
+const fullDocumentList = ref<string[]>([]);
+const selectedFileName = ref('');
 
 const docs = [
   { desc: "Shipper's Declaration for Dangerous Goods (DGD)", time: "2026-04-20 08:23:52" },
@@ -20,6 +24,30 @@ const docs = [
   { desc: "Certificate of Origin", time: "2026-04-24 14:05:18" },
   { desc: "Safety Data Sheet (SDS)", time: "2026-04-25 16:20:33" }
 ];
+
+const fileInputRef = ref<HTMLInputElement | null>(null);
+
+const triggerFileInput = () => {
+    fileInputRef.value?.click();
+};
+
+const handleFileChange = (event: Event) => {
+    const target = event.target as HTMLInputElement;
+    if (target.files && target.files.length > 0) {
+        selectedFileName.value = target.files[0].name;
+    }
+};
+
+const handleUpload = () => {
+    if (selectedFileName.value) {
+        fullDocumentList.value.push(selectedFileName.value);
+        selectedFileName.value = '';
+        showProceedBtn.value = true;
+        if (fileInputRef.value) {
+            fileInputRef.value.value = '';
+        }
+    }
+};
 </script>
 
 <template>
@@ -28,9 +56,12 @@ const docs = [
     <AppNavBar />
 
     <main class="main-content">
-      <h2 class="page-title">Air Waybill Detail</h2>
-
-      <div class="layout-container">
+        <div class="page-header">
+          <h2 class="page-title">Air Waybill Detail</h2>
+          <div class="one-record-logo">
+            <img src="../assets/1R Logo.png" alt="IATA ONE Record" style="height: 38px; object-fit: contain; display: block;" />
+          </div>
+        </div>      <div class="layout-container">
         
         <!-- Left Panel -->
         <div class="left-panel">
@@ -131,28 +162,41 @@ const docs = [
                 <div class="upload-title">Upload File</div>
                 <div class="upload-subtitle">Support 1 file only, in <strong>.pdf, .jpg, .png</strong> formats, up to <strong>20 MB</strong>.</div>
                 
-                <div class="upload-form">
+                                <div class="upload-form">
                     <span class="file-label">File Name</span>
                     <div class="file-input-group">
-                        <button class="btn btn-browse">
+                        <input type="file" ref="fileInputRef" style="display: none;" @change="handleFileChange" accept=".pdf,.jpg,.png" />
+                        <button class="btn btn-browse" @click="triggerFileInput">
                            <svg style="width: 12px; height: 12px; margin-right: 4px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
                            Browse File
                         </button>
-                        <input type="text" class="file-text-input" placeholder="DG file2026_Apr25.pdf" readonly />
-                        <button class="btn btn-do-upload">Upload</button>
+                        <input type="text" class="file-text-input" placeholder="" :value="selectedFileName" readonly />
+                        <button class="btn btn-do-upload" @click="handleUpload">Upload</button>
                     </div>
                 </div>
-            </div>
+
+                <div v-if="fullDocumentList.length > 0" class="upload-list-container">
+                    <div class="divider"></div>
+                    <div class="upload-list-title">Full Document List</div>
+                    <ol class="upload-list">
+                        <li v-for="(fileName, index) in fullDocumentList" :key="index">
+                            {{ fileName }}
+                        </li>
+                    </ol>
+                </div>
+              </div>
+              
+              <div class="proceed-action" v-if="showProceedBtn">
+                  <button class="btn btn-proceed">Proceed DG Auto Check</button>
+              </div>
+          </div>
+
         </div>
+      </main>
 
-      </div>
-    </main>
-
-    <AppFooter />
-  </div>
-</template>
-
-<style scoped>
+      <AppFooter />
+    </div>
+  </template><style scoped>
 .dashboard-page {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
@@ -171,14 +215,21 @@ const docs = [
   box-sizing: border-box;
 }
 
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #2E8B57;
+  padding-bottom: 12px;
+}
+
 .page-title {
   margin-top: 0;
-  margin-bottom: 25px;
+  margin-bottom: 0;
   font-size: 20px;
   color: #2E8B57;
   font-weight: bold;
-  border-bottom: 2px solid #2E8B57;
-  padding-bottom: 12px;
 }
 
 .layout-container {
@@ -425,6 +476,42 @@ const docs = [
 }
 
 .btn-do-upload:hover {
+  background-color: #689f38;
+}
+.upload-list-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+  margin-top: 16px;
+  margin-bottom: 12px;
+}
+
+.upload-list {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 12px;
+  color: #555;
+  line-height: 1.8;
+}
+
+.proceed-action {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.btn-proceed {
+  background-color: #7cb342;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-proceed:hover {
   background-color: #689f38;
 }
 </style>

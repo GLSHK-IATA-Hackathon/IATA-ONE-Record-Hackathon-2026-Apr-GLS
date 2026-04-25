@@ -9341,7 +9341,7 @@ const _sfc_main$6 = /* @__PURE__ */ defineComponent({
 
 const AppNavBar = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-ee74b328"]]);
 
-const _imports_0$1 = "data:image/png;base64,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";
+const _imports_0$1 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAE0AAAAjCAYAAADR94eaAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAAB4tJREFUeAHtWU9rG0cUf7OzUpQ4qeVSKL0k2w/QxoH2VNLIn6DOLeRPrUALru008ieIfS2ktolsDDlYIW7xzcq1EKxQyCUX5RNkDYUeeoj6D2xpd6ZvVjur2dVqZ0y2gkB+IHZ25u3M6M37PwDv8A7jAIEx46Offn2Nq5YzSDq/X788pXbcXFhaIYTcAw0ebz4Yy/+xYIxwdg7KGoYBB2gn+wiQi6ABB9KGMcFOdnz2oFbBUz2AHFAoWc7zb+4fyvcj257WiQIB9jKlM2I0J/wqPjpJEsb8oG+2ViuXjo5GHsxRqdRRx/e2t90kjTpH2ridssFpyAkqwwJY3NFbBOKmdMo9dXbr9SZk4FzP3wdaqIwat7veBqEFIbkBTbVWm2qsr0eHcG2+5hR6/gHO4eBrA3+3k3MMqSfn4EA+SFEXwbRscD+uZvinxIkHp87TGRr/Hnim+qOqtznnz+R7t9udVcdPUX4XH45oU7+3mjbHkKQRAlr7YQIC/HB4bks7t295MdXzjrxpQomcc/rW4h2e/AaZsLq7VV8R7d3N+iV1bG7xzg5D3gd0BOk2642bS0sV5G7gWCihV6AvUYGUMfBrkraRopoC1vCfJQ7kAMbTJE0vxX/cmIl9h5vXm4v0tYYZVg8ZW6+3YGAXI0krUF96aNe27XUYgZikTa8FquBADuCp6qm1l8OekxAnmhP/OD5aSRr7lD303SiGRXMx/oRYZA6b5evfLkxbtuVASI+bX1Xt3NB66kuhiAzjkAtIiofD+OvEcRRK/gXZZses+fPDLW1ooWNYMC8hLUEatG1SQQbeDYfcx1sPGlnzx9STsdycAHge5BI34Z92ZLs4UXR19CYME6BFGnlhy7KEWjpBv9+bAQ1iJ48xmlHkbYDOi6W1KcgBquHHzbppNEjQwmzgtsow6Et68uDaSLeszC3i0Yoy3hDzgAYJ7ym8Wy76mYuUXV9YiNlAPsLeovf8U4Qmfs+vKt3CPlcSdC8T789QSCSNOyrESCLONMLK2uDT76Hu/ZtJ8l6pV77/9HIVNLAs2lyeaY00uMVi0fW7vsHJs/4hcbhtRBdtAA83lBFU5UejQowkYhz6vL78GkCTG3b/Bv7Pb1kk8Mn5Hnx63gPt4oRMZTHt/wCq5A73+SORmqHxX4O+9Lqolh+bzhFJWhhulLVf+EdakvcnGBigM26Gfb3w/V3MGKoYLFeV7o6J8VcReU/bNss5uXespZkoGdnFsVUlJJjFDpFpct0OtlvIsEumaikRSRpG8A41iqJ8LcXUhJ5pmK65MGaEyX4T3hCRpFnEMEbzstVz4pSZ92UspQT0lkDxngbhBvdF/pFJcrZkZM/Q3VPXhE7Uts4d96qckMDeEs47Pe4390ao1M15TMZD7G4HOWYMQcpErTLzWUdmF7IPNLBLdlukVwOmEX3ZBgzsmYlqClCarZ6CWZM9fo/1sOpgWQM3j3pdAGsNvWCDFuiymiOKuE4toGI1YyZMzgfrFuk+Phxq0ScQJutW0drBdE1n0zu4VhCw24O9BAYy0zh/cOav6bOnvczJP5w0kzT0nCPXkoVAFg9m3fAp+6oYzIp25Pko0PjeWMCUlnwNA+Dge+kQwj6tE1QcyIBpLxbXtUHkj0+/XEfuGnlZDTIPJyzROKItav+2370qPVwVGepT/yAcr4jaWCRNBK6o86DUzSFTVqQ0qrU5tOatoT5Mo3ojsoISlsll24aTgJBcCpSQUgGRCG1SNXx17YI109jcjugb2+vuje8WNzDJXgs6FGlCacA7CCLnD+JOzws0IxhHRlXkPFgvayf7RLlozyD8OBnTTIJfEyRyQBV46nMDuvS6VoEXmj74AdPUoqm0S5hTPkIp+wqbDuFBAaIVjl/sT0vact7kTde1+XknuZ64jGkq+zjpFV4eqikkws0Yi9ZQyzcj6QmfFE/Va+IkLcG48K0S3jNEl0bogQeleOUiCdOq/QItvEr+znX9WXVNY6b98EslF4YJMEZH2jTFi7mjqqceeE70wiGQWrUszjzm2sVBudrrerWQccF3jLOWeAqHAwaVanQUsf0aqychXln4pzxw+kz3FbwBVBUm4SWxRSzpBKL4C8OSFj7EPe4cGvxWdEFD+9/YNto73u/jnGx4rLuett7ew7idM2aaZZHcJG3pi+eHGcORERfSkZS2vnT4FflOWa8lnqLCK5yAGhqIyi3aNEHrIKOi4mrkbRk6Aek4Ldbc2zLLQY3VM69bKtAl6jyKqzB+4rEqsgh4bcqC4DQgJXxDhCKCuZFah+oqkLh1qvSHuZxfhCSRE4i8qQHMvWdu4QY/zBy1+AZKR2h4We3Wwh0H/+hLQugk9Cuz0oOLa7YV0YjFWjx+W4UOYSNWwleYCopjQ7u1j+oMwxuCDl60XFW7TuI98/GcPFvShHSEV3V9EJjt/2lWg+imPSjpzESqq8Rawgmo86kOob+BPlPDUroaQlXSfriXoTDLWNKOj8klyAGlEunoaMQNEkb+DY96K/h6QZoGlJo2MmgjmU9ifwcT+oZoJ6/4BGMxa1hFQx9cBRa4F42z8GY9CxYnz+Ad3hz/AdJQN0oCRubbAAAAAElFTkSuQmCC";
 
 const _sfc_main$5 = {  };
 
@@ -9448,7 +9448,7 @@ function _sfc_render$1(_ctx, _cache) {
       createBaseVNode("div", _hoisted_11$4, [
         _cache[8] || (_cache[8] = createBaseVNode("div", { class: "avatar-circle" }, "E", -1)),
         _cache[9] || (_cache[9] = createBaseVNode("div", { class: "user-info" }, [
-          createBaseVNode("span", { class: "user-name" }, "Elon Musk"),
+          createBaseVNode("span", { class: "user-name" }, "Elon M"),
           createBaseVNode("span", { class: "user-company" }, "GLSHK")
         ], -1)),
         (openBlock(), createElementBlock("svg", _hoisted_12$4, [...(_cache[7] || (_cache[7] = [
@@ -9458,7 +9458,7 @@ function _sfc_render$1(_ctx, _cache) {
     ])
   ]))
 }
-const AppHeader = /*#__PURE__*/_export_sfc(_sfc_main$5, [['render',_sfc_render$1],['__scopeId',"data-v-8f0445e3"]]);
+const AppHeader = /*#__PURE__*/_export_sfc(_sfc_main$5, [['render',_sfc_render$1],['__scopeId',"data-v-f83439fc"]]);
 
 const _imports_0 = "data:image/png;base64,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";
 
@@ -24140,18 +24140,18 @@ const _hoisted_12$3 = {
   style: { "opacity": "0.5" }
 };
 const _hoisted_13$3 = { class: "oc-section" };
-const _hoisted_14$2 = { class: "oc-card route-map-wrapper" };
-const _hoisted_15$1 = { class: "route-map-container" };
-const _hoisted_16$1 = {
+const _hoisted_14$3 = { class: "oc-card route-map-wrapper" };
+const _hoisted_15$3 = { class: "route-map-container" };
+const _hoisted_16$2 = {
   key: 0,
   class: "route-flight-segment"
 };
-const _hoisted_17$1 = { class: "flight-visual" };
-const _hoisted_18$1 = { class: "flight-city" };
-const _hoisted_19$1 = { class: "flight-line" };
-const _hoisted_20$1 = { class: "flight-badge" };
-const _hoisted_21$1 = { class: "flight-city" };
-const _hoisted_22$1 = { class: "route-times flight-times" };
+const _hoisted_17$2 = { class: "flight-visual" };
+const _hoisted_18$2 = { class: "flight-city" };
+const _hoisted_19$2 = { class: "flight-line" };
+const _hoisted_20$2 = { class: "flight-badge" };
+const _hoisted_21$2 = { class: "flight-city" };
+const _hoisted_22$2 = { class: "route-times flight-times" };
 const _hoisted_23$1 = {
   key: 1,
   class: "route-milestone"
@@ -24257,14 +24257,14 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
             ]),
             createBaseVNode("div", _hoisted_13$3, [
               _cache[8] || (_cache[8] = createStaticVNode('<h4 class="oc-section-title" data-v-304df020>Route Map</h4><div class="oc-legend" data-v-304df020><span class="legend-item" data-v-304df020><span class="legend-dot status-new" data-v-304df020></span>New</span><span class="legend-item" data-v-304df020><span class="legend-dot status-missing" data-v-304df020></span>Missing</span><span class="legend-item" data-v-304df020><span class="legend-dot status-complete" data-v-304df020></span>Complete</span><span class="legend-item" data-v-304df020><span class="legend-dot status-partial" data-v-304df020></span>Partial Complete</span><span class="legend-item" data-v-304df020><span class="legend-dot status-discrepancy" data-v-304df020></span>Discrepancy</span></div>', 2)),
-              createBaseVNode("div", _hoisted_14$2, [
-                createBaseVNode("div", _hoisted_15$1, [
+              createBaseVNode("div", _hoisted_14$3, [
+                createBaseVNode("div", _hoisted_15$3, [
                   (openBlock(true), createElementBlock(Fragment, null, renderList(displayRouteMap.value, (milestone, idx) => {
                     return openBlock(), createElementBlock(Fragment, { key: idx }, [
-                      milestone.isFlight ? (openBlock(), createElementBlock("div", _hoisted_16$1, [
-                        createBaseVNode("div", _hoisted_17$1, [
-                          createBaseVNode("span", _hoisted_18$1, toDisplayString(milestone.from), 1),
-                          createBaseVNode("div", _hoisted_19$1, [
+                      milestone.isFlight ? (openBlock(), createElementBlock("div", _hoisted_16$2, [
+                        createBaseVNode("div", _hoisted_17$2, [
+                          createBaseVNode("span", _hoisted_18$2, toDisplayString(milestone.from), 1),
+                          createBaseVNode("div", _hoisted_19$2, [
                             _cache[6] || (_cache[6] = createBaseVNode("svg", {
                               class: "flight-icon",
                               viewBox: "0 0 24 24",
@@ -24272,11 +24272,11 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
                             }, [
                               createBaseVNode("path", { d: "M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" })
                             ], -1)),
-                            createBaseVNode("span", _hoisted_20$1, toDisplayString(milestone.flightNo), 1)
+                            createBaseVNode("span", _hoisted_20$2, toDisplayString(milestone.flightNo), 1)
                           ]),
-                          createBaseVNode("span", _hoisted_21$1, toDisplayString(milestone.to), 1)
+                          createBaseVNode("span", _hoisted_21$2, toDisplayString(milestone.to), 1)
                         ]),
-                        createBaseVNode("div", _hoisted_22$1, [
+                        createBaseVNode("div", _hoisted_22$2, [
                           createBaseVNode("div", null, "S: " + toDisplayString(milestone.sDate), 1),
                           createBaseVNode("div", null, "A: " + toDisplayString(milestone.aDate), 1)
                         ])
@@ -24361,6 +24361,8 @@ const _hoisted_10$2 = { class: "card results-card" };
 const _hoisted_11$2 = { class: "table-container" };
 const _hoisted_12$2 = { key: 0 };
 const _hoisted_13$2 = ["onClick"];
+const _hoisted_14$2 = ["onClick"];
+const _hoisted_15$2 = ["onClick"];
 const _sfc_main$2 = /* @__PURE__ */ defineComponent({
   __name: "Dashboard",
   setup(__props) {
@@ -24427,7 +24429,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
         routeMap: [
           { code: "FWB", status: "complete", pDate: "25Apr 05:45", mDate: "-", aDate: "-" },
           { code: "LAT", status: "complete", pDate: "25Apr 05:50", mDate: "-", aDate: "-" },
-          { code: "SAC", status: "discrepancy", pDate: "25Apr 05:50", mDate: "-", aDate: "-" },
+          { code: "SAC", status: "missing", pDate: "25Apr 05:50", mDate: "-", aDate: "-" },
           { code: "RCS", status: "new", pDate: "25Apr 05:50", mDate: "-", aDate: "-" },
           { code: "FOW", status: "new", pDate: "25Apr 07:20", mDate: "-", aDate: "-" },
           { code: "DEP", status: "new", pDate: "25Apr 09:20", mDate: "-", aDate: "-" },
@@ -24503,6 +24505,28 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
       searchDateRange.value = null;
       searchLastUpdateDate.value = null;
       triggerSearch();
+    };
+    const getRecordStatus = (routeMap) => {
+      if (!routeMap || !routeMap.length) return "Pending";
+      const discrepancy = routeMap.find((r) => r.status === "discrepancy" || r.status === "missing");
+      if (discrepancy) return `Exception (${discrepancy.code})`;
+      const completed = routeMap.slice().reverse().find((r) => r.status === "complete" && !r.isFlight);
+      if (completed) {
+        if (completed.code === "DLV") return "Delivered";
+        return `In Progress (${completed.code})`;
+      }
+      return "Pending";
+    };
+    const getStatusBadgeClass = (routeMap) => {
+      if (!routeMap || !routeMap.length) return "badge-pending";
+      const discrepancy = routeMap.find((r) => r.status === "discrepancy" || r.status === "missing");
+      if (discrepancy) return "badge-exception";
+      const completed = routeMap.slice().reverse().find((r) => r.status === "complete" && !r.isFlight);
+      if (completed) {
+        if (completed.code === "DLV") return "badge-delivered";
+        return "badge-progress";
+      }
+      return "badge-pending";
     };
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("div", _hoisted_1$2, [
@@ -24615,14 +24639,28 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
                   ])])) : createCommentVNode("", true),
                   (openBlock(true), createElementBlock(Fragment, null, renderList(displayedRecords.value, (record, index) => {
                     return openBlock(), createElementBlock("tr", { key: index }, [
-                      createBaseVNode("td", null, toDisplayString(record.awb), 1),
-                      createBaseVNode("td", null, toDisplayString(record.oneRecordLo), 1),
+                      createBaseVNode("td", {
+                        onClick: ($event) => openOffCanvas(record),
+                        style: { "cursor": "pointer" }
+                      }, [
+                        createBaseVNode("span", {
+                          class: normalizeClass(["status-badge", getStatusBadgeClass(record.routeMap)])
+                        }, toDisplayString(record.awb), 3)
+                      ], 8, _hoisted_13$2),
+                      createBaseVNode("td", {
+                        onClick: ($event) => openOffCanvas(record),
+                        style: { "cursor": "pointer" }
+                      }, [
+                        createBaseVNode("span", {
+                          class: normalizeClass(["status-badge", getStatusBadgeClass(record.routeMap)])
+                        }, toDisplayString(record.oneRecordLo), 3)
+                      ], 8, _hoisted_14$2),
                       createBaseVNode("td", null, toDisplayString(record.source), 1),
                       createBaseVNode("td", null, toDisplayString(record.hse), 1),
                       createBaseVNode("td", null, toDisplayString(record.flightDate), 1),
                       createBaseVNode("td", null, toDisplayString(record.origin), 1),
                       createBaseVNode("td", null, toDisplayString(record.destination), 1),
-                      createBaseVNode("td", null, toDisplayString(record.status), 1),
+                      createBaseVNode("td", null, toDisplayString(getRecordStatus(record.routeMap)), 1),
                       createBaseVNode("td", null, toDisplayString(record.print), 1),
                       createBaseVNode("td", null, toDisplayString(record.shipper), 1),
                       createBaseVNode("td", null, toDisplayString(record.consignee), 1),
@@ -24633,7 +24671,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
                           href: "#",
                           class: "action-link",
                           onClick: withModifiers(($event) => openOffCanvas(record), ["prevent"])
-                        }, "View", 8, _hoisted_13$2)
+                        }, "View", 8, _hoisted_15$2)
                       ])
                     ]);
                   }), 128))
@@ -24648,7 +24686,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
   }
 });
 
-const Dashboard = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-803b529e"]]);
+const Dashboard = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-3e043971"]]);
 
 const _hoisted_1$1 = { class: "dashboard-page" };
 const _hoisted_2$1 = { class: "main-content" };
@@ -24664,6 +24702,29 @@ const _hoisted_11$1 = { class: "table-container" };
 const _hoisted_12$1 = { class: "detail-table" };
 const _hoisted_13$1 = { style: { "font-weight": "500", "color": "#444" } };
 const _hoisted_14$1 = { class: "text-gray" };
+const _hoisted_15$1 = {
+  key: 1,
+  class: "upload-section"
+};
+const _hoisted_16$1 = { class: "upload-form" };
+const _hoisted_17$1 = { class: "file-input-group" };
+const _hoisted_18$1 = {
+  style: { "width": "12px", "height": "12px", "margin-right": "4px" },
+  fill: "none",
+  stroke: "currentColor",
+  viewBox: "0 0 24 24",
+  xmlns: "http://www.w3.org/2000/svg"
+};
+const _hoisted_19$1 = ["value"];
+const _hoisted_20$1 = {
+  key: 0,
+  class: "upload-list-container"
+};
+const _hoisted_21$1 = { class: "upload-list" };
+const _hoisted_22$1 = {
+  key: 2,
+  class: "proceed-action"
+};
 const _sfc_main$1 = /* @__PURE__ */ defineComponent({
   __name: "DashboardDetail",
   setup(__props) {
@@ -24671,6 +24732,10 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
     const awb = ref(route.query.awb || "160-12345678");
     const loid = ref(route.query.loid || "fecbe019-f3d6-4436-ad35-66ce87a7d985");
     const activeTab = ref("DG Checking");
+    const showUploadSection = ref(false);
+    const showProceedBtn = ref(false);
+    const fullDocumentList = ref([]);
+    const selectedFileName = ref("");
     const docs = [
       { desc: "Shipper's Declaration for Dangerous Goods (DGD)", time: "2026-04-20 08:23:52" },
       { desc: "UN Test Summary", time: "2026-04-20 08:24:51" },
@@ -24679,23 +24744,43 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
       { desc: "Certificate of Origin", time: "2026-04-24 14:05:18" },
       { desc: "Safety Data Sheet (SDS)", time: "2026-04-25 16:20:33" }
     ];
+    const fileInputRef = ref(null);
+    const triggerFileInput = () => {
+      fileInputRef.value?.click();
+    };
+    const handleFileChange = (event) => {
+      const target = event.target;
+      if (target.files && target.files.length > 0) {
+        selectedFileName.value = target.files[0].name;
+      }
+    };
+    const handleUpload = () => {
+      if (selectedFileName.value) {
+        fullDocumentList.value.push(selectedFileName.value);
+        selectedFileName.value = "";
+        showProceedBtn.value = true;
+        if (fileInputRef.value) {
+          fileInputRef.value.value = "";
+        }
+      }
+    };
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("div", _hoisted_1$1, [
         createVNode(AppHeader),
         createVNode(AppNavBar),
         createBaseVNode("main", _hoisted_2$1, [
-          _cache[10] || (_cache[10] = createBaseVNode("h2", { class: "page-title" }, "Air Waybill Detail", -1)),
+          _cache[18] || (_cache[18] = createStaticVNode('<div class="page-header" data-v-333da533><h2 class="page-title" data-v-333da533>Air Waybill Detail</h2><div class="one-record-logo" data-v-333da533><svg width="180" height="40" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg" data-v-333da533><rect width="180" height="40" rx="4" fill="#0000FF" data-v-333da533></rect><rect x="50" y="2" width="128" height="36" rx="2" fill="white" data-v-333da533></rect><text x="25" y="25" fill="white" font-size="12" font-family="Arial" font-weight="bold" text-anchor="middle" data-v-333da533>IATA</text><text x="114" y="26" fill="#0000FF" font-size="18" font-family="Arial" font-weight="bold" text-anchor="middle" data-v-333da533>ONE Record</text><path d="M16 10 h18 v2 h-18 z" fill="white" data-v-333da533></path><path d="M22 6 h6 v5 h-6 z" fill="white" data-v-333da533></path></svg></div></div>', 1)),
           createBaseVNode("div", _hoisted_3$1, [
             createBaseVNode("div", _hoisted_4$1, [
               createBaseVNode("div", _hoisted_5$1, [
-                _cache[4] || (_cache[4] = createBaseVNode("span", { class: "info-label" }, "AWB Number", -1)),
+                _cache[5] || (_cache[5] = createBaseVNode("span", { class: "info-label" }, "AWB Number", -1)),
                 createBaseVNode("span", _hoisted_6$1, toDisplayString(awb.value), 1)
               ]),
               createBaseVNode("div", _hoisted_7$1, [
-                _cache[5] || (_cache[5] = createBaseVNode("span", { class: "info-label" }, "One Record LO ID", -1)),
+                _cache[6] || (_cache[6] = createBaseVNode("span", { class: "info-label" }, "One Record LO ID", -1)),
                 createBaseVNode("span", _hoisted_8$1, toDisplayString(loid.value), 1)
               ]),
-              _cache[6] || (_cache[6] = createStaticVNode('<div class="divider" data-v-77af4af9></div><h3 class="section-title" data-v-77af4af9>Shipment Status</h3><div class="info-row status-row" data-v-77af4af9><span class="info-label" data-v-77af4af9>Status</span><span class="info-val text-gray" data-v-77af4af9>In Progress</span></div><div class="action-buttons" data-v-77af4af9><button class="btn btn-action" data-v-77af4af9>Accept</button><button class="btn btn-action" data-v-77af4af9>Reject</button></div><div class="divider" data-v-77af4af9></div><h3 class="section-title" data-v-77af4af9>Special Handing Code Declaration</h3><div class="info-row" data-v-77af4af9><span class="info-label" data-v-77af4af9>Pouch Declare Code</span><span class="info-val text-gray" data-v-77af4af9>EAW</span></div><div class="info-row" data-v-77af4af9><span class="info-label" data-v-77af4af9>FWB Declare Code</span><span class="info-val text-gray" data-v-77af4af9>EAW / SPX</span></div><div class="info-row" data-v-77af4af9><span class="info-label" data-v-77af4af9>Booking Declare Code</span><span class="info-val text-gray" data-v-77af4af9>EAW / SPX</span></div><div class="divider" data-v-77af4af9></div><h3 class="section-title" data-v-77af4af9>FOH</h3><div class="info-row" data-v-77af4af9><span class="info-label" data-v-77af4af9>Piece</span><span class="info-val text-gray" data-v-77af4af9>34</span></div><div class="info-row" data-v-77af4af9><span class="info-label" data-v-77af4af9>Weight</span><span class="info-val text-gray" data-v-77af4af9>1013.00</span></div><div class="divider" data-v-77af4af9></div><h3 class="section-title" data-v-77af4af9>RCS</h3><div class="info-row" data-v-77af4af9><span class="info-label" data-v-77af4af9>Piece</span><span class="info-val text-gray" data-v-77af4af9></span></div><div class="info-row" data-v-77af4af9><span class="info-label" data-v-77af4af9>Weight</span><span class="info-val text-gray" data-v-77af4af9></span></div>', 17))
+              _cache[7] || (_cache[7] = createStaticVNode('<div class="divider" data-v-333da533></div><h3 class="section-title" data-v-333da533>Shipment Status</h3><div class="info-row status-row" data-v-333da533><span class="info-label" data-v-333da533>Status</span><span class="info-val text-gray" data-v-333da533>In Progress</span></div><div class="action-buttons" data-v-333da533><button class="btn btn-action" data-v-333da533>Accept</button><button class="btn btn-action" data-v-333da533>Reject</button></div><div class="divider" data-v-333da533></div><h3 class="section-title" data-v-333da533>Special Handing Code Declaration</h3><div class="info-row" data-v-333da533><span class="info-label" data-v-333da533>Pouch Declare Code</span><span class="info-val text-gray" data-v-333da533>EAW</span></div><div class="info-row" data-v-333da533><span class="info-label" data-v-333da533>FWB Declare Code</span><span class="info-val text-gray" data-v-333da533>EAW / SPX</span></div><div class="info-row" data-v-333da533><span class="info-label" data-v-333da533>Booking Declare Code</span><span class="info-val text-gray" data-v-333da533>EAW / SPX</span></div><div class="divider" data-v-333da533></div><h3 class="section-title" data-v-333da533>FOH</h3><div class="info-row" data-v-333da533><span class="info-label" data-v-333da533>Piece</span><span class="info-val text-gray" data-v-333da533>34</span></div><div class="info-row" data-v-333da533><span class="info-label" data-v-333da533>Weight</span><span class="info-val text-gray" data-v-333da533>1013.00</span></div><div class="divider" data-v-333da533></div><h3 class="section-title" data-v-333da533>RCS</h3><div class="info-row" data-v-333da533><span class="info-label" data-v-333da533>Piece</span><span class="info-val text-gray" data-v-333da533></span></div><div class="info-row" data-v-333da533><span class="info-label" data-v-333da533>Weight</span><span class="info-val text-gray" data-v-333da533></span></div>', 17))
             ]),
             createBaseVNode("div", _hoisted_9$1, [
               createBaseVNode("div", _hoisted_10$1, [
@@ -24718,7 +24803,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
               ]),
               createBaseVNode("div", _hoisted_11$1, [
                 createBaseVNode("table", _hoisted_12$1, [
-                  _cache[8] || (_cache[8] = createBaseVNode("thead", null, [
+                  _cache[9] || (_cache[9] = createBaseVNode("thead", null, [
                     createBaseVNode("tr", null, [
                       createBaseVNode("th", { style: { "width": "40%" } }, "Description"),
                       createBaseVNode("th", null, "Uploaded Date Time"),
@@ -24733,7 +24818,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
                       }, [
                         createBaseVNode("td", _hoisted_13$1, toDisplayString(doc.desc), 1),
                         createBaseVNode("td", _hoisted_14$1, toDisplayString(doc.time), 1),
-                        _cache[7] || (_cache[7] = createBaseVNode("td", { style: { "text-align": "right" } }, [
+                        _cache[8] || (_cache[8] = createBaseVNode("td", { style: { "text-align": "right" } }, [
                           createBaseVNode("a", {
                             href: "#",
                             class: "view-link"
@@ -24744,7 +24829,71 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
                   ])
                 ])
               ]),
-              _cache[9] || (_cache[9] = createBaseVNode("button", { class: "btn btn-upload" }, "+ Upload more document button", -1))
+              !showUploadSection.value ? (openBlock(), createElementBlock("button", {
+                key: 0,
+                class: "btn btn-upload",
+                onClick: _cache[4] || (_cache[4] = ($event) => showUploadSection.value = true)
+              }, "+ Upload more document button")) : createCommentVNode("", true),
+              showUploadSection.value ? (openBlock(), createElementBlock("div", _hoisted_15$1, [
+                _cache[15] || (_cache[15] = createBaseVNode("div", { class: "upload-title" }, "Upload File", -1)),
+                _cache[16] || (_cache[16] = createBaseVNode("div", { class: "upload-subtitle" }, [
+                  createTextVNode("Support 1 file only, in "),
+                  createBaseVNode("strong", null, ".pdf, .jpg, .png"),
+                  createTextVNode(" formats, up to "),
+                  createBaseVNode("strong", null, "20 MB"),
+                  createTextVNode(".")
+                ], -1)),
+                createBaseVNode("div", _hoisted_16$1, [
+                  _cache[12] || (_cache[12] = createBaseVNode("span", { class: "file-label" }, "File Name", -1)),
+                  createBaseVNode("div", _hoisted_17$1, [
+                    createBaseVNode("input", {
+                      type: "file",
+                      ref_key: "fileInputRef",
+                      ref: fileInputRef,
+                      style: { "display": "none" },
+                      onChange: handleFileChange,
+                      accept: ".pdf,.jpg,.png"
+                    }, null, 544),
+                    createBaseVNode("button", {
+                      class: "btn btn-browse",
+                      onClick: triggerFileInput
+                    }, [
+                      (openBlock(), createElementBlock("svg", _hoisted_18$1, [..._cache[10] || (_cache[10] = [
+                        createBaseVNode("path", {
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round",
+                          "stroke-width": "2",
+                          d: "M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
+                        }, null, -1)
+                      ])])),
+                      _cache[11] || (_cache[11] = createTextVNode(" Browse File ", -1))
+                    ]),
+                    createBaseVNode("input", {
+                      type: "text",
+                      class: "file-text-input",
+                      placeholder: "",
+                      value: selectedFileName.value,
+                      readonly: ""
+                    }, null, 8, _hoisted_19$1),
+                    createBaseVNode("button", {
+                      class: "btn btn-do-upload",
+                      onClick: handleUpload
+                    }, "Upload")
+                  ])
+                ]),
+                fullDocumentList.value.length > 0 ? (openBlock(), createElementBlock("div", _hoisted_20$1, [
+                  _cache[13] || (_cache[13] = createBaseVNode("div", { class: "divider" }, null, -1)),
+                  _cache[14] || (_cache[14] = createBaseVNode("div", { class: "upload-list-title" }, "Full Document List", -1)),
+                  createBaseVNode("ol", _hoisted_21$1, [
+                    (openBlock(true), createElementBlock(Fragment, null, renderList(fullDocumentList.value, (fileName, index) => {
+                      return openBlock(), createElementBlock("li", { key: index }, toDisplayString(fileName), 1);
+                    }), 128))
+                  ])
+                ])) : createCommentVNode("", true)
+              ])) : createCommentVNode("", true),
+              showProceedBtn.value ? (openBlock(), createElementBlock("div", _hoisted_22$1, [..._cache[17] || (_cache[17] = [
+                createBaseVNode("button", { class: "btn btn-proceed" }, "Proceed DG Auto Check", -1)
+              ])])) : createCommentVNode("", true)
             ])
           ])
         ]),
@@ -24754,7 +24903,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
   }
 });
 
-const DashboardDetail = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-77af4af9"]]);
+const DashboardDetail = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-333da533"]]);
 
 const _hoisted_1 = { class: "dashboard-page" };
 const _hoisted_2 = { class: "main-content" };
@@ -24777,57 +24926,58 @@ const _hoisted_9 = { class: "table-container" };
 const _hoisted_10 = { class: "modern-table" };
 const _hoisted_11 = { key: 0 };
 const _hoisted_12 = ["onClick"];
-const _hoisted_13 = { style: { "color": "#666", "font-size": "12px", "font-family": "monospace", "max-width": "150px", "word-wrap": "break-word" } };
-const _hoisted_14 = { style: { "background": "#f4f6f8", "padding": "4px 8px", "border-radius": "4px", "border": "1px solid #e1e4e8" } };
-const _hoisted_15 = { style: { "color": "#666" } };
+const _hoisted_13 = { style: { "color": "#333", "font-weight": "500" } };
+const _hoisted_14 = { style: { "color": "#666", "font-size": "12px", "font-family": "monospace", "max-width": "150px", "word-wrap": "break-word" } };
+const _hoisted_15 = { style: { "background": "#f4f6f8", "padding": "4px 8px", "border-radius": "4px", "border": "1px solid #e1e4e8" } };
 const _hoisted_16 = { style: { "color": "#666" } };
 const _hoisted_17 = { style: { "color": "#666" } };
 const _hoisted_18 = { style: { "color": "#666" } };
 const _hoisted_19 = { style: { "color": "#666" } };
-const _hoisted_20 = { style: { "text-align": "center" } };
-const _hoisted_21 = {
+const _hoisted_20 = { style: { "color": "#666" } };
+const _hoisted_21 = { style: { "text-align": "center" } };
+const _hoisted_22 = {
   key: 0,
   class: "badge badge-error"
 };
-const _hoisted_22 = {
+const _hoisted_23 = {
   key: 1,
   class: "badge badge-error-part"
 };
-const _hoisted_23 = {
+const _hoisted_24 = {
   key: 2,
   class: "badge badge-view-part"
 };
-const _hoisted_24 = {
+const _hoisted_25 = {
   key: 3,
   class: "badge badge-none"
 };
-const _hoisted_25 = { style: { "text-align": "center" } };
-const _hoisted_26 = {
+const _hoisted_26 = { style: { "text-align": "center" } };
+const _hoisted_27 = {
   key: 0,
   class: "badge badge-view"
 };
-const _hoisted_27 = {
+const _hoisted_28 = {
   key: 1,
   class: "badge badge-error-part"
 };
-const _hoisted_28 = {
+const _hoisted_29 = {
   key: 2,
   class: "badge badge-none"
 };
-const _hoisted_29 = { style: { "text-align": "center" } };
-const _hoisted_30 = {
+const _hoisted_30 = { style: { "text-align": "center" } };
+const _hoisted_31 = {
   key: 0,
   class: "badge badge-none"
 };
-const _hoisted_31 = { style: { "text-align": "center" } };
-const _hoisted_32 = {
+const _hoisted_32 = { style: { "text-align": "center" } };
+const _hoisted_33 = {
   key: 0,
   class: "badge badge-folder"
 };
-const _hoisted_33 = { style: { "color": "#666" } };
 const _hoisted_34 = { style: { "color": "#666" } };
 const _hoisted_35 = { style: { "color": "#666" } };
 const _hoisted_36 = { style: { "color": "#666" } };
+const _hoisted_37 = { style: { "color": "#666" } };
 const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "ShipmentList",
   setup(__props) {
@@ -24972,42 +25122,41 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                   (openBlock(true), createElementBlock(Fragment, null, renderList(displayedRecords.value, (record, index) => {
                     return openBlock(), createElementBlock("tr", {
                       key: index,
-                      class: "table-row-hover"
+                      class: "table-row-hover",
+                      onClick: ($event) => openDetail(record),
+                      style: { "cursor": "pointer" }
                     }, [
-                      createBaseVNode("td", {
-                        style: { "color": "#333", "cursor": "pointer" },
-                        onClick: ($event) => openDetail(record)
-                      }, toDisplayString(record.awb), 9, _hoisted_12),
-                      createBaseVNode("td", _hoisted_13, [
-                        createBaseVNode("div", _hoisted_14, toDisplayString(record.oneRecordLo), 1)
+                      createBaseVNode("td", _hoisted_13, toDisplayString(record.awb), 1),
+                      createBaseVNode("td", _hoisted_14, [
+                        createBaseVNode("div", _hoisted_15, toDisplayString(record.oneRecordLo), 1)
                       ]),
-                      createBaseVNode("td", _hoisted_15, toDisplayString(record.pouch), 1),
-                      createBaseVNode("td", _hoisted_16, toDisplayString(record.sshc), 1),
-                      createBaseVNode("td", _hoisted_17, toDisplayString(record.flight), 1),
-                      createBaseVNode("td", _hoisted_18, toDisplayString(record.fltDate), 1),
-                      createBaseVNode("td", _hoisted_19, toDisplayString(record.std), 1),
-                      createBaseVNode("td", _hoisted_20, [
-                        record.mStatus === "error" ? (openBlock(), createElementBlock("span", _hoisted_21, "E")) : record.mStatus === "error-part" ? (openBlock(), createElementBlock("span", _hoisted_22, "EP")) : record.mStatus === "view-part" ? (openBlock(), createElementBlock("span", _hoisted_23, "VP")) : (openBlock(), createElementBlock("span", _hoisted_24, "-"))
+                      createBaseVNode("td", _hoisted_16, toDisplayString(record.pouch), 1),
+                      createBaseVNode("td", _hoisted_17, toDisplayString(record.sshc), 1),
+                      createBaseVNode("td", _hoisted_18, toDisplayString(record.flight), 1),
+                      createBaseVNode("td", _hoisted_19, toDisplayString(record.fltDate), 1),
+                      createBaseVNode("td", _hoisted_20, toDisplayString(record.std), 1),
+                      createBaseVNode("td", _hoisted_21, [
+                        record.mStatus === "error" ? (openBlock(), createElementBlock("span", _hoisted_22, "E")) : record.mStatus === "error-part" ? (openBlock(), createElementBlock("span", _hoisted_23, "EP")) : record.mStatus === "view-part" ? (openBlock(), createElementBlock("span", _hoisted_24, "VP")) : (openBlock(), createElementBlock("span", _hoisted_25, "-"))
                       ]),
-                      createBaseVNode("td", _hoisted_25, [
-                        record.hmStatus === "view" ? (openBlock(), createElementBlock("span", _hoisted_26, "V")) : record.hmStatus === "error-part" ? (openBlock(), createElementBlock("span", _hoisted_27, "EP")) : (openBlock(), createElementBlock("span", _hoisted_28, "-"))
+                      createBaseVNode("td", _hoisted_26, [
+                        record.hmStatus === "view" ? (openBlock(), createElementBlock("span", _hoisted_27, "V")) : record.hmStatus === "error-part" ? (openBlock(), createElementBlock("span", _hoisted_28, "EP")) : (openBlock(), createElementBlock("span", _hoisted_29, "-"))
                       ]),
-                      createBaseVNode("td", _hoisted_29, [
-                        record.fStatus === "none" ? (openBlock(), createElementBlock("span", _hoisted_30, "-")) : createCommentVNode("", true)
+                      createBaseVNode("td", _hoisted_30, [
+                        record.fStatus === "none" ? (openBlock(), createElementBlock("span", _hoisted_31, "-")) : createCommentVNode("", true)
                       ]),
-                      createBaseVNode("td", _hoisted_31, [
-                        record.apStatus === "folder" ? (openBlock(), createElementBlock("span", _hoisted_32, "F")) : createCommentVNode("", true)
+                      createBaseVNode("td", _hoisted_32, [
+                        record.apStatus === "folder" ? (openBlock(), createElementBlock("span", _hoisted_33, "F")) : createCommentVNode("", true)
                       ]),
-                      createBaseVNode("td", _hoisted_33, toDisplayString(record.pcs), 1),
-                      createBaseVNode("td", _hoisted_34, toDisplayString(record.wgt), 1),
-                      createBaseVNode("td", _hoisted_35, toDisplayString(record.desc), 1),
-                      createBaseVNode("td", _hoisted_36, toDisplayString(record.lastEventTime), 1)
-                    ]);
+                      createBaseVNode("td", _hoisted_34, toDisplayString(record.pcs), 1),
+                      createBaseVNode("td", _hoisted_35, toDisplayString(record.wgt), 1),
+                      createBaseVNode("td", _hoisted_36, toDisplayString(record.desc), 1),
+                      createBaseVNode("td", _hoisted_37, toDisplayString(record.lastEventTime), 1)
+                    ], 8, _hoisted_12);
                   }), 128))
                 ])
               ])
             ]),
-            _cache[12] || (_cache[12] = createStaticVNode('<div class="pagination-container" data-v-b00522b3><span class="pagination-info" data-v-b00522b3>1-10 of 855 items</span><div class="pagination-controls" data-v-b00522b3><span style="color:#666;" data-v-b00522b3>Items per page</span><select class="items-per-page" data-v-b00522b3><option data-v-b00522b3>10</option></select><div class="page-numbers" data-v-b00522b3><span class="active" data-v-b00522b3>1</span><span data-v-b00522b3>2</span><span data-v-b00522b3>3</span><span data-v-b00522b3>4</span><span data-v-b00522b3>...</span><span data-v-b00522b3>9</span></div></div></div>', 1))
+            _cache[12] || (_cache[12] = createStaticVNode('<div class="pagination-container" data-v-eb520d31><span class="pagination-info" data-v-eb520d31>1-10 of 855 items</span><div class="pagination-controls" data-v-eb520d31><span style="color:#666;" data-v-eb520d31>Items per page</span><select class="items-per-page" data-v-eb520d31><option data-v-eb520d31>10</option></select><div class="page-numbers" data-v-eb520d31><span class="active" data-v-eb520d31>1</span><span data-v-eb520d31>2</span><span data-v-eb520d31>3</span><span data-v-eb520d31>4</span><span data-v-eb520d31>...</span><span data-v-eb520d31>9</span></div></div></div>', 1))
           ])
         ]),
         createVNode(AppFooter)
@@ -25016,7 +25165,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
   }
 });
 
-const ShipmentList = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-b00522b3"]]);
+const ShipmentList = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-eb520d31"]]);
 
 const baseUrl = "/";
 const baseChildren = [

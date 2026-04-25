@@ -70,12 +70,12 @@ const allRecords = [
       consignee: 'Euro Cargo',
       user: 'system',
       lastUpdate: '2026-04-25 11:30',
-      routeMap: [
-        { code: 'FWB', status: 'complete', pDate: '25Apr 05:45', mDate: '-', aDate: '-' },
-        { code: 'LAT', status: 'complete', pDate: '25Apr 05:50', mDate: '-', aDate: '-' },
-        { code: 'SAC', status: 'discrepancy', pDate: '25Apr 05:50', mDate: '-', aDate: '-' },
-        { code: 'RCS', status: 'new', pDate: '25Apr 05:50', mDate: '-', aDate: '-' },
-        { code: 'FOW', status: 'new', pDate: '25Apr 07:20', mDate: '-', aDate: '-' },
+        routeMap: [
+          { code: 'FWB', status: 'complete', pDate: '25Apr 05:45', mDate: '-', aDate: '-' },
+          { code: 'LAT', status: 'complete', pDate: '25Apr 05:50', mDate: '-', aDate: '-' },
+          { code: 'SAC', status: 'missing', pDate: '25Apr 05:50', mDate: '-', aDate: '-' },
+          { code: 'RCS', status: 'new', pDate: '25Apr 05:50', mDate: '-', aDate: '-' },
+          { code: 'FOW', status: 'new', pDate: '25Apr 07:20', mDate: '-', aDate: '-' },
         { code: 'DEP', status: 'new', pDate: '25Apr 09:20', mDate: '-', aDate: '-' },
         { isFlight: true, from: 'SIN', to: 'FRA', flightNo: 'SQ326', sDate: '26Apr 14:00', aDate: '-' },
         { code: 'ARR', status: 'new', pDate: '26Apr 21:00', mDate: '-', aDate: '-' },
@@ -162,7 +162,7 @@ const clearSearch = () => {
 const getRecordStatus = (routeMap: any[]) => {
   if (!routeMap || !routeMap.length) return 'Pending';
   
-  const discrepancy = routeMap.find(r => r.status === 'discrepancy');
+  const discrepancy = routeMap.find(r => r.status === 'discrepancy' || r.status === 'missing');
   if (discrepancy) return `Exception (${discrepancy.code})`;
   
   const completed = routeMap.slice().reverse().find(r => r.status === 'complete' && !r.isFlight);
@@ -176,7 +176,7 @@ const getRecordStatus = (routeMap: any[]) => {
 
 const getStatusBadgeClass = (routeMap: any[]) => {
   if (!routeMap || !routeMap.length) return 'badge-pending';
-  const discrepancy = routeMap.find(r => r.status === 'discrepancy');
+  const discrepancy = routeMap.find(r => r.status === 'discrepancy' || r.status === 'missing');
   if (discrepancy) return 'badge-exception';
   
   const completed = routeMap.slice().reverse().find(r => r.status === 'complete' && !r.isFlight);
