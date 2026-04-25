@@ -6,6 +6,7 @@ import type { RouteRecordRaw } from 'vue-router'
 import Dashboard from '@/views/Dashboard.vue'
 import DashboardDetail from '@/views/DashboardDetail.vue'
 import ShipmentList from '@/views/ShipmentList.vue'
+import TrackShipment from '@/views/TrackShipment.vue'
 
 const baseUrl = '/'
 
@@ -30,6 +31,11 @@ const baseChildren: RouteRecordRaw[] = [
         path: 'dashboard/detail',
         name: 'DashboardDetail',
         component: DashboardDetail
+    },
+    {
+        path: 'track-shipment',
+        name: 'TrackShipment',
+        component: TrackShipment
     }
 ]
 

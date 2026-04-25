@@ -25,11 +25,14 @@ import { RouterLink } from 'vue-router';
 }
 .nav-bar span {
   cursor: pointer;
-  padding: 24px 19px;
+  padding: 12px 19px;
   text-align: center;
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;
   flex: 1;
+}
+.nav-bar span:hover {
+  background-color: #146132;
 }
 </style>

@@ -7756,14 +7756,14 @@ const _export_sfc = (sfc, props) => {
   return target;
 };
 
-const _sfc_main$7 = {  };
+const _sfc_main$8 = {  };
 
-function _sfc_render$2(_ctx, _cache) {
+function _sfc_render$1(_ctx, _cache) {
   const _component_router_view = resolveComponent("router-view");
 
   return (openBlock(), createBlock(_component_router_view))
 }
-const App = /*#__PURE__*/_export_sfc(_sfc_main$7, [['render',_sfc_render$2]]);
+const App = /*#__PURE__*/_export_sfc(_sfc_main$8, [['render',_sfc_render$1]]);
 
 /*!
  * vue-router v4.6.4
@@ -9306,20 +9306,20 @@ function useRoute(_name) {
   return inject(routeLocationKey);
 }
 
-const _hoisted_1$6 = { class: "nav-bar" };
-const _hoisted_2$6 = ["onClick"];
-const _hoisted_3$6 = ["onClick"];
-const _sfc_main$6 = /* @__PURE__ */ defineComponent({
+const _hoisted_1$7 = { class: "nav-bar" };
+const _hoisted_2$7 = ["onClick"];
+const _hoisted_3$7 = ["onClick"];
+const _sfc_main$7 = /* @__PURE__ */ defineComponent({
   __name: "AppNavBar",
   setup(__props) {
     return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("nav", _hoisted_1$6, [
+      return openBlock(), createElementBlock("nav", _hoisted_1$7, [
         createVNode(unref(RouterLink), {
           to: "/shipment-list",
           custom: ""
         }, {
           default: withCtx(({ navigate }) => [
-            createBaseVNode("span", { onClick: navigate }, "Shipment", 8, _hoisted_2$6)
+            createBaseVNode("span", { onClick: navigate }, "Shipment", 8, _hoisted_2$7)
           ]),
           _: 1
         }),
@@ -9328,7 +9328,7 @@ const _sfc_main$6 = /* @__PURE__ */ defineComponent({
           custom: ""
         }, {
           default: withCtx(({ navigate }) => [
-            createBaseVNode("span", { onClick: navigate }, "Cargo iQ", 8, _hoisted_3$6)
+            createBaseVNode("span", { onClick: navigate }, "Cargo iQ", 8, _hoisted_3$7)
           ]),
           _: 1
         }),
@@ -9339,18 +9339,15 @@ const _sfc_main$6 = /* @__PURE__ */ defineComponent({
   }
 });
 
-const AppNavBar = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-ee74b328"]]);
+const AppNavBar = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["__scopeId", "data-v-1d919ee1"]]);
 
-const _imports_0$1 = "data:image/png;base64,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";
+const _imports_0$2 = "data:image/png;base64,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";
 
-const _sfc_main$5 = {  };
-
-
-const _hoisted_1$5 = { class: "header" };
-const _hoisted_2$5 = { class: "header-right" };
-const _hoisted_3$5 = { class: "icon-link" };
-const _hoisted_4$5 = {
-  style: {"width":"20px","height":"20px"},
+const _hoisted_1$6 = { class: "header" };
+const _hoisted_2$6 = { class: "header-right" };
+const _hoisted_3$6 = { class: "icon-link" };
+const _hoisted_4$6 = {
+  style: { "width": "20px", "height": "20px" },
   viewBox: "0 0 24 24",
   fill: "none",
   stroke: "#6B8080",
@@ -9358,9 +9355,9 @@ const _hoisted_4$5 = {
   "stroke-linecap": "round",
   "stroke-linejoin": "round"
 };
-const _hoisted_5$5 = { class: "icon-link" };
-const _hoisted_6$5 = {
-  style: {"width":"20px","height":"20px"},
+const _hoisted_5$6 = { class: "news-icon-wrapper" };
+const _hoisted_6$6 = {
+  style: { "width": "20px", "height": "20px" },
   viewBox: "0 0 24 24",
   fill: "none",
   stroke: "#6B8080",
@@ -9368,9 +9365,18 @@ const _hoisted_6$5 = {
   "stroke-linecap": "round",
   "stroke-linejoin": "round"
 };
-const _hoisted_7$5 = { class: "icon-link" };
-const _hoisted_8$5 = {
-  style: {"width":"20px","height":"20px"},
+const _hoisted_7$6 = { class: "news-item" };
+const _hoisted_8$6 = { class: "news-alert-title" };
+const _hoisted_9$5 = {
+  style: { "width": "14px", "height": "14px", "margin-right": "6px" },
+  viewBox: "0 0 24 24",
+  fill: "red",
+  stroke: "white",
+  "stroke-width": "2"
+};
+const _hoisted_10$5 = { class: "icon-link" };
+const _hoisted_11$5 = {
+  style: { "width": "20px", "height": "20px" },
   viewBox: "0 0 24 24",
   fill: "none",
   stroke: "#00A3C5",
@@ -9378,9 +9384,9 @@ const _hoisted_8$5 = {
   "stroke-linecap": "round",
   "stroke-linejoin": "round"
 };
-const _hoisted_9$4 = { style: {"display":"flex","flex-direction":"column","align-items":"center","gap":"2px"} };
-const _hoisted_10$4 = {
-  style: {"width":"10px","height":"6px"},
+const _hoisted_12$5 = { style: { "display": "flex", "flex-direction": "column", "align-items": "center", "gap": "2px" } };
+const _hoisted_13$5 = {
+  style: { "width": "10px", "height": "6px" },
   viewBox: "0 0 24 24",
   fill: "none",
   stroke: "#6B8080",
@@ -9388,9 +9394,9 @@ const _hoisted_10$4 = {
   "stroke-linecap": "round",
   "stroke-linejoin": "round"
 };
-const _hoisted_11$4 = { class: "user-avatar" };
-const _hoisted_12$4 = {
-  style: {"width":"16px","height":"16px","margin-left":"4px"},
+const _hoisted_14$5 = { class: "user-avatar" };
+const _hoisted_15$5 = {
+  style: { "width": "16px", "height": "16px", "margin-left": "4px" },
   viewBox: "0 0 24 24",
   fill: "none",
   stroke: "#0F172A",
@@ -9398,78 +9404,140 @@ const _hoisted_12$4 = {
   "stroke-linecap": "round",
   "stroke-linejoin": "round"
 };
-
-function _sfc_render$1(_ctx, _cache) {
-  return (openBlock(), createElementBlock("header", _hoisted_1$5, [
-    _cache[10] || (_cache[10] = createBaseVNode("div", { class: "logo-area" }, [
-      createBaseVNode("img", {
-        src: _imports_0$1,
-        alt: "Ezy Cargo",
-        style: {"height":"32px"}
-      })
-    ], -1)),
-    createBaseVNode("div", _hoisted_2$5, [
-      createBaseVNode("div", _hoisted_3$5, [
-        (openBlock(), createElementBlock("svg", _hoisted_4$5, [...(_cache[0] || (_cache[0] = [
-          createBaseVNode("path", { d: "M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" }, null, -1),
-          createBaseVNode("polyline", { points: "22,6 12,13 2,6" }, null, -1)
-        ]))])),
-        _cache[1] || (_cache[1] = createTextVNode(" Inbox ", -1))
-      ]),
-      createBaseVNode("div", _hoisted_5$5, [
-        (openBlock(), createElementBlock("svg", _hoisted_6$5, [...(_cache[2] || (_cache[2] = [
-          createBaseVNode("path", { d: "M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" }, null, -1),
-          createBaseVNode("path", { d: "M13.73 21a2 2 0 0 1-3.46 0" }, null, -1)
-        ]))])),
-        _cache[3] || (_cache[3] = createTextVNode(" News ", -1))
-      ]),
-      createBaseVNode("div", _hoisted_7$5, [
-        (openBlock(), createElementBlock("svg", _hoisted_8$5, [...(_cache[4] || (_cache[4] = [
-          createBaseVNode("circle", {
-            cx: "12",
-            cy: "12",
-            r: "10"
-          }, null, -1),
-          createBaseVNode("line", {
-            x1: "2",
-            y1: "12",
-            x2: "22",
-            y2: "12"
-          }, null, -1),
-          createBaseVNode("path", { d: "M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" }, null, -1)
-        ]))])),
-        createBaseVNode("div", _hoisted_9$4, [
-          _cache[6] || (_cache[6] = createBaseVNode("span", null, "EN", -1)),
-          (openBlock(), createElementBlock("svg", _hoisted_10$4, [...(_cache[5] || (_cache[5] = [
-            createBaseVNode("polyline", { points: "6 9 12 15 18 9" }, null, -1)
-          ]))]))
-        ])
-      ]),
-      createBaseVNode("div", _hoisted_11$4, [
-        _cache[8] || (_cache[8] = createBaseVNode("div", { class: "avatar-circle" }, "E", -1)),
-        _cache[9] || (_cache[9] = createBaseVNode("div", { class: "user-info" }, [
-          createBaseVNode("span", { class: "user-name" }, "Elon M"),
-          createBaseVNode("span", { class: "user-company" }, "GLSHK")
+const _sfc_main$6 = /* @__PURE__ */ defineComponent({
+  __name: "AppHeader",
+  setup(__props) {
+    const router = useRouter();
+    const showNewsDropdown = ref(false);
+    const toggleNews = () => {
+      showNewsDropdown.value = !showNewsDropdown.value;
+    };
+    const goToTrackShipment = () => {
+      showNewsDropdown.value = false;
+      router.push("/track-shipment");
+    };
+    return (_ctx, _cache) => {
+      return openBlock(), createElementBlock("header", _hoisted_1$6, [
+        _cache[16] || (_cache[16] = createBaseVNode("div", { class: "logo-area" }, [
+          createBaseVNode("img", {
+            src: _imports_0$2,
+            alt: "Ezy Cargo",
+            style: { "height": "32px" }
+          })
         ], -1)),
-        (openBlock(), createElementBlock("svg", _hoisted_12$4, [...(_cache[7] || (_cache[7] = [
-          createBaseVNode("polyline", { points: "6 9 12 15 18 9" }, null, -1)
-        ]))]))
-      ])
-    ])
-  ]))
-}
-const AppHeader = /*#__PURE__*/_export_sfc(_sfc_main$5, [['render',_sfc_render$1],['__scopeId',"data-v-f83439fc"]]);
+        createBaseVNode("div", _hoisted_2$6, [
+          createBaseVNode("div", _hoisted_3$6, [
+            (openBlock(), createElementBlock("svg", _hoisted_4$6, [..._cache[1] || (_cache[1] = [
+              createBaseVNode("path", { d: "M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" }, null, -1),
+              createBaseVNode("polyline", { points: "22,6 12,13 2,6" }, null, -1)
+            ])])),
+            _cache[2] || (_cache[2] = createTextVNode(" Inbox ", -1))
+          ]),
+          createBaseVNode("div", {
+            class: "icon-link news-container",
+            onClick: toggleNews
+          }, [
+            createBaseVNode("div", _hoisted_5$6, [
+              (openBlock(), createElementBlock("svg", _hoisted_6$6, [..._cache[3] || (_cache[3] = [
+                createBaseVNode("path", { d: "M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" }, null, -1),
+                createBaseVNode("path", { d: "M13.73 21a2 2 0 0 1-3.46 0" }, null, -1)
+              ])])),
+              _cache[4] || (_cache[4] = createBaseVNode("span", { class: "red-dot" }, null, -1))
+            ]),
+            _cache[9] || (_cache[9] = createTextVNode(" News ", -1)),
+            showNewsDropdown.value ? (openBlock(), createElementBlock("div", {
+              key: 0,
+              class: "news-dropdown",
+              onClick: _cache[0] || (_cache[0] = withModifiers(() => {
+              }, ["stop"]))
+            }, [
+              createBaseVNode("div", _hoisted_7$6, [
+                createBaseVNode("div", _hoisted_8$6, [
+                  (openBlock(), createElementBlock("svg", _hoisted_9$5, [..._cache[5] || (_cache[5] = [
+                    createBaseVNode("circle", {
+                      cx: "12",
+                      cy: "12",
+                      r: "10"
+                    }, null, -1),
+                    createBaseVNode("line", {
+                      x1: "12",
+                      y1: "8",
+                      x2: "12",
+                      y2: "12"
+                    }, null, -1),
+                    createBaseVNode("line", {
+                      x1: "12",
+                      y1: "16",
+                      x2: "12.01",
+                      y2: "16"
+                    }, null, -1)
+                  ])])),
+                  _cache[6] || (_cache[6] = createTextVNode(" Temperature Alert ", -1))
+                ]),
+                createBaseVNode("div", { class: "news-alert-content" }, [
+                  _cache[7] || (_cache[7] = createBaseVNode("span", { class: "news-date" }, "03 Jun 24 15:49", -1)),
+                  _cache[8] || (_cache[8] = createBaseVNode("span", { class: "news-desc" }, [
+                    createBaseVNode("span", { class: "highlight-code" }, "[NRT]"),
+                    createTextVNode(" ULD Temperature Alert, (3°C Exceed control temperature range +2°C to +8°C.)")
+                  ], -1)),
+                  createBaseVNode("span", {
+                    class: "news-link",
+                    onClick: goToTrackShipment
+                  }, "View Details")
+                ])
+              ])
+            ])) : createCommentVNode("", true)
+          ]),
+          createBaseVNode("div", _hoisted_10$5, [
+            (openBlock(), createElementBlock("svg", _hoisted_11$5, [..._cache[10] || (_cache[10] = [
+              createBaseVNode("circle", {
+                cx: "12",
+                cy: "12",
+                r: "10"
+              }, null, -1),
+              createBaseVNode("line", {
+                x1: "2",
+                y1: "12",
+                x2: "22",
+                y2: "12"
+              }, null, -1),
+              createBaseVNode("path", { d: "M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" }, null, -1)
+            ])])),
+            createBaseVNode("div", _hoisted_12$5, [
+              _cache[12] || (_cache[12] = createBaseVNode("span", null, "EN", -1)),
+              (openBlock(), createElementBlock("svg", _hoisted_13$5, [..._cache[11] || (_cache[11] = [
+                createBaseVNode("polyline", { points: "6 9 12 15 18 9" }, null, -1)
+              ])]))
+            ])
+          ]),
+          createBaseVNode("div", _hoisted_14$5, [
+            _cache[14] || (_cache[14] = createBaseVNode("div", { class: "avatar-circle" }, "E", -1)),
+            _cache[15] || (_cache[15] = createBaseVNode("div", { class: "user-info" }, [
+              createBaseVNode("span", { class: "user-name" }, "Elon M"),
+              createBaseVNode("span", { class: "user-company" }, "GLSHK")
+            ], -1)),
+            (openBlock(), createElementBlock("svg", _hoisted_15$5, [..._cache[13] || (_cache[13] = [
+              createBaseVNode("polyline", { points: "6 9 12 15 18 9" }, null, -1)
+            ])]))
+          ])
+        ])
+      ]);
+    };
+  }
+});
 
-const _imports_0 = "data:image/png;base64,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";
+const AppHeader = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-eeb65265"]]);
 
-const _sfc_main$4 = {  };
+const _imports_0$1 = "data:image/png;base64,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";
+
+const _sfc_main$5 = {  };
 
 
-const _hoisted_1$4 = { class: "footer" };
-const _hoisted_2$4 = { class: "footer-top" };
-const _hoisted_3$4 = { class: "footer-right" };
-const _hoisted_4$4 = { class: "lang-selector" };
-const _hoisted_5$4 = {
+const _hoisted_1$5 = { class: "footer" };
+const _hoisted_2$5 = { class: "footer-top" };
+const _hoisted_3$5 = { class: "footer-right" };
+const _hoisted_4$5 = { class: "lang-selector" };
+const _hoisted_5$5 = {
   style: {"width":"25px","height":"25px"},
   viewBox: "0 0 24 24",
   fill: "none",
@@ -9478,8 +9546,8 @@ const _hoisted_5$4 = {
   "stroke-linecap": "round",
   "stroke-linejoin": "round"
 };
-const _hoisted_6$4 = { style: {"display":"flex","flex-direction":"column","align-items":"center","gap":"2px"} };
-const _hoisted_7$4 = {
+const _hoisted_6$5 = { style: {"display":"flex","flex-direction":"column","align-items":"center","gap":"2px"} };
+const _hoisted_7$5 = {
   style: {"width":"10px","height":"6px"},
   viewBox: "0 0 24 24",
   fill: "none",
@@ -9488,13 +9556,13 @@ const _hoisted_7$4 = {
   "stroke-linecap": "round",
   "stroke-linejoin": "round"
 };
-const _hoisted_8$4 = { class: "footer-bottom" };
+const _hoisted_8$5 = { class: "footer-bottom" };
 
 function _sfc_render(_ctx, _cache) {
-  return (openBlock(), createElementBlock("footer", _hoisted_1$4, [
-    createBaseVNode("div", _hoisted_2$4, [
-      _cache[4] || (_cache[4] = createStaticVNode("<div class=\"footer-left\" data-v-cc90972a><div class=\"footer-logo\" data-v-cc90972a><img src=\"" + _imports_0 + "\" alt=\"GLS Logo\" style=\"height:54px;width:78px;object-fit:contain;\" data-v-cc90972a></div><div class=\"footer-contact\" data-v-cc90972a><div class=\"separator\" data-v-cc90972a></div><span class=\"help-desk\" data-v-cc90972a>Help desk:</span><a href=\"tel:+85228381999\" class=\"contact-link\" data-v-cc90972a>(+852) 2838 1999</a><div class=\"separator\" data-v-cc90972a></div><a href=\"mailto:helpdesk@glshk.com\" class=\"contact-link\" data-v-cc90972a>helpdesk@glshk.com</a><div class=\"separator\" data-v-cc90972a></div><span class=\"footer-link\" data-v-cc90972a>Downloads</span><div class=\"separator\" data-v-cc90972a></div><span class=\"footer-link\" data-v-cc90972a>FAQ</span><div class=\"separator\" data-v-cc90972a></div><span class=\"footer-link\" data-v-cc90972a>Privacy</span><div class=\"separator\" data-v-cc90972a></div><span class=\"footer-link\" data-v-cc90972a>Terms</span></div></div>", 1)),
-      createBaseVNode("div", _hoisted_3$4, [
+  return (openBlock(), createElementBlock("footer", _hoisted_1$5, [
+    createBaseVNode("div", _hoisted_2$5, [
+      _cache[4] || (_cache[4] = createStaticVNode("<div class=\"footer-left\" data-v-cc90972a><div class=\"footer-logo\" data-v-cc90972a><img src=\"" + _imports_0$1 + "\" alt=\"GLS Logo\" style=\"height:54px;width:78px;object-fit:contain;\" data-v-cc90972a></div><div class=\"footer-contact\" data-v-cc90972a><div class=\"separator\" data-v-cc90972a></div><span class=\"help-desk\" data-v-cc90972a>Help desk:</span><a href=\"tel:+85228381999\" class=\"contact-link\" data-v-cc90972a>(+852) 2838 1999</a><div class=\"separator\" data-v-cc90972a></div><a href=\"mailto:helpdesk@glshk.com\" class=\"contact-link\" data-v-cc90972a>helpdesk@glshk.com</a><div class=\"separator\" data-v-cc90972a></div><span class=\"footer-link\" data-v-cc90972a>Downloads</span><div class=\"separator\" data-v-cc90972a></div><span class=\"footer-link\" data-v-cc90972a>FAQ</span><div class=\"separator\" data-v-cc90972a></div><span class=\"footer-link\" data-v-cc90972a>Privacy</span><div class=\"separator\" data-v-cc90972a></div><span class=\"footer-link\" data-v-cc90972a>Terms</span></div></div>", 1)),
+      createBaseVNode("div", _hoisted_3$5, [
         _cache[3] || (_cache[3] = createBaseVNode("div", { class: "linkedin-icon" }, [
           createBaseVNode("svg", {
             viewBox: "0 0 24 24",
@@ -9505,8 +9573,8 @@ function _sfc_render(_ctx, _cache) {
             createBaseVNode("path", { d: "M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" })
           ])
         ], -1)),
-        createBaseVNode("div", _hoisted_4$4, [
-          (openBlock(), createElementBlock("svg", _hoisted_5$4, [...(_cache[0] || (_cache[0] = [
+        createBaseVNode("div", _hoisted_4$5, [
+          (openBlock(), createElementBlock("svg", _hoisted_5$5, [...(_cache[0] || (_cache[0] = [
             createBaseVNode("circle", {
               cx: "12",
               cy: "12",
@@ -9520,19 +9588,19 @@ function _sfc_render(_ctx, _cache) {
             }, null, -1),
             createBaseVNode("path", { d: "M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" }, null, -1)
           ]))])),
-          createBaseVNode("div", _hoisted_6$4, [
+          createBaseVNode("div", _hoisted_6$5, [
             _cache[2] || (_cache[2] = createBaseVNode("span", { class: "lang-text" }, "EN", -1)),
-            (openBlock(), createElementBlock("svg", _hoisted_7$4, [...(_cache[1] || (_cache[1] = [
+            (openBlock(), createElementBlock("svg", _hoisted_7$5, [...(_cache[1] || (_cache[1] = [
               createBaseVNode("polyline", { points: "6 9 12 15 18 9" }, null, -1)
             ]))]))
           ])
         ])
       ])
     ]),
-    createBaseVNode("div", _hoisted_8$4, " © " + toDisplayString(new Date().getFullYear()) + " Global Logistics System (HK) Co. Ltd. All Rights Reserved. ", 1)
+    createBaseVNode("div", _hoisted_8$5, " © " + toDisplayString(new Date().getFullYear()) + " Global Logistics System (HK) Co. Ltd. All Rights Reserved. ", 1)
   ]))
 }
-const AppFooter = /*#__PURE__*/_export_sfc(_sfc_main$4, [['render',_sfc_render],['__scopeId',"data-v-cc90972a"]]);
+const AppFooter = /*#__PURE__*/_export_sfc(_sfc_main$5, [['render',_sfc_render],['__scopeId',"data-v-cc90972a"]]);
 
 //#endregion
 //#region utils/is.ts
@@ -24115,33 +24183,33 @@ const wt = [
   }
 });
 
-const _hoisted_1$3 = {
+const _hoisted_1$4 = {
   key: 0,
   class: "offcanvas-content"
 };
-const _hoisted_2$3 = { class: "oc-header-grid" };
-const _hoisted_3$3 = {
+const _hoisted_2$4 = { class: "oc-header-grid" };
+const _hoisted_3$4 = {
   class: "oc-stat-item",
   style: { "grid-column": "span 4", "background-color": "#f7f9fc", "padding": "12px", "border-radius": "6px", "border": "1px solid #e2e8f0", "margin-bottom": "8px" }
 };
-const _hoisted_4$3 = {
+const _hoisted_4$4 = {
   class: "oc-stat-value",
   style: { "font-family": "monospace", "word-break": "break-all", "color": "#444", "font-size": "14px" }
 };
-const _hoisted_5$3 = { class: "oc-stat-item" };
-const _hoisted_6$3 = { class: "oc-stat-value" };
-const _hoisted_7$3 = { class: "oc-stat-item" };
-const _hoisted_8$3 = { class: "oc-stat-value" };
-const _hoisted_9$3 = { class: "oc-stat-item" };
-const _hoisted_10$3 = { class: "oc-stat-value" };
-const _hoisted_11$3 = { class: "oc-stat-item" };
-const _hoisted_12$3 = {
+const _hoisted_5$4 = { class: "oc-stat-item" };
+const _hoisted_6$4 = { class: "oc-stat-value" };
+const _hoisted_7$4 = { class: "oc-stat-item" };
+const _hoisted_8$4 = { class: "oc-stat-value" };
+const _hoisted_9$4 = { class: "oc-stat-item" };
+const _hoisted_10$4 = { class: "oc-stat-value" };
+const _hoisted_11$4 = { class: "oc-stat-item" };
+const _hoisted_12$4 = {
   class: "oc-stat-value",
   style: { "opacity": "0.5" }
 };
-const _hoisted_13$3 = { class: "oc-section" };
-const _hoisted_14$3 = { class: "oc-card route-map-wrapper" };
-const _hoisted_15$3 = { class: "route-map-container" };
+const _hoisted_13$4 = { class: "oc-section" };
+const _hoisted_14$4 = { class: "oc-card route-map-wrapper" };
+const _hoisted_15$4 = { class: "route-map-container" };
 const _hoisted_16$2 = {
   key: 0,
   class: "route-flight-segment"
@@ -24168,7 +24236,7 @@ const _hoisted_29$1 = {
 const _hoisted_30$1 = { class: "oc-section" };
 const _hoisted_31$1 = { class: "oc-table-wrapper" };
 const _hoisted_32$1 = { class: "oc-table" };
-const _sfc_main$3 = /* @__PURE__ */ defineComponent({
+const _sfc_main$4 = /* @__PURE__ */ defineComponent({
   __name: "RecordOffcanvas",
   props: {
     isOpen: {
@@ -24224,41 +24292,41 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
         createBaseVNode("div", {
           class: normalizeClass(["offcanvas", { "is-open": __props.isOpen }])
         }, [
-          __props.recordData ? (openBlock(), createElementBlock("div", _hoisted_1$3, [
+          __props.recordData ? (openBlock(), createElementBlock("div", _hoisted_1$4, [
             createBaseVNode("button", {
               class: "btn-close",
               onClick: closeOffCanvas
             }, "X"),
-            createBaseVNode("div", _hoisted_2$3, [
-              createBaseVNode("div", _hoisted_3$3, [
+            createBaseVNode("div", _hoisted_2$4, [
+              createBaseVNode("div", _hoisted_3$4, [
                 _cache[0] || (_cache[0] = createBaseVNode("span", {
                   class: "oc-stat-label",
                   style: { "color": "#1A8242", "font-weight": "600" }
                 }, "1R (ONE Record) LO ID", -1)),
-                createBaseVNode("span", _hoisted_4$3, toDisplayString(__props.recordData.oneRecordLo || "N/A"), 1)
+                createBaseVNode("span", _hoisted_4$4, toDisplayString(__props.recordData.oneRecordLo || "N/A"), 1)
               ]),
-              createBaseVNode("div", _hoisted_5$3, [
+              createBaseVNode("div", _hoisted_5$4, [
                 _cache[1] || (_cache[1] = createBaseVNode("span", { class: "oc-stat-label" }, "AWB", -1)),
-                createBaseVNode("span", _hoisted_6$3, toDisplayString(__props.recordData.awb), 1)
+                createBaseVNode("span", _hoisted_6$4, toDisplayString(__props.recordData.awb), 1)
               ]),
-              createBaseVNode("div", _hoisted_7$3, [
+              createBaseVNode("div", _hoisted_7$4, [
                 _cache[2] || (_cache[2] = createBaseVNode("span", { class: "oc-stat-label" }, "Origin", -1)),
-                createBaseVNode("span", _hoisted_8$3, toDisplayString(__props.recordData.origin), 1)
+                createBaseVNode("span", _hoisted_8$4, toDisplayString(__props.recordData.origin), 1)
               ]),
-              createBaseVNode("div", _hoisted_9$3, [
+              createBaseVNode("div", _hoisted_9$4, [
                 _cache[3] || (_cache[3] = createBaseVNode("span", { class: "oc-stat-label" }, "Destination", -1)),
-                createBaseVNode("span", _hoisted_10$3, toDisplayString(__props.recordData.destination), 1)
+                createBaseVNode("span", _hoisted_10$4, toDisplayString(__props.recordData.destination), 1)
               ]),
-              createBaseVNode("div", _hoisted_11$3, [
+              createBaseVNode("div", _hoisted_11$4, [
                 _cache[4] || (_cache[4] = createBaseVNode("span", { class: "oc-stat-label" }, "Product", -1)),
-                createBaseVNode("span", _hoisted_12$3, toDisplayString(__props.recordData.awb), 1)
+                createBaseVNode("span", _hoisted_12$4, toDisplayString(__props.recordData.awb), 1)
               ]),
               _cache[5] || (_cache[5] = createStaticVNode('<div class="oc-stat-item" data-v-304df020><span class="oc-stat-label" data-v-304df020>Total Pieces</span><span class="oc-stat-value" data-v-304df020>4</span></div><div class="oc-stat-item" data-v-304df020><span class="oc-stat-label" data-v-304df020>Total Weight</span><span class="oc-stat-value" data-v-304df020>4299 KG</span></div><div class="oc-stat-item" data-v-304df020><span class="oc-stat-label" data-v-304df020>Total Volume</span><span class="oc-stat-value" data-v-304df020>0</span></div>', 3))
             ]),
-            createBaseVNode("div", _hoisted_13$3, [
+            createBaseVNode("div", _hoisted_13$4, [
               _cache[8] || (_cache[8] = createStaticVNode('<h4 class="oc-section-title" data-v-304df020>Route Map</h4><div class="oc-legend" data-v-304df020><span class="legend-item" data-v-304df020><span class="legend-dot status-new" data-v-304df020></span>New</span><span class="legend-item" data-v-304df020><span class="legend-dot status-missing" data-v-304df020></span>Missing</span><span class="legend-item" data-v-304df020><span class="legend-dot status-complete" data-v-304df020></span>Complete</span><span class="legend-item" data-v-304df020><span class="legend-dot status-partial" data-v-304df020></span>Partial Complete</span><span class="legend-item" data-v-304df020><span class="legend-dot status-discrepancy" data-v-304df020></span>Discrepancy</span></div>', 2)),
-              createBaseVNode("div", _hoisted_14$3, [
-                createBaseVNode("div", _hoisted_15$3, [
+              createBaseVNode("div", _hoisted_14$4, [
+                createBaseVNode("div", _hoisted_15$4, [
                   (openBlock(true), createElementBlock(Fragment, null, renderList(displayRouteMap.value, (milestone, idx) => {
                     return openBlock(), createElementBlock(Fragment, { key: idx }, [
                       milestone.isFlight ? (openBlock(), createElementBlock("div", _hoisted_16$2, [
@@ -24340,30 +24408,30 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
   }
 });
 
-const RecordOffcanvas = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-304df020"]]);
+const RecordOffcanvas = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["__scopeId", "data-v-304df020"]]);
 
-const _hoisted_1$2 = { class: "dashboard-page" };
-const _hoisted_2$2 = { class: "main-content" };
-const _hoisted_3$2 = { class: "page-tabs" };
-const _hoisted_4$2 = { class: "card search-card" };
-const _hoisted_5$2 = { class: "form-grid" };
-const _hoisted_6$2 = { class: "form-group" };
-const _hoisted_7$2 = { class: "form-group" };
-const _hoisted_8$2 = {
+const _hoisted_1$3 = { class: "dashboard-page" };
+const _hoisted_2$3 = { class: "main-content" };
+const _hoisted_3$3 = { class: "page-tabs" };
+const _hoisted_4$3 = { class: "card search-card" };
+const _hoisted_5$3 = { class: "form-grid" };
+const _hoisted_6$3 = { class: "form-group" };
+const _hoisted_7$3 = { class: "form-group" };
+const _hoisted_8$3 = {
   class: "form-group",
   style: { "z-index": "10" }
 };
-const _hoisted_9$2 = {
+const _hoisted_9$3 = {
   class: "form-group",
   style: { "z-index": "10" }
 };
-const _hoisted_10$2 = { class: "card results-card" };
-const _hoisted_11$2 = { class: "table-container" };
-const _hoisted_12$2 = { key: 0 };
-const _hoisted_13$2 = ["onClick"];
-const _hoisted_14$2 = ["onClick"];
-const _hoisted_15$2 = ["onClick"];
-const _sfc_main$2 = /* @__PURE__ */ defineComponent({
+const _hoisted_10$3 = { class: "card results-card" };
+const _hoisted_11$3 = { class: "table-container" };
+const _hoisted_12$3 = { key: 0 };
+const _hoisted_13$3 = ["onClick"];
+const _hoisted_14$3 = ["onClick"];
+const _hoisted_15$3 = ["onClick"];
+const _sfc_main$3 = /* @__PURE__ */ defineComponent({
   __name: "Dashboard",
   setup(__props) {
     const activeTab = ref("Air Waybill");
@@ -24529,7 +24597,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
       return "badge-pending";
     };
     return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("div", _hoisted_1$2, [
+      return openBlock(), createElementBlock("div", _hoisted_1$3, [
         createVNode(AppHeader),
         createVNode(RecordOffcanvas, {
           isOpen: isOffCanvasOpen.value,
@@ -24537,9 +24605,9 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
           recordData: selectedRecordData.value
         }, null, 8, ["isOpen", "recordData"]),
         createVNode(AppNavBar),
-        createBaseVNode("main", _hoisted_2$2, [
+        createBaseVNode("main", _hoisted_2$3, [
           _cache[15] || (_cache[15] = createBaseVNode("h2", { class: "page-title" }, "Shipment Performance (Cargo iQ)", -1)),
-          createBaseVNode("div", _hoisted_3$2, [
+          createBaseVNode("div", _hoisted_3$3, [
             createBaseVNode("span", {
               class: normalizeClass(["tab", { active: activeTab.value === "Air Waybill" }]),
               onClick: _cache[1] || (_cache[1] = ($event) => activeTab.value = "Air Waybill")
@@ -24549,13 +24617,13 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
               onClick: _cache[2] || (_cache[2] = ($event) => activeTab.value = "Template")
             }, " Template ", 2)
           ]),
-          createBaseVNode("section", _hoisted_4$2, [
+          createBaseVNode("section", _hoisted_4$3, [
             _cache[11] || (_cache[11] = createBaseVNode("div", { class: "card-header" }, [
               createBaseVNode("h3", null, "Search"),
               createBaseVNode("button", { class: "btn btn-outline" }, "+ Create FWB")
             ], -1)),
-            createBaseVNode("div", _hoisted_5$2, [
-              createBaseVNode("div", _hoisted_6$2, [
+            createBaseVNode("div", _hoisted_5$3, [
+              createBaseVNode("div", _hoisted_6$3, [
                 _cache[7] || (_cache[7] = createBaseVNode("label", null, "Air Waybill Number", -1)),
                 withDirectives(createBaseVNode("input", {
                   type: "text",
@@ -24565,7 +24633,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
                   [vModelText, searchAwb.value]
                 ])
               ]),
-              createBaseVNode("div", _hoisted_7$2, [
+              createBaseVNode("div", _hoisted_7$3, [
                 _cache[8] || (_cache[8] = createBaseVNode("label", null, "1R (ONE Record) LO", -1)),
                 withDirectives(createBaseVNode("input", {
                   type: "text",
@@ -24575,7 +24643,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
                   [vModelText, searchOneRecordLO.value]
                 ])
               ]),
-              createBaseVNode("div", _hoisted_8$2, [
+              createBaseVNode("div", _hoisted_8$3, [
                 _cache[9] || (_cache[9] = createBaseVNode("label", null, "Date Range", -1)),
                 createVNode(unref(Zl), {
                   modelValue: searchDateRange.value,
@@ -24585,7 +24653,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
                   placeholder: "Select Date Range"
                 }, null, 8, ["modelValue"])
               ]),
-              createBaseVNode("div", _hoisted_9$2, [
+              createBaseVNode("div", _hoisted_9$3, [
                 _cache[10] || (_cache[10] = createBaseVNode("label", null, "Last Update Date", -1)),
                 createVNode(unref(Zl), {
                   modelValue: searchLastUpdateDate.value,
@@ -24608,9 +24676,9 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
               }, "Search")
             ])
           ]),
-          createBaseVNode("section", _hoisted_10$2, [
+          createBaseVNode("section", _hoisted_10$3, [
             _cache[14] || (_cache[14] = createBaseVNode("h4", { class: "card-subtitle" }, "Recent FWB Record", -1)),
-            createBaseVNode("div", _hoisted_11$2, [
+            createBaseVNode("div", _hoisted_11$3, [
               createBaseVNode("table", null, [
                 _cache[13] || (_cache[13] = createBaseVNode("thead", null, [
                   createBaseVNode("tr", null, [
@@ -24631,7 +24699,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
                   ])
                 ], -1)),
                 createBaseVNode("tbody", null, [
-                  displayedRecords.value.length === 0 ? (openBlock(), createElementBlock("tr", _hoisted_12$2, [..._cache[12] || (_cache[12] = [
+                  displayedRecords.value.length === 0 ? (openBlock(), createElementBlock("tr", _hoisted_12$3, [..._cache[12] || (_cache[12] = [
                     createBaseVNode("td", {
                       colspan: "14",
                       style: { "text-align": "center", "padding": "20px", "color": "#888" }
@@ -24646,7 +24714,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
                         createBaseVNode("span", {
                           class: normalizeClass(["status-badge", getStatusBadgeClass(record.routeMap)])
                         }, toDisplayString(record.awb), 3)
-                      ], 8, _hoisted_13$2),
+                      ], 8, _hoisted_13$3),
                       createBaseVNode("td", {
                         onClick: ($event) => openOffCanvas(record),
                         style: { "cursor": "pointer" }
@@ -24654,7 +24722,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
                         createBaseVNode("span", {
                           class: normalizeClass(["status-badge", getStatusBadgeClass(record.routeMap)])
                         }, toDisplayString(record.oneRecordLo), 3)
-                      ], 8, _hoisted_14$2),
+                      ], 8, _hoisted_14$3),
                       createBaseVNode("td", null, toDisplayString(record.source), 1),
                       createBaseVNode("td", null, toDisplayString(record.hse), 1),
                       createBaseVNode("td", null, toDisplayString(record.flightDate), 1),
@@ -24671,7 +24739,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
                           href: "#",
                           class: "action-link",
                           onClick: withModifiers(($event) => openOffCanvas(record), ["prevent"])
-                        }, "View", 8, _hoisted_15$2)
+                        }, "View", 8, _hoisted_15$3)
                       ])
                     ]);
                   }), 128))
@@ -24686,23 +24754,25 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
   }
 });
 
-const Dashboard = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-3e043971"]]);
+const Dashboard = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-3e043971"]]);
 
-const _hoisted_1$1 = { class: "dashboard-page" };
-const _hoisted_2$1 = { class: "main-content" };
-const _hoisted_3$1 = { class: "layout-container" };
-const _hoisted_4$1 = { class: "left-panel" };
-const _hoisted_5$1 = { class: "info-row" };
-const _hoisted_6$1 = { class: "info-val" };
-const _hoisted_7$1 = { class: "info-row" };
-const _hoisted_8$1 = { class: "info-val loid-val" };
-const _hoisted_9$1 = { class: "right-panel" };
-const _hoisted_10$1 = { class: "tabs-container" };
-const _hoisted_11$1 = { class: "table-container" };
-const _hoisted_12$1 = { class: "detail-table" };
-const _hoisted_13$1 = { style: { "font-weight": "500", "color": "#444" } };
-const _hoisted_14$1 = { class: "text-gray" };
-const _hoisted_15$1 = {
+const _imports_0 = "/assets/1R%20Logo-CuALisTU.png";
+
+const _hoisted_1$2 = { class: "dashboard-page" };
+const _hoisted_2$2 = { class: "main-content" };
+const _hoisted_3$2 = { class: "layout-container" };
+const _hoisted_4$2 = { class: "left-panel" };
+const _hoisted_5$2 = { class: "info-row" };
+const _hoisted_6$2 = { class: "info-val" };
+const _hoisted_7$2 = { class: "info-row" };
+const _hoisted_8$2 = { class: "info-val loid-val" };
+const _hoisted_9$2 = { class: "right-panel" };
+const _hoisted_10$2 = { class: "tabs-container" };
+const _hoisted_11$2 = { class: "table-container" };
+const _hoisted_12$2 = { class: "detail-table" };
+const _hoisted_13$2 = { style: { "font-weight": "500", "color": "#444" } };
+const _hoisted_14$2 = { class: "text-gray" };
+const _hoisted_15$2 = {
   key: 1,
   class: "upload-section"
 };
@@ -24725,7 +24795,7 @@ const _hoisted_22$1 = {
   key: 2,
   class: "proceed-action"
 };
-const _sfc_main$1 = /* @__PURE__ */ defineComponent({
+const _sfc_main$2 = /* @__PURE__ */ defineComponent({
   __name: "DashboardDetail",
   setup(__props) {
     const route = useRoute();
@@ -24765,25 +24835,25 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
       }
     };
     return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("div", _hoisted_1$1, [
+      return openBlock(), createElementBlock("div", _hoisted_1$2, [
         createVNode(AppHeader),
         createVNode(AppNavBar),
-        createBaseVNode("main", _hoisted_2$1, [
-          _cache[18] || (_cache[18] = createStaticVNode('<div class="page-header" data-v-333da533><h2 class="page-title" data-v-333da533>Air Waybill Detail</h2><div class="one-record-logo" data-v-333da533><svg width="180" height="40" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg" data-v-333da533><rect width="180" height="40" rx="4" fill="#0000FF" data-v-333da533></rect><rect x="50" y="2" width="128" height="36" rx="2" fill="white" data-v-333da533></rect><text x="25" y="25" fill="white" font-size="12" font-family="Arial" font-weight="bold" text-anchor="middle" data-v-333da533>IATA</text><text x="114" y="26" fill="#0000FF" font-size="18" font-family="Arial" font-weight="bold" text-anchor="middle" data-v-333da533>ONE Record</text><path d="M16 10 h18 v2 h-18 z" fill="white" data-v-333da533></path><path d="M22 6 h6 v5 h-6 z" fill="white" data-v-333da533></path></svg></div></div>', 1)),
-          createBaseVNode("div", _hoisted_3$1, [
-            createBaseVNode("div", _hoisted_4$1, [
-              createBaseVNode("div", _hoisted_5$1, [
+        createBaseVNode("main", _hoisted_2$2, [
+          _cache[18] || (_cache[18] = createStaticVNode('<div class="page-header" data-v-771961ec><h2 class="page-title" data-v-771961ec>Air Waybill Detail</h2></div><div class="one-record-badge" data-v-771961ec><img src="' + _imports_0 + '" alt="IATA ONE Record" class="badge-icon" data-v-771961ec><span class="badge-text" style="color:#1d4ed8;padding:4px 12px;background:#eef2ff;border-radius:12px;font-weight:600;font-size:13px;" data-v-771961ec>Backed by ONE Record</span></div>', 2)),
+          createBaseVNode("div", _hoisted_3$2, [
+            createBaseVNode("div", _hoisted_4$2, [
+              createBaseVNode("div", _hoisted_5$2, [
                 _cache[5] || (_cache[5] = createBaseVNode("span", { class: "info-label" }, "AWB Number", -1)),
-                createBaseVNode("span", _hoisted_6$1, toDisplayString(awb.value), 1)
+                createBaseVNode("span", _hoisted_6$2, toDisplayString(awb.value), 1)
               ]),
-              createBaseVNode("div", _hoisted_7$1, [
+              createBaseVNode("div", _hoisted_7$2, [
                 _cache[6] || (_cache[6] = createBaseVNode("span", { class: "info-label" }, "One Record LO ID", -1)),
-                createBaseVNode("span", _hoisted_8$1, toDisplayString(loid.value), 1)
+                createBaseVNode("span", _hoisted_8$2, toDisplayString(loid.value), 1)
               ]),
-              _cache[7] || (_cache[7] = createStaticVNode('<div class="divider" data-v-333da533></div><h3 class="section-title" data-v-333da533>Shipment Status</h3><div class="info-row status-row" data-v-333da533><span class="info-label" data-v-333da533>Status</span><span class="info-val text-gray" data-v-333da533>In Progress</span></div><div class="action-buttons" data-v-333da533><button class="btn btn-action" data-v-333da533>Accept</button><button class="btn btn-action" data-v-333da533>Reject</button></div><div class="divider" data-v-333da533></div><h3 class="section-title" data-v-333da533>Special Handing Code Declaration</h3><div class="info-row" data-v-333da533><span class="info-label" data-v-333da533>Pouch Declare Code</span><span class="info-val text-gray" data-v-333da533>EAW</span></div><div class="info-row" data-v-333da533><span class="info-label" data-v-333da533>FWB Declare Code</span><span class="info-val text-gray" data-v-333da533>EAW / SPX</span></div><div class="info-row" data-v-333da533><span class="info-label" data-v-333da533>Booking Declare Code</span><span class="info-val text-gray" data-v-333da533>EAW / SPX</span></div><div class="divider" data-v-333da533></div><h3 class="section-title" data-v-333da533>FOH</h3><div class="info-row" data-v-333da533><span class="info-label" data-v-333da533>Piece</span><span class="info-val text-gray" data-v-333da533>34</span></div><div class="info-row" data-v-333da533><span class="info-label" data-v-333da533>Weight</span><span class="info-val text-gray" data-v-333da533>1013.00</span></div><div class="divider" data-v-333da533></div><h3 class="section-title" data-v-333da533>RCS</h3><div class="info-row" data-v-333da533><span class="info-label" data-v-333da533>Piece</span><span class="info-val text-gray" data-v-333da533></span></div><div class="info-row" data-v-333da533><span class="info-label" data-v-333da533>Weight</span><span class="info-val text-gray" data-v-333da533></span></div>', 17))
+              _cache[7] || (_cache[7] = createStaticVNode('<div class="divider" data-v-771961ec></div><h3 class="section-title" data-v-771961ec>Shipment Status</h3><div class="info-row status-row" data-v-771961ec><span class="info-label" data-v-771961ec>Status</span><span class="info-val text-gray" data-v-771961ec>In Progress</span></div><div class="action-buttons" data-v-771961ec><button class="btn btn-action" data-v-771961ec>Accept</button><button class="btn btn-action" data-v-771961ec>Reject</button></div><div class="divider" data-v-771961ec></div><h3 class="section-title" data-v-771961ec>Special Handing Code Declaration</h3><div class="info-row" data-v-771961ec><span class="info-label" data-v-771961ec>Pouch Declare Code</span><span class="info-val text-gray" data-v-771961ec>EAW</span></div><div class="info-row" data-v-771961ec><span class="info-label" data-v-771961ec>FWB Declare Code</span><span class="info-val text-gray" data-v-771961ec>EAW / SPX</span></div><div class="info-row" data-v-771961ec><span class="info-label" data-v-771961ec>Booking Declare Code</span><span class="info-val text-gray" data-v-771961ec>EAW / SPX</span></div><div class="divider" data-v-771961ec></div><h3 class="section-title" data-v-771961ec>FOH</h3><div class="info-row" data-v-771961ec><span class="info-label" data-v-771961ec>Piece</span><span class="info-val text-gray" data-v-771961ec>34</span></div><div class="info-row" data-v-771961ec><span class="info-label" data-v-771961ec>Weight</span><span class="info-val text-gray" data-v-771961ec>1013.00</span></div><div class="divider" data-v-771961ec></div><h3 class="section-title" data-v-771961ec>RCS</h3><div class="info-row" data-v-771961ec><span class="info-label" data-v-771961ec>Piece</span><span class="info-val text-gray" data-v-771961ec></span></div><div class="info-row" data-v-771961ec><span class="info-label" data-v-771961ec>Weight</span><span class="info-val text-gray" data-v-771961ec></span></div>', 17))
             ]),
-            createBaseVNode("div", _hoisted_9$1, [
-              createBaseVNode("div", _hoisted_10$1, [
+            createBaseVNode("div", _hoisted_9$2, [
+              createBaseVNode("div", _hoisted_10$2, [
                 createBaseVNode("button", {
                   class: normalizeClass(["tab-btn", { active: activeTab.value === "DG Checking" }]),
                   onClick: _cache[0] || (_cache[0] = ($event) => activeTab.value = "DG Checking")
@@ -24801,8 +24871,8 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
                   onClick: _cache[3] || (_cache[3] = ($event) => activeTab.value = "Import & Export Commodity Checking")
                 }, "Import & Export Commodity Checking", 2)
               ]),
-              createBaseVNode("div", _hoisted_11$1, [
-                createBaseVNode("table", _hoisted_12$1, [
+              createBaseVNode("div", _hoisted_11$2, [
+                createBaseVNode("table", _hoisted_12$2, [
                   _cache[9] || (_cache[9] = createBaseVNode("thead", null, [
                     createBaseVNode("tr", null, [
                       createBaseVNode("th", { style: { "width": "40%" } }, "Description"),
@@ -24816,8 +24886,8 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
                         key: idx,
                         class: normalizeClass({ "alt-row": idx % 2 === 0 })
                       }, [
-                        createBaseVNode("td", _hoisted_13$1, toDisplayString(doc.desc), 1),
-                        createBaseVNode("td", _hoisted_14$1, toDisplayString(doc.time), 1),
+                        createBaseVNode("td", _hoisted_13$2, toDisplayString(doc.desc), 1),
+                        createBaseVNode("td", _hoisted_14$2, toDisplayString(doc.time), 1),
                         _cache[8] || (_cache[8] = createBaseVNode("td", { style: { "text-align": "right" } }, [
                           createBaseVNode("a", {
                             href: "#",
@@ -24834,7 +24904,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
                 class: "btn btn-upload",
                 onClick: _cache[4] || (_cache[4] = ($event) => showUploadSection.value = true)
               }, "+ Upload more document button")) : createCommentVNode("", true),
-              showUploadSection.value ? (openBlock(), createElementBlock("div", _hoisted_15$1, [
+              showUploadSection.value ? (openBlock(), createElementBlock("div", _hoisted_15$2, [
                 _cache[15] || (_cache[15] = createBaseVNode("div", { class: "upload-title" }, "Upload File", -1)),
                 _cache[16] || (_cache[16] = createBaseVNode("div", { class: "upload-subtitle" }, [
                   createTextVNode("Support 1 file only, in "),
@@ -24903,32 +24973,32 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
   }
 });
 
-const DashboardDetail = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-333da533"]]);
+const DashboardDetail = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-771961ec"]]);
 
-const _hoisted_1 = { class: "dashboard-page" };
-const _hoisted_2 = { class: "main-content" };
-const _hoisted_3 = { class: "search-section" };
-const _hoisted_4 = { class: "search-grid" };
-const _hoisted_5 = {
+const _hoisted_1$1 = { class: "dashboard-page" };
+const _hoisted_2$1 = { class: "main-content" };
+const _hoisted_3$1 = { class: "search-section" };
+const _hoisted_4$1 = { class: "search-grid" };
+const _hoisted_5$1 = {
   class: "form-group",
   style: { "grid-column": "1 / 3" }
 };
-const _hoisted_6 = {
+const _hoisted_6$1 = {
   class: "form-group",
   style: { "grid-column": "3 / 6" }
 };
-const _hoisted_7 = {
+const _hoisted_7$1 = {
   class: "form-group",
   style: { "z-index": "10" }
 };
-const _hoisted_8 = { class: "results-section" };
-const _hoisted_9 = { class: "table-container" };
-const _hoisted_10 = { class: "modern-table" };
-const _hoisted_11 = { key: 0 };
-const _hoisted_12 = ["onClick"];
-const _hoisted_13 = { style: { "color": "#333", "font-weight": "500" } };
-const _hoisted_14 = { style: { "color": "#666", "font-size": "12px", "font-family": "monospace", "max-width": "150px", "word-wrap": "break-word" } };
-const _hoisted_15 = { style: { "background": "#f4f6f8", "padding": "4px 8px", "border-radius": "4px", "border": "1px solid #e1e4e8" } };
+const _hoisted_8$1 = { class: "results-section" };
+const _hoisted_9$1 = { class: "table-container" };
+const _hoisted_10$1 = { class: "modern-table" };
+const _hoisted_11$1 = { key: 0 };
+const _hoisted_12$1 = ["onClick"];
+const _hoisted_13$1 = { style: { "color": "#333", "font-weight": "500" } };
+const _hoisted_14$1 = { style: { "color": "#666", "font-size": "12px", "font-family": "monospace", "max-width": "150px", "word-wrap": "break-word" } };
+const _hoisted_15$1 = { style: { "background": "#f4f6f8", "padding": "4px 8px", "border-radius": "4px", "border": "1px solid #e1e4e8" } };
 const _hoisted_16 = { style: { "color": "#666" } };
 const _hoisted_17 = { style: { "color": "#666" } };
 const _hoisted_18 = { style: { "color": "#666" } };
@@ -24978,7 +25048,7 @@ const _hoisted_34 = { style: { "color": "#666" } };
 const _hoisted_35 = { style: { "color": "#666" } };
 const _hoisted_36 = { style: { "color": "#666" } };
 const _hoisted_37 = { style: { "color": "#666" } };
-const _sfc_main = /* @__PURE__ */ defineComponent({
+const _sfc_main$1 = /* @__PURE__ */ defineComponent({
   __name: "ShipmentList",
   setup(__props) {
     const searchAwb = ref("");
@@ -25010,7 +25080,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       });
     };
     return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("div", _hoisted_1, [
+      return openBlock(), createElementBlock("div", _hoisted_1$1, [
         createVNode(AppHeader),
         createVNode(RecordOffcanvas, {
           isOpen: isOffCanvasOpen.value,
@@ -25018,11 +25088,11 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           recordData: selectedRecordData.value
         }, null, 8, ["isOpen", "recordData"]),
         createVNode(AppNavBar),
-        createBaseVNode("main", _hoisted_2, [
+        createBaseVNode("main", _hoisted_2$1, [
           _cache[13] || (_cache[13] = createBaseVNode("h2", { class: "page-title" }, "Shipment List", -1)),
-          createBaseVNode("section", _hoisted_3, [
-            createBaseVNode("div", _hoisted_4, [
-              createBaseVNode("div", _hoisted_5, [
+          createBaseVNode("section", _hoisted_3$1, [
+            createBaseVNode("div", _hoisted_4$1, [
+              createBaseVNode("div", _hoisted_5$1, [
                 _cache[4] || (_cache[4] = createBaseVNode("label", null, "Air Waybill Number", -1)),
                 withDirectives(createBaseVNode("input", {
                   type: "text",
@@ -25032,7 +25102,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                   [vModelText, searchAwb.value]
                 ])
               ]),
-              createBaseVNode("div", _hoisted_6, [
+              createBaseVNode("div", _hoisted_6$1, [
                 _cache[5] || (_cache[5] = createBaseVNode("label", null, "One Record LOID", -1)),
                 withDirectives(createBaseVNode("input", {
                   type: "text",
@@ -25049,7 +25119,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                   placeholder: ""
                 })
               ], -1)),
-              createBaseVNode("div", _hoisted_7, [
+              createBaseVNode("div", _hoisted_7$1, [
                 _cache[6] || (_cache[6] = createBaseVNode("label", null, "Flight Date", -1)),
                 createVNode(unref(Zl), {
                   modelValue: searchDateRange.value,
@@ -25078,9 +25148,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               ])
             ])
           ]),
-          createBaseVNode("section", _hoisted_8, [
-            createBaseVNode("div", _hoisted_9, [
-              createBaseVNode("table", _hoisted_10, [
+          createBaseVNode("section", _hoisted_8$1, [
+            createBaseVNode("div", _hoisted_9$1, [
+              createBaseVNode("table", _hoisted_10$1, [
                 _cache[11] || (_cache[11] = createBaseVNode("thead", null, [
                   createBaseVNode("tr", null, [
                     createBaseVNode("th", null, "Air WayBill No."),
@@ -25113,7 +25183,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                   ])
                 ], -1)),
                 createBaseVNode("tbody", null, [
-                  displayedRecords.value.length === 0 ? (openBlock(), createElementBlock("tr", _hoisted_11, [..._cache[10] || (_cache[10] = [
+                  displayedRecords.value.length === 0 ? (openBlock(), createElementBlock("tr", _hoisted_11$1, [..._cache[10] || (_cache[10] = [
                     createBaseVNode("td", {
                       colspan: "15",
                       style: { "text-align": "center", "padding": "20px", "color": "#888" }
@@ -25126,9 +25196,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                       onClick: ($event) => openDetail(record),
                       style: { "cursor": "pointer" }
                     }, [
-                      createBaseVNode("td", _hoisted_13, toDisplayString(record.awb), 1),
-                      createBaseVNode("td", _hoisted_14, [
-                        createBaseVNode("div", _hoisted_15, toDisplayString(record.oneRecordLo), 1)
+                      createBaseVNode("td", _hoisted_13$1, toDisplayString(record.awb), 1),
+                      createBaseVNode("td", _hoisted_14$1, [
+                        createBaseVNode("div", _hoisted_15$1, toDisplayString(record.oneRecordLo), 1)
                       ]),
                       createBaseVNode("td", _hoisted_16, toDisplayString(record.pouch), 1),
                       createBaseVNode("td", _hoisted_17, toDisplayString(record.sshc), 1),
@@ -25151,7 +25221,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                       createBaseVNode("td", _hoisted_35, toDisplayString(record.wgt), 1),
                       createBaseVNode("td", _hoisted_36, toDisplayString(record.desc), 1),
                       createBaseVNode("td", _hoisted_37, toDisplayString(record.lastEventTime), 1)
-                    ], 8, _hoisted_12);
+                    ], 8, _hoisted_12$1);
                   }), 128))
                 ])
               ])
@@ -25165,7 +25235,132 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
   }
 });
 
-const ShipmentList = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-eb520d31"]]);
+const ShipmentList = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-eb520d31"]]);
+
+const _hoisted_1 = { class: "dashboard-page" };
+const _hoisted_2 = { class: "main-content" };
+const _hoisted_3 = { class: "layout-container" };
+const _hoisted_4 = { class: "left-panel" };
+const _hoisted_5 = { class: "info-row" };
+const _hoisted_6 = { class: "info-val" };
+const _hoisted_7 = { class: "info-row" };
+const _hoisted_8 = { class: "info-val loid-val" };
+const _hoisted_9 = { class: "right-panel" };
+const _hoisted_10 = { class: "alert-banner" };
+const _hoisted_11 = {
+  style: { "width": "18px", "height": "18px", "margin-right": "8px" },
+  viewBox: "0 0 24 24",
+  fill: "red",
+  stroke: "white",
+  "stroke-width": "2"
+};
+const _hoisted_12 = { class: "tabs-container" };
+const _hoisted_13 = { class: "table-container" };
+const _hoisted_14 = { class: "detail-table" };
+const _hoisted_15 = { class: "text-gray" };
+const _sfc_main = /* @__PURE__ */ defineComponent({
+  __name: "TrackShipment",
+  setup(__props) {
+    const route = useRoute();
+    const awb = ref(route.query.awb || "160-55554444");
+    const loid = ref(route.query.loid || "3c8e4f1a-b615-492c-ad2f-e8b91a78370f");
+    const activeTab = ref("Temperature Log");
+    const logs = [
+      { desc: "[NRT] ULD Temperature Alert", time: "2026-06-03 15:49:00", remark: "3°C Exceed control temperature range +2°C to +8°C" },
+      { desc: "[NRT] Normal", time: "2026-06-03 14:00:00", remark: "In range" },
+      { desc: "[NRT] Cargo Accepted", time: "2026-06-03 12:30:00", remark: "" }
+    ];
+    return (_ctx, _cache) => {
+      return openBlock(), createElementBlock("div", _hoisted_1, [
+        createVNode(AppHeader),
+        createVNode(AppNavBar),
+        createBaseVNode("main", _hoisted_2, [
+          _cache[8] || (_cache[8] = createStaticVNode('<div class="page-header" data-v-a066eda3><h2 class="page-title" data-v-a066eda3>Track Shipment</h2></div><div class="one-record-badge" data-v-a066eda3><img src="' + _imports_0 + '" alt="IATA ONE Record" class="badge-icon" data-v-a066eda3><span class="badge-text" style="color:#1d4ed8;padding:4px 12px;background:#eef2ff;border-radius:12px;font-weight:600;font-size:13px;" data-v-a066eda3>Backed by ONE Record</span></div>', 2)),
+          createBaseVNode("div", _hoisted_3, [
+            createBaseVNode("div", _hoisted_4, [
+              createBaseVNode("div", _hoisted_5, [
+                _cache[2] || (_cache[2] = createBaseVNode("span", { class: "info-label" }, "AWB Number", -1)),
+                createBaseVNode("span", _hoisted_6, toDisplayString(awb.value), 1)
+              ]),
+              createBaseVNode("div", _hoisted_7, [
+                _cache[3] || (_cache[3] = createBaseVNode("span", { class: "info-label" }, "One Record LO ID", -1)),
+                createBaseVNode("span", _hoisted_8, toDisplayString(loid.value), 1)
+              ]),
+              _cache[4] || (_cache[4] = createStaticVNode('<div class="divider" data-v-a066eda3></div><h3 class="section-title" data-v-a066eda3>Shipment Status</h3><div class="info-row status-row" data-v-a066eda3><span class="info-label" data-v-a066eda3>Alert Status</span><span class="info-val" style="color:#ef4444;" data-v-a066eda3>Critical Alert</span></div><div class="divider" data-v-a066eda3></div><h3 class="section-title" data-v-a066eda3>Temperature Control</h3><div class="info-row" data-v-a066eda3><span class="info-label" data-v-a066eda3>Requirement</span><span class="info-val text-gray" data-v-a066eda3>+2°C to +8°C</span></div><div class="info-row" data-v-a066eda3><span class="info-label" data-v-a066eda3>Current reading</span><span class="info-val" style="color:#ef4444;font-weight:bold;" data-v-a066eda3>+11°C</span></div><div class="divider" data-v-a066eda3></div><h3 class="section-title" data-v-a066eda3>Location</h3><div class="info-row" data-v-a066eda3><span class="info-label" data-v-a066eda3>Check Point</span><span class="info-val text-gray" data-v-a066eda3>NRT (Narita)</span></div><div class="info-row" data-v-a066eda3><span class="info-label" data-v-a066eda3>ULD</span><span class="info-val text-gray" data-v-a066eda3>AKE12345JL</span></div>', 11))
+            ]),
+            createBaseVNode("div", _hoisted_9, [
+              createBaseVNode("div", _hoisted_10, [
+                (openBlock(), createElementBlock("svg", _hoisted_11, [..._cache[5] || (_cache[5] = [
+                  createBaseVNode("circle", {
+                    cx: "12",
+                    cy: "12",
+                    r: "10"
+                  }, null, -1),
+                  createBaseVNode("line", {
+                    x1: "12",
+                    y1: "8",
+                    x2: "12",
+                    y2: "12"
+                  }, null, -1),
+                  createBaseVNode("line", {
+                    x1: "12",
+                    y1: "16",
+                    x2: "12.01",
+                    y2: "16"
+                  }, null, -1)
+                ])])),
+                _cache[6] || (_cache[6] = createBaseVNode("div", { style: { "flex": "1" } }, [
+                  createBaseVNode("strong", { style: { "display": "block", "margin-bottom": "2px" } }, "Temperature Alert Detected"),
+                  createBaseVNode("span", { style: { "font-size": "12px" } }, "Immediate action requested for ULD AKE12345JL at NRT. Reading exceeded bounds by +3°C.")
+                ], -1))
+              ]),
+              createBaseVNode("div", _hoisted_12, [
+                createBaseVNode("button", {
+                  class: normalizeClass(["tab-btn", { active: activeTab.value === "Temperature Log" }]),
+                  onClick: _cache[0] || (_cache[0] = ($event) => activeTab.value = "Temperature Log")
+                }, "Temperature Log", 2),
+                createBaseVNode("button", {
+                  class: normalizeClass(["tab-btn", { active: activeTab.value === "Action History" }]),
+                  onClick: _cache[1] || (_cache[1] = ($event) => activeTab.value = "Action History")
+                }, "Action History", 2)
+              ]),
+              createBaseVNode("div", _hoisted_13, [
+                createBaseVNode("table", _hoisted_14, [
+                  _cache[7] || (_cache[7] = createBaseVNode("thead", null, [
+                    createBaseVNode("tr", null, [
+                      createBaseVNode("th", { style: { "width": "35%" } }, "Event"),
+                      createBaseVNode("th", null, "Date Time"),
+                      createBaseVNode("th", null, "Remark")
+                    ])
+                  ], -1)),
+                  createBaseVNode("tbody", null, [
+                    (openBlock(), createElementBlock(Fragment, null, renderList(logs, (log, idx) => {
+                      return createBaseVNode("tr", {
+                        key: idx,
+                        class: normalizeClass({ "alt-row": idx % 2 === 0 })
+                      }, [
+                        createBaseVNode("td", {
+                          style: normalizeStyle(idx === 0 ? "color: #ef4444; font-weight: bold;" : "font-weight: 500; color: #444;")
+                        }, toDisplayString(log.desc), 5),
+                        createBaseVNode("td", _hoisted_15, toDisplayString(log.time), 1),
+                        createBaseVNode("td", {
+                          style: normalizeStyle(idx === 0 ? "color: #ef4444;" : "color: #666;")
+                        }, toDisplayString(log.remark), 5)
+                      ], 2);
+                    }), 64))
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ]),
+        createVNode(AppFooter)
+      ]);
+    };
+  }
+});
+
+const TrackShipment = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-a066eda3"]]);
 
 const baseUrl = "/";
 const baseChildren = [
@@ -25189,6 +25384,11 @@ const baseChildren = [
     path: "dashboard/detail",
     name: "DashboardDetail",
     component: DashboardDetail
+  },
+  {
+    path: "track-shipment",
+    name: "TrackShipment",
+    component: TrackShipment
   }
 ];
 baseChildren.unshift({
