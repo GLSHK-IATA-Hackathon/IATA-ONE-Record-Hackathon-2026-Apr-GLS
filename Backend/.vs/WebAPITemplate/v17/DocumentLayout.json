@@ -1,0 +1,195 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\GitSources\\EzyCustomsUserAPI\\IATA-ONE-Record-Hackathon-2026-Apr-GLS\\Backend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{03A3EEF1-CD7E-4977-A281-D04282725945}|WebAPITemplate.csproj|c:\\gitsources\\ezycustomsuserapi\\iata-one-record-hackathon-2026-apr-gls\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03A3EEF1-CD7E-4977-A281-D04282725945}|WebAPITemplate.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{03A3EEF1-CD7E-4977-A281-D04282725945}|WebAPITemplate.csproj|c:\\gitsources\\ezycustomsuserapi\\iata-one-record-hackathon-2026-apr-gls\\backend\\extension\\usermiddlewareextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03A3EEF1-CD7E-4977-A281-D04282725945}|WebAPITemplate.csproj|solutionrelative:extension\\usermiddlewareextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{03A3EEF1-CD7E-4977-A281-D04282725945}|WebAPITemplate.csproj|c:\\gitsources\\ezycustomsuserapi\\iata-one-record-hackathon-2026-apr-gls\\backend\\controllers\\sample\\dbcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03A3EEF1-CD7E-4977-A281-D04282725945}|WebAPITemplate.csproj|solutionrelative:controllers\\sample\\dbcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{03A3EEF1-CD7E-4977-A281-D04282725945}|WebAPITemplate.csproj|c:\\gitsources\\ezycustomsuserapi\\iata-one-record-hackathon-2026-apr-gls\\backend\\controllers\\sample\\loggingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03A3EEF1-CD7E-4977-A281-D04282725945}|WebAPITemplate.csproj|solutionrelative:controllers\\sample\\loggingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{03A3EEF1-CD7E-4977-A281-D04282725945}|WebAPITemplate.csproj|c:\\gitsources\\ezycustomsuserapi\\iata-one-record-hackathon-2026-apr-gls\\backend\\controllers\\sample\\healthcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03A3EEF1-CD7E-4977-A281-D04282725945}|WebAPITemplate.csproj|solutionrelative:controllers\\sample\\healthcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 27,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{65ddf8c3-8f89-4077-a6c6-dbb8853aab13}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{65ddf8c3-8f89-4077-a6c6-dbb8853aab13}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{65ddf8c3-8f89-4077-a6c6-dbb8853aab13}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{80454082-9ab8-47d4-af23-82bf6739e2a9}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:17:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:18:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:20:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:19:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{57d563b6-44a5-47df-85be-f4199ad6b651}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{57d563b6-44a5-47df-85be-f4199ad6b651}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{be4d7042-ba3f-11d2-840e-00c04f9902c1}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:27:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:26:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:25:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:21:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:28:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:29:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:24:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{99b8fa2f-ab90-4f57-9c32-949f146f1914}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserMiddlewareExtensions.cs",
+              "DocumentMoniker": "C:\\GitSources\\EzyCustomsUserAPI\\IATA-ONE-Record-Hackathon-2026-Apr-GLS\\Backend\\Extension\\UserMiddlewareExtensions.cs",
+              "RelativeDocumentMoniker": "Extension\\UserMiddlewareExtensions.cs",
+              "ToolTip": "C:\\GitSources\\EzyCustomsUserAPI\\IATA-ONE-Record-Hackathon-2026-Apr-GLS\\Backend\\Extension\\UserMiddlewareExtensions.cs",
+              "RelativeToolTip": "Extension\\UserMiddlewareExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T02:24:48.944Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DBController.cs",
+              "DocumentMoniker": "C:\\GitSources\\EzyCustomsUserAPI\\IATA-ONE-Record-Hackathon-2026-Apr-GLS\\Backend\\Controllers\\Sample\\DBController.cs",
+              "RelativeDocumentMoniker": "Controllers\\Sample\\DBController.cs",
+              "ToolTip": "C:\\GitSources\\EzyCustomsUserAPI\\IATA-ONE-Record-Hackathon-2026-Apr-GLS\\Backend\\Controllers\\Sample\\DBController.cs",
+              "RelativeToolTip": "Controllers\\Sample\\DBController.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABcAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T02:15:42.383Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LoggingController.cs",
+              "DocumentMoniker": "C:\\GitSources\\EzyCustomsUserAPI\\IATA-ONE-Record-Hackathon-2026-Apr-GLS\\Backend\\Controllers\\Sample\\LoggingController.cs",
+              "RelativeDocumentMoniker": "Controllers\\Sample\\LoggingController.cs",
+              "ToolTip": "C:\\GitSources\\EzyCustomsUserAPI\\IATA-ONE-Record-Hackathon-2026-Apr-GLS\\Backend\\Controllers\\Sample\\LoggingController.cs",
+              "RelativeToolTip": "Controllers\\Sample\\LoggingController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T02:15:30.98Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "HealthController.cs",
+              "DocumentMoniker": "C:\\GitSources\\EzyCustomsUserAPI\\IATA-ONE-Record-Hackathon-2026-Apr-GLS\\Backend\\Controllers\\Sample\\HealthController.cs",
+              "RelativeDocumentMoniker": "Controllers\\Sample\\HealthController.cs",
+              "ToolTip": "C:\\GitSources\\EzyCustomsUserAPI\\IATA-ONE-Record-Hackathon-2026-Apr-GLS\\Backend\\Controllers\\Sample\\HealthController.cs",
+              "RelativeToolTip": "Controllers\\Sample\\HealthController.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACoAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T02:15:14.301Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\GitSources\\EzyCustomsUserAPI\\IATA-ONE-Record-Hackathon-2026-Apr-GLS\\Backend\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\GitSources\\EzyCustomsUserAPI\\IATA-ONE-Record-Hackathon-2026-Apr-GLS\\Backend\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T02:15:03.948Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

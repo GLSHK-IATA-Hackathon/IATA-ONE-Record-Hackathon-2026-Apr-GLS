@@ -21,9 +21,6 @@ namespace WebAPITemplate.Extension
             _ = services.AddDbContext<WebAPITemplate.Controllers.Sample.DBConnection.SqlServerDataBaseContext>();
             _ = services.AddDbContext<WebAPITemplate.Controllers.Sample.DBConnection.MariaDataBaseContext>();
 
-            //add Restclient DI
-            _ = services.AddSingleton<WebAPITemplate.Controllers.Sample.RestClient.MQApiRestClient>();
-
             // Register HttpContext DI
             _ = services.AddHttpContextAccessor();
 
@@ -52,13 +49,7 @@ namespace WebAPITemplate.Extension
         public static void AddHostConfigure(this ConfigureHostBuilder Host)
         {
             //add logger configure file
-            string log4NetPath = GLSHK.Common.Common.FindFile("log4net", "config", null, true);
-            _ = Host.ConfigureLogging(logging =>
-            {
-                logging.AddProvider(new Log4NetProvider(log4NetPath));
-                logging.AddLog4Net(log4NetPath);
-            }
-            );
+            
             //add follow code ONLY IF CONFIGURE information IS NOT KEEP at appsetting.json
             //remove follow code if db access is not necessary
             //add DataSource

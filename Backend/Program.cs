@@ -24,7 +24,6 @@ var app = builder.Build();
 // Add middleware to auto log request and response content
 // must add AddDIServices for IGLSLoggerHelper
 //https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/write?view=aspnetcore-7.0&viewFallbackFrom=aspnetcore-2.2#per-request-middleware-dependencies
-app.UseGLSMiddleware();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

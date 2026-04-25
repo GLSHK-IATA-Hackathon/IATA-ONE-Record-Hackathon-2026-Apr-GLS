@@ -1,0 +1,396 @@
+[
+  {
+    "ContainingType": "WebAPITemplate.Controllers.Sample.APIClientController",
+    "Method": "SampleCode_APIClientPost",
+    "RelativePath": "APIClient/SampleCode_APIClientPost",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "TestPostContent",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebAPITemplate.Controllers.Sample.APIClientController",
+    "Method": "SampleCode_MQAPIClientGet",
+    "RelativePath": "APIClient/SampleCode_MQAPIClientGet",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebAPITemplate.Controllers.Sample.CallValidateController_Fluentvalidation",
+    "Method": "CallValidation_Body",
+    "RelativePath": "Fluentvalidation/Call_FluentvalidationSample_Body",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "person",
+        "Type": "WebAPITemplate.Controllers.Sample.ValidModels.ValidateObjectModel_FluentvalidationSample\u002BPerson",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "FluentValidation.Results.ValidationResult",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebAPITemplate.Controllers.Sample.CallValidateController_Fluentvalidation",
+    "Method": "Call_FluentvalidationSample_DependentRule",
+    "RelativePath": "Fluentvalidation/Call_FluentvalidationSample_DependentRule",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "personName",
+        "Type": "WebAPITemplate.Controllers.Sample.ValidModels.ValidateObjectModel_FluentvalidationSample\u002BPersonName",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "FluentValidation.Results.ValidationResult",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebAPITemplate.Controllers.Sample.CallValidateController_Fluentvalidation",
+    "Method": "CallValidation_QueryString",
+    "RelativePath": "Fluentvalidation/Call_FluentvalidationSample_QueryString",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "FluentValidation.Results.ValidationResult",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebAPITemplate.Controllers.Sample.LoggingController",
+    "Method": "Log_LogLevelWithDictionary",
+    "RelativePath": "Logging/Log_LogLevelWithDictionary",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "logLevel",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebAPITemplate.Controllers.Sample.LoggingController",
+    "Method": "Log_LogLevelWithTemplate",
+    "RelativePath": "Logging/Log_LogLevelWithTemplate",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "logLevel",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebAPITemplate.Controllers.Sample.LoggingController",
+    "Method": "LogErrorWithDictionary",
+    "RelativePath": "Logging/LogErrorWithDictionary",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebAPITemplate.Controllers.Sample.LoggingController",
+    "Method": "LogErrorWithLargeBody",
+    "RelativePath": "Logging/LogErrorWithLargeBody",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "noOfTagKey",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Int32",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebAPITemplate.Controllers.Sample.LoggingController",
+    "Method": "LogErrorWithTemplate",
+    "RelativePath": "Logging/LogErrorWithTemplate",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Int32",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebAPITemplate.Controllers.Sample.CallValidateController",
+    "Method": "CallValidation_Body",
+    "RelativePath": "Sample/CallValidation_Body",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "queryBody",
+        "Type": "WebAPITemplate.Controllers.Sample.ValidModels.ValidateObjectModel_Sample\u002BValidInfoBody",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebAPITemplate.Controllers.Sample.CallValidateController",
+    "Method": "CallValidation_QueryString",
+    "RelativePath": "Sample/CallValidation_QueryString",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "GLSHK.Common.CallValidation\u002BValidInfoResult",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebAPITemplate.Controllers.Sample.DBController",
+    "Method": "DBConnection_MariaServer_GetDateTime",
+    "RelativePath": "Sample/DBConnection_MariaServer_GetDateTime",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPITemplate.Controllers.Sample.DBController",
+    "Method": "DBConnection_SqlServer_GetDateTime",
+    "RelativePath": "Sample/DBConnection_SqlServer_GetDateTime",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPITemplate.Controllers.Sample.HealthController",
+    "Method": "HealthCheck",
+    "RelativePath": "Sample/healthcheck",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPITemplate.Controllers.Sample.HealthController",
+    "Method": "HealthCheckWithConfig",
+    "RelativePath": "Sample/healthcheck_withconfig",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebAPITemplate.Controllers.Sample.CacheController",
+    "Method": "GetCache_string",
+    "RelativePath": "Sample/TestCache_Get",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPITemplate.Controllers.Sample.CacheController",
+    "Method": "GetCache_Body",
+    "RelativePath": "Sample/TestCache_GetBody",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPITemplate.Controllers.Sample.CacheController",
+    "Method": "SetCache_string",
+    "RelativePath": "Sample/TestCache_Set",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "value",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPITemplate.Controllers.Sample.CacheController",
+    "Method": "SetCache_Object",
+    "RelativePath": "Sample/TestCache_SetBody",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "body",
+        "Type": "WebAPITemplate.Controllers.Sample.CacheController\u002BCachePerson",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
