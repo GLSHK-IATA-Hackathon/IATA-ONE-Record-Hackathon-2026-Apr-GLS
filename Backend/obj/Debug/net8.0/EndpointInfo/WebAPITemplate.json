@@ -138,6 +138,11 @@
         ],
         "requestBody": {
           "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CachePerson"
+              }
+            },
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/CachePerson"
@@ -219,6 +224,11 @@
         ],
         "requestBody": {
           "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidInfoBody"
+              }
+            },
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/ValidInfoBody"
@@ -267,6 +277,11 @@
         ],
         "requestBody": {
           "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Person"
+              }
+            },
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/Person"
@@ -344,6 +359,11 @@
         ],
         "requestBody": {
           "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PersonName"
+              }
+            },
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/PersonName"
@@ -381,6 +401,54 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/api/Converter/Mapping1RtoXSDG": {
+      "post": {
+        "tags": [
+          "Converter"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/JToken"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/JToken"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/JToken"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/JToken"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }
@@ -629,6 +697,12 @@
           }
         },
         "additionalProperties": false
+      },
+      "JToken": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/JToken"
+        }
       },
       "LogLevel": {
         "enum": [

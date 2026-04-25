@@ -109,3 +109,6 @@ C:\GitSources\EzyCustomsUserAPI\IATA-ONE-Record-Hackathon-2026-Apr-GLS\Backend\o
 C:\GitSources\EzyCustomsUserAPI\IATA-ONE-Record-Hackathon-2026-Apr-GLS\Backend\obj\Debug\net8.0\WebAPITemplate.pdb
 C:\GitSources\EzyCustomsUserAPI\IATA-ONE-Record-Hackathon-2026-Apr-GLS\Backend\obj\Debug\net8.0\WebAPITemplate.genruntimeconfig.cache
 C:\GitSources\EzyCustomsUserAPI\IATA-ONE-Record-Hackathon-2026-Apr-GLS\Backend\obj\Debug\net8.0\ref\WebAPITemplate.dll
+C:\GitSources\EzyCustomsUserAPI\IATA-ONE-Record-Hackathon-2026-Apr-GLS\Backend\bin\Debug\net8.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\GitSources\EzyCustomsUserAPI\IATA-ONE-Record-Hackathon-2026-Apr-GLS\Backend\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\GitSources\EzyCustomsUserAPI\IATA-ONE-Record-Hackathon-2026-Apr-GLS\Backend\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
