@@ -33,6 +33,8 @@ namespace WebAPITemplate.Controllers
                 return BadRequest(new { Error = "Please provide a valid LO_ID (lo_id) parameter" });
             }
 
+            bool DemoMode = true;       // Toggle for Demo Use
+
             try
             {
                 // 1. Define the entity path of the JSON file
@@ -44,11 +46,19 @@ namespace WebAPITemplate.Controllers
                     return StatusCode(500, new { Error = "Server internal error: Database/JSON Result file not found. ", Path = filePath });
                 }
 
-                // 3. Read the contents of the JSON file (this step is just like querying a database in a real project)
+                // 3. Read the contents of the JSON file
                 string jsonContent = System.IO.File.ReadAllText(filePath);
                 JArray database = JArray.Parse(jsonContent);
 
-                // 4. Using LINQ for searching
+                // DemoMode Logic
+
+                if (DemoMode)
+                {
+                    return Ok(database);
+
+                }
+
+                // 4. Using LINQ for searching 
                 var record = database.FirstOrDefault(r => r["oneRecordLo"]?.ToString() == lo_id);
 
                 if (record != null)
