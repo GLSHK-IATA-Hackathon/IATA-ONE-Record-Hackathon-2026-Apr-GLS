@@ -1,0 +1,1535 @@
+{
+  "info": {
+    "_postman_id": "d9183158-0921-42d6-a020-5994aac97689",
+    "name": "GLS Hackathon 2026 - EzyOne",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "40187277"
+  },
+  "item": [
+    {
+      "name": "DG Auto Check(XSDG) & CargoIQ Integration Flow",
+      "item": [
+        {
+          "name": "Step1. Create Waybill LO with DG Shipment",
+          "item": [
+            {
+              "name": "1R Auth Token",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "var req = pm.response.json();\r",
+                      "pm.collectionVariables.set(\"1Rtoken\", req[\"access_token\"]);\r",
+                      "\r",
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "grant_type",
+                      "value": "client_credentials",
+                      "type": "text",
+                      "uuid": "fc5fad13-d0ad-4f10-8aa5-843ecb8f2009"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "acr",
+                      "type": "text",
+                      "uuid": "edba8962-ad40-4678-81fb-0ec2943b4bc9"
+                    },
+                    {
+                      "key": "client_id",
+                      "value": "neone-client",
+                      "type": "text",
+                      "uuid": "b1a846a1-500a-4463-b846-e20c8bb7de89"
+                    },
+                    {
+                      "key": "client_secret",
+                      "value": "lx7ThS5aYggdsMm42BP3wMrVqKm9WpNY",
+                      "type": "text",
+                      "uuid": "e2dee5b5-d928-43fb-b826-30481ddbe10a"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{neoneAuthDomain}}/realms/neone/protocol/openid-connect/token",
+                  "host": [
+                    "{{neoneAuthDomain}}"
+                  ],
+                  "path": [
+                    "realms",
+                    "neone",
+                    "protocol",
+                    "openid-connect",
+                    "token"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Create a Organization",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "var req = JSON.parse(request.data);\r",
+                      "pm.collectionVariables.set(\"organizationLoid\", pm.response.headers.get(\"Location\").split(\"/\").pop());\r",
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/ld+json; version=2.0.0-dev",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json; version=2.0.0-dev",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"@context\": {\n        \"cargo\": \"https://onerecord.iata.org/ns/cargo#\"\n    },\n    \"@type\": \"cargo:Organization\",\n    \"cargo:name\": \"IATA DG Auto Check\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{neoneApiDomain}}/logistics-objects",
+                  "host": [
+                    "{{neoneApiDomain}}"
+                  ],
+                  "path": [
+                    "logistics-objects"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Create Waybill",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.collectionVariables.set(\"waybillLoid\", pm.response.headers.get(\"Location\").split(\"/\").pop());"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/ld+json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n   \"@context\":{\r\n      \"cargo\":\"https://onerecord.iata.org/ns/cargo#\"\r\n   },\r\n   \"@type\":\"cargo:Waybill\",\r\n   \"cargo:waybillType\":{\r\n      \"@id\":\"cargo:MASTER\"\r\n   },\r\n   \"cargo:waybillPrefix\":\"000\",\r\n   \"cargo:waybillNumber\":\"43020261\",\r\n   \"cargo:arrivalLocation\":{\r\n      \"@type\":\"cargo:Location\",\r\n      \"cargo:locationCodes\":[\r\n         {\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"TPE\"\r\n         }\r\n      ],\r\n      \"cargo:locationType\":\"AIRPORT\"\r\n   },\r\n   \"cargo:departureLocation\":{\r\n      \"@type\":\"cargo:Location\",\r\n      \"cargo:locationCodes\":[\r\n         {\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"HKG\"\r\n         }\r\n      ],\r\n      \"cargo:locationType\":\"AIRPORT\"\r\n   },\r\n   \"cargo:billingDetails\":{\r\n      \"@type\":\"cargo:BillingDetails\",\r\n      \"cargo:commission\":999999999999\r\n   },\r\n   \"cargo:declaredValueForCustoms\":{\r\n      \"@type\":\"cargo:CurrencyValue\",\r\n      \"cargo:numericalValue\":999999999999,\r\n      \"cargo:currencyUnit\":{\r\n         \"@type\":\"cargo:CodeListElement\",\r\n         \"cargo:code\":\"USD\"\r\n      }\r\n   },\r\n   \"cargo:declaredValueForCarriage\":{\r\n      \"@type\":\"cargo:CurrencyValue\",\r\n      \"cargo:numericalValue\":999999999999,\r\n      \"cargo:currencyUnit\":{\r\n         \"@type\":\"cargo:CodeListElement\",\r\n         \"cargo:code\":\"USD\"\r\n      }\r\n   },\r\n   \"cargo:involvedParties\":[\r\n      {\r\n         \"@type\":\"cargo:Party\",\r\n         \"cargo:partyDetails\":{\r\n            \"@type\":[\r\n               \"cargo:LogisticsAgent\",\r\n               \"cargo:Company\"\r\n            ],\r\n            \"cargo:name\":\"ABCDEF INTERNATIONAL LOGISTICS LIMITED\",\r\n            \"cargo:basedAtLocation\":{\r\n               \"@type\":\"cargo:Location\",\r\n               \"cargo:address\":{\r\n                  \"@type\":\"cargo:Address\",\r\n                  \"cargo:country\":{\r\n                     \"@type\":\"cargo:CodeListElement\",\r\n                     \"cargo:code\":\"HK\"\r\n                  },\r\n                  \"cargo:cityCode\":{\r\n                     \"@type\":\"cargo:CodeListElement\",\r\n                     \"cargo:code\":\"HKG\"\r\n                  },\r\n                  \"cargo:postalCode\":{\r\n                     \"@type\":\"cargo:CodeListElement\",\r\n                     \"cargo:code\":\"999077\"\r\n                  },\r\n                  \"cargo:regionCode\":{\r\n                     \"@type\":\"cargo:CodeListElement\",\r\n                     \"cargo:code\":\"STATE\"\r\n                  },\r\n                  \"cargo:streetAddressLines\":[\r\n                     \"CATHAY PACIFIC CITY STREET\",\r\n                     \"NO 3434 VIEW ROAD CHEK LAP KOK TUNG CHUNG LANTAU ISLAND\"\r\n                  ]\r\n               }\r\n            },\r\n            \"cargo:contactPersons\":[\r\n               {\r\n                  \"@type\":[\r\n                     \"cargo:Actor\",\r\n                     \"cargo:Person\"\r\n                  ],\r\n                  \"cargo:contactDetails\":[\r\n                     {\r\n                        \"@type\":\"cargo:ContactDetail\",\r\n                        \"cargo:contactDetailType\":{\r\n                           \"@type\":\"cargo:CodeListElement\",\r\n                           \"cargo:code\":\"PHONE_NUMBER\",\r\n                           \"cargo:codeDescription\":\"Shipper Contact\"\r\n                        },\r\n                        \"cargo:textualValue\":\"85212340001\"\r\n                     },\r\n                     {\r\n                        \"@type\":\"cargo:ContactDetail\",\r\n                        \"cargo:contactDetailType\":{\r\n                           \"@type\":\"cargo:CodeListElement\",\r\n                           \"cargo:code\":\"TELEX\"\r\n                        },\r\n                        \"cargo:textualValue\":\"85212340002\"\r\n                     },\r\n                     {\r\n                        \"@type\":\"cargo:ContactDetail\",\r\n                        \"cargo:contactDetailType\":{\r\n                           \"@type\":\"cargo:CodeListElement\",\r\n                           \"cargo:code\":\"FAX_NUMBER\"\r\n                        },\r\n                        \"cargo:textualValue\":\"85212340003\"\r\n                     }\r\n                  ]\r\n               }\r\n            ],\r\n            \"cargo:otherIdentifiers\":[\r\n               {\r\n                  \"@type\":\"cargo:OtherIdentifier\",\r\n                  \"cargo:otherIdentifierType\":\"ACCOUNT NUMBER\",\r\n                  \"cargo:textualValue\":\"XXXXXXXXXXXXXXX\"\r\n               }\r\n            ]\r\n         },\r\n         \"cargo:partyRole\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"SHP\"\r\n         }\r\n      },\r\n      {\r\n         \"@type\":\"cargo:Party\",\r\n         \"cargo:partyDetails\":{\r\n            \"@type\":[\r\n               \"cargo:LogisticsAgent\",\r\n               \"cargo:Company\"\r\n            ],\r\n            \"cargo:name\":\"TAIWAN COMPUTER ACCESSIORIES LTD\",\r\n            \"cargo:basedAtLocation\":{\r\n               \"@type\":\"cargo:Location\",\r\n               \"cargo:address\":{\r\n                  \"@type\":\"cargo:Address\",\r\n                  \"cargo:country\":{\r\n                     \"@type\":\"cargo:CodeListElement\",\r\n                     \"cargo:code\":\"TW\"\r\n                  },\r\n                  \"cargo:cityCode\":{\r\n                     \"@type\":\"cargo:CodeListElement\",\r\n                     \"cargo:code\":\"TPE\"\r\n                  },\r\n                  \"cargo:postalCode\":{\r\n                     \"@type\":\"cargo:CodeListElement\",\r\n                     \"cargo:code\":\"105063\"\r\n                  },\r\n                  \"cargo:regionCode\":{\r\n                     \"@type\":\"cargo:CodeListElement\",\r\n                     \"cargo:code\":\"STATE\"\r\n                  },\r\n                  \"cargo:streetAddressLines\":[\r\n                     \"JIANGUO NORTH ROAD ZHONGSHAN DISTRICT TAIPEI CITY NORTH SIDE TAIWAN\",\r\n                     \"NO 7 SECTION 2\"\r\n                  ]\r\n               }\r\n            },\r\n            \"cargo:contactPersons\":[\r\n               {\r\n                  \"@type\":[\r\n                     \"cargo:Actor\",\r\n                     \"cargo:Person\"\r\n                  ],\r\n                  \"cargo:contactDetails\":[\r\n                     {\r\n                        \"@type\":\"cargo:ContactDetail\",\r\n                        \"cargo:contactDetailType\":{\r\n                           \"@type\":\"cargo:CodeListElement\",\r\n                           \"cargo:code\":\"PHONE_NUMBER\",\r\n                           \"cargo:codeDescription\":\"Consignee Contact\"\r\n                        },\r\n                        \"cargo:textualValue\":\"85212340004\"\r\n                     },\r\n                     {\r\n                        \"@type\":\"cargo:ContactDetail\",\r\n                        \"cargo:contactDetailType\":{\r\n                           \"@type\":\"cargo:CodeListElement\",\r\n                           \"cargo:code\":\"TELEX\"\r\n                        },\r\n                        \"cargo:textualValue\":\"85212340005\"\r\n                     },\r\n                     {\r\n                        \"@type\":\"cargo:ContactDetail\",\r\n                        \"cargo:contactDetailType\":{\r\n                           \"@type\":\"cargo:CodeListElement\",\r\n                           \"cargo:code\":\"FAX_NUMBER\"\r\n                        },\r\n                        \"cargo:textualValue\":\"85212340006\"\r\n                     }\r\n                  ]\r\n               }\r\n            ],\r\n            \"cargo:otherIdentifiers\":[\r\n               {\r\n                  \"@type\":\"cargo:OtherIdentifier\",\r\n                  \"cargo:otherIdentifierType\":\"ACCOUNT NUMBER\",\r\n                  \"cargo:textualValue\":\"XXXXXXXXXXXXXXX\"\r\n               }\r\n            ]\r\n         },\r\n         \"cargo:partyRole\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"CNE\"\r\n         }\r\n      },\r\n      {\r\n         \"@type\":\"cargo:Party\",\r\n         \"cargo:partyDetails\":{\r\n            \"@type\":[\r\n               \"cargo:LogisticsAgent\",\r\n               \"cargo:Company\"\r\n            ],\r\n            \"cargo:name\":\"AGTAGTAGT NAME1 1234567890123456789\",\r\n            \"cargo:basedAtLocation\":{\r\n               \"@type\":\"cargo:Location\",\r\n               \"cargo:address\":{\r\n                  \"@type\":\"cargo:Address\",\r\n                  \"cargo:cityCode\":{\r\n                     \"@type\":\"cargo:CodeListElement\",\r\n                     \"cargo:code\":\"PLACE\"\r\n                  }\r\n               }\r\n            },\r\n            \"cargo:iataCargoAgentCode\":\"1310999\",\r\n            \"cargo:iataCargoAgentLocationIdentifier\":\"1234\",\r\n            \"cargo:otherIdentifiers\":[\r\n               {\r\n                  \"@type\":\"cargo:OtherIdentifier\",\r\n                  \"cargo:otherIdentifierType\":\"ACCOUNT NUMBER\",\r\n                  \"cargo:textualValue\":\"XXXXXXXXXXXXXXX\"\r\n               },\r\n               {\r\n                  \"@type\":\"cargo:OtherIdentifier\",\r\n                  \"cargo:otherIdentifierType\":\"AGT\",\r\n                  \"cargo:textualValue\":\"ABC\"\r\n               }\r\n            ]\r\n         },\r\n         \"cargo:partyRole\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"AGT\"\r\n         }\r\n      },\r\n      {\r\n         \"@type\":\"cargo:Party\",\r\n         \"cargo:partyDetails\":{\r\n            \"@type\":[\r\n               \"cargo:LogisticsAgent\",\r\n               \"cargo:Company\"\r\n            ],\r\n            \"cargo:name\":\"NFYNFYNFY NAME1 1234567890123456789\",\r\n            \"cargo:basedAtLocation\":{\r\n               \"@type\":\"cargo:Location\",\r\n               \"cargo:address\":{\r\n                  \"@type\":\"cargo:Address\",\r\n                  \"cargo:country\":{\r\n                     \"@type\":\"cargo:CodeListElement\",\r\n                     \"cargo:code\":\"HK\"\r\n                  },\r\n                  \"cargo:cityCode\":{\r\n                     \"@type\":\"cargo:CodeListElement\",\r\n                     \"cargo:code\":\"HKG\"\r\n                  },\r\n                  \"cargo:postalCode\":{\r\n                     \"@type\":\"cargo:CodeListElement\",\r\n                     \"cargo:code\":\"999077\"\r\n                  },\r\n                  \"cargo:regionCode\":{\r\n                     \"@type\":\"cargo:CodeListElement\",\r\n                     \"cargo:code\":\"STATE\"\r\n                  },\r\n                  \"cargo:streetAddressLines\":[\r\n                     \"CATHAY PACIFIC CITY STREET\",\r\n                     \"NO 3434 VIEW ROAD CHEK LAP KOK TUNG CHUNG LANTAU ISLAND\"\r\n                  ]\r\n               }\r\n            },\r\n            \"cargo:contactPersons\":[\r\n               {\r\n                  \"@type\":[\r\n                     \"cargo:Actor\",\r\n                     \"cargo:Person\"\r\n                  ],\r\n                  \"cargo:contactDetails\":[\r\n                     {\r\n                        \"@type\":\"cargo:ContactDetail\",\r\n                        \"cargo:contactDetailType\":{\r\n                           \"@type\":\"cargo:CodeListElement\",\r\n                           \"cargo:code\":\"PHONE_NUMBER\",\r\n                           \"cargo:codeDescription\":\"NFY Contact\"\r\n                        },\r\n                        \"cargo:textualValue\":\"85212340001\"\r\n                     },\r\n                     {\r\n                        \"@type\":\"cargo:ContactDetail\",\r\n                        \"cargo:contactDetailType\":{\r\n                           \"@type\":\"cargo:CodeListElement\",\r\n                           \"cargo:code\":\"TELEX\"\r\n                        },\r\n                        \"cargo:textualValue\":\"85212340002\"\r\n                     },\r\n                     {\r\n                        \"@type\":\"cargo:ContactDetail\",\r\n                        \"cargo:contactDetailType\":{\r\n                           \"@type\":\"cargo:CodeListElement\",\r\n                           \"cargo:code\":\"FAX_NUMBER\"\r\n                        },\r\n                        \"cargo:textualValue\":\"85212340003\"\r\n                     }\r\n                  ]\r\n               }\r\n            ],\r\n            \"cargo:otherIdentifiers\":[\r\n               {\r\n                  \"@type\":\"cargo:OtherIdentifier\",\r\n                  \"cargo:otherIdentifierType\":\"ACCOUNT NUMBER\",\r\n                  \"cargo:textualValue\":\"XXXXXXXXXXXXXXX\"\r\n               }\r\n            ]\r\n         },\r\n         \"cargo:partyRole\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"NFY\"\r\n         }\r\n      },\r\n      {\r\n         \"@type\":\"cargo:Party\",\r\n         \"cargo:partyDetails\":{\r\n            \"@type\":[\r\n               \"cargo:LogisticsAgent\",\r\n               \"cargo:Company\"\r\n            ],\r\n            \"cargo:contactPersons\":[\r\n               {\r\n                  \"@type\":[\r\n                     \"cargo:Actor\",\r\n                     \"cargo:Person\"\r\n                  ],\r\n                  \"cargo:documents\":{\r\n                     \"@type\":\"cargo:ExternalReference\",\r\n                     \"cargo:documentName\":\"DOCUMENTNAME\"\r\n                  },\r\n                  \"cargo:employeeId\":\"AGT\",\r\n                  \"cargo:salutation\":\"SALUTATION\"\r\n               }\r\n            ],\r\n            \"cargo:basedAtLocation\":{\r\n               \"@type\":\"cargo:Location\",\r\n               \"cargo:locationCodes\":[\r\n                  {\r\n                     \"@type\":\"cargo:CodeListElement\",\r\n                     \"cargo:code\":\"HKG\"\r\n                  }\r\n               ],\r\n               \"cargo:locationType\":\"AIRPORT\"\r\n            }\r\n         },\r\n         \"cargo:partyRole\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"REF\"\r\n         }\r\n      },\r\n      {\r\n         \"@type\":\"cargo:Party\",\r\n         \"cargo:partyDetails\":{\r\n            \"@type\":[\r\n               \"cargo:LogisticsAgent\",\r\n               \"cargo:Company\"\r\n            ],\r\n            \"cargo:name\":\"ABCDEF INTERNATIONAL LOGISTICS LIMITED\",\r\n            \"cargo:basedAtLocation\":{\r\n               \"@type\":\"cargo:Location\",\r\n               \"cargo:address\":{\r\n                  \"@type\":\"cargo:Address\",\r\n                  \"cargo:cityCode\":{\r\n                     \"@type\":\"cargo:CodeListElement\",\r\n                     \"cargo:code\":\"HKG\"\r\n                  }\r\n               }\r\n            }\r\n         },\r\n         \"cargo:partyRole\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"NOM\"\r\n         }\r\n      },\r\n      {\r\n         \"@type\":\"cargo:Party\",\r\n         \"cargo:partyDetails\":{\r\n            \"@type\":[\r\n               \"cargo:LogisticsAgent\",\r\n               \"cargo:Company\"\r\n            ],\r\n            \"cargo:name\":\"ABCDEF INTERNATIONAL LOGISTICS LIMITED\",\r\n            \"cargo:contactPersons\":[\r\n               {\r\n                  \"@type\":[\r\n                     \"cargo:Actor\",\r\n                     \"cargo:Person\"\r\n                  ],\r\n                  \"cargo:documents\":{\r\n                     \"@type\":\"cargo:ExternalReference\",\r\n                     \"cargo:documentName\":\"DOCUMENTNAME\"\r\n                  },\r\n                  \"cargo:department\":\"AA\",\r\n                  \"cargo:employeeId\":\"BB\",\r\n                  \"cargo:salutation\":\"SALUTATION\"\r\n               }\r\n            ],\r\n            \"cargo:basedAtLocation\":{\r\n               \"@type\":\"cargo:Location\",\r\n               \"cargo:locationCodes\":[\r\n                  {\r\n                     \"@type\":\"cargo:CodeListElement\",\r\n                     \"cargo:code\":\"HKG\"\r\n                  }\r\n               ],\r\n               \"cargo:locationType\":\"AIRPORT\"\r\n            }\r\n         },\r\n         \"cargo:partyRole\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"OPI\"\r\n         }\r\n      }\r\n   ],\r\n   \"cargo:waybillLineItems\":[\r\n      {\r\n         \"@type\":\"cargo:WaybillLineItem\",\r\n         \"cargo:lineItemNumber\":1,\r\n         \"cargo:pieceCountForRate\":9999,\r\n         \"cargo:grossWeightForRate\":{\r\n            \"@type\":\"cargo:Value\",\r\n            \"cargo:numericalValue\":9.87654,\r\n            \"cargo:unit\":{\r\n               \"@type\":\"cargo:CodeListElement\",\r\n               \"cargo:code\":\"KGM\"\r\n            }\r\n         },\r\n         \"cargo:rateClassCode\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"r\"\r\n         },\r\n         \"cargo:volumetricWeightForRate\":{\r\n            \"@type\":\"cargo:VolumetricWeight\",\r\n            \"cargo:chargeableWeight\":{\r\n               \"@type\":\"cargo:Value\",\r\n               \"cargo:numericalValue\":1.11111,\r\n               \"cargo:unit\":{\r\n                  \"@type\":\"cargo:CodeListElement\",\r\n                  \"cargo:code\":\"MC\"\r\n               }\r\n            }\r\n         },\r\n         \"cargo:commodityItemNumberForRate\":\"9999999\",\r\n         \"cargo:rateCharge\":{\r\n            \"@type\":\"cargo:Value\",\r\n            \"cargo:numericalValue\":1.234567\r\n         },\r\n         \"cargo:total\":{\r\n            \"@type\":\"cargo:CurrencyValue\",\r\n            \"cargo:numericalValue\":1.2345678901\r\n         },\r\n         \"cargo:goodsDescriptionForRate\":\"abcdeABCDE$$$$$12345\"\r\n      },\r\n      {\r\n         \"@type\":\"cargo:WaybillLineItem\",\r\n         \"cargo:lineItemNumber\":2,\r\n         \"cargo:goodsDescriptionForRate\":\"12345ABCDE$$$$$abcde\"\r\n      },\r\n      {\r\n         \"@type\":\"cargo:WaybillLineItem\",\r\n         \"cargo:lineItemNumber\":3,\r\n         \"cargo:grossWeightForRate\":{\r\n            \"@type\":\"cargo:Value\",\r\n            \"cargo:numericalValue\":8.76543,\r\n            \"cargo:unit\":{\r\n               \"@type\":\"cargo:CodeListElement\",\r\n               \"cargo:code\":\"KGM\"\r\n            }\r\n         },\r\n         \"cargo:dimensionsForRate\":{\r\n            \"@type\":\"cargo:Dimensions\",\r\n            \"cargo:length\":{\r\n               \"@type\":\"cargo:Value\",\r\n               \"cargo:numericalValue\":50000,\r\n               \"cargo:unit\":{\r\n                  \"@type\":\"cargo:CodeListElement\",\r\n                  \"cargo:code\":\"CMT\"\r\n               }\r\n            },\r\n            \"cargo:width\":{\r\n               \"@type\":\"cargo:Value\",\r\n               \"cargo:numericalValue\":40000,\r\n               \"cargo:unit\":{\r\n                  \"@type\":\"cargo:CodeListElement\",\r\n                  \"cargo:code\":\"CMT\"\r\n               }\r\n            },\r\n            \"cargo:height\":{\r\n               \"@type\":\"cargo:Value\",\r\n               \"cargo:numericalValue\":30000,\r\n               \"cargo:unit\":{\r\n                  \"@type\":\"cargo:CodeListElement\",\r\n                  \"cargo:code\":\"CMT\"\r\n               }\r\n            }\r\n         },\r\n         \"cargo:pieceCountForRate\":4000\r\n      },\r\n      {\r\n         \"@type\":\"cargo:WaybillLineItem\",\r\n         \"cargo:lineItemNumber\":4,\r\n         \"cargo:dimensionsForRate\":{\r\n            \"cargo:volume\":{\r\n               \"@type\":\"cargo:Value\",\r\n               \"cargo:numericalValue\":1.2345678,\r\n               \"cargo:unit\":{\r\n                  \"@type\":\"cargo:CodeListElement\",\r\n                  \"cargo:code\":\"CC\"\r\n               }\r\n            }\r\n         }\r\n      },\r\n      {\r\n         \"@type\":\"cargo:WaybillLineItem\",\r\n         \"cargo:lineItemNumber\":5,\r\n         \"cargo:uldType\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"P1C\"\r\n         },\r\n         \"cargo:uldSerialNumber\":\"0037\",\r\n         \"cargo:uldOwnerCode\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"CX\"\r\n         }\r\n      },\r\n      {\r\n         \"@type\":\"cargo:WaybillLineItem\",\r\n         \"cargo:lineItemNumber\":6,\r\n         \"cargo:slacForRate\":9998\r\n      },\r\n      {\r\n         \"@type\":\"cargo:WaybillLineItem\",\r\n         \"cargo:lineItemNumber\":7,\r\n         \"cargo:hsCodeForRate\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"abcdeABCDE12345123\"\r\n         }\r\n      },\r\n      {\r\n         \"@type\":\"cargo:WaybillLineItem\",\r\n         \"cargo:lineItemNumber\":8,\r\n         \"cargo:productionCountryForRate\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"cN\"\r\n         }\r\n      }\r\n   ],\r\n   \"cargo:serviceCode\":\"b\",\r\n   \"cargo:otherCharges\":[\r\n      {\r\n         \"@type\":\"cargo:OtherCharge\",\r\n         \"cargo:chargePaymentType\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"P\"\r\n         },\r\n         \"cargo:entitlement\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"A\"\r\n         },\r\n         \"cargo:otherChargeCode\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"WT\"\r\n         },\r\n         \"cargo:otherChargeAmount\":{\r\n            \"@type\":\"cargo:CurrencyValue\",\r\n            \"cargo:numericalValue\":\"101\"\r\n         }\r\n      },\r\n      {\r\n         \"@type\":\"cargo:OtherCharge\",\r\n         \"cargo:chargePaymentType\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"P\"\r\n         },\r\n         \"cargo:entitlement\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"A\"\r\n         },\r\n         \"cargo:otherChargeCode\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"VC\"\r\n         },\r\n         \"cargo:otherChargeAmount\":{\r\n            \"@type\":\"cargo:CurrencyValue\",\r\n            \"cargo:numericalValue\":\"201\"\r\n         }\r\n      },\r\n      {\r\n         \"@type\":\"cargo:OtherCharge\",\r\n         \"cargo:chargePaymentType\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"P\"\r\n         },\r\n         \"cargo:entitlement\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"A\"\r\n         },\r\n         \"cargo:otherChargeCode\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"TX\"\r\n         },\r\n         \"cargo:otherChargeAmount\":{\r\n            \"@type\":\"cargo:CurrencyValue\",\r\n            \"cargo:numericalValue\":\"301\"\r\n         }\r\n      },\r\n      {\r\n         \"@type\":\"cargo:OtherCharge\",\r\n         \"cargo:chargePaymentType\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"P\"\r\n         },\r\n         \"cargo:entitlement\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"A\"\r\n         },\r\n         \"cargo:otherChargeCode\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"OA\"\r\n         },\r\n         \"cargo:otherChargeAmount\":{\r\n            \"@type\":\"cargo:CurrencyValue\",\r\n            \"cargo:numericalValue\":\"401\"\r\n         }\r\n      },\r\n      {\r\n         \"@type\":\"cargo:OtherCharge\",\r\n         \"cargo:chargePaymentType\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"P\"\r\n         },\r\n         \"cargo:entitlement\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"A\"\r\n         },\r\n         \"cargo:otherChargeCode\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"OC\"\r\n         },\r\n         \"cargo:otherChargeAmount\":{\r\n            \"@type\":\"cargo:CurrencyValue\",\r\n            \"cargo:numericalValue\":\"501\"\r\n         }\r\n      },\r\n      {\r\n         \"@type\":\"cargo:OtherCharge\",\r\n         \"cargo:chargePaymentType\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"P\"\r\n         },\r\n         \"cargo:entitlement\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"A\"\r\n         },\r\n         \"cargo:otherChargeCode\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"CT\"\r\n         },\r\n         \"cargo:otherChargeAmount\":{\r\n            \"@type\":\"cargo:CurrencyValue\",\r\n            \"cargo:numericalValue\":\"1505\"\r\n         }\r\n      },\r\n      {\r\n         \"@type\":\"cargo:OtherCharge\",\r\n         \"cargo:chargePaymentType\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"C\"\r\n         },\r\n         \"cargo:entitlement\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"A\"\r\n         },\r\n         \"cargo:otherChargeCode\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"WT\"\r\n         },\r\n         \"cargo:otherChargeAmount\":{\r\n            \"@type\":\"cargo:CurrencyValue\",\r\n            \"cargo:numericalValue\":\"1001\"\r\n         }\r\n      },\r\n      {\r\n         \"@type\":\"cargo:OtherCharge\",\r\n         \"cargo:chargePaymentType\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"C\"\r\n         },\r\n         \"cargo:entitlement\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"A\"\r\n         },\r\n         \"cargo:otherChargeCode\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"VC\"\r\n         },\r\n         \"cargo:otherChargeAmount\":{\r\n            \"@type\":\"cargo:CurrencyValue\",\r\n            \"cargo:numericalValue\":\"2001\"\r\n         }\r\n      },\r\n      {\r\n         \"@type\":\"cargo:OtherCharge\",\r\n         \"cargo:chargePaymentType\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"C\"\r\n         },\r\n         \"cargo:entitlement\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"A\"\r\n         },\r\n         \"cargo:otherChargeCode\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"TX\"\r\n         },\r\n         \"cargo:otherChargeAmount\":{\r\n            \"@type\":\"cargo:CurrencyValue\",\r\n            \"cargo:numericalValue\":\"3001\"\r\n         }\r\n      },\r\n      {\r\n         \"@type\":\"cargo:OtherCharge\",\r\n         \"cargo:chargePaymentType\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"C\"\r\n         },\r\n         \"cargo:entitlement\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"A\"\r\n         },\r\n         \"cargo:otherChargeCode\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"OA\"\r\n         },\r\n         \"cargo:otherChargeAmount\":{\r\n            \"@type\":\"cargo:CurrencyValue\",\r\n            \"cargo:numericalValue\":\"4001\"\r\n         }\r\n      },\r\n      {\r\n         \"@type\":\"cargo:OtherCharge\",\r\n         \"cargo:chargePaymentType\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"C\"\r\n         },\r\n         \"cargo:entitlement\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"A\"\r\n         },\r\n         \"cargo:otherChargeCode\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"OC\"\r\n         },\r\n         \"cargo:otherChargeAmount\":{\r\n            \"@type\":\"cargo:CurrencyValue\",\r\n            \"cargo:numericalValue\":\"5001\"\r\n         }\r\n      },\r\n      {\r\n         \"@type\":\"cargo:OtherCharge\",\r\n         \"cargo:chargePaymentType\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"C\"\r\n         },\r\n         \"cargo:entitlement\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"A\"\r\n         },\r\n         \"cargo:otherChargeCode\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"CT\"\r\n         },\r\n         \"cargo:otherChargeAmount\":{\r\n            \"@type\":\"cargo:CurrencyValue\",\r\n            \"cargo:numericalValue\":\"15005\"\r\n         }\r\n      }\r\n   ],\r\n   \"cargo:shipment\":{\r\n      \"@type\":\"cargo:Shipment\",\r\n      \"cargo:insurance\":{\r\n         \"@type\":\"cargo:Insurance\",\r\n         \"cargo:insuredAmount\":{\r\n            \"@type\":\"cargo:CurrencyValue\",\r\n            \"cargo:numericalValue\":123,\r\n            \"cargo:currencyUnit\":{\r\n               \"@type\":\"cargo:CodeListElement\",\r\n               \"cargo:code\":\"TWD\"\r\n            }\r\n         }\r\n      },\r\n      \"cargo:customsInformation\":[\r\n         {\r\n            \"@type\":\"cargo:CustomsInformation\",\r\n            \"cargo:subjectCode\":{\r\n               \"@type\":\"cargo:CodeListElement\",\r\n               \"cargo:code\":\"SHP\"\r\n            },\r\n            \"cargo:country\":{\r\n               \"@type\":\"cargo:CodeListElement\",\r\n               \"cargo:code\":\"HK\"\r\n            },\r\n            \"cargo:otherCustomsInformation\":\"XXXXXXXXXXXXXXX1\"\r\n         },\r\n         {\r\n            \"@type\":\"cargo:CustomsInformation\",\r\n            \"cargo:contentCode\":{\r\n               \"@type\":\"cargo:CodeListElement\",\r\n               \"cargo:code\":\"T\"\r\n            },\r\n            \"cargo:country\":{\r\n               \"@type\":\"cargo:CodeListElement\",\r\n               \"cargo:code\":\"HK\"\r\n            },\r\n            \"cargo:otherCustomsInformation\":\"XXXXXXXXXXXXXXX2\"\r\n         },\r\n         {\r\n            \"@type\":\"cargo:CustomsInformation\",\r\n            \"cargo:contentCode\":{\r\n               \"@type\":\"cargo:CodeListElement\",\r\n               \"cargo:code\":\"T\"\r\n            },\r\n            \"cargo:subjectCode\":{\r\n               \"@type\":\"cargo:CodeListElement\",\r\n               \"cargo:code\":\"SHP\"\r\n            },\r\n            \"cargo:otherCustomsInformation\":\"XXXXXXXXXXXXXXX3\"\r\n         }\r\n      ],\r\n      \"cargo:pieces\":[\r\n         {\r\n            \"@type\":\"cargo:Piece\",\r\n            \"cargo:involvedInActions\":[\r\n               {\r\n                  \"@type\":[\r\n                     \"cargo:Loading\",\r\n                     \"cargo:LogisticsAction\"\r\n                  ],\r\n                  \"cargo:servedActivity\":{\r\n                     \"@type\":[\r\n                        \"cargo:TransportMovement\",\r\n                        \"cargo:LogisticsActivity\"\r\n                     ],\r\n                     \"cargo:arrivalLocation\":{\r\n                        \"@type\":\"cargo:Location\",\r\n                        \"cargo:locationCodes\":[\r\n                           {\r\n                              \"@type\":\"cargo:CodeListElement\",\r\n                              \"cargo:code\":\"NRT\"\r\n                           }\r\n                        ]\r\n                     },\r\n                     \"cargo:departureLocation\":{\r\n                        \"@type\":\"cargo:Location\",\r\n                        \"cargo:locationCodes\":[\r\n                           {\r\n                              \"@type\":\"cargo:CodeListElement\",\r\n                              \"cargo:code\":\"HKG\"\r\n                           }\r\n                        ]\r\n                     },\r\n                     \"cargo:movementTimes\":[\r\n                        {\r\n                           \"@type\":\"cargo:movementTime\",\r\n                           \"cargo:direction\":\"OUTBOUND\",\r\n                           \"cargo:movementTimeType\":\"ESTIMATED\",\r\n                           \"cargo:movementMilestone\":\"AA\",\r\n                           \"cargo:movementTimestamp\":\"2024-12-31T23:30:01.000-0800\"\r\n                        }\r\n                     ],\r\n                     \"cargo:transportIdentifier\":\"AA123\",\r\n                     \"cargo:modeCode\":{\r\n                        \"@type\":\"cargo:CodeListElement\",\r\n                        \"cargo:code\":\"AIR_TRANSPORT\"\r\n                     }\r\n                  }\r\n               },\r\n               {\r\n                  \"@type\":[\r\n                     \"cargo:Loading\",\r\n                     \"cargo:LogisticsAction\"\r\n                  ],\r\n                  \"cargo:servedActivity\":{\r\n                     \"@type\":[\r\n                        \"cargo:TransportMovement\",\r\n                        \"cargo:LogisticsActivity\"\r\n                     ],\r\n                     \"cargo:arrivalLocation\":{\r\n                        \"@type\":\"cargo:Location\",\r\n                        \"cargo:locationCodes\":[\r\n                           {\r\n                              \"@type\":\"cargo:CodeListElement\",\r\n                              \"cargo:code\":\"TPE\"\r\n                           }\r\n                        ]\r\n                     },\r\n                     \"cargo:departureLocation\":{\r\n                        \"@type\":\"cargo:Location\",\r\n                        \"cargo:locationCodes\":[\r\n                           {\r\n                              \"@type\":\"cargo:CodeListElement\",\r\n                              \"cargo:code\":\"NRT\"\r\n                           }\r\n                        ]\r\n                     },\r\n                     \"cargo:movementTimes\":[\r\n                        {\r\n                           \"@type\":\"cargo:movementTime\",\r\n                           \"cargo:direction\":\"OUTBOUND\",\r\n                           \"cargo:movementTimeType\":\"ESTIMATED\",\r\n                           \"cargo:movementMilestone\":\"AD\",\r\n                           \"cargo:movementTimestamp\":\"2024-12-31T23:30:01.000-0800\"\r\n                        }\r\n                     ],\r\n                     \"cargo:transportIdentifier\":\"AD123\",\r\n                     \"cargo:modeCode\":{\r\n                        \"@type\":\"cargo:CodeListElement\",\r\n                        \"cargo:code\":\"AIR_TRANSPORT\"\r\n                     }\r\n                  }\r\n               }\r\n            ],\r\n            \"cargo:specialHandlingCodes\":[\r\n               {\r\n                  \"@type\":\"cargo:CodeListElement\",\r\n                  \"cargo:code\":\"MAG\"\r\n               },\r\n               {\r\n                  \"@type\":\"cargo:CodeListElement\",\r\n                  \"cargo:code\":\"MAL\"\r\n               }\r\n            ],\r\n            \"cargo:containedItems\":[\r\n               {\r\n                  \"@type\":\"cargo:Item\",\r\n                  \"cargo:itemQuantity\":{\r\n                     \"@type\":\"cargo:Value\",\r\n                     \"cargo:numericalValue\":9998\r\n                  }\r\n               }\r\n            ]\r\n         },\r\n         {\r\n            \"@type\":\"cargo:Piece\",\r\n            \"cargo:specialHandlingCodes\":[\r\n               {\r\n                  \"@type\":\"cargo:CodeListElement\",\r\n                  \"cargo:code\":\"CAO\"\r\n               }\r\n            ],\r\n            \"cargo:containedItems\":[\r\n               {\r\n                  \"@type\":\"cargo:Item\",\r\n                  \"cargo:itemQuantity\":{\r\n                     \"@type\":\"cargo:Value\",\r\n                     \"cargo:numericalValue\":1\r\n                  }\r\n               }\r\n            ]\r\n         }\r\n      ],\r\n      \"cargo:totalGrossWeight\":{\r\n         \"@type\":\"cargo:Value\",\r\n         \"cargo:numericalValue\":99999.5,\r\n         \"cargo:unit\":{\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"KGM\"\r\n         }\r\n      },\r\n      \"cargo:totalDimensions\":[\r\n         {\r\n            \"@type\":\"cargo:Dimensions\",\r\n            \"cargo:volume\":{\r\n               \"@type\":\"cargo:Value\",\r\n               \"cargo:numericalValue\":8.5,\r\n               \"cargo:unit\":{\r\n                  \"@type\":\"cargo:CodeListElement\",\r\n                  \"cargo:code\":\"MC\"\r\n               }\r\n            }\r\n         }\r\n      ],\r\n      \"cargo:specialHandlingCodes\":[\r\n         {\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"COL\"\r\n         },\r\n         {\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"COM\"\r\n         },\r\n         {\r\n            \"@type\":\"cargo:CodeListElement\",\r\n            \"cargo:code\":\"CRT\"\r\n         }\r\n      ],\r\n      \"cargo:textualHandlingInstructions\":[\r\n         \"SSR1\",\r\n         \"SSR1\",\r\n         \"\",\r\n         \"OSI1\",\r\n         \"OSI2\",\r\n         \"OSI3\"\r\n      ]\r\n   },\r\n   \"cargo:originCurrency\":{\r\n      \"@type\":\"cargo:CodeListElement\",\r\n      \"cargo:code\":\"USD\"\r\n   },\r\n   \"cargo:carrierChargeCode\":{\r\n      \"@type\":\"cargo:CodeListElement\",\r\n      \"cargo:code\":\"CC\"\r\n   },\r\n   \"cargo:otherChargesIndicator\":{\r\n      \"@type\":\"cargo:CodeListElement\",\r\n      \"cargo:code\":\"P\"\r\n   },\r\n   \"cargo:weightValuationIndicator\":{\r\n      \"@type\":\"cargo:CodeListElement\",\r\n      \"cargo:code\":\"P\"\r\n   },\r\n   \"cargo:customsOriginCode\":{\r\n      \"@type\":\"cargo:CodeListElement\",\r\n      \"cargo:code\":\"AA\"\r\n   },\r\n   \"cargo:accountingInformation\":\"12345678901234567890123456789012341234567890123456789012345678901235\",\r\n   \"cargo:carrierDeclarationDate\":\"2028-12-31T23:30:01-0800\",\r\n   \"cargo:carrierDeclarationPlace\":\"HONG KONG\",\r\n   \"cargo:carrierDeclarationSignature\":\"CX-ABC1\",\r\n   \"cargo:consignorDeclarationSignature\":\"ABC-ABC1\",\r\n   \"cargo:destinationCharges\":[\r\n      {\r\n         \"@type\":\"cargo:CurrencyValue\",\r\n         \"cargo:numericalValue\":44.1\r\n      }\r\n   ],\r\n   \"cargo:destinationCurrencyCode\":{\r\n      \"@type\":\"cargo:CodeListElement\",\r\n      \"cargo:code\":\"TWD\"\r\n   },\r\n   \"cargo:destinationCurrencyRate\":55.1,\r\n   \"cargo:shippingInfo\":\"2323912\",\r\n   \"cargo:shippingRefNo\":\"REF2323912\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{neoneApiDomain}}/logistics-objects",
+                  "host": [
+                    "{{neoneApiDomain}}"
+                  ],
+                  "path": [
+                    "logistics-objects"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Create DG Shipment",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.collectionVariables.set(\"dgShipmentlLoid\", pm.response.headers.get(\"Location\").split(\"/\").pop());"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/ld+json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"@context\": {\r\n        \"cargo\": \"https://onerecord.iata.org/ns/cargo#\"\r\n    },\r\n    \"@type\": \"cargo:Shipment\",\r\n    \"cargo:dangerousGoodsDeclaration\": {\r\n        \"@type\": \"cargo:DangerousGoodsDeclaration\",\r\n        \"cargo:documentName\": \"XML Shippers Declaration for Dangerous Goods\",\r\n        \"cargo:documentTypeCode\": \"890\",\r\n        \"cargo:issueDate\": \"2026-04-25T04:53:05\",\r\n        \"cargo:certification\": {\r\n            \"@type\": \"cargo:DGDeclarationCertification\",\r\n            \"cargo:certificationText\": \"I hereby declare that the contents of this consignment are fully and accurately described above by the proper shipping name, and are classified, packaged, marked and labelled/placarded, and are in all respects in proper condition for transport according to applicable international and national governmental regulations. I declare that all of the applicable air transport requirements have been met.\"\r\n        }\r\n    },\r\n    \"cargo:involvedParties\": [\r\n        {\r\n            \"@type\": \"cargo:Party\",\r\n            \"cargo:partyRole\": {\r\n                \"@type\": \"cargo:CodeListElement\",\r\n                \"cargo:code\": \"SHP\"\r\n            },\r\n            \"cargo:partyDetails\": {\r\n                \"@type\": [\r\n                    \"cargo:Company\"\r\n                ],\r\n                \"cargo:name\": \"FASHION 11, Ramon y Cajal, 15006 La Coruna La Coruna\"\r\n            }\r\n        },\r\n        {\r\n            \"@type\": \"cargo:Party\",\r\n            \"cargo:partyRole\": {\r\n                \"@type\": \"cargo:CodeListElement\",\r\n                \"cargo:code\": \"CNE\"\r\n            },\r\n            \"cargo:partyDetails\": {\r\n                \"@type\": [\r\n                    \"cargo:Company\"\r\n                ],\r\n                \"cargo:name\": \"Wild Market 100, Rene-Levesque Blvd. West, H2Z 1V5 Montreal Quebec Montreal Quebec\"\r\n            }\r\n        }\r\n    ],\r\n    \"cargo:textualHandlingInstructions\": [\r\n        \"Health Department\",\r\n        \"24 hour number: +34 (981) 34 23 99\"\r\n    ],\r\n    \"cargo:associatedDocuments\": [\r\n        {\r\n            \"@type\": \"cargo:ExternalReference\",\r\n            \"cargo:documentId\": \"784-43020261\",\r\n            \"cargo:documentName\": \"Master air waybill\",\r\n            \"cargo:documentType\": {\r\n                \"@type\": \"cargo:CodeListElement\",\r\n                \"cargo:code\": \"741\"\r\n            }\r\n        }\r\n    ],\r\n    \"cargo:dangerousGoodsProducts\": [\r\n        {\r\n            \"@type\": \"cargo:Product\",\r\n            \"cargo:sequenceNumber\": 1,\r\n            \"cargo:unNumber\": \"UN2339\",\r\n            \"cargo:hazardClass\": \"3\",\r\n            \"cargo:hazardCategory\": \"3L\",\r\n            \"cargo:properShippingName\": \"2-Bromobutane\",\r\n            \"cargo:packingGroup\": \"II\",\r\n            \"cargo:packingInstruction\": \"305\"\r\n        }\r\n    ],\r\n    \"cargo:packaging\": [\r\n        {\r\n            \"@type\": \"cargo:Packaging\",\r\n            \"cargo:packageSequence\": 1,\r\n            \"cargo:packageCount\": 0,\r\n            \"cargo:allPackedInOneIndicator\": false,\r\n            \"cargo:packagingTypeDescription\": \"\"\r\n        }\r\n    ],\r\n    \"cargo:transportDangerousGoods\": {\r\n        \"@type\": \"cargo:TransportDangerousGoods\",\r\n        \"cargo:hazardType\": \"NON-RADIOACTIVE\",\r\n        \"cargo:complianceStatement\": \"Failure to comply in all respects with the applicable Dangerous Goods Regulations may be in breach of the applicable law, subject to legal penalties\",\r\n        \"cargo:shipperDeclarationText\": \"I hereby declare that the contents of this consignment are fully and accurately described above by the proper shipping name, and are classified, packaged, marked and labelled/placarded, and are in all respects in proper condition for transport according to applicable international and national governmental regulations. I declare that all of the applicable air transport requirements have been met.\"\r\n    }\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{neoneApiDomain}}/logistics-objects",
+                  "host": [
+                    "{{neoneApiDomain}}"
+                  ],
+                  "path": [
+                    "logistics-objects"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "PATCH DG Shipment to Waybill",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/ld+json;",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json;",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"@context\": {\n        \"cargo\": \"https://onerecord.iata.org/ns/cargo#\",\n        \"api\": \"https://onerecord.iata.org/ns/api#\"\n    },\n    \"@type\": \"api:Change\",\n    \"api:hasLogisticsObject\": {\n        \"@id\": \"1{{neoneApiDomain}}/logistics-objects/{{waybillLoid}}\"\n    },\n    \"api:hasDescription\": \"Add DG Shipment LO\",\n    \"api:hasOperation\": [\n        {\n            \"@type\": \"api:Operation\",\n            \"api:op\": {\n                \"@id\": \"api:ADD\"\n            },\n            \"api:s\": \"{{neoneApiDomain}}/logistics-objects/{{waybillLoid}}\",\n            \"api:p\": \"https://onerecord.iata.org/ns/cargo#Waybill\",\n            \"api:o\": [\n                {\n                    \"@type\": \"api:OperationObject\",\n                    \"api:hasDatatype\": \"https://onerecord.iata.org/ns/cargo#Shipment\",\n                    \"api:hasValue\": \"{{neoneApiDomain}}/logistics-objects/{{dgShipmentlLoid}}\"\n                }\n            ]\n        }\n    ],\n    \"api:hasRevision\": {\n        \"@type\": \"http://www.w3.org/2001/XMLSchema#positiveInteger\",\n        \"@value\": \"1\"\n    }\n}\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{neoneApiDomain}}/logistics-objects/{{waybillLoid}}",
+                  "host": [
+                    "{{neoneApiDomain}}"
+                  ],
+                  "path": [
+                    "logistics-objects",
+                    "{{waybillLoid}}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GET Waybill",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.collectionVariables.set(\"dgJson\", pm.response.json());"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/ld+json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{neoneApiDomain}}/logistics-objects/{{waybillLoid}}",
+                  "host": [
+                    "{{neoneApiDomain}}"
+                  ],
+                  "path": [
+                    "logistics-objects",
+                    "{{waybillLoid}}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GET DG LO",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.globals.set(\"dgJson\", JSON.stringify(pm.response.json()));"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/ld+json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{neoneApiDomain}}/logistics-objects/{{dgShipmentlLoid}}?embedded=true",
+                  "host": [
+                    "{{neoneApiDomain}}"
+                  ],
+                  "path": [
+                    "logistics-objects",
+                    "{{dgShipmentlLoid}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "embedded",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "DG LO Convert to XSDG",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.collectionVariables.set(\"XSDG_XML\", pm.response.text());"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "exec": [
+                      "const dgJsonString = pm.globals.get(\"dgJson\");",
+                      "pm.request.body.update({",
+                      "    mode: 'raw',",
+                      "    raw: dgJsonString,",
+                      "    options: {",
+                      "        raw: {",
+                      "            language: 'json'",
+                      "        }",
+                      "    }",
+                      "});"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/ld+json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "/*\r\n{\r\n    \"@graph\": [\r\n        {\r\n            \"@id\": \"http://localhost:8080/logistics-objects/3ce0f1bb-3c90-429c-ae19-0884a7828b7b\",\r\n            \"@type\": [\r\n                \"LogisticsObject\",\r\n                \"Product\"\r\n            ],\r\n            \"hazardCategory\": \"3L\",\r\n            \"hazardClass\": \"3\",\r\n            \"packingGroup\": \"II\",\r\n            \"packingInstruction\": \"305\",\r\n            \"properShippingName\": \"2-Bromobutane\",\r\n            \"sequenceNumber\": {\r\n                \"@type\": \"http://www.w3.org/2001/XMLSchema#integer\",\r\n                \"@value\": \"1\"\r\n            },\r\n            \"unNumber\": \"UN2339\"\r\n        },\r\n        {\r\n            \"@id\": \"http://localhost:8080/logistics-objects/40a254e0-73e6-49f5-b243-d87c52dc1e12\",\r\n            \"@type\": [\r\n                \"Organization\",\r\n                \"Company\",\r\n                \"LogisticsAgent\",\r\n                \"LogisticsObject\"\r\n            ],\r\n            \"name\": \"FASHION 11, Ramon y Cajal, 15006 La Coruna La Coruna\"\r\n        },\r\n        {\r\n            \"@id\": \"http://localhost:8080/logistics-objects/41f9e117-b9f4-42ba-b343-74caa137cd51\",\r\n            \"@type\": [\r\n                \"Organization\",\r\n                \"Company\",\r\n                \"LogisticsAgent\",\r\n                \"LogisticsObject\"\r\n            ],\r\n            \"name\": \"Wild Market 100, Rene-Levesque Blvd. West, H2Z 1V5 Montreal Quebec Montreal Quebec\"\r\n        },\r\n        {\r\n            \"@id\": \"http://localhost:8080/logistics-objects/7344b2aa-0881-4286-89b9-57926807ff83\",\r\n            \"@type\": [\r\n                \"LogisticsObject\",\r\n                \"Shipment\"\r\n            ],\r\n            \"associatedDocuments\": {\r\n                \"@id\": \"http://localhost:8080/logistics-objects/8234259a-a83b-44f4-be63-c5f647b4d86d\"\r\n            },\r\n            \"dangerousGoodsDeclaration\": {\r\n                \"@id\": \"neone:1a316304-75ea-4ca5-86cf-e97f2f0f70a7\"\r\n            },\r\n            \"dangerousGoodsProducts\": {\r\n                \"@id\": \"http://localhost:8080/logistics-objects/3ce0f1bb-3c90-429c-ae19-0884a7828b7b\"\r\n            },\r\n            \"involvedParties\": [\r\n                {\r\n                    \"@id\": \"neone:67b8216d-ba53-44c3-ae27-4ea9c074b3b1\"\r\n                },\r\n                {\r\n                    \"@id\": \"neone:eb2533b0-e252-4f15-8488-f801a8ed26e5\"\r\n                }\r\n            ],\r\n            \"packaging\": {\r\n                \"@id\": \"neone:79d9566e-aeb8-4216-8912-30beceb14e61\"\r\n            },\r\n            \"textualHandlingInstructions\": [\r\n                \"Health Department\",\r\n                \"24 hour number: +34 (981) 34 23 99\"\r\n            ],\r\n            \"transportDangerousGoods\": {\r\n                \"@id\": \"neone:55648f62-4482-4a0a-ae3c-7a43d7662f15\"\r\n            }\r\n        },\r\n        {\r\n            \"@id\": \"http://localhost:8080/logistics-objects/8234259a-a83b-44f4-be63-c5f647b4d86d\",\r\n            \"@type\": [\r\n                \"LogisticsObject\",\r\n                \"ExternalReference\"\r\n            ],\r\n            \"documentId\": \"784-43020261\",\r\n            \"documentName\": \"Master air waybill\",\r\n            \"documentType\": {\r\n                \"@id\": \"neone:cff029c1-ab6a-47c1-951b-989fcb822da7\"\r\n            }\r\n        },\r\n        {\r\n            \"@id\": \"neone:02ef0665-dd5b-4285-9ed7-41dec1f65afd\",\r\n            \"@type\": \"DGDeclarationCertification\",\r\n            \"certificationText\": \"I hereby declare that the contents of this consignment are fully and accurately described above by the proper shipping name, and are classified, packaged, marked and labelled/placarded, and are in all respects in proper condition for transport according to applicable international and national governmental regulations. I declare that all of the applicable air transport requirements have been met.\"\r\n        },\r\n        {\r\n            \"@id\": \"neone:1a316304-75ea-4ca5-86cf-e97f2f0f70a7\",\r\n            \"@type\": \"DangerousGoodsDeclaration\",\r\n            \"certification\": {\r\n                \"@id\": \"neone:02ef0665-dd5b-4285-9ed7-41dec1f65afd\"\r\n            },\r\n            \"documentName\": \"XML Shippers Declaration for Dangerous Goods\",\r\n            \"documentTypeCode\": \"890\",\r\n            \"issueDate\": \"2026-04-25T04:53:05\"\r\n        },\r\n        {\r\n            \"@id\": \"neone:55648f62-4482-4a0a-ae3c-7a43d7662f15\",\r\n            \"@type\": \"TransportDangerousGoods\",\r\n            \"complianceStatement\": \"Failure to comply in all respects with the applicable Dangerous Goods Regulations may be in breach of the applicable law, subject to legal penalties\",\r\n            \"hazardType\": \"NON-RADIOACTIVE\",\r\n            \"shipperDeclarationText\": \"I hereby declare that the contents of this consignment are fully and accurately described above by the proper shipping name, and are classified, packaged, marked and labelled/placarded, and are in all respects in proper condition for transport according to applicable international and national governmental regulations. I declare that all of the applicable air transport requirements have been met.\"\r\n        },\r\n        {\r\n            \"@id\": \"neone:67b8216d-ba53-44c3-ae27-4ea9c074b3b1\",\r\n            \"@type\": \"Party\",\r\n            \"partyDetails\": {\r\n                \"@id\": \"http://localhost:8080/logistics-objects/40a254e0-73e6-49f5-b243-d87c52dc1e12\"\r\n            },\r\n            \"partyRole\": {\r\n                \"@id\": \"neone:c82ca28f-c9ae-4187-9fd3-3a4bd4b77856\"\r\n            }\r\n        },\r\n        {\r\n            \"@id\": \"neone:6f7e35ca-e39d-4167-9392-2e641fb215a1\",\r\n            \"@type\": \"CodeListElement\",\r\n            \"code\": \"CNE\"\r\n        },\r\n        {\r\n            \"@id\": \"neone:79d9566e-aeb8-4216-8912-30beceb14e61\",\r\n            \"@type\": \"Packaging\",\r\n            \"allPackedInOneIndicator\": {\r\n                \"@type\": \"http://www.w3.org/2001/XMLSchema#boolean\",\r\n                \"@value\": \"false\"\r\n            },\r\n            \"packageCount\": {\r\n                \"@type\": \"http://www.w3.org/2001/XMLSchema#integer\",\r\n                \"@value\": \"0\"\r\n            },\r\n            \"packageSequence\": {\r\n                \"@type\": \"http://www.w3.org/2001/XMLSchema#integer\",\r\n                \"@value\": \"1\"\r\n            },\r\n            \"packagingTypeDescription\": \"\"\r\n        },\r\n        {\r\n            \"@id\": \"neone:c82ca28f-c9ae-4187-9fd3-3a4bd4b77856\",\r\n            \"@type\": \"CodeListElement\",\r\n            \"code\": \"SHP\"\r\n        },\r\n        {\r\n            \"@id\": \"neone:cff029c1-ab6a-47c1-951b-989fcb822da7\",\r\n            \"@type\": \"CodeListElement\",\r\n            \"code\": \"741\"\r\n        },\r\n        {\r\n            \"@id\": \"neone:eb2533b0-e252-4f15-8488-f801a8ed26e5\",\r\n            \"@type\": \"Party\",\r\n            \"partyDetails\": {\r\n                \"@id\": \"http://localhost:8080/logistics-objects/41f9e117-b9f4-42ba-b343-74caa137cd51\"\r\n            },\r\n            \"partyRole\": {\r\n                \"@id\": \"neone:6f7e35ca-e39d-4167-9392-2e641fb215a1\"\r\n            }\r\n        }\r\n    ],\r\n    \"@context\": {\r\n        \"@vocab\": \"https://onerecord.iata.org/ns/cargo#\"\r\n    }\r\n}\r\n*/",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{newApiDomain}}/Converter/Mapping1RFlattentoXSDG",
+                  "host": [
+                    "{{newApiDomain}}"
+                  ],
+                  "path": [
+                    "Converter",
+                    "Mapping1RFlattentoXSDG"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "key": "token",
+                "value": "{{1Rtoken}}",
+                "type": "string"
+              }
+            ]
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Step2. Submit XSDG Auto Acceptance Check",
+          "item": [
+            {
+              "name": "DG Auto Check  Access Token",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "var req = pm.response.json();\r",
+                      "pm.collectionVariables.set(\"DGtoken\", req[\"access_token\"]);\r",
+                      "\r",
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "grant_type",
+                      "value": "client_credentials",
+                      "type": "text"
+                    },
+                    {
+                      "key": "client_id",
+                      "value": "h1oPJKlYo_YW9DrH5pff0A",
+                      "description": "Your credential key, as provided on the Web Service Management page",
+                      "type": "text"
+                    },
+                    {
+                      "key": "client_secret",
+                      "value": "qSm4NH5OCYmm0kmzWJTzSI2d0FHhr3RgJPBLOBGcwzkhAwhpbbpPwCiYIojkwWtJ_fi_nlnEtthFyS-ry4xP3g",
+                      "description": "Your secret, as provided when creating Access Credentials on the Web Service Management page",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{dgAutoCheckAuthDomain}}/oauth2/token",
+                  "host": [
+                    "{{dgAutoCheckAuthDomain}}"
+                  ],
+                  "path": [
+                    "oauth2",
+                    "token"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Create Office",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "var req = pm.response.json();\r",
+                      "pm.collectionVariables.set(\"acceptanceCheckId\", req[\"acceptanceCheckId\"]);\r",
+                      "\r",
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "officeIdentifier",
+                      "value": "glshk",
+                      "type": "text",
+                      "description": "A unique identifier that is fixed for the lifetime of that office. Case sensitive."
+                    },
+                    {
+                      "key": "officeName",
+                      "value": "GLSHK",
+                      "type": "text",
+                      "description": "Optional: Name to be associated with the officeIdentifier. If not provided, the office name will not be set."
+                    },
+                    {
+                      "key": "userIdentifier",
+                      "value": "glshk",
+                      "type": "text",
+                      "description": "Optional: An identifier unique to the user that will be accountable for all actions while processing acceptance checks. If provided, a one time use URL will be generated."
+                    },
+                    {
+                      "key": "userName",
+                      "value": "GLSHK",
+                      "type": "text",
+                      "description": "Optional: Name to be associated with the userIdentifier. If not provided, the user's name will not be set."
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{dgAutoCheckApiDomain}}/v1/acceptance-checks",
+                  "host": [
+                    "{{dgAutoCheckApiDomain}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "acceptance-checks"
+                  ]
+                },
+                "description": "Register an acceptance check with DG AutoCheck. The only required parameter is officeIdentifier. Everything thereafter is optional.\n\nWhen a userIdentifier is provided in the querystring, a one time use URL is created for the user to access the acceptance check. Users are created automatically if no user exists with that identifier already. Users are automatically assigned to the office of the acceptance check.\n\n## Permissions\n\nManage permissions required\n\nAPI Integrator license type required."
+              },
+              "response": []
+            },
+            {
+              "name": "Import XSDG",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "exec": [
+                      "pm.request.body = pm.collectionVariables.get(\"XSDG_XML\");"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/xml",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<!-->\r\n<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<rsm:ShippersDeclarationForDangerousGoods xmlns:rsm=\"iata:shippersdeclarationfordangerousgoods:1\" xmlns:ccts=\"urn:un:unece:uncefact:documentation:standard:CoreComponentsTechnicalSpecification:2\" xmlns:udt=\"urn:un:unece:uncefact:data:standard:UnqualifiedDataType:8\" xmlns:ram=\"iata:datamodel:3\">\r\n    <rsm:MessageHeaderDocument>\r\n        <ram:ID>000-43020261</ram:ID>\r\n        <ram:Name>XML Shippers Declaration for Dangerous Goods</ram:Name>\r\n        <ram:TypeCode>890</ram:TypeCode>\r\n        <ram:IssueDateTime>2026-04-25T04:53:05</ram:IssueDateTime>\r\n        <ram:PurposeCode>CREATION</ram:PurposeCode>\r\n        <ram:VersionID>5.00</ram:VersionID>\r\n        <ram:ConversationID>1</ram:ConversationID>\r\n    </rsm:MessageHeaderDocument>\r\n    <rsm:BusinessHeaderDocument>\r\n        <ram:ProcessType>P</ram:ProcessType>\r\n        <ram:SignatoryConsignorAuthentication>\r\n            <ram:ActualDateTime />\r\n            <ram:Statement>I hereby declare that the contents of this consignment are fully and accurately described above by the proper shipping name, and are classified, packaged, marked and labelled/placarded, and are in all respects in proper condition for transport according to applicable international and national governmental regulations. I declare that all of the applicable air transport requirements have been met.</ram:Statement>\r\n            <ram:Signatory />\r\n            <ram:IssueAuthenticationLocation>\r\n                <ram:Name />\r\n            </ram:IssueAuthenticationLocation>\r\n            <ram:ProviderConsignorAuthenticationParty>\r\n                <ram:DefinedConsignorAuthenticationContact>\r\n                    <ram:PersonName />\r\n                </ram:DefinedConsignorAuthenticationContact>\r\n            </ram:ProviderConsignorAuthenticationParty>\r\n        </ram:SignatoryConsignorAuthentication>\r\n    </rsm:BusinessHeaderDocument>\r\n    <rsm:MasterConsignment>\r\n        <ram:IncludedHouseConsignment>\r\n            <ram:ConsignorParty>\r\n                <ram:PrimaryID />\r\n                <ram:AdditionalID />\r\n                <ram:Name>FASHION 11, Ramon y Cajal, 15006 La Coruna La Coruna</ram:Name>\r\n                <ram:PostalStructuredAddress>\r\n                    <ram:PostcodeCode />\r\n                    <ram:StreetName />\r\n                    <ram:CityName />\r\n                    <ram:CountryID />\r\n                    <ram:CountryName />\r\n                    <ram:CountrySubDivisionName />\r\n                    <ram:PostOfficeBox />\r\n                </ram:PostalStructuredAddress>\r\n                <ram:DefinedTradeContact>\r\n                    <ram:PersonName />\r\n                    <ram:DepartmentName />\r\n                    <ram:DirectTelephoneCommunication>\r\n                        <ram:CompleteNumber />\r\n                    </ram:DirectTelephoneCommunication>\r\n                </ram:DefinedTradeContact>\r\n            </ram:ConsignorParty>\r\n            <ram:ConsigneeParty>\r\n                <ram:PrimaryID />\r\n                <ram:AdditionalID />\r\n                <ram:Name>Wild Market 100, Rene-Levesque Blvd. West, H2Z 1V5 Montreal Quebec Montreal Quebec</ram:Name>\r\n                <ram:PostalStructuredAddress>\r\n                    <ram:PostcodeCode />\r\n                    <ram:StreetName />\r\n                    <ram:CityName />\r\n                    <ram:CountryID />\r\n                    <ram:CountryName />\r\n                    <ram:CountrySubDivisionName />\r\n                    <ram:PostOfficeBox />\r\n                </ram:PostalStructuredAddress>\r\n                <ram:DefinedTradeContact>\r\n                    <ram:PersonName />\r\n                    <ram:DepartmentName />\r\n                    <ram:DirectTelephoneCommunication>\r\n                        <ram:CompleteNumber />\r\n                    </ram:DirectTelephoneCommunication>\r\n                </ram:DefinedTradeContact>\r\n            </ram:ConsigneeParty>\r\n            <ram:HandlingInstructions>\r\n                <ram:Description>Health Department\\n24 hour number: +34 (981) 34 23 99</ram:Description>\r\n                <ram:ExclusiveUsageIndicator>false</ram:ExclusiveUsageIndicator>\r\n            </ram:HandlingInstructions>\r\n            <ram:AssociatedReferenceDocument>\r\n                <ram:ID>784-43020261</ram:ID>\r\n                <ram:TypeCode>741</ram:TypeCode>\r\n                <ram:Name>Master air waybill</ram:Name>\r\n            </ram:AssociatedReferenceDocument>\r\n            <ram:RelatedCommercialTradeTransaction>\r\n                <ram:IncludedCommercialTradeLineItem>\r\n                    <ram:SequenceNumeric>1</ram:SequenceNumeric>\r\n                    <ram:SpecifiedProductTradeDelivery>\r\n                        <ram:SpecifiedProductRegulatedGoods>\r\n                            <ram:ApplicableProductDangerousGoods>\r\n                                <ram:UNDGIdentificationCode>UN2339</ram:UNDGIdentificationCode>\r\n                                <ram:PackagingDangerLevelCode>II</ram:PackagingDangerLevelCode>\r\n                                <ram:PackingInstructionTypeCode>305</ram:PackingInstructionTypeCode>\r\n                                <ram:HazardClassificationID>3</ram:HazardClassificationID>\r\n                                <ram:ProperShippingName>2-Bromobutane</ram:ProperShippingName>\r\n                                <ram:HazardCategoryCode>3L</ram:HazardCategoryCode>\r\n                            </ram:ApplicableProductDangerousGoods>\r\n                        </ram:SpecifiedProductRegulatedGoods>\r\n                    </ram:SpecifiedProductTradeDelivery>\r\n                </ram:IncludedCommercialTradeLineItem>\r\n                <ram:SpecifiedLogisticsPackage>\r\n                    <ram:ItemQuantity>0</ram:ItemQuantity>\r\n                    <ram:SequenceNumeric>1</ram:SequenceNumeric>\r\n                    <ram:AllPackedInOneIndicator>false</ram:AllPackedInOneIndicator>\r\n                    <ram:UsedSupplyChainPackaging>\r\n                        <ram:Type> </ram:Type>\r\n                    </ram:UsedSupplyChainPackaging>\r\n                    <ram:IncludedPackagedTradeLineItem>\r\n                        <ram:SequenceNumeric>1</ram:SequenceNumeric>\r\n                    </ram:IncludedPackagedTradeLineItem>\r\n                </ram:SpecifiedLogisticsPackage>\r\n            </ram:RelatedCommercialTradeTransaction>\r\n            <ram:ApplicableTransportDangerousGoods>\r\n                <ram:HazardTypeCode>NON-RADIOACTIVE</ram:HazardTypeCode>\r\n                <ram:AircraftLimitationInformation />\r\n                <ram:ComplianceDeclarationInformation>Failure to comply in all respects with the applicable Dangerous Goods Regulations may be in breach of the applicable law, subject to legal penalties</ram:ComplianceDeclarationInformation>\r\n                <ram:ShipperDeclarationInformation>I hereby declare that the contents of this consignment are fully and accurately described above by the proper shipping name, and are classified, packaged, marked and labelled/placarded, and are in all respects in proper condition for transport according to applicable international and national governmental regulations. I declare that all of the applicable air transport requirements have been met.</ram:ShipperDeclarationInformation>\r\n            </ram:ApplicableTransportDangerousGoods>\r\n        </ram:IncludedHouseConsignment>\r\n    </rsm:MasterConsignment>\r\n</rsm:ShippersDeclarationForDangerousGoods>\r\n<-->"
+                },
+                "url": {
+                  "raw": "{{dgAutoCheckApiDomain}}/v1/acceptance-checks/{{acceptanceCheckId}}/import/xsdg",
+                  "host": [
+                    "{{dgAutoCheckApiDomain}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "acceptance-checks",
+                    "{{acceptanceCheckId}}",
+                    "import",
+                    "xsdg"
+                  ]
+                },
+                "description": "Import XSDG XML as the body of the request to the stated acceptance check.\n\nXSDGs will be validated upon upload, if it does not meet the XSDG requirements a list of errors will be returned.\n\n## Permissions\n\nManage permissions required\n\nAPI Integrator license type required."
+              },
+              "response": []
+            }
+          ],
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "key": "token",
+                "value": "{{DGtoken}}",
+                "type": "string"
+              }
+            ]
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Step3. Get XSDG Auto Status 3.> PASS",
+          "item": [
+            {
+              "name": "Request Url",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "userIdentifier",
+                      "value": "glshk",
+                      "type": "text",
+                      "description": "An identifier unique to the user that will be accountable for all actions while processing acceptance checks. If provided, a one time use URL will be generated."
+                    },
+                    {
+                      "key": "userName",
+                      "value": "GLSHK",
+                      "type": "text",
+                      "description": "Optional: Name to be associated with the userIdentifier. If not provided, the user's name will not be set."
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{dgAutoCheckApiDomain}}/v1/acceptance-checks/{{acceptanceCheckId}}/request-url",
+                  "host": [
+                    "{{dgAutoCheckApiDomain}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "acceptance-checks",
+                    "{{acceptanceCheckId}}",
+                    "request-url"
+                  ]
+                },
+                "description": "Create a new one time usage URL to access the relevant acceptance check.\n\nURLs expire after 10 minutes.\n\n## Permissions\n\nManage permissions required\n\nAPI Integrator license type required."
+              },
+              "response": []
+            },
+            {
+              "name": "Get Acceptance Check",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{DGtoken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{dgAutoCheckApiDomain}}/v1/acceptance-checks/{{acceptanceCheckId}}",
+                  "host": [
+                    "{{dgAutoCheckApiDomain}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "acceptance-checks",
+                    "{{acceptanceCheckId}}"
+                  ]
+                },
+                "description": "Get the current status of an acceptance check.\n\nPermissions\n----------\nRead permissions required"
+              },
+              "response": []
+            },
+            {
+              "name": "Create Check LO of XSDG Auto Acceptance Check Pass",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "var req = pm.response.json();\r",
+                      "pm.collectionVariables.set(\"CheckLoid\", pm.response.headers.get(\"Location\").split(\"/\").pop());"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{1Rtoken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/ld+json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n   \"@context\":{\r\n      \"cargo\":\"https://onerecord.iata.org/ns/cargo#\"\r\n   },\r\n   \"@type\":\"cargo:Check\",\r\n   \"cargo:checkTotalResult\":{\r\n      \"@type\":\"cargo:CheckTotalResult\",\r\n      \"cargo:pass\":true,\r\n      \"cargo:certifiedByActor\":{\r\n          \"@type\":\"cargo:Person\",\r\n          \"cargo:associatedOrganization\":{\r\n              \"@type\":\"cargo:Organization\",\r\n              \"cargo:name\":\"IATA_DG_Auto_Check\"\r\n          }\r\n      }\r\n\r\n   },\r\n   \"cargo:actionStartTime\":\"2026-04-27T05:48:00Z\",\r\n   \"cargo:actionEndTime\":\"2026-04-27T05:48:00Z\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{neoneApiDomain}}/logistics-objects",
+                  "host": [
+                    "{{neoneApiDomain}}"
+                  ],
+                  "path": [
+                    "logistics-objects"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "PATCH Check LO to DG Shipment",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{1Rtoken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/ld+json;",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json;",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"@context\": {\n        \"cargo\": \"https://onerecord.iata.org/ns/cargo#\",\n        \"api\": \"https://onerecord.iata.org/ns/api#\"\n    },\n    \"@type\": \"api:Change\",\n    \"api:hasLogisticsObject\": {\n        \"@id\": \"1{{neoneApiDomain}}/logistics-objects/{{dgShipmentlLoid}}\"\n    },\n    \"api:hasDescription\": \"Add Check LO\",\n    \"api:hasOperation\": [\n        {\n            \"@type\": \"api:Operation\",\n            \"api:op\": {\n                \"@id\": \"api:ADD\"\n            },\n            \"api:s\": \"{{neoneApiDomain}}/logistics-objects/{{dgShipmentlLoid}}\",\n            \"api:p\": \"https://onerecord.iata.org/ns/cargo#Shipment\",\n            \"api:o\": [\n                {\n                    \"@type\": \"api:OperationObject\",\n                    \"api:hasDatatype\": \"https://onerecord.iata.org/ns/cargo#Check\",\n                    \"api:hasValue\": \"{{neoneApiDomain}}/logistics-objects/{{CheckLoid}}\"\n                }\n            ]\n        }\n    ],\n    \"api:hasRevision\": {\n        \"@type\": \"http://www.w3.org/2001/XMLSchema#positiveInteger\",\n        \"@value\": \"1\"\n    }\n}\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{neoneApiDomain}}/logistics-objects/{{dgShipmentlLoid}}",
+                  "host": [
+                    "{{neoneApiDomain}}"
+                  ],
+                  "path": [
+                    "logistics-objects",
+                    "{{dgShipmentlLoid}}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "POST LE (SAC)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "//pm.collectionVariables.set(\"leid\", pm.response.headers.get(\"Location\").split(\"/\").pop());"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{1Rtoken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/ld+json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"@context\": {\r\n        \"cargo\": \"https://onerecord.iata.org/ns/cargo#\"\r\n    },\r\n    \"@type\": \"cargo:LogisticsEvent\",\r\n    \"cargo:creationDate\": {\r\n        \"@type\": \"http://www.w3.org/2001/XMLSchema#dateTime\",\r\n        \"@value\": \"2026-04-27T05:50:00.000Z\"\r\n    },\r\n    \"cargo:eventDate\": {\r\n        \"@type\": \"http://www.w3.org/2001/XMLSchema#dateTime\",\r\n        \"@value\": \"2026-04-27T05:50:00.000Z\"\r\n    },\r\n    \"cargo:eventCode\": {\r\n        \"@type\": \"cargo:CodeListElement\",\r\n        \"cargo:code\": \"SAC\",\r\n        \"cargo:codeListName\": \"SAC\"\r\n    },\r\n    \"cargo:eventName\": \"SAC after DG Auto Check\",\r\n    \"cargo:eventTimeType\": {\r\n        \"@type\": \"cargo:EventTimeType\",\r\n        \"@id\": \"cargo:ACTUAL\"\r\n    },    \r\n    \"cargo:partialEventIndicator\": false,\r\n    \"cargo:eventFor\": {\r\n        \"@type\": \"cargo:Waybill\",\r\n        \"@id\": \"{{neoneApiDomain}}/logistics-objects/{{waybillLoid}}\"\r\n    },\r\n    \"cargo:recordingOrganization\": {\r\n        \"@type\": \"cargo:Company\",\r\n        \"@id\": \"{{neoneApiDomain}}/logistics-objects/{{organizationLoid}}\"\r\n    }\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{neoneApiDomain}}/logistics-objects/{{waybillLoid}}/logistics-events",
+                  "host": [
+                    "{{neoneApiDomain}}"
+                  ],
+                  "path": [
+                    "logistics-objects",
+                    "{{waybillLoid}}",
+                    "logistics-events"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "key": "token",
+                "value": "{{DGtoken}}",
+                "type": "string"
+              }
+            ]
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Step4. All Shipment Acceptance Check > PASS",
+          "item": [
+            {
+              "name": "Tracking CargoIQ Milestone for Frontend Web",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{newApiDomain}}/Tracking/GetRouteByLoId?lo_id={{waybillLoid}}",
+                  "host": [
+                    "{{newApiDomain}}"
+                  ],
+                  "path": [
+                    "Tracking",
+                    "GetRouteByLoId"
+                  ],
+                  "query": [
+                    {
+                      "key": "lo_id",
+                      "value": "{{waybillLoid}}"
+                    }
+                  ]
+                },
+                "description": "Get the current status of an acceptance check.\n\nPermissions\n----------\nRead permissions required"
+              },
+              "response": []
+            },
+            {
+              "name": "POST LE (RCS)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.collectionVariables.set(\"leid\", pm.response.headers.get(\"Location\").split(\"/\").pop());"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/ld+json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"@context\": {\r\n        \"cargo\": \"https://onerecord.iata.org/ns/cargo#\"\r\n    },\r\n    \"@type\": \"cargo:LogisticsEvent\",\r\n    \"cargo:creationDate\": {\r\n        \"@type\": \"http://www.w3.org/2001/XMLSchema#dateTime\",\r\n        \"@value\": \"2026-04-27T05:50:00.000Z\"\r\n    },\r\n    \"cargo:eventDate\": {\r\n        \"@type\": \"http://www.w3.org/2001/XMLSchema#dateTime\",\r\n        \"@value\": \"2026-04-27T05:50:00.000Z\"\r\n    },\r\n    \"cargo:eventCode\": {\r\n        \"@type\": \"cargo:CodeListElement\",\r\n        \"cargo:code\": \"RCS\",\r\n        \"cargo:codeListName\": \"RCS\"\r\n    },\r\n    \"cargo:eventName\": \"RCS after All Shipment Acceptance Check\",\r\n    \"cargo:eventTimeType\": {\r\n        \"@type\": \"cargo:EventTimeType\",\r\n        \"@id\": \"cargo:ACTUAL\"\r\n    },    \"cargo:partialEventIndicator\": false,\r\n    \"cargo:eventFor\": {\r\n        \"@type\": \"cargo:Waybill\",\r\n        \"@id\": \"{{neoneApiDomain}}/logistics-objects/{{waybillLoid}}\"\r\n    },\r\n    \"cargo:recordingOrganization\": {\r\n        \"@type\": \"cargo:Company\",\r\n        \"@id\": \"{{neoneApiDomain}}/logistics-objects/{{organizationLoid}}\"\r\n    }\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{neoneApiDomain}}/logistics-objects/{{waybillLoid}}/logistics-events",
+                  "host": [
+                    "{{neoneApiDomain}}"
+                  ],
+                  "path": [
+                    "logistics-objects",
+                    "{{waybillLoid}}",
+                    "logistics-events"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "key": "token",
+                "value": "{{1Rtoken}}",
+                "type": "string"
+              }
+            ]
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ULD Tracking",
+      "item": [
+        {
+          "name": "Get IoT Weather",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{newApiDomain}}/IoTWeather/GetLocationAndWeather?lat=50.0379&lon=8.5622",
+              "host": [
+                "{{newApiDomain}}"
+              ],
+              "path": [
+                "IoTWeather",
+                "GetLocationAndWeather"
+              ],
+              "query": [
+                {
+                  "key": "lat",
+                  "value": "50.0379"
+                },
+                {
+                  "key": "lon",
+                  "value": "8.5622"
+                }
+              ]
+            },
+            "description": "Get the current status of an acceptance check.\n\nPermissions\n----------\nRead permissions required"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "1R LO XSDG Converter",
+      "item": [
+        {
+          "name": "1RJsonLdCompactToXSDG",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/ld+json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/ld+json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"@context\": {\r\n        \"cargo\": \"https://onerecord.iata.org/ns/cargo#\"\r\n    },\r\n    \"@type\": \"cargo:Shipment\",\r\n    \"cargo:dangerousGoodsDeclaration\": {\r\n        \"@type\": \"cargo:DangerousGoodsDeclaration\",\r\n        \"cargo:documentName\": \"XML Shippers Declaration for Dangerous Goods\",\r\n        \"cargo:documentTypeCode\": \"890\",\r\n        \"cargo:issueDate\": \"2026-04-25T04:53:05\",\r\n        \"cargo:certification\": {\r\n            \"@type\": \"cargo:DGDeclarationCertification\",\r\n            \"cargo:certificationText\": \"I hereby declare that the contents of this consignment are fully and accurately described above by the proper shipping name, and are classified, packaged, marked and labelled/placarded, and are in all respects in proper condition for transport according to applicable international and national governmental regulations. I declare that all of the applicable air transport requirements have been met.\"\r\n        }\r\n    },\r\n    \"cargo:involvedParties\": [\r\n        {\r\n            \"@type\": \"cargo:Party\",\r\n            \"cargo:partyRole\": {\r\n                \"@type\": \"cargo:CodeListElement\",\r\n                \"cargo:code\": \"SHP\"\r\n            },\r\n            \"cargo:partyDetails\": {\r\n                \"@type\": [\r\n                    \"cargo:Company\"\r\n                ],\r\n                \"cargo:name\": \"FASHION 11, Ramon y Cajal, 15006 La Coruna La Coruna\"\r\n            }\r\n        },\r\n        {\r\n            \"@type\": \"cargo:Party\",\r\n            \"cargo:partyRole\": {\r\n                \"@type\": \"cargo:CodeListElement\",\r\n                \"cargo:code\": \"CNE\"\r\n            },\r\n            \"cargo:partyDetails\": {\r\n                \"@type\": [\r\n                    \"cargo:Company\"\r\n                ],\r\n                \"cargo:name\": \"Wild Market 100, Rene-Levesque Blvd. West, H2Z 1V5 Montreal Quebec Montreal Quebec\"\r\n            }\r\n        }\r\n    ],\r\n    \"cargo:textualHandlingInstructions\": [\r\n        \"Health Department\",\r\n        \"24 hour number: +34 (981) 34 23 99\"\r\n    ],\r\n    \"cargo:associatedDocuments\": [\r\n        {\r\n            \"@type\": \"cargo:ExternalReference\",\r\n            \"cargo:documentId\": \"784-43020261\",\r\n            \"cargo:documentName\": \"Master air waybill\",\r\n            \"cargo:documentType\": {\r\n                \"@type\": \"cargo:CodeListElement\",\r\n                \"cargo:code\": \"741\"\r\n            }\r\n        }\r\n    ],\r\n    \"cargo:dangerousGoodsProducts\": [\r\n        {\r\n            \"@type\": \"cargo:Product\",\r\n            \"cargo:sequenceNumber\": 1,\r\n            \"cargo:unNumber\": \"UN2339\",\r\n            \"cargo:hazardClass\": \"3\",\r\n            \"cargo:hazardCategory\": \"3L\",\r\n            \"cargo:properShippingName\": \"2-Bromobutane\",\r\n            \"cargo:packingGroup\": \"II\",\r\n            \"cargo:packingInstruction\": \"305\"\r\n        }\r\n    ],\r\n    \"cargo:packaging\": [\r\n        {\r\n            \"@type\": \"cargo:Packaging\",\r\n            \"cargo:packageSequence\": 1,\r\n            \"cargo:packageCount\": 0,\r\n            \"cargo:allPackedInOneIndicator\": false,\r\n            \"cargo:packagingTypeDescription\": \"\"\r\n        }\r\n    ],\r\n    \"cargo:transportDangerousGoods\": {\r\n        \"@type\": \"cargo:TransportDangerousGoods\",\r\n        \"cargo:hazardType\": \"NON-RADIOACTIVE\",\r\n        \"cargo:complianceStatement\": \"Failure to comply in all respects with the applicable Dangerous Goods Regulations may be in breach of the applicable law, subject to legal penalties\",\r\n        \"cargo:shipperDeclarationText\": \"I hereby declare that the contents of this consignment are fully and accurately described above by the proper shipping name, and are classified, packaged, marked and labelled/placarded, and are in all respects in proper condition for transport according to applicable international and national governmental regulations. I declare that all of the applicable air transport requirements have been met.\"\r\n    }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{newApiDomain}}/Converter/Mapping1RCompacttoXSDG",
+              "host": [
+                "{{newApiDomain}}"
+              ],
+              "path": [
+                "Converter",
+                "Mapping1RCompacttoXSDG"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "XSDGTo1RJsonLdCompact",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/ld+json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/xml",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "xmlContent",
+                  "value": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<rsm:ShippersDeclarationForDangerousGoods xmlns:rsm=\"iata:shippersdeclarationfordangerousgoods:1\" xmlns:ccts=\"urn:un:unece:uncefact:documentation:standard:CoreComponentsTechnicalSpecification:2\" xmlns:udt=\"urn:un:unece:uncefact:data:standard:UnqualifiedDataType:8\" xmlns:ram=\"iata:datamodel:3\">\n    <rsm:MessageHeaderDocument>\n        <ram:ID>784-43020261</ram:ID>\n        <ram:Name>XML Shippers Declaration for Dangerous Goods</ram:Name>\n        <ram:TypeCode>890</ram:TypeCode>\n        <ram:IssueDateTime>2026-04-25T04:53:05</ram:IssueDateTime>\n        <ram:PurposeCode>CREATION</ram:PurposeCode>\n        <ram:VersionID>5.00</ram:VersionID>\n        <ram:ConversationID>1</ram:ConversationID>\n    </rsm:MessageHeaderDocument>\n    <rsm:BusinessHeaderDocument>\n        <ram:ProcessType>P</ram:ProcessType>\n        <ram:SignatoryConsignorAuthentication>\n            <ram:ActualDateTime />\n            <ram:Statement>I hereby declare that the contents of this consignment are fully and accurately described above by the proper shipping name, and are classified, packaged, marked and labelled/placarded, and are in all respects in proper condition for transport according to applicable international and national governmental regulations. I declare that all of the applicable air transport requirements have been met.</ram:Statement>\n            <ram:Signatory />\n            <ram:IssueAuthenticationLocation>\n                <ram:Name />\n            </ram:IssueAuthenticationLocation>\n            <ram:ProviderConsignorAuthenticationParty>\n                <ram:DefinedConsignorAuthenticationContact>\n                    <ram:PersonName />\n                </ram:DefinedConsignorAuthenticationContact>\n            </ram:ProviderConsignorAuthenticationParty>\n        </ram:SignatoryConsignorAuthentication>\n    </rsm:BusinessHeaderDocument>\n    <rsm:MasterConsignment>\n        <ram:IncludedHouseConsignment>\n            <ram:ConsignorParty>\n                <ram:PrimaryID />\n                <ram:AdditionalID />\n                <ram:Name>FASHION\n11, Ramon y Cajal, 15006 La Coruna\nLa Coruna</ram:Name>\n                <ram:PostalStructuredAddress>\n                    <ram:PostcodeCode />\n                    <ram:StreetName />\n                    <ram:CityName />\n                    <ram:CountryID />\n                    <ram:CountryName />\n                    <ram:CountrySubDivisionName />\n                    <ram:PostOfficeBox />\n                </ram:PostalStructuredAddress>\n                <ram:DefinedTradeContact>\n                    <ram:PersonName />\n                    <ram:DepartmentName />\n                    <ram:DirectTelephoneCommunication>\n                        <ram:CompleteNumber />\n                    </ram:DirectTelephoneCommunication>\n                </ram:DefinedTradeContact>\n            </ram:ConsignorParty>\n            <ram:ConsigneeParty>\n                <ram:PrimaryID />\n                <ram:AdditionalID />\n                <ram:Name>Wild Market\n100, Rene-Levesque Blvd. West, H2Z 1V5 Montreal Quebec\nMontreal Quebec</ram:Name>\n                <ram:PostalStructuredAddress>\n                    <ram:PostcodeCode />\n                    <ram:StreetName />\n                    <ram:CityName />\n                    <ram:CountryID />\n                    <ram:CountryName />\n                    <ram:CountrySubDivisionName />\n                    <ram:PostOfficeBox />\n                </ram:PostalStructuredAddress>\n                <ram:DefinedTradeContact>\n                    <ram:PersonName />\n                    <ram:DepartmentName />\n                    <ram:DirectTelephoneCommunication>\n                        <ram:CompleteNumber />\n                    </ram:DirectTelephoneCommunication>\n                </ram:DefinedTradeContact>\n            </ram:ConsigneeParty>\n            <ram:HandlingInstructions>\n                <ram:Description>Health Department\\n24 hour number: +34 (981) 34 23 99</ram:Description>\n                <ram:ExclusiveUsageIndicator>false</ram:ExclusiveUsageIndicator>\n            </ram:HandlingInstructions>\n            <ram:AssociatedReferenceDocument>\n                <ram:ID>784-43020261</ram:ID>\n                <ram:TypeCode>741</ram:TypeCode>\n                <ram:Name>Master air waybill</ram:Name>\n            </ram:AssociatedReferenceDocument>\n            <ram:RelatedCommercialTradeTransaction>\n                <ram:IncludedCommercialTradeLineItem>\n                    <ram:SequenceNumeric>1</ram:SequenceNumeric>\n                    <ram:SpecifiedProductTradeDelivery>\n                        <ram:SpecifiedProductRegulatedGoods>\n                            <ram:ApplicableProductDangerousGoods>\n                                <ram:UNDGIdentificationCode>UN2339</ram:UNDGIdentificationCode>\n                                <ram:PackagingDangerLevelCode>II</ram:PackagingDangerLevelCode>\n                                <ram:PackingInstructionTypeCode>305</ram:PackingInstructionTypeCode>\n                                <ram:HazardClassificationID>3</ram:HazardClassificationID>\n                                <ram:ProperShippingName>2-Bromobutane</ram:ProperShippingName>\n                                <ram:HazardCategoryCode>3L</ram:HazardCategoryCode>\n                            </ram:ApplicableProductDangerousGoods>\n                        </ram:SpecifiedProductRegulatedGoods>\n                    </ram:SpecifiedProductTradeDelivery>\n                </ram:IncludedCommercialTradeLineItem>\n                <ram:SpecifiedLogisticsPackage>\n                    <ram:ItemQuantity>0</ram:ItemQuantity>\n                    <ram:SequenceNumeric>1</ram:SequenceNumeric>\n                    <ram:AllPackedInOneIndicator>false</ram:AllPackedInOneIndicator>\n                    <ram:UsedSupplyChainPackaging>\n                        <ram:Type> </ram:Type>\n                    </ram:UsedSupplyChainPackaging>\n                    <ram:IncludedPackagedTradeLineItem>\n                        <ram:SequenceNumeric>1</ram:SequenceNumeric>\n                    </ram:IncludedPackagedTradeLineItem>\n                </ram:SpecifiedLogisticsPackage>\n            </ram:RelatedCommercialTradeTransaction>\n            <ram:ApplicableTransportDangerousGoods>\n                <ram:HazardTypeCode>NON-RADIOACTIVE</ram:HazardTypeCode>\n                <ram:AircraftLimitationInformation />\n                <ram:ComplianceDeclarationInformation>Failure to comply in all respects with the applicable Dangerous Goods Regulations may be in breach of the applicable law, subject to legal penalties</ram:ComplianceDeclarationInformation>\n                <ram:ShipperDeclarationInformation>I hereby declare that the contents of this consignment are fully and accurately described above by the proper shipping name, and are classified, packaged, marked and labelled/placarded, and are in all respects in proper condition for transport according to applicable international and national governmental regulations. I declare that all of the applicable air transport requirements have been met.</ram:ShipperDeclarationInformation>\n            </ram:ApplicableTransportDangerousGoods>\n        </ram:IncludedHouseConsignment>\n    </rsm:MasterConsignment>\n</rsm:ShippersDeclarationForDangerousGoods>",
+                  "type": "text",
+                  "uuid": "66042332-1e41-4bef-bbb0-4164c24e4aee"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{newApiDomain}}/Converter/MappingXSDGto1RCompact",
+              "host": [
+                "{{newApiDomain}}"
+              ],
+              "path": [
+                "Converter",
+                "MappingXSDGto1RCompact"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "1RJsonLdFlattenToXSDG",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/ld+json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/ld+json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"@graph\": [\r\n        {\r\n            \"@id\": \"http://localhost:8080/logistics-objects/3ce0f1bb-3c90-429c-ae19-0884a7828b7b\",\r\n            \"@type\": [\r\n                \"LogisticsObject\",\r\n                \"Product\"\r\n            ],\r\n            \"hazardCategory\": \"3L\",\r\n            \"hazardClass\": \"3\",\r\n            \"packingGroup\": \"II\",\r\n            \"packingInstruction\": \"305\",\r\n            \"properShippingName\": \"2-Bromobutane\",\r\n            \"sequenceNumber\": {\r\n                \"@type\": \"http://www.w3.org/2001/XMLSchema#integer\",\r\n                \"@value\": \"1\"\r\n            },\r\n            \"unNumber\": \"UN2339\"\r\n        },\r\n        {\r\n            \"@id\": \"http://localhost:8080/logistics-objects/40a254e0-73e6-49f5-b243-d87c52dc1e12\",\r\n            \"@type\": [\r\n                \"Organization\",\r\n                \"Company\",\r\n                \"LogisticsAgent\",\r\n                \"LogisticsObject\"\r\n            ],\r\n            \"name\": \"FASHION 11, Ramon y Cajal, 15006 La Coruna La Coruna\"\r\n        },\r\n        {\r\n            \"@id\": \"http://localhost:8080/logistics-objects/41f9e117-b9f4-42ba-b343-74caa137cd51\",\r\n            \"@type\": [\r\n                \"Organization\",\r\n                \"Company\",\r\n                \"LogisticsAgent\",\r\n                \"LogisticsObject\"\r\n            ],\r\n            \"name\": \"Wild Market 100, Rene-Levesque Blvd. West, H2Z 1V5 Montreal Quebec Montreal Quebec\"\r\n        },\r\n        {\r\n            \"@id\": \"http://localhost:8080/logistics-objects/7344b2aa-0881-4286-89b9-57926807ff83\",\r\n            \"@type\": [\r\n                \"LogisticsObject\",\r\n                \"Shipment\"\r\n            ],\r\n            \"associatedDocuments\": {\r\n                \"@id\": \"http://localhost:8080/logistics-objects/8234259a-a83b-44f4-be63-c5f647b4d86d\"\r\n            },\r\n            \"dangerousGoodsDeclaration\": {\r\n                \"@id\": \"neone:1a316304-75ea-4ca5-86cf-e97f2f0f70a7\"\r\n            },\r\n            \"dangerousGoodsProducts\": {\r\n                \"@id\": \"http://localhost:8080/logistics-objects/3ce0f1bb-3c90-429c-ae19-0884a7828b7b\"\r\n            },\r\n            \"involvedParties\": [\r\n                {\r\n                    \"@id\": \"neone:67b8216d-ba53-44c3-ae27-4ea9c074b3b1\"\r\n                },\r\n                {\r\n                    \"@id\": \"neone:eb2533b0-e252-4f15-8488-f801a8ed26e5\"\r\n                }\r\n            ],\r\n            \"packaging\": {\r\n                \"@id\": \"neone:79d9566e-aeb8-4216-8912-30beceb14e61\"\r\n            },\r\n            \"textualHandlingInstructions\": [\r\n                \"Health Department\",\r\n                \"24 hour number: +34 (981) 34 23 99\"\r\n            ],\r\n            \"transportDangerousGoods\": {\r\n                \"@id\": \"neone:55648f62-4482-4a0a-ae3c-7a43d7662f15\"\r\n            }\r\n        },\r\n        {\r\n            \"@id\": \"http://localhost:8080/logistics-objects/8234259a-a83b-44f4-be63-c5f647b4d86d\",\r\n            \"@type\": [\r\n                \"LogisticsObject\",\r\n                \"ExternalReference\"\r\n            ],\r\n            \"documentId\": \"784-43020261\",\r\n            \"documentName\": \"Master air waybill\",\r\n            \"documentType\": {\r\n                \"@id\": \"neone:cff029c1-ab6a-47c1-951b-989fcb822da7\"\r\n            }\r\n        },\r\n        {\r\n            \"@id\": \"neone:02ef0665-dd5b-4285-9ed7-41dec1f65afd\",\r\n            \"@type\": \"DGDeclarationCertification\",\r\n            \"certificationText\": \"I hereby declare that the contents of this consignment are fully and accurately described above by the proper shipping name, and are classified, packaged, marked and labelled/placarded, and are in all respects in proper condition for transport according to applicable international and national governmental regulations. I declare that all of the applicable air transport requirements have been met.\"\r\n        },\r\n        {\r\n            \"@id\": \"neone:1a316304-75ea-4ca5-86cf-e97f2f0f70a7\",\r\n            \"@type\": \"DangerousGoodsDeclaration\",\r\n            \"certification\": {\r\n                \"@id\": \"neone:02ef0665-dd5b-4285-9ed7-41dec1f65afd\"\r\n            },\r\n            \"documentName\": \"XML Shippers Declaration for Dangerous Goods\",\r\n            \"documentTypeCode\": \"890\",\r\n            \"issueDate\": \"2026-04-25T04:53:05\"\r\n        },\r\n        {\r\n            \"@id\": \"neone:55648f62-4482-4a0a-ae3c-7a43d7662f15\",\r\n            \"@type\": \"TransportDangerousGoods\",\r\n            \"complianceStatement\": \"Failure to comply in all respects with the applicable Dangerous Goods Regulations may be in breach of the applicable law, subject to legal penalties\",\r\n            \"hazardType\": \"NON-RADIOACTIVE\",\r\n            \"shipperDeclarationText\": \"I hereby declare that the contents of this consignment are fully and accurately described above by the proper shipping name, and are classified, packaged, marked and labelled/placarded, and are in all respects in proper condition for transport according to applicable international and national governmental regulations. I declare that all of the applicable air transport requirements have been met.\"\r\n        },\r\n        {\r\n            \"@id\": \"neone:67b8216d-ba53-44c3-ae27-4ea9c074b3b1\",\r\n            \"@type\": \"Party\",\r\n            \"partyDetails\": {\r\n                \"@id\": \"http://localhost:8080/logistics-objects/40a254e0-73e6-49f5-b243-d87c52dc1e12\"\r\n            },\r\n            \"partyRole\": {\r\n                \"@id\": \"neone:c82ca28f-c9ae-4187-9fd3-3a4bd4b77856\"\r\n            }\r\n        },\r\n        {\r\n            \"@id\": \"neone:6f7e35ca-e39d-4167-9392-2e641fb215a1\",\r\n            \"@type\": \"CodeListElement\",\r\n            \"code\": \"CNE\"\r\n        },\r\n        {\r\n            \"@id\": \"neone:79d9566e-aeb8-4216-8912-30beceb14e61\",\r\n            \"@type\": \"Packaging\",\r\n            \"allPackedInOneIndicator\": {\r\n                \"@type\": \"http://www.w3.org/2001/XMLSchema#boolean\",\r\n                \"@value\": \"false\"\r\n            },\r\n            \"packageCount\": {\r\n                \"@type\": \"http://www.w3.org/2001/XMLSchema#integer\",\r\n                \"@value\": \"0\"\r\n            },\r\n            \"packageSequence\": {\r\n                \"@type\": \"http://www.w3.org/2001/XMLSchema#integer\",\r\n                \"@value\": \"1\"\r\n            },\r\n            \"packagingTypeDescription\": \"\"\r\n        },\r\n        {\r\n            \"@id\": \"neone:c82ca28f-c9ae-4187-9fd3-3a4bd4b77856\",\r\n            \"@type\": \"CodeListElement\",\r\n            \"code\": \"SHP\"\r\n        },\r\n        {\r\n            \"@id\": \"neone:cff029c1-ab6a-47c1-951b-989fcb822da7\",\r\n            \"@type\": \"CodeListElement\",\r\n            \"code\": \"741\"\r\n        },\r\n        {\r\n            \"@id\": \"neone:eb2533b0-e252-4f15-8488-f801a8ed26e5\",\r\n            \"@type\": \"Party\",\r\n            \"partyDetails\": {\r\n                \"@id\": \"http://localhost:8080/logistics-objects/41f9e117-b9f4-42ba-b343-74caa137cd51\"\r\n            },\r\n            \"partyRole\": {\r\n                \"@id\": \"neone:6f7e35ca-e39d-4167-9392-2e641fb215a1\"\r\n            }\r\n        }\r\n    ],\r\n    \"@context\": {\r\n        \"@vocab\": \"https://onerecord.iata.org/ns/cargo#\"\r\n    }\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{newApiDomain}}/Converter/Mapping1RFlattentoXSDG",
+              "host": [
+                "{{newApiDomain}}"
+              ],
+              "path": [
+                "Converter",
+                "Mapping1RFlattentoXSDG"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "XSDGTo1RJsonLdFlatten",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/ld+json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/xml",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "xmlContent",
+                  "value": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<rsm:ShippersDeclarationForDangerousGoods xmlns:rsm=\"iata:shippersdeclarationfordangerousgoods:1\" xmlns:ccts=\"urn:un:unece:uncefact:documentation:standard:CoreComponentsTechnicalSpecification:2\" xmlns:udt=\"urn:un:unece:uncefact:data:standard:UnqualifiedDataType:8\" xmlns:ram=\"iata:datamodel:3\">\n    <rsm:MessageHeaderDocument>\n        <ram:ID>784-43020261</ram:ID>\n        <ram:Name>XML Shippers Declaration for Dangerous Goods</ram:Name>\n        <ram:TypeCode>890</ram:TypeCode>\n        <ram:IssueDateTime>2026-04-25T04:53:05</ram:IssueDateTime>\n        <ram:PurposeCode>CREATION</ram:PurposeCode>\n        <ram:VersionID>5.00</ram:VersionID>\n        <ram:ConversationID>1</ram:ConversationID>\n    </rsm:MessageHeaderDocument>\n    <rsm:BusinessHeaderDocument>\n        <ram:ProcessType>P</ram:ProcessType>\n        <ram:SignatoryConsignorAuthentication>\n            <ram:ActualDateTime />\n            <ram:Statement>I hereby declare that the contents of this consignment are fully and accurately described above by the proper shipping name, and are classified, packaged, marked and labelled/placarded, and are in all respects in proper condition for transport according to applicable international and national governmental regulations. I declare that all of the applicable air transport requirements have been met.</ram:Statement>\n            <ram:Signatory />\n            <ram:IssueAuthenticationLocation>\n                <ram:Name />\n            </ram:IssueAuthenticationLocation>\n            <ram:ProviderConsignorAuthenticationParty>\n                <ram:DefinedConsignorAuthenticationContact>\n                    <ram:PersonName />\n                </ram:DefinedConsignorAuthenticationContact>\n            </ram:ProviderConsignorAuthenticationParty>\n        </ram:SignatoryConsignorAuthentication>\n    </rsm:BusinessHeaderDocument>\n    <rsm:MasterConsignment>\n        <ram:IncludedHouseConsignment>\n            <ram:ConsignorParty>\n                <ram:PrimaryID />\n                <ram:AdditionalID />\n                <ram:Name>FASHION\n11, Ramon y Cajal, 15006 La Coruna\nLa Coruna</ram:Name>\n                <ram:PostalStructuredAddress>\n                    <ram:PostcodeCode />\n                    <ram:StreetName />\n                    <ram:CityName />\n                    <ram:CountryID />\n                    <ram:CountryName />\n                    <ram:CountrySubDivisionName />\n                    <ram:PostOfficeBox />\n                </ram:PostalStructuredAddress>\n                <ram:DefinedTradeContact>\n                    <ram:PersonName />\n                    <ram:DepartmentName />\n                    <ram:DirectTelephoneCommunication>\n                        <ram:CompleteNumber />\n                    </ram:DirectTelephoneCommunication>\n                </ram:DefinedTradeContact>\n            </ram:ConsignorParty>\n            <ram:ConsigneeParty>\n                <ram:PrimaryID />\n                <ram:AdditionalID />\n                <ram:Name>Wild Market\n100, Rene-Levesque Blvd. West, H2Z 1V5 Montreal Quebec\nMontreal Quebec</ram:Name>\n                <ram:PostalStructuredAddress>\n                    <ram:PostcodeCode />\n                    <ram:StreetName />\n                    <ram:CityName />\n                    <ram:CountryID />\n                    <ram:CountryName />\n                    <ram:CountrySubDivisionName />\n                    <ram:PostOfficeBox />\n                </ram:PostalStructuredAddress>\n                <ram:DefinedTradeContact>\n                    <ram:PersonName />\n                    <ram:DepartmentName />\n                    <ram:DirectTelephoneCommunication>\n                        <ram:CompleteNumber />\n                    </ram:DirectTelephoneCommunication>\n                </ram:DefinedTradeContact>\n            </ram:ConsigneeParty>\n            <ram:HandlingInstructions>\n                <ram:Description>Health Department\\n24 hour number: +34 (981) 34 23 99</ram:Description>\n                <ram:ExclusiveUsageIndicator>false</ram:ExclusiveUsageIndicator>\n            </ram:HandlingInstructions>\n            <ram:AssociatedReferenceDocument>\n                <ram:ID>784-43020261</ram:ID>\n                <ram:TypeCode>741</ram:TypeCode>\n                <ram:Name>Master air waybill</ram:Name>\n            </ram:AssociatedReferenceDocument>\n            <ram:RelatedCommercialTradeTransaction>\n                <ram:IncludedCommercialTradeLineItem>\n                    <ram:SequenceNumeric>1</ram:SequenceNumeric>\n                    <ram:SpecifiedProductTradeDelivery>\n                        <ram:SpecifiedProductRegulatedGoods>\n                            <ram:ApplicableProductDangerousGoods>\n                                <ram:UNDGIdentificationCode>UN2339</ram:UNDGIdentificationCode>\n                                <ram:PackagingDangerLevelCode>II</ram:PackagingDangerLevelCode>\n                                <ram:PackingInstructionTypeCode>305</ram:PackingInstructionTypeCode>\n                                <ram:HazardClassificationID>3</ram:HazardClassificationID>\n                                <ram:ProperShippingName>2-Bromobutane</ram:ProperShippingName>\n                                <ram:HazardCategoryCode>3L</ram:HazardCategoryCode>\n                            </ram:ApplicableProductDangerousGoods>\n                        </ram:SpecifiedProductRegulatedGoods>\n                    </ram:SpecifiedProductTradeDelivery>\n                </ram:IncludedCommercialTradeLineItem>\n                <ram:SpecifiedLogisticsPackage>\n                    <ram:ItemQuantity>0</ram:ItemQuantity>\n                    <ram:SequenceNumeric>1</ram:SequenceNumeric>\n                    <ram:AllPackedInOneIndicator>false</ram:AllPackedInOneIndicator>\n                    <ram:UsedSupplyChainPackaging>\n                        <ram:Type> </ram:Type>\n                    </ram:UsedSupplyChainPackaging>\n                    <ram:IncludedPackagedTradeLineItem>\n                        <ram:SequenceNumeric>1</ram:SequenceNumeric>\n                    </ram:IncludedPackagedTradeLineItem>\n                </ram:SpecifiedLogisticsPackage>\n            </ram:RelatedCommercialTradeTransaction>\n            <ram:ApplicableTransportDangerousGoods>\n                <ram:HazardTypeCode>NON-RADIOACTIVE</ram:HazardTypeCode>\n                <ram:AircraftLimitationInformation />\n                <ram:ComplianceDeclarationInformation>Failure to comply in all respects with the applicable Dangerous Goods Regulations may be in breach of the applicable law, subject to legal penalties</ram:ComplianceDeclarationInformation>\n                <ram:ShipperDeclarationInformation>I hereby declare that the contents of this consignment are fully and accurately described above by the proper shipping name, and are classified, packaged, marked and labelled/placarded, and are in all respects in proper condition for transport according to applicable international and national governmental regulations. I declare that all of the applicable air transport requirements have been met.</ram:ShipperDeclarationInformation>\n            </ram:ApplicableTransportDangerousGoods>\n        </ram:IncludedHouseConsignment>\n    </rsm:MasterConsignment>\n</rsm:ShippersDeclarationForDangerousGoods>",
+                  "type": "text",
+                  "uuid": "6b59103c-6076-4865-80c3-23293fab5f3f"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{newApiDomain}}/Converter/MappingXSDGto1RFlatten",
+              "host": [
+                "{{newApiDomain}}"
+              ],
+              "path": [
+                "Converter",
+                "MappingXSDGto1RFlatten"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "1Rtoken",
+      "value": ""
+    },
+    {
+      "key": "DGtoken",
+      "value": ""
+    },
+    {
+      "key": "officeId",
+      "value": ""
+    },
+    {
+      "key": "acceptanceCheckId",
+      "value": ""
+    },
+    {
+      "key": "waybillLoid",
+      "value": ""
+    },
+    {
+      "key": "dgShipmentlLoid",
+      "value": ""
+    },
+    {
+      "key": "CheckLoid",
+      "value": ""
+    },
+    {
+      "key": "dgJson",
+      "value": ""
+    },
+    {
+      "key": "XSDG_XML",
+      "value": ""
+    },
+    {
+      "key": "organizationLoid",
+      "value": ""
+    },
+    {
+      "key": "leid",
+      "value": ""
+    }
+  ]
+}
