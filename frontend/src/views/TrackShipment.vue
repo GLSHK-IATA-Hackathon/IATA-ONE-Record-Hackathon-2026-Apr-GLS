@@ -22,7 +22,7 @@ use([
 ]);
 
 const route = useRoute();
-const awb = ref(route.query.awb || '160 - 82491603');
+const awb = ref(route.query.awb || '618 - 82491603');
 const activeTab = ref(route.query.tab ? String(route.query.tab) : 'ULD Sensors');
 
 const shipmentLogs = [

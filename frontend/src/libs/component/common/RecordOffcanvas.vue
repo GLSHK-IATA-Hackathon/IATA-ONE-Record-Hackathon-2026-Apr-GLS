@@ -25,7 +25,7 @@ const defaultRouteMap = [
   { code: 'RCS', status: 'complete', pDate: '24Apr 05:50', mDate: '22Apr 12:46', aDate: '22Apr 12:46' },
   { code: 'FOW', status: 'missing', pDate: '24Apr 07:20', mDate: '-', aDate: '-' },
   { code: 'DEP', status: 'missing', pDate: '24Apr 09:20', mDate: '-', aDate: '-' },
-  { isFlight: true, from: 'HKG', to: 'SGN', flightNo: 'CX767', sDate: '24Apr 08:20', aDate: '-' },
+  { isFlight: true, from: 'HKG', to: 'SGN', flightNo: 'VN595', sDate: '24Apr 08:20', aDate: '-' },
   { code: 'ARR', status: 'missing', pDate: '24Apr 10:50', mDate: '-', aDate: '-' },
   { code: 'RCF', status: 'missing', pDate: '24Apr 13:05', mDate: '-', aDate: '-' },
   { code: 'NFD', status: 'missing', pDate: '24Apr 13:05', mDate: '-', aDate: '-', bDate: '24Apr 13:05' },

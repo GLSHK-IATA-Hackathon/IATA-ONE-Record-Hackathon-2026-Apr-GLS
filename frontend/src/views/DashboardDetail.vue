@@ -7,7 +7,7 @@ import AppFooter from '@/libs/component/common/AppFooter.vue';
 
 const route = useRoute();
 
-const awb = ref(route.query.awb || '160-12345678');
+const awb = ref(route.query.awb || '618-12345678');
 const loid = ref(route.query.loid || 'fecbe019-f3d6-4436-ad35-66ce87a7d985');   
 const activeTab = ref('DG Checking');
 const showUploadSection = ref(false);

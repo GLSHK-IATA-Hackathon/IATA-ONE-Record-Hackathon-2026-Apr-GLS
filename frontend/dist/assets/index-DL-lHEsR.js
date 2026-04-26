@@ -24271,7 +24271,7 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
       { code: "RCS", status: "complete", pDate: "24Apr 05:50", mDate: "22Apr 12:46", aDate: "22Apr 12:46" },
       { code: "FOW", status: "missing", pDate: "24Apr 07:20", mDate: "-", aDate: "-" },
       { code: "DEP", status: "missing", pDate: "24Apr 09:20", mDate: "-", aDate: "-" },
-      { isFlight: true, from: "HKG", to: "SGN", flightNo: "CX767", sDate: "24Apr 08:20", aDate: "-" },
+      { isFlight: true, from: "HKG", to: "SGN", flightNo: "VN595", sDate: "24Apr 08:20", aDate: "-" },
       { code: "ARR", status: "missing", pDate: "24Apr 10:50", mDate: "-", aDate: "-" },
       { code: "RCF", status: "missing", pDate: "24Apr 13:05", mDate: "-", aDate: "-" },
       { code: "NFD", status: "missing", pDate: "24Apr 13:05", mDate: "-", aDate: "-", bDate: "24Apr 13:05" },
@@ -24346,10 +24346,10 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
                 _cache[4] || (_cache[4] = createBaseVNode("span", { class: "oc-stat-label" }, "Product", -1)),
                 createBaseVNode("span", _hoisted_12$4, toDisplayString(__props.recordData.awb), 1)
               ]),
-              _cache[5] || (_cache[5] = createStaticVNode('<div class="oc-stat-item" data-v-1cf869aa><span class="oc-stat-label" data-v-1cf869aa>Total Pieces</span><span class="oc-stat-value" data-v-1cf869aa>4</span></div><div class="oc-stat-item" data-v-1cf869aa><span class="oc-stat-label" data-v-1cf869aa>Total Weight</span><span class="oc-stat-value" data-v-1cf869aa>4299 KG</span></div><div class="oc-stat-item" data-v-1cf869aa><span class="oc-stat-label" data-v-1cf869aa>Total Volume</span><span class="oc-stat-value" data-v-1cf869aa>0</span></div>', 3))
+              _cache[5] || (_cache[5] = createStaticVNode('<div class="oc-stat-item" data-v-643428c8><span class="oc-stat-label" data-v-643428c8>Total Pieces</span><span class="oc-stat-value" data-v-643428c8>4</span></div><div class="oc-stat-item" data-v-643428c8><span class="oc-stat-label" data-v-643428c8>Total Weight</span><span class="oc-stat-value" data-v-643428c8>4299 KG</span></div><div class="oc-stat-item" data-v-643428c8><span class="oc-stat-label" data-v-643428c8>Total Volume</span><span class="oc-stat-value" data-v-643428c8>0</span></div>', 3))
             ]),
             createBaseVNode("div", _hoisted_13$4, [
-              _cache[8] || (_cache[8] = createStaticVNode('<h4 class="oc-section-title" data-v-1cf869aa>Route Map</h4><div class="oc-legend" data-v-1cf869aa><span class="legend-item" data-v-1cf869aa><span class="legend-dot status-new" data-v-1cf869aa></span>New</span><span class="legend-item" data-v-1cf869aa><span class="legend-dot status-missing" data-v-1cf869aa></span>Missing</span><span class="legend-item" data-v-1cf869aa><span class="legend-dot status-complete" data-v-1cf869aa></span>Complete</span><span class="legend-item" data-v-1cf869aa><span class="legend-dot status-partial" data-v-1cf869aa></span>Partial Complete</span><span class="legend-item" data-v-1cf869aa><span class="legend-dot status-discrepancy" data-v-1cf869aa></span>Discrepancy</span></div>', 2)),
+              _cache[8] || (_cache[8] = createStaticVNode('<h4 class="oc-section-title" data-v-643428c8>Route Map</h4><div class="oc-legend" data-v-643428c8><span class="legend-item" data-v-643428c8><span class="legend-dot status-new" data-v-643428c8></span>New</span><span class="legend-item" data-v-643428c8><span class="legend-dot status-missing" data-v-643428c8></span>Missing</span><span class="legend-item" data-v-643428c8><span class="legend-dot status-complete" data-v-643428c8></span>Complete</span><span class="legend-item" data-v-643428c8><span class="legend-dot status-partial" data-v-643428c8></span>Partial Complete</span><span class="legend-item" data-v-643428c8><span class="legend-dot status-discrepancy" data-v-643428c8></span>Discrepancy</span></div>', 2)),
               createBaseVNode("div", {
                 ref_key: "routeMapWrapper",
                 ref: routeMapWrapper,
@@ -24437,7 +24437,7 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
   }
 });
 
-const RecordOffcanvas = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["__scopeId", "data-v-1cf869aa"]]);
+const RecordOffcanvas = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["__scopeId", "data-v-643428c8"]]);
 
 const _hoisted_1$3 = { class: "dashboard-page" };
 const _hoisted_2$3 = { class: "main-content" };
@@ -24474,7 +24474,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
     };
     const allRecords = [
       {
-        awb: "160-12345675",
+        awb: "618-12345675",
         oneRecordLo: "fecbe019-f3d6-4436-ad35-66ce87a7d985",
         source: "Manual",
         hse: "0",
@@ -24494,7 +24494,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
           { code: "RCS", status: "complete", pDate: "24Apr 05:50", mDate: "22Apr 12:46", aDate: "22Apr 12:46" },
           { code: "FOW", status: "new", pDate: "24Apr 07:20", mDate: "-", aDate: "-" },
           { code: "DEP", status: "new", pDate: "24Apr 09:20", mDate: "-", aDate: "-" },
-          { isFlight: true, from: "HKG", to: "SGN", flightNo: "CX767", sDate: "24Apr 08:20", aDate: "-" },
+          { isFlight: true, from: "HKG", to: "SGN", flightNo: "VN595", sDate: "24Apr 08:20", aDate: "-" },
           { code: "ARR", status: "new", pDate: "24Apr 10:50", mDate: "-", aDate: "-" },
           { code: "RCF", status: "new", pDate: "24Apr 13:05", mDate: "-", aDate: "-" },
           { code: "NFD", status: "new", pDate: "24Apr 13:05", mDate: "-", aDate: "-", bDate: "24Apr 13:05" },
@@ -24508,7 +24508,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
         ]
       },
       {
-        awb: "160-98765432",
+        awb: "020-98765432",
         oneRecordLo: "7a2f1b40-8c29-4d6d-9286-a51b5e282b8a",
         source: "API",
         hse: "2",
@@ -24542,7 +24542,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
         ]
       },
       {
-        awb: "160-55554444",
+        awb: "131-55554444",
         oneRecordLo: "3c8e4f1a-b615-492c-ad2f-e8b91a78370f",
         source: "Manual",
         hse: "1",
@@ -24774,7 +24774,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
   }
 });
 
-const Dashboard = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-dff30330"]]);
+const Dashboard = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-c8df51b9"]]);
 
 const _imports_0 = "/assets/1R%20Logo-CuALisTU.png";
 
@@ -24819,7 +24819,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
   __name: "DashboardDetail",
   setup(__props) {
     const route = useRoute();
-    const awb = ref(route.query.awb || "160-12345678");
+    const awb = ref(route.query.awb || "618-12345678");
     const loid = ref(route.query.loid || "fecbe019-f3d6-4436-ad35-66ce87a7d985");
     const activeTab = ref("DG Checking");
     const showUploadSection = ref(false);
@@ -24859,7 +24859,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
         createVNode(AppHeader),
         createVNode(AppNavBar),
         createBaseVNode("main", _hoisted_2$2, [
-          _cache[18] || (_cache[18] = createStaticVNode('<div class="page-header" data-v-771961ec><h2 class="page-title" data-v-771961ec>Air Waybill Detail</h2></div><div class="one-record-badge" data-v-771961ec><img src="' + _imports_0 + '" alt="IATA ONE Record" class="badge-icon" data-v-771961ec><span class="badge-text" style="color:#1d4ed8;padding:4px 12px;background:#eef2ff;border-radius:12px;font-weight:600;font-size:13px;" data-v-771961ec>Backed by ONE Record</span></div>', 2)),
+          _cache[18] || (_cache[18] = createStaticVNode('<div class="page-header" data-v-225ac747><h2 class="page-title" data-v-225ac747>Air Waybill Detail</h2></div><div class="one-record-badge" data-v-225ac747><img src="' + _imports_0 + '" alt="IATA ONE Record" class="badge-icon" data-v-225ac747><span class="badge-text" style="color:#1d4ed8;padding:4px 12px;background:#eef2ff;border-radius:12px;font-weight:600;font-size:13px;" data-v-225ac747>Backed by ONE Record</span></div>', 2)),
           createBaseVNode("div", _hoisted_3$2, [
             createBaseVNode("div", _hoisted_4$2, [
               createBaseVNode("div", _hoisted_5$2, [
@@ -24870,7 +24870,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
                 _cache[6] || (_cache[6] = createBaseVNode("span", { class: "info-label" }, "One Record LO ID", -1)),
                 createBaseVNode("span", _hoisted_8$2, toDisplayString(loid.value), 1)
               ]),
-              _cache[7] || (_cache[7] = createStaticVNode('<div class="divider" data-v-771961ec></div><h3 class="section-title" data-v-771961ec>Shipment Status</h3><div class="info-row status-row" data-v-771961ec><span class="info-label" data-v-771961ec>Status</span><span class="info-val text-gray" data-v-771961ec>In Progress</span></div><div class="action-buttons" data-v-771961ec><button class="btn btn-action" data-v-771961ec>Accept</button><button class="btn btn-action" data-v-771961ec>Reject</button></div><div class="divider" data-v-771961ec></div><h3 class="section-title" data-v-771961ec>Special Handing Code Declaration</h3><div class="info-row" data-v-771961ec><span class="info-label" data-v-771961ec>Pouch Declare Code</span><span class="info-val text-gray" data-v-771961ec>EAW</span></div><div class="info-row" data-v-771961ec><span class="info-label" data-v-771961ec>FWB Declare Code</span><span class="info-val text-gray" data-v-771961ec>EAW / SPX</span></div><div class="info-row" data-v-771961ec><span class="info-label" data-v-771961ec>Booking Declare Code</span><span class="info-val text-gray" data-v-771961ec>EAW / SPX</span></div><div class="divider" data-v-771961ec></div><h3 class="section-title" data-v-771961ec>FOH</h3><div class="info-row" data-v-771961ec><span class="info-label" data-v-771961ec>Piece</span><span class="info-val text-gray" data-v-771961ec>34</span></div><div class="info-row" data-v-771961ec><span class="info-label" data-v-771961ec>Weight</span><span class="info-val text-gray" data-v-771961ec>1013.00</span></div><div class="divider" data-v-771961ec></div><h3 class="section-title" data-v-771961ec>RCS</h3><div class="info-row" data-v-771961ec><span class="info-label" data-v-771961ec>Piece</span><span class="info-val text-gray" data-v-771961ec></span></div><div class="info-row" data-v-771961ec><span class="info-label" data-v-771961ec>Weight</span><span class="info-val text-gray" data-v-771961ec></span></div>', 17))
+              _cache[7] || (_cache[7] = createStaticVNode('<div class="divider" data-v-225ac747></div><h3 class="section-title" data-v-225ac747>Shipment Status</h3><div class="info-row status-row" data-v-225ac747><span class="info-label" data-v-225ac747>Status</span><span class="info-val text-gray" data-v-225ac747>In Progress</span></div><div class="action-buttons" data-v-225ac747><button class="btn btn-action" data-v-225ac747>Accept</button><button class="btn btn-action" data-v-225ac747>Reject</button></div><div class="divider" data-v-225ac747></div><h3 class="section-title" data-v-225ac747>Special Handing Code Declaration</h3><div class="info-row" data-v-225ac747><span class="info-label" data-v-225ac747>Pouch Declare Code</span><span class="info-val text-gray" data-v-225ac747>EAW</span></div><div class="info-row" data-v-225ac747><span class="info-label" data-v-225ac747>FWB Declare Code</span><span class="info-val text-gray" data-v-225ac747>EAW / SPX</span></div><div class="info-row" data-v-225ac747><span class="info-label" data-v-225ac747>Booking Declare Code</span><span class="info-val text-gray" data-v-225ac747>EAW / SPX</span></div><div class="divider" data-v-225ac747></div><h3 class="section-title" data-v-225ac747>FOH</h3><div class="info-row" data-v-225ac747><span class="info-label" data-v-225ac747>Piece</span><span class="info-val text-gray" data-v-225ac747>34</span></div><div class="info-row" data-v-225ac747><span class="info-label" data-v-225ac747>Weight</span><span class="info-val text-gray" data-v-225ac747>1013.00</span></div><div class="divider" data-v-225ac747></div><h3 class="section-title" data-v-225ac747>RCS</h3><div class="info-row" data-v-225ac747><span class="info-label" data-v-225ac747>Piece</span><span class="info-val text-gray" data-v-225ac747></span></div><div class="info-row" data-v-225ac747><span class="info-label" data-v-225ac747>Weight</span><span class="info-val text-gray" data-v-225ac747></span></div>', 17))
             ]),
             createBaseVNode("div", _hoisted_9$2, [
               createBaseVNode("div", _hoisted_10$2, [
@@ -24993,7 +24993,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
   }
 });
 
-const DashboardDetail = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-771961ec"]]);
+const DashboardDetail = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-225ac747"]]);
 
 const _hoisted_1$1 = { class: "dashboard-page" };
 const _hoisted_2$1 = { class: "main-content" };
@@ -25081,13 +25081,13 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
       router.push({ path: "/dashboard/detail", query: { awb: record.awb, loid: record.oneRecordLo } });
     };
     const allRecords = [
-      { chk: false, awb: "160-52711536", oneRecordLo: "fecbe019-f3d6-4436-ad35-66ce87a7d985", hasIconPencil: true, hasIconBox: true, pouch: "EAW", sshc: "SHC", flight: "CX366", fltDate: "2026-04-26", std: "2026-04-26 19:21", mStatus: "error", hmStatus: "view", fStatus: "none", apStatus: "folder", org: "HKG", dest: "PVG", pcs: "2", wgt: "15.5 K", desc: "Battery", lastEventTime: "2026-04-24 10:23" },
-      { chk: false, awb: "160-52711540", oneRecordLo: "2cd2f6a9-8c29-4d6d-9286-a51b5e282b8a", hasIconPencil: true, hasIconBox: true, pouch: "EAP", sshc: "", flight: "CX366", fltDate: "2026-04-26", std: "2026-04-26 19:21", mStatus: "error", hmStatus: "view", fStatus: "none", apStatus: "folder", org: "HKG", dest: "PVG", pcs: "42", wgt: "507.0 K", desc: "CONSOL", lastEventTime: "2026-04-24 14:43" },
-      { chk: false, awb: "160-10448690", oneRecordLo: "7a2f1b40-b615-492c-ad2f-e8b91a78370f", hasIconPencil: true, hasIconBox: true, pouch: "", sshc: "VAL", flight: "CX472", fltDate: "2026-04-29", std: "2026-04-29 15:45", mStatus: "error", hmStatus: "none", fStatus: "none", apStatus: "folder", org: "HKG", dest: "TPE", pcs: "1", wgt: "10.2 K", desc: "CONSOL", lastEventTime: "2026-04-28 12:01" },
-      { chk: false, awb: "160-10193341", oneRecordLo: "3c8e4f1a-b615-492c-ad2f-e8b91a78370f", hasIconPencil: true, hasIconBox: true, pouch: "EAW", sshc: "", flight: "CX366", fltDate: "2026-09-01", std: "", mStatus: "error-part", hmStatus: "error-part", fStatus: "none", apStatus: "folder", org: "HKG", dest: "PVG", pcs: "1", wgt: "1.0 K", desc: "CONSOL", lastEventTime: "2026-08-29 16:27" },
-      { chk: false, awb: "160-33333322", oneRecordLo: "c5d18196-b615-492c-ad2f-e8b91a78370f", hasIconPencil: true, hasIconBox: true, pouch: "EAW", sshc: "", flight: "CX1234", fltDate: "2026-11-21", std: "", mStatus: "view-part", hmStatus: "view-part", fStatus: "none", apStatus: "folder", org: "HKG", dest: "BKK", pcs: "1", wgt: "123.0 K", desc: "GOODS", lastEventTime: "2026-09-03 16:13" },
-      { chk: false, awb: "160-52001176", oneRecordLo: "8b4566c3-b615-492c-ad2f-e8b91a78370f", hasIconPencil: false, hasIconBox: true, pouch: "EAP", sshc: "", flight: "CX100", fltDate: "2026-09-08", std: "", mStatus: "error-part", hmStatus: "none", fStatus: "none", apStatus: "folder", org: "HKG", dest: "TPE", pcs: "1", wgt: "11.5 K", desc: "TEST", lastEventTime: "2026-09-08 09:39" },
-      { chk: false, awb: "160-10314942", oneRecordLo: "d22dcc1a-b615-492c-ad2f-e8b91a78370f", hasIconPencil: true, hasIconBox: true, pouch: "EAW", sshc: "", flight: "CX705", fltDate: "2026-04-29", std: "", mStatus: "error-file", hmStatus: "error-part", fStatus: "none", apStatus: "folder", org: "HKG", dest: "BKK", pcs: "1", wgt: "100.0 K", desc: "BATTERY", lastEventTime: "2026-04-28 10:51" }
+      { chk: false, awb: "618-52711536", oneRecordLo: "fecbe019-f3d6-4436-ad35-66ce87a7d985", hasIconPencil: true, hasIconBox: true, pouch: "EAW", sshc: "SHC", flight: "SQ896", fltDate: "2026-04-26", std: "2026-04-26 19:21", mStatus: "error", hmStatus: "view", fStatus: "none", apStatus: "folder", org: "HKG", dest: "PVG", pcs: "2", wgt: "15.5 K", desc: "Battery", lastEventTime: "2026-04-24 10:23" },
+      { chk: false, awb: "618-52711540", oneRecordLo: "2cd2f6a9-8c29-4d6d-9286-a51b5e282b8a", hasIconPencil: true, hasIconBox: true, pouch: "EAP", sshc: "", flight: "SQ896", fltDate: "2026-04-26", std: "2026-04-26 19:21", mStatus: "error", hmStatus: "view", fStatus: "none", apStatus: "folder", org: "HKG", dest: "PVG", pcs: "42", wgt: "507.0 K", desc: "CONSOL", lastEventTime: "2026-04-24 14:43" },
+      { chk: false, awb: "131-10448690", oneRecordLo: "7a2f1b40-b615-492c-ad2f-e8b91a78370f", hasIconPencil: true, hasIconBox: true, pouch: "", sshc: "VAL", flight: "JL712", fltDate: "2026-04-29", std: "2026-04-29 15:45", mStatus: "error", hmStatus: "none", fStatus: "none", apStatus: "folder", org: "HKG", dest: "TPE", pcs: "1", wgt: "10.2 K", desc: "CONSOL", lastEventTime: "2026-04-28 12:01" },
+      { chk: false, awb: "020-10193341", oneRecordLo: "3c8e4f1a-b615-492c-ad2f-e8b91a78370f", hasIconPencil: true, hasIconBox: true, pouch: "EAW", sshc: "", flight: "LH797", fltDate: "2026-09-01", std: "", mStatus: "error-part", hmStatus: "error-part", fStatus: "none", apStatus: "folder", org: "HKG", dest: "PVG", pcs: "1", wgt: "1.0 K", desc: "CONSOL", lastEventTime: "2026-08-29 16:27" },
+      { chk: false, awb: "217-33333322", oneRecordLo: "c5d18196-b615-492c-ad2f-e8b91a78370f", hasIconPencil: true, hasIconBox: true, pouch: "EAW", sshc: "", flight: "TG601", fltDate: "2026-11-21", std: "", mStatus: "view-part", hmStatus: "view-part", fStatus: "none", apStatus: "folder", org: "HKG", dest: "BKK", pcs: "1", wgt: "123.0 K", desc: "GOODS", lastEventTime: "2026-09-03 16:13" },
+      { chk: false, awb: "695-52001176", oneRecordLo: "8b4566c3-b615-492c-ad2f-e8b91a78370f", hasIconPencil: false, hasIconBox: true, pouch: "EAP", sshc: "", flight: "BR856", fltDate: "2026-09-08", std: "", mStatus: "error-part", hmStatus: "none", fStatus: "none", apStatus: "folder", org: "HKG", dest: "TPE", pcs: "1", wgt: "11.5 K", desc: "TEST", lastEventTime: "2026-09-08 09:39" },
+      { chk: false, awb: "217-10314942", oneRecordLo: "d22dcc1a-b615-492c-ad2f-e8b91a78370f", hasIconPencil: true, hasIconBox: true, pouch: "EAW", sshc: "", flight: "TG629", fltDate: "2026-04-29", std: "", mStatus: "error-file", hmStatus: "error-part", fStatus: "none", apStatus: "folder", org: "HKG", dest: "BKK", pcs: "1", wgt: "100.0 K", desc: "BATTERY", lastEventTime: "2026-04-28 10:51" }
     ];
     const displayedRecords = ref([...allRecords]);
     const triggerSearch = () => {
@@ -25246,7 +25246,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
                 ])
               ])
             ]),
-            _cache[12] || (_cache[12] = createStaticVNode('<div class="pagination-container" data-v-eb520d31><span class="pagination-info" data-v-eb520d31>1-10 of 855 items</span><div class="pagination-controls" data-v-eb520d31><span style="color:#666;" data-v-eb520d31>Items per page</span><select class="items-per-page" data-v-eb520d31><option data-v-eb520d31>10</option></select><div class="page-numbers" data-v-eb520d31><span class="active" data-v-eb520d31>1</span><span data-v-eb520d31>2</span><span data-v-eb520d31>3</span><span data-v-eb520d31>4</span><span data-v-eb520d31>...</span><span data-v-eb520d31>9</span></div></div></div>', 1))
+            _cache[12] || (_cache[12] = createStaticVNode('<div class="pagination-container" data-v-04dd9582><span class="pagination-info" data-v-04dd9582>1-10 of 855 items</span><div class="pagination-controls" data-v-04dd9582><span style="color:#666;" data-v-04dd9582>Items per page</span><select class="items-per-page" data-v-04dd9582><option data-v-04dd9582>10</option></select><div class="page-numbers" data-v-04dd9582><span class="active" data-v-04dd9582>1</span><span data-v-04dd9582>2</span><span data-v-04dd9582>3</span><span data-v-04dd9582>4</span><span data-v-04dd9582>...</span><span data-v-04dd9582>9</span></div></div></div>', 1))
           ])
         ]),
         createVNode(AppFooter)
@@ -25255,7 +25255,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
   }
 });
 
-const ShipmentList = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-eb520d31"]]);
+const ShipmentList = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-04dd9582"]]);
 
 const _imports_1 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAATCAYAAACUef2IAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAAAwZJREFUeAGllFtoFEkUhr/qyyTriiRrFFkW1t0F3eAu2XWTDYiiQQdUiIo3BEV8UBEkL17yICgaBMUXBUEFfVDwgiKIeAGVqHhBvEQjaDSJoMQ4ajAymjjOTHfXsdITExPMxMvfdFNV59R//nPqVCP9IpCgeaIsn2nJ2xuDRLQvXwL69WjfI0PyXZFGWxbNzZGgdbpZ1N9LHMiGFR2kEZGbruiHjhQXOhL476U/WGSB/24lsScK4hLOVZti3WqX1rrfzEzIir4idiQ7Z6KSoMkN1X58dY0jg/MiEiTvfItiDQ/+YNzUXKyXPS1KK+quKE7vKzaqdJ+CP0scJOrJKXpGRVm6VzjhQr3N4Fxh/TYL3b7564irT/5L48WOCJ1mlann2p0usRaHjbsUt65oKpZWmVDyZcSS2ELlWuEXR1PbFDEewqWHTmi7Wqv5/2+P0l9tYo8cCoYp5MV4PneQvYgDqlasoeaswnaEFD7JIcbFthAzxzTI+6Qi4ioa6h3WL/EpLL2G9uPZiAU/voh02sFq0VQdi3D+vs3A4R5l85PcjWVUF5WnycvXTChJoxKKfdtdnt76nd6qnW6timj0CNWHNfEWxbRxHqMnm1WlQrv9iYRECl6lFAWGrPRnj6HRgOexapwfJvVWrGmvyWNZhY31WpE/QCga2fcFyDWlr73uhmNlnsc3FIe2Twl5ehBL22XyipPMLfQ6iwLzFucQuxvBCjtCeGc8y6IZ9c2m/RvjQRfJj3HNweM28mZVT+KDBybTfpuutEkrDm9Ks/uohdesOLUnlzMnjKpDHpbZMXtBgjevjK/bedXN8PT+gHmzdnS1n6VTG9i7VzPA706jk57Kch+eWQwzhzVyhDBqVNeR0NZmPr7q3tOqGDveCGn6K8xQbV5uy+pKU9uWLD8VUw5tCyPKHY5utbh4DxbO0Pzk97zSOkf4c6rQ8NTH+W803G6wKR4ekIU5rFnjeaOkIOCfMUZEQtGdWwaeYxMtSWUUe35K6s4N4skjj+/F0HyHkulnsAdO4AMjET9mK7KQ9gAAAABJRU5ErkJggg==";
 
@@ -65815,7 +65815,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       install$1
     ]);
     const route = useRoute();
-    const awb = ref(route.query.awb || "160 - 82491603");
+    const awb = ref(route.query.awb || "618 - 82491603");
     const activeTab = ref(route.query.tab ? String(route.query.tab) : "ULD Sensors");
     const shipmentLogs = [
       { desc: "[NRT] ULD Temperature Alert", time: "2026-06-03 15:49:00", remark: "3°C Exceed control temperature range +2°C to +8°C" },
@@ -65903,7 +65903,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         createVNode(AppHeader),
         createVNode(AppNavBar),
         createBaseVNode("main", _hoisted_2, [
-          _cache[39] || (_cache[39] = createStaticVNode('<div class="page-header" data-v-485f495d><h2 class="page-title" data-v-485f495d>Track Shipment</h2></div><div class="one-record-badge" data-v-485f495d><img src="' + _imports_0 + '" alt="IATA ONE Record" class="badge-icon" data-v-485f495d><span class="badge-text" style="color:#1d4ed8;padding:4px 12px;background:#eef2ff;border-radius:12px;font-weight:600;font-size:13px;" data-v-485f495d>Backed by ONE Record</span></div>', 2)),
+          _cache[39] || (_cache[39] = createStaticVNode('<div class="page-header" data-v-a9a1fd7a><h2 class="page-title" data-v-a9a1fd7a>Track Shipment</h2></div><div class="one-record-badge" data-v-a9a1fd7a><img src="' + _imports_0 + '" alt="IATA ONE Record" class="badge-icon" data-v-a9a1fd7a><span class="badge-text" style="color:#1d4ed8;padding:4px 12px;background:#eef2ff;border-radius:12px;font-weight:600;font-size:13px;" data-v-a9a1fd7a>Backed by ONE Record</span></div>', 2)),
           createBaseVNode("div", _hoisted_3, [
             createBaseVNode("div", _hoisted_4, [
               createBaseVNode("h2", null, toDisplayString(awb.value), 1),
@@ -65924,7 +65924,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 _cache[7] || (_cache[7] = createTextVNode(" 96 pc ", -1)),
                 _cache[8] || (_cache[8] = createBaseVNode("span", { class: "sep" }, "|", -1)),
                 (openBlock(), createElementBlock("svg", _hoisted_7, [..._cache[4] || (_cache[4] = [
-                  createStaticVNode('<path d="M3 13h18" data-v-485f495d></path><path d="M12 2v11" data-v-485f495d></path><path d="M8 6l4-4 4 4" data-v-485f495d></path><path d="M5 22h14" data-v-485f495d></path><path d="M8 18h8" data-v-485f495d></path>', 5)
+                  createStaticVNode('<path d="M3 13h18" data-v-a9a1fd7a></path><path d="M12 2v11" data-v-a9a1fd7a></path><path d="M8 6l4-4 4 4" data-v-a9a1fd7a></path><path d="M5 22h14" data-v-a9a1fd7a></path><path d="M8 18h8" data-v-a9a1fd7a></path>', 5)
                 ])])),
                 _cache[9] || (_cache[9] = createTextVNode(" 1094 kg ", -1))
               ])
@@ -65984,7 +65984,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 createBaseVNode("div", _hoisted_16, [
                   createBaseVNode("div", _hoisted_17, [
                     (openBlock(), createElementBlock("svg", _hoisted_18, [..._cache[11] || (_cache[11] = [
-                      createStaticVNode('<circle cx="12" cy="12" r="5" data-v-485f495d></circle><line x1="12" y1="1" x2="12" y2="3" data-v-485f495d></line><line x1="12" y1="21" x2="12" y2="23" data-v-485f495d></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" data-v-485f495d></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" data-v-485f495d></line><line x1="1" y1="12" x2="3" y2="12" data-v-485f495d></line><line x1="21" y1="12" x2="23" y2="12" data-v-485f495d></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" data-v-485f495d></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" data-v-485f495d></line>', 9)
+                      createStaticVNode('<circle cx="12" cy="12" r="5" data-v-a9a1fd7a></circle><line x1="12" y1="1" x2="12" y2="3" data-v-a9a1fd7a></line><line x1="12" y1="21" x2="12" y2="23" data-v-a9a1fd7a></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" data-v-a9a1fd7a></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" data-v-a9a1fd7a></line><line x1="1" y1="12" x2="3" y2="12" data-v-a9a1fd7a></line><line x1="21" y1="12" x2="23" y2="12" data-v-a9a1fd7a></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" data-v-a9a1fd7a></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" data-v-a9a1fd7a></line>', 9)
                     ])]))
                   ]),
                   _cache[16] || (_cache[16] = createBaseVNode("div", { class: "fc-temp" }, "38°C", -1)),
@@ -66017,7 +66017,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 ])
               ]),
               createBaseVNode("div", _hoisted_24, [
-                _cache[22] || (_cache[22] = createStaticVNode('<h3 class="green-title" style="margin-bottom:24px;" data-v-485f495d>Predicted Arrival Impact</h3><div class="weather-alert-row" data-v-485f495d><div class="weather-alert-box" data-v-485f495d><div class="weather-alert-header" data-v-485f495d><img src="' + _imports_1 + '" class="critical-icon" alt="Warning!" data-v-485f495d><strong data-v-485f495d>Critical Temperature Alert</strong></div><div class="wa-time" data-v-485f495d>15:00 - 18:00 [GRU✈JFK]</div><div class="wa-desc" data-v-485f495d>Hot Weather Alert, Potential Over-Heat (38°C.)</div></div></div>', 2)),
+                _cache[22] || (_cache[22] = createStaticVNode('<h3 class="green-title" style="margin-bottom:24px;" data-v-a9a1fd7a>Predicted Arrival Impact</h3><div class="weather-alert-row" data-v-a9a1fd7a><div class="weather-alert-box" data-v-a9a1fd7a><div class="weather-alert-header" data-v-a9a1fd7a><img src="' + _imports_1 + '" class="critical-icon" alt="Warning!" data-v-a9a1fd7a><strong data-v-a9a1fd7a>Critical Temperature Alert</strong></div><div class="wa-time" data-v-a9a1fd7a>15:00 - 18:00 [GRU✈JFK]</div><div class="wa-desc" data-v-a9a1fd7a>Hot Weather Alert, Potential Over-Heat (38°C.)</div></div></div>', 2)),
                 createBaseVNode("div", _hoisted_25, [
                   _cache[20] || (_cache[20] = createBaseVNode("div", { class: "chart-y-title" }, [
                     createBaseVNode("span", { class: "tmean" }, [
@@ -66032,7 +66032,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                     option: chartOption.value,
                     autoresize: ""
                   }, null, 8, ["option"]),
-                  _cache[21] || (_cache[21] = createStaticVNode('<div class="flight-timeline" data-v-485f495d><div class="ft-point" data-v-485f495d>HKG</div><div class="ft-part" style="flex:2;" data-v-485f495d><div class="ft-line" data-v-485f495d></div><div class="ft-icon" data-v-485f495d><img src="' + _imports_2 + '" alt="Flight route" class="airplane-icon" data-v-485f495d></div><div class="ft-line" data-v-485f495d></div></div><div class="ft-point" data-v-485f495d>GRU</div><div class="ft-part" style="flex:1;" data-v-485f495d><div class="ft-line" data-v-485f495d></div></div><div class="ft-point" style="margin-right:-8px;" data-v-485f495d>JFK</div></div>', 1))
+                  _cache[21] || (_cache[21] = createStaticVNode('<div class="flight-timeline" data-v-a9a1fd7a><div class="ft-point" data-v-a9a1fd7a>HKG</div><div class="ft-part" style="flex:2;" data-v-a9a1fd7a><div class="ft-line" data-v-a9a1fd7a></div><div class="ft-icon" data-v-a9a1fd7a><img src="' + _imports_2 + '" alt="Flight route" class="airplane-icon" data-v-a9a1fd7a></div><div class="ft-line" data-v-a9a1fd7a></div></div><div class="ft-point" data-v-a9a1fd7a>GRU</div><div class="ft-part" style="flex:1;" data-v-a9a1fd7a><div class="ft-line" data-v-a9a1fd7a></div></div><div class="ft-point" style="margin-right:-8px;" data-v-a9a1fd7a>JFK</div></div>', 1))
                 ])
               ])
             ])
@@ -66093,7 +66093,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                         _cache[29] || (_cache[29] = createBaseVNode("span", null, "12", -1)),
                         createBaseVNode("button", _hoisted_36, [
                           (openBlock(), createElementBlock("svg", _hoisted_37, [..._cache[27] || (_cache[27] = [
-                            createStaticVNode('<path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9" data-v-485f495d></path><path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5" data-v-485f495d></path><circle cx="12" cy="12" r="2" data-v-485f495d></circle><path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5" data-v-485f495d></path><path d="M19.1 4.9C23 8.8 23 15.1 19.1 19" data-v-485f495d></path>', 5)
+                            createStaticVNode('<path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9" data-v-a9a1fd7a></path><path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5" data-v-a9a1fd7a></path><circle cx="12" cy="12" r="2" data-v-a9a1fd7a></circle><path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5" data-v-a9a1fd7a></path><path d="M19.1 4.9C23 8.8 23 15.1 19.1 19" data-v-a9a1fd7a></path>', 5)
                           ])])),
                           _cache[28] || (_cache[28] = createTextVNode(" Sensor Details ", -1))
                         ])
@@ -66150,7 +66150,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
   }
 });
 
-const TrackShipment = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-485f495d"]]);
+const TrackShipment = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-a9a1fd7a"]]);
 
 const baseUrl = "/";
 const baseChildren = [

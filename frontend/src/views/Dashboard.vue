@@ -22,7 +22,7 @@ const openOffCanvas = (record: any) => {
 
 const allRecords = [
   {
-    awb: '160-12345675',
+    awb: '618-12345675',
     oneRecordLo: 'fecbe019-f3d6-4436-ad35-66ce87a7d985',
     source: 'Manual',
     hse: '0',
@@ -42,7 +42,7 @@ const allRecords = [
       { code: 'RCS', status: 'complete', pDate: '24Apr 05:50', mDate: '22Apr 12:46', aDate: '22Apr 12:46' }, 
       { code: 'FOW', status: 'new', pDate: '24Apr 07:20', mDate: '-', aDate: '-' },
       { code: 'DEP', status: 'new', pDate: '24Apr 09:20', mDate: '-', aDate: '-' },
-      { isFlight: true, from: 'HKG', to: 'SGN', flightNo: 'CX767', sDate: '24Apr 08:20', aDate: '-' },
+      { isFlight: true, from: 'HKG', to: 'SGN', flightNo: 'VN595', sDate: '24Apr 08:20', aDate: '-' },
       { code: 'ARR', status: 'new', pDate: '24Apr 10:50', mDate: '-', aDate: '-' },
       { code: 'RCF', status: 'new', pDate: '24Apr 13:05', mDate: '-', aDate: '-' },
       { code: 'NFD', status: 'new', pDate: '24Apr 13:05', mDate: '-', aDate: '-', bDate: '24Apr 13:05' },
@@ -56,7 +56,7 @@ const allRecords = [
     ]
   },
   {
-      awb: '160-98765432',
+      awb: '020-98765432',
       oneRecordLo: '7a2f1b40-8c29-4d6d-9286-a51b5e282b8a',
       source: 'API',
       hse: '2',
@@ -90,7 +90,7 @@ const allRecords = [
       ]
     },
   {
-      awb: '160-55554444',
+      awb: '131-55554444',
       oneRecordLo: '3c8e4f1a-b615-492c-ad2f-e8b91a78370f',
       source: 'Manual',
       hse: '1',
