@@ -52,6 +52,6 @@ Automate the new **SAC milestone**, ensuring it triggers once checks are synchro
 ## Built With
 **C#**, **vue.js**
 
-## In Details:
+## Remarks:
 In details of Frontend source code, please reference to .../frontend/README.md
 In details of Backend source code, please reference to .../Backend/README.md
